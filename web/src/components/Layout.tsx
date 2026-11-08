@@ -157,20 +157,29 @@ export function Navbar() {
   const { user } = useAuth();
   const { path } = useLocation();
   const [mobile, setMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => setMobile(false), [path]);
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 8);
+    on(); window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
   const links = [
     { to: '/search?category=bicycle&region=bali', label: t('nav.bicycles'), match: 'bicycle' },
     { to: '/search?category=motorcycle&region=bali', label: t('nav.motorcycles'), match: 'motorcycle' },
     { to: '/universities', label: t('nav.universities'), match: '/universities' },
   ];
   return (
-    <header className="sticky top-0 z-[500] border-b border-white/60 bg-white/55 shadow-[0_6px_24px_-12px_rgb(36_78_140/0.25)] backdrop-blur-2xl backdrop-saturate-150">
+    <header className={cx('sticky top-0 z-[500] border-b backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500',
+      scrolled ? 'border-ink-200/70 bg-white/75 shadow-[0_10px_30px_-18px_rgb(15_40_90/0.35)]' : 'border-transparent bg-white/30')}>
       <div className="container-x flex h-16 items-center gap-4">
         <Link to="/" aria-label={BRAND.name}><Logo /></Link>
         <nav className="ms-6 hidden items-center gap-1 lg:flex">
           {links.map((l) => (
-            <Link key={l.to} to={l.to} className={cx('rounded-xl px-3.5 py-2 text-sm font-semibold transition hover:bg-ink-100',
-              (path + window.location.search).includes(l.match) ? 'text-ink-900' : 'text-ink-600')}>{l.label}</Link>
+            <Link key={l.to} to={l.to} className={cx('group relative rounded-xl px-3.5 py-2 text-sm font-semibold transition-colors hover:text-ink-950',
+              (path + window.location.search).includes(l.match) ? 'text-ink-950' : 'text-ink-600')}>{l.label}
+              <span className={cx('absolute inset-x-3.5 -bottom-0.5 h-[2px] origin-center rounded-full bg-brand-500 transition-transform duration-300 group-hover:scale-x-100',
+                (path + window.location.search).includes(l.match) ? 'scale-x-100' : 'scale-x-0')} /></Link>
           ))}
         </nav>
         <div className="ms-auto flex items-center gap-1 sm:gap-2">
@@ -180,7 +189,7 @@ export function Navbar() {
           {user ? (<><NotificationBell /><UserMenu /></>) : (
             <div className="hidden items-center gap-2 sm:flex">
               <Link to="/login" className="rounded-xl px-3.5 py-2 text-sm font-semibold text-ink-800 hover:bg-ink-100">{t('nav.login')}</Link>
-              <Link to="/register" className="rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgb(43_118_255/0.6)] hover:brightness-110">{t('nav.signup')}</Link>
+              <Link to="/register" className="shine rounded-xl bg-ink-950 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgb(10_22_48/0.6)] transition hover:-translate-y-0.5 hover:bg-brand-600">{t('nav.signup')}</Link>
             </div>
           )}
           <button className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-ink-100 lg:hidden" onClick={() => setMobile(!mobile)} aria-label={t('nav.menu')}>
@@ -209,9 +218,9 @@ export function Navbar() {
 export function Footer() {
   const t = useT();
   return (
-    <footer className="leather-dark relative mt-24 overflow-hidden text-[#b9bec6]">
-      <div className="pointer-events-none absolute -end-32 -top-32 h-96 w-96 rounded-full bg-brand-500/15 blur-3xl" />
-      <div className="pointer-events-none absolute -start-20 bottom-0 h-72 w-72 rounded-full bg-grass-500/10 blur-3xl" />
+    <footer className="relative mt-28 overflow-hidden bg-ink-950 text-ink-300">
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-400 to-transparent bg-[length:200%_100%] animate-[grad-shift_6s_ease-in-out_infinite]" />
+      <div aria-hidden="true" className="aurora aurora-dark opacity-60"><i /><i /><i /></div>
       <div className="container-x relative grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <Logo light />
@@ -221,17 +230,17 @@ export function Footer() {
         <div>
           <div className="text-sm font-bold text-white">{t('footer.explore')}</div>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li><Link className="hover:text-white" to="/search?category=bicycle&region=bali">{t('nav.bicycles')}</Link></li>
-            <li><Link className="hover:text-white" to="/search?category=motorcycle&region=bali">{t('nav.motorcycles')}</Link></li>
-            <li><Link className="hover:text-white" to="/universities">{t('nav.universities')}</Link></li>
+            <li><Link className="transition hover:text-white" to="/search?category=bicycle&region=bali">{t('nav.bicycles')}</Link></li>
+            <li><Link className="transition hover:text-white" to="/search?category=motorcycle&region=bali">{t('nav.motorcycles')}</Link></li>
+            <li><Link className="transition hover:text-white" to="/universities">{t('nav.universities')}</Link></li>
           </ul>
         </div>
         <div>
           <div className="text-sm font-bold text-white">{t('footer.company')}</div>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li><Link className="hover:text-white" to="/register?role=owner">{t('nav.listVehicle')}</Link></li>
-            <li><Link className="hover:text-white" to="/trust">{t('footer.trust')}</Link></li>
-            <li><Link className="hover:text-white" to="/terms">{t('footer.terms')}</Link></li>
+            <li><Link className="transition hover:text-white" to="/register?role=owner">{t('nav.listVehicle')}</Link></li>
+            <li><Link className="transition hover:text-white" to="/trust">{t('footer.trust')}</Link></li>
+            <li><Link className="transition hover:text-white" to="/terms">{t('footer.terms')}</Link></li>
           </ul>
         </div>
       </div>

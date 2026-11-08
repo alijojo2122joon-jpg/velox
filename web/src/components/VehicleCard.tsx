@@ -16,10 +16,10 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
   const { money, duration, km } = useFormat();
   return (
     <Link to={`/vehicles/${v.id}`} onMouseEnter={() => onHover?.(v.id)} onMouseLeave={() => onHover?.(null)}
-      className={cx('card group block animate-fade-up overflow-hidden p-1.5 transition duration-300 hover:-translate-y-1 hover:shadow-lift',
+      className={cx('card spotlight group block overflow-hidden p-1.5',
         highlighted && 'ring-2 ring-brand-500')}>
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[17px] bg-ink-100">
-        {v.cover_url && <img src={v.cover_url} alt={v.name} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />}
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[15px] bg-ink-100">
+        {v.cover_url && <img src={v.cover_url} alt={v.name} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]" />}
         <div className="absolute inset-x-3 top-3 flex items-start justify-between gap-2">
           <Badge tone="dark" icon={v.category === 'bicycle' ? 'bike' : 'moto'} className="bg-ink-900/60 backdrop-blur-md">{t(`vehicleTypes.${v.type}`)}</Badge>
           {!!v.is_demo && <DemoBadge />}
@@ -57,7 +57,7 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
 export function VehicleCardSkeleton() {
   return (
     <div className="card overflow-hidden p-1.5">
-      <div className="aspect-[4/3] animate-pulse rounded-[17px] bg-ink-100" />
+      <div className="aspect-[4/3] animate-pulse rounded-[15px] bg-ink-100" />
       <div className="space-y-2 p-4"><div className="h-4 w-3/4 animate-pulse rounded bg-ink-100" /><div className="h-3 w-1/2 animate-pulse rounded bg-ink-100" /><div className="h-5 w-1/3 animate-pulse rounded bg-ink-100" /></div>
     </div>
   );

@@ -10,12 +10,12 @@ export const cx = (...c: (string | false | null | undefined)[]) => c.filter(Bool
 // ───────── Button ─────────
 type Variant = 'primary' | 'brand' | 'secondary' | 'ghost' | 'danger' | 'success';
 const variants: Record<Variant, string> = {
-  primary: 'bg-gradient-to-b from-ink-800 to-ink-950 text-white shadow-[0_8px_20px_-8px_rgb(11_27_58/0.6),inset_0_1px_0_rgb(255_255_255/0.15)] hover:brightness-125',
-  brand: 'bg-gradient-to-br from-brand-400 via-brand-500 to-brand-700 text-white shadow-[0_10px_24px_-8px_rgb(43_118_255/0.65),inset_0_1px_0_rgb(255_255_255/0.35)] hover:brightness-110',
-  secondary: 'bg-white/75 text-ink-900 border border-white shadow-[0_4px_14px_-6px_rgb(36_78_140/0.3)] backdrop-blur hover:bg-white',
-  ghost: 'text-ink-700 hover:bg-white/70',
+  primary: 'shine bg-ink-900 text-white shadow-[0_10px_24px_-10px_rgb(10_22_48/0.6)] hover:-translate-y-0.5 hover:bg-ink-800',
+  brand: 'shine btn-brand-anim bg-gradient-to-r from-brand-600 via-brand-400 to-brand-600 text-white shadow-[0_12px_28px_-10px_rgb(47_118_255/0.7)] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-10px_rgb(47_118_255/0.8)]',
+  secondary: 'bg-white text-ink-900 border border-ink-200 shadow-[0_2px_6px_-2px_rgb(15_40_90/0.08)] hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-700',
+  ghost: 'text-ink-700 hover:bg-brand-50 hover:text-brand-700',
   danger: 'bg-white/80 text-red-600 border border-red-100 shadow-[0_4px_14px_-6px_rgb(220_38_38/0.25)] hover:bg-red-50',
-  success: 'bg-gradient-to-br from-grass-500 to-emerald-600 text-white shadow-[0_10px_24px_-8px_rgb(85_165_21/0.6),inset_0_1px_0_rgb(255_255_255/0.3)] hover:brightness-110',
+  success: 'shine bg-gradient-to-br from-teal-500 to-emerald-600 text-white shadow-[0_12px_28px_-10px_rgb(13_148_136/0.6)] hover:-translate-y-0.5',
 };
 const sizes = { sm: 'h-9 px-3.5 text-sm rounded-xl gap-1.5', md: 'h-11 px-5 text-[15px] rounded-xl gap-2', lg: 'h-13 px-6 text-base rounded-2xl gap-2' };
 
@@ -23,7 +23,7 @@ export function Button({ variant = 'primary', size = 'md', loading, icon, iconEn
   { variant?: Variant; size?: keyof typeof sizes; loading?: boolean; icon?: string; iconEnd?: string } & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button disabled={disabled || loading}
-      className={cx('inline-flex select-none items-center justify-center font-semibold transition duration-150 disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98]',
+      className={cx('inline-flex select-none items-center justify-center font-semibold transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98]',
         variants[variant], sizes[size], className)} {...rest}>
       {loading ? <Spinner size={16} /> : icon && <Icon name={icon} size={size === 'sm' ? 16 : 18} />}
       {children}
@@ -35,8 +35,8 @@ export function Button({ variant = 'primary', size = 'md', loading, icon, iconEn
 export function ButtonLink({ to, variant = 'primary', size = 'md', icon, iconEnd, className, children }:
   { to: string; variant?: Variant; size?: keyof typeof sizes; icon?: string; iconEnd?: string; className?: string; children: ReactNode }) {
   return (
-    <Link to={to} className={cx('inline-flex items-center justify-center font-semibold transition duration-150 active:scale-[0.98]', variants[variant], sizes[size], className)}>
-      {icon && <Icon name={icon} size={18} />}{children}{iconEnd && <Icon name={iconEnd} size={18} />}
+    <Link to={to} className={cx('group/btn inline-flex items-center justify-center font-semibold transition-all duration-300 active:scale-[0.98]', variants[variant], sizes[size], className)}>
+      {icon && <Icon name={icon} size={18} />}{children}{iconEnd && <Icon name={iconEnd} size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1" />}
     </Link>
   );
 }
@@ -71,7 +71,7 @@ export const Select = ({ className, children, ...p }: SelectHTMLAttributes<HTMLS
 export function Toggle({ checked, onChange, label }: { checked: boolean; onChange: (v: boolean) => void; label?: ReactNode }) {
   return (
     <button type="button" role="switch" aria-checked={checked} onClick={() => onChange(!checked)} className="inline-flex items-center gap-3 text-start text-sm font-medium text-ink-800">
-      <span className={cx('relative h-7 w-[52px] shrink-0 overflow-hidden rounded-full p-[3px] ring-2 ring-white transition-all duration-300', checked ? 'grass-track' : 'empty-track')}>
+      <span className={cx('relative h-7 w-[52px] shrink-0 overflow-hidden rounded-full p-[3px] transition-all duration-300', checked ? 'grass-track' : 'empty-track')}>
         <span className={cx('marble-knob absolute top-[3px] h-[22px] w-[22px] rounded-full transition-all duration-300 ease-[cubic-bezier(.3,1.4,.5,1)]', checked ? 'start-[27px]' : 'start-[3px]')} />
       </span>
       {label}
@@ -123,9 +123,9 @@ export function Card({ children, className, ...rest }: { children: ReactNode; cl
 }
 
 export function Stat({ label, value, icon, hint, tone = 'blue' }: { label: string; value: ReactNode; icon?: string; hint?: ReactNode; tone?: 'blue' | 'green' | 'amber' | 'violet' }) {
-  const tones = { blue: 'text-brand-500', green: 'text-grass-600', amber: 'text-amber-500', violet: 'text-violet-500' };
+  const tones = { blue: 'text-brand-600', green: 'text-teal-600', amber: 'text-amber-500', violet: 'text-violet-500' };
   return (
-    <Card className="p-5">
+    <Card className="spotlight group p-5">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="text-[13px] font-medium text-ink-500">{label}</div>
@@ -158,7 +158,8 @@ export function PageLoader() {
   return (
     <div className="flex min-h-[50vh] items-center justify-center" role="status" aria-busy="true">
       <div className="relative h-20 w-20">
-        <div className="absolute inset-0 animate-[spin-slow_1.6s_linear_infinite] rounded-full bg-[conic-gradient(from_0deg,transparent_0_55%,#4f95ff_80%,#2b76ff_100%)] blur-[3px]" />
+        <div className="absolute inset-0 animate-[spin-slow_1.2s_linear_infinite] rounded-full bg-[conic-gradient(from_0deg,transparent_0_55%,#5596ff_80%,#22d3ee_100%)]" />
+        <div className="absolute inset-0 animate-ping rounded-full bg-brand-400/20" />
         <div className="step-disc absolute inset-[5px] flex items-center justify-center rounded-full">
           <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#2b76ff" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"><circle cx="19" cy="40" r="9" /><circle cx="45" cy="40" r="9" /><path d="M19 40l8-15h12l6 15M27 25l5 15h-13" /></g></svg>
         </div>

@@ -4,11 +4,6 @@
  */
 const u = (id: string, w = 900) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
-export const PHOTOS = {
-  grass: { src: u('photo-1560259263-02a5bbb8750b', 1200), by: 'jim gade' },
-  pebbles: { src: u('photo-1780432035384-32fac08ae670', 1200), by: 'Mr. Pugo' },
-  leatherGreen: { src: u('photo-1753362752045-2c3fdf2d04f6', 1400), by: 'ObjectType RAW' },
-};
 
 /** Area photos keyed by location slug. */
 export const AREA_PHOTOS: Record<string, { src: string; by: string }> = {
@@ -22,4 +17,4 @@ export const AREA_PHOTOS: Record<string, { src: string; by: string }> = {
   'nusa-dua': { src: u('photo-1647223447106-8d731a54cb90', 700), by: 'Anggi Tampubolon' },
 };
 
-export const PHOTO_CREDITS = [...Object.values(PHOTOS), ...Object.values(AREA_PHOTOS)].map((p) => p.by);
+export const PHOTO_CREDITS = Object.values(AREA_PHOTOS).map((p) => p.by);

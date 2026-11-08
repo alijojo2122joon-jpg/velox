@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect, type ReactNode } from 'react';
+import { lazy, Suspense, useEffect, useRef, type ReactNode } from 'react';
+import { useAutoReveal, useSpotlight } from './lib/motion';
 import { I18nProvider, useI18n } from './i18n';
 import { AuthProvider, useAuth } from './lib/auth';
 import { RouterProvider, useLocation, matchPath, navigate } from './lib/router';
@@ -60,6 +61,13 @@ function Guard({ need, children }: { need?: Route['auth']; children: ReactNode }
   return <>{children}</>;
 }
 
+function Main({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLElement>(null);
+  useAutoReveal(ref);
+  useSpotlight();
+  return <main ref={ref} className="flex-1">{children}</main>;
+}
+
 function Routes() {
   const { path } = useLocation();
   const { ready } = useI18n();
@@ -72,11 +80,11 @@ function Routes() {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-1">
+      <Main>
         <Suspense fallback={<PageLoader />}>
           {match ? <Guard need={match.route.auth}>{match.route.render(match.params)}</Guard> : <NotFound />}
         </Suspense>
-      </main>
+      </Main>
       {!match?.route.bare && <Footer />}
     </div>
   );

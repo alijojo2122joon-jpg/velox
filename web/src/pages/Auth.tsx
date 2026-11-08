@@ -7,7 +7,7 @@ import { useApi } from '../lib/hooks';
 import { Icon } from '../components/icons';
 import { Button, Field, Input, Notice, Select, cx, useErrorText, useFieldErrors } from '../components/ui';
 import { Logo } from '../components/Layout';
-import { SkyScene } from '../components/Sky';
+import { Aurora } from '../lib/motion';
 
 function AuthShell({ title, subtitle, children }: { title: string; subtitle: React.ReactNode; children: React.ReactNode }) {
   const { t } = useI18n();
@@ -18,10 +18,10 @@ function AuthShell({ title, subtitle, children }: { title: string; subtitle: Rea
         <p className="mt-2 text-ink-500">{subtitle}</p>
         <div className="mt-8">{children}</div>
       </div>
-      <div className="relative hidden h-full min-h-[560px] overflow-hidden rounded-[2rem] p-10 shadow-lift ring-1 ring-white lg:flex lg:flex-col lg:justify-between">
-        <SkyScene compact />
+      <div className="relative hidden h-full min-h-[560px] overflow-hidden rounded-[2rem] border border-white bg-gradient-to-br from-brand-50 to-white p-10 shadow-lift lg:flex lg:flex-col lg:justify-between">
+        <Aurora /><div className="grid-bg" />
         <div className="relative"><Logo /></div>
-        <div className="glass relative rounded-3xl p-7">
+        <div className="glass float-a relative rounded-3xl p-7">
           <p className="font-display text-3xl font-extrabold leading-tight text-ink-900">{t('brand.tagline')}</p>
           <ul className="mt-6 space-y-3.5 text-ink-700">
             {['verified', 'checklist', 'payments'].map((k) => <li key={k} className="flex items-center gap-3 font-medium"><span className="neu-icon h-9 w-9"><Icon name="check" size={16} strokeWidth={2.4} /></span>{t(`home.trustline.${k}`)}</li>)}
