@@ -45,15 +45,17 @@ export function Hills({ className = '' }: { className?: string }) {
         <linearGradient id={`h2${id}`} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#b9e65a" /><stop offset="1" stopColor="#6fbb22" /></linearGradient>
         <linearGradient id={`h3${id}`} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#a9e04a" /><stop offset="1" stopColor="#5aa818" /></linearGradient>
         <filter id={`gr${id}`}>
-          <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="7" />
-          <feColorMatrix values="0 0 0 0 0.2  0 0 0 0 0.45  0 0 0 0 0.05  0 0 0 0.35 0" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.02 0.6" numOctaves="3" seed="7" />
+          <feColorMatrix values="0 0 0 0 0.12  0 0 0 0 0.38  0 0 0 0 0.04  0 0 0 0.55 0" />
           <feComposite in2="SourceGraphic" operator="in" />
         </filter>
       </defs>
       <path d="M0 220 C 220 120, 420 120, 640 210 S 1040 300, 1440 150 L1440 420 L0 420 Z" fill={`url(#h1${id})`} />
       <path d="M0 300 C 260 180, 520 230, 760 290 S 1180 330, 1440 250 L1440 420 L0 420 Z" fill={`url(#h2${id})`} />
+      <path d="M0 220 C 220 120, 420 120, 640 210 S 1040 300, 1440 150 L1440 420 L0 420 Z" fill="#000" filter={`url(#gr${id})`} opacity="0.6" />
       <path d="M0 300 C 260 180, 520 230, 760 290 S 1180 330, 1440 250 L1440 420 L0 420 Z" fill="#000" filter={`url(#gr${id})`} />
       <path d="M0 360 C 300 300, 600 330, 900 370 S 1300 380, 1440 340 L1440 420 L0 420 Z" fill={`url(#h3${id})`} />
+      <path d="M0 360 C 300 300, 600 330, 900 370 S 1300 380, 1440 340 L1440 420 L0 420 Z" fill="#000" filter={`url(#gr${id})`} />
       {flowers.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="3.2" fill="#fff" opacity="0.9" />)}
     </svg>
   );

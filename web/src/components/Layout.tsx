@@ -208,8 +208,8 @@ export function Navbar() {
 export function Footer() {
   const t = useT();
   return (
-    <footer className="relative mt-24 overflow-hidden bg-[linear-gradient(180deg,#123068_0%,#0b1b3a_70%)] text-ink-300">
-      <div className="pointer-events-none absolute -end-32 -top-32 h-96 w-96 rounded-full bg-brand-500/25 blur-3xl" />
+    <footer className="leather-dark relative mt-24 overflow-hidden text-[#b9bec6]">
+      <div className="pointer-events-none absolute -end-32 -top-32 h-96 w-96 rounded-full bg-brand-500/15 blur-3xl" />
       <div className="pointer-events-none absolute -start-20 bottom-0 h-72 w-72 rounded-full bg-grass-500/10 blur-3xl" />
       <div className="container-x relative grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">

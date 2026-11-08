@@ -102,7 +102,7 @@ export function Home() {
                   <div className="mt-1 text-sm font-semibold text-ink-900">{t('home.preview.pickup')}</div>
                   <div className="mt-2 flex gap-1" dir="ltr">{'482915'.split('').map((d, i) => <span key={i} className="flex h-8 w-7 items-center justify-center rounded-lg bg-white/80 font-mono text-sm font-bold shadow-[inset_0_1px_3px_rgb(120_145_190/0.3)]">{d}</span>)}</div>
                 </div>
-                <div className="glass-dark absolute -end-8 -top-8 rounded-2xl px-4 py-3 text-white">
+                <div className="leather-dark absolute -end-8 -top-8 rounded-2xl px-4 py-3 text-white shadow-lift ring-1 ring-white/10">
                   <div className="text-[11px] text-ink-300">{t('home.preview.earned')}</div>
                   <div className="text-lg font-extrabold">{money(1240000)}</div>
                   <DemoBadge className="mt-1" />
@@ -144,8 +144,8 @@ export function Home() {
                 </div>
                 <ButtonLink to={`/search?category=${cat}&region=bali`} variant="secondary" size="sm" iconEnd="arrowRight">{t('home.browse')}</ButtonLink>
               </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {types.map((tp) => <Link key={tp} to={`/search?category=${cat}&type=${tp}&region=bali`} className="chip">{t(`vehicleTypes.${tp}`)}</Link>)}
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                {types.map((tp) => <Link key={tp} to={`/search?category=${cat}&type=${tp}&region=bali`} className="pebble">{t(`vehicleTypes.${tp}`)}</Link>)}
               </div>
             </div>
           ))}
@@ -188,17 +188,17 @@ export function Home() {
         <SectionTitle eyebrow={t('home.how.eyebrow')} title={t('home.how.title')} center />
         <div className="grid gap-5 lg:grid-cols-2">
           {(['renter', 'owner'] as const).map((side) => (
-            <div key={side} className={cx('rounded-3xl p-7 sm:p-9', side === 'renter' ? 'card' : 'relative overflow-hidden bg-[linear-gradient(150deg,#2b76ff_0%,#184bc6_55%,#123068_100%)] text-white shadow-lift')}>
-              <div className={cx('text-sm font-bold uppercase tracking-wider', side === 'renter' ? 'text-brand-600' : 'text-grass-300')}>{t(`home.how.${side}.label`)}</div>
+            <div key={side} className={cx('rounded-3xl p-7 sm:p-9', side === 'renter' ? 'card' : 'leather-sage relative overflow-hidden text-white shadow-lift ring-1 ring-white/40 [text-shadow:0_1px_2px_rgb(20_40_20/0.35)]')}>
+              <div className={cx('text-sm font-bold uppercase tracking-wider', side === 'renter' ? 'text-brand-600' : 'text-[#eef7d6]')}>{t(`home.how.${side}.label`)}</div>
               <h3 className="mt-2 text-2xl font-bold">{t(`home.how.${side}.title`)}</h3>
               <ol className="mt-8 space-y-7">
                 {[1, 2, 3].map((n) => (
                   <li key={n} className="relative flex items-center gap-5">
-                    {n < 3 && <span className={cx('absolute start-[27px] top-14 h-7 w-0.5 rounded-full', side === 'renter' ? 'bg-gradient-to-b from-brand-300 to-sky-200' : 'bg-gradient-to-b from-grass-300/80 to-white/30')} />}
+                    {n < 3 && <span className={cx('absolute start-[27px] top-14 h-7 w-0.5 rounded-full', side === 'renter' ? 'bg-gradient-to-b from-brand-300 to-sky-200' : 'bg-gradient-to-b from-white/70 to-white/20')} />}
                     <StepDisc n={num(n).padStart(2, num(0))} color={side === 'renter' ? ['#2b76ff', '#0ea5e9', '#7cc625'][n - 1] : ['#7cc625', '#a6db3c', '#c8ec6a'][n - 1]} />
                     <div>
                       <div className="font-bold">{t(`home.how.${side}.s${n}`)}</div>
-                      <div className={cx('mt-0.5 text-sm', side === 'renter' ? 'text-ink-500' : 'text-brand-100')}>{t(`home.how.${side}.s${n}d`)}</div>
+                      <div className={cx('mt-0.5 text-sm', side === 'renter' ? 'text-ink-500' : 'text-white/85')}>{t(`home.how.${side}.s${n}d`)}</div>
                     </div>
                   </li>
                 ))}
@@ -213,8 +213,9 @@ export function Home() {
         </div>
       </section>
 
-      {/* ───── Trust ───── */}
+      {/* ───── Trust (beige leather band) ───── */}
       <section className="container-x pt-24">
+        <div className="leather-beige rounded-[2rem] p-6 shadow-lift ring-1 ring-white/70 sm:p-10">
         <SectionTitle eyebrow={t('home.trust.eyebrow')} title={t('home.trust.title')} />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {[['shield', 'verify'], ['document', 'checklist'], ['wallet', 'payments'], ['star', 'reviews']].map(([icon, k]) => (
@@ -224,6 +225,7 @@ export function Home() {
               <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{t(`home.trust.${k}d`)}</p>
             </div>
           ))}
+        </div>
         </div>
       </section>
 
