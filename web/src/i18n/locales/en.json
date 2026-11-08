@@ -1,0 +1,1198 @@
+{
+ "brand": {
+  "tagline": "Move Freely. Earn Easily."
+ },
+ "nav": {
+  "bicycles": "Bicycles",
+  "motorcycles": "Motorcycles",
+  "universities": "Universities",
+  "listVehicle": "List your vehicle",
+  "login": "Log in",
+  "signup": "Sign up",
+  "logout": "Log out",
+  "language": "Language",
+  "notifications": "Notifications",
+  "menu": "Menu",
+  "myBookings": "My bookings",
+  "ownerDashboard": "Owner dashboard",
+  "messages": "Messages",
+  "account": "Account & verification",
+  "admin": "Admin",
+  "browse": "Browse"
+ },
+ "common": {
+  "back": "Back",
+  "cancel": "Cancel",
+  "save": "Save",
+  "saveChanges": "Save changes",
+  "edit": "Edit",
+  "delete": "Delete",
+  "view": "View",
+  "optional": "Optional",
+  "select": "Select…",
+  "next": "Next",
+  "previous": "Previous",
+  "pageOf": "Page {page} of {pages}",
+  "from": "From",
+  "to": "To",
+  "note": "Note",
+  "comingSoon": "Coming soon"
+ },
+ "demo": {
+  "label": "Demo",
+  "tooltip": "Demonstration data — not a real person, vehicle, booking or payment."
+ },
+ "units": {
+  "minutes": "{n} min",
+  "hours": "{n} hours",
+  "oneHour": "1 hour",
+  "days": "{n} days",
+  "oneDay": "1 day",
+  "km": "{n} km",
+  "m": "{n} m",
+  "pinPrice": "Rp{n}K",
+  "money": "Rp{n}"
+ },
+ "categories": {
+  "bicycle": "Bicycles",
+  "motorcycle": "Motorcycles"
+ },
+ "vehicleTypes": {
+  "mountain": "Mountain bike",
+  "city": "City bike",
+  "road": "Road bike",
+  "folding": "Folding bike",
+  "electric_bicycle": "E-bike",
+  "student": "Student bike",
+  "scooter": "Scooter",
+  "automatic": "Automatic motorcycle",
+  "manual": "Manual motorcycle",
+  "electric_motorcycle": "Electric motorcycle"
+ },
+ "conditions": {
+  "new": "New",
+  "excellent": "Excellent",
+  "good": "Good",
+  "fair": "Fair"
+ },
+ "roles": {
+  "renter": "Renter",
+  "owner": "Owner",
+  "admin": "Admin"
+ },
+ "status": {
+  "pending": "Requested",
+  "accepted": "Awaiting payment",
+  "confirmed": "Confirmed",
+  "active": "Active",
+  "completed": "Completed",
+  "rejected": "Declined",
+  "cancelled": "Cancelled",
+  "expired": "Expired",
+  "approved": "Approved",
+  "paused": "Paused",
+  "maintenance": "Maintenance",
+  "suspended": "Suspended",
+  "pending_review": "Under review",
+  "succeeded": "Paid",
+  "failed": "Failed",
+  "refunded": "Refunded",
+  "partially_refunded": "Partly refunded",
+  "open": "Open",
+  "reviewing": "Reviewing",
+  "resolved": "Resolved",
+  "dismissed": "Dismissed",
+  "resolved_owner": "Resolved for owner",
+  "resolved_renter": "Resolved for renter",
+  "closed": "Closed",
+  "draft": "Draft",
+  "not_required": "Not required"
+ },
+ "weekdays": {
+  "short": {
+   "0": "Sun",
+   "1": "Mon",
+   "2": "Tue",
+   "3": "Wed",
+   "4": "Thu",
+   "5": "Fri",
+   "6": "Sat"
+  },
+  "long": {
+   "0": "Sunday",
+   "1": "Monday",
+   "2": "Tuesday",
+   "3": "Wednesday",
+   "4": "Thursday",
+   "5": "Friday",
+   "6": "Saturday"
+  }
+ },
+ "home": {
+  "badge": "Peer-to-peer mobility for Indonesia · student-first",
+  "title1": "Rent a ride nearby.",
+  "title2": "Earn from yours.",
+  "subtitle": "VELOX connects people who own bicycles and motorcycles with people who need one — for 30 minutes, a day, or a week. Verified members, transparent prices, secure payments.",
+  "anyCity": "All cities",
+  "nearMe": "Near me",
+  "search": "Search",
+  "motoNote": "Motorcycles are only available to verified adults with a valid SIM C licence.",
+  "trustline": {
+   "verified": "Verified members",
+   "checklist": "Digital handover checklist",
+   "payments": "Payments held securely"
+  },
+  "preview": {
+   "booked": "Booking confirmed",
+   "pickup": "Show this code at pickup",
+   "earned": "Earned this month"
+  },
+  "stats": {
+   "vehicles": "Vehicles listed",
+   "cities": "Cities",
+   "universities": "Campuses",
+   "rentals": "Completed rentals",
+   "note": "Figures reflect the current demonstration dataset."
+  },
+  "categories": {
+   "eyebrow": "Choose your ride",
+   "title": "From campus cruisers to weekend scooters",
+   "bicycleDesc": "City, mountain, road, folding, electric and budget student bikes.",
+   "motorcycleDesc": "Scooters, automatics, manuals and electric motorcycles for licensed adults."
+  },
+  "browse": "Browse",
+  "viewAll": "View all",
+  "featured": {
+   "eyebrow": "Top rated",
+   "title": "Popular bicycles near campus"
+  },
+  "how": {
+   "eyebrow": "How VELOX works",
+   "title": "Simple for renters. Rewarding for owners.",
+   "renter": {
+    "label": "For renters",
+    "title": "Find, book, ride.",
+    "s1": "Search nearby",
+    "s1d": "Filter by distance, campus, price, rating and availability on the map or list.",
+    "s2": "Request & pay",
+    "s2d": "Choose 30 minutes to multiple days. Pay securely once the owner accepts.",
+    "s3": "Pick up with a code",
+    "s3d": "Show your booking code, complete the digital checklist and go.",
+    "cta": "Find a vehicle"
+   },
+   "owner": {
+    "label": "For owners",
+    "title": "Turn idle time into income.",
+    "s1": "List in minutes",
+    "s1d": "Add photos, set your own prices per duration and your handover hours.",
+    "s2": "Accept requests",
+    "s2d": "Review each renter's verification and rating before you accept.",
+    "s3": "Get paid",
+    "s3d": "Keep 90% of every rental. Track earnings in your dashboard.",
+    "cta": "Start earning"
+   }
+  },
+  "trust": {
+   "eyebrow": "Trust & safety",
+   "title": "Built for renting between strangers",
+   "verify": "Verified identities",
+   "verifyd": "Phone, email and ID checks. Motorcycles require an approved SIM C and adult age.",
+   "checklist": "Digital handover",
+   "checklistd": "Timestamped pickup and return checklists with photos protect both sides.",
+   "payments": "Secure payments",
+   "paymentsd": "A booking is confirmed only after the payment provider confirms. Deposits are held, then released.",
+   "reviews": "Two-way reviews",
+   "reviewsd": "Renters and owners rate each other after every rental."
+  },
+  "unis": {
+   "eyebrow": "University communities",
+   "title": "Start with your campus",
+   "vehicles": "{n} vehicles"
+  },
+  "earn": {
+   "title": "Your bike is parked 23 hours a day.",
+   "body": "List it on VELOX and earn when you're not riding. You set the prices, the hours and who rents it.",
+   "cta": "List your vehicle",
+   "example": "Example month (illustrative)",
+   "rentals": "Rentals",
+   "avg": "Average rental",
+   "gross": "Gross",
+   "fee": "VELOX fee ({pct}%)",
+   "youEarn": "You earn",
+   "disclaimer": "Illustrative figures only, not a promise of income. Commission is configurable."
+  }
+ },
+ "search": {
+  "all": "All",
+  "allCities": "All cities",
+  "city": "City",
+  "nearMe": "Near me",
+  "locating": "Locating…",
+  "radius": "Radius",
+  "filters": "Filters",
+  "sort": "Sort",
+  "listView": "List view",
+  "mapView": "Map view",
+  "sorts": {
+   "nearest": "Nearest",
+   "price": "Lowest price",
+   "rating": "Highest rated",
+   "newest": "Recently listed",
+   "available_now": "Available now"
+  },
+  "results": "{n} vehicles",
+  "searching": "Searching…",
+  "nearYou": "near you",
+  "inCity": "in {city}",
+  "inIndonesia": "across Indonesia",
+  "geoError": "We couldn't get your location. Check your browser permission or choose a city.",
+  "motoNotice": "Motorcycle rentals require a verified identity, an approved SIM C licence and the platform minimum age.",
+  "emptyTitle": "No vehicles match",
+  "emptyBody": "Try a wider radius, another date or fewer filters.",
+  "clear": "Clear filters",
+  "showResults": "Show {n} results",
+  "vehicleType": "Vehicle type",
+  "availability": "Available for",
+  "availabilityHint": "Shows only vehicles free for this pickup time and duration (WIB).",
+  "pricePerHour": "Price per hour (approx., Rp)",
+  "min": "Min",
+  "max": "Max",
+  "minRating": "Minimum rating",
+  "any": "Any",
+  "university": "Near university",
+  "anyUniversity": "Any university"
+ },
+ "map": {
+  "loading": "Loading map…",
+  "noPoints": "No vehicles to show on the map",
+  "fallback": "Simplified map (map tiles unavailable)"
+ },
+ "vehicle": {
+  "from": "from",
+  "total": "total",
+  "instant": "Instant book",
+  "licenseRequired": "SIM C required",
+  "notFound": "This vehicle isn't available",
+  "notPublic": "This listing is not visible to renters right now.",
+  "saved": "Saved to your list",
+  "unsaved": "Removed from saved",
+  "save": "Save",
+  "savedBtn": "Saved",
+  "askOwner": "Ask the owner",
+  "verifiedOwner": "Verified",
+  "ownerStats": "{n} completed rentals · member since {since}",
+  "about": "About this vehicle",
+  "pricing": "Prices",
+  "pricingHint": "You're charged the cheapest combination of the owner's prices for your exact duration.",
+  "deposit": "Refundable security deposit: {amount}",
+  "availability": "Availability",
+  "handoverHours": "Pickup & return hours",
+  "anytime": "Pickup and return any time (24/7).",
+  "upcomingBusy": "Already booked",
+  "noBusy": "No bookings in the next 60 days.",
+  "busy": {
+   "booked": "Booked",
+   "blocked": "Unavailable"
+  },
+  "rules": "Rental rules",
+  "agreementNote": "Every booking includes the VELOX rental agreement.",
+  "readAgreement": "Read the rental agreement",
+  "location": "Pickup location",
+  "exactLocation": "The exact meeting point is confirmed in chat after booking.",
+  "reviews": "Reviews ({n})",
+  "noReviews": "No reviews yet.",
+  "flexible": "Flexible durations"
+ },
+ "booking": {
+  "title": "Book this vehicle",
+  "timesIn": "Times in {tz}",
+  "pickup": "Pickup",
+  "return": "Return",
+  "pickupDate": "Pickup date",
+  "pickupTime": "Pickup time",
+  "returnDate": "Return date",
+  "returnTime": "Return time",
+  "duration": "Duration",
+  "custom": "Custom",
+  "available": "Available for these times",
+  "roundedUp": "Billed as {d}",
+  "depositRefundable": "Security deposit (refundable)",
+  "total": "Total",
+  "notePlaceholder": "Message to the owner (optional)",
+  "agree": "I accept the",
+  "agreementLink": "rental agreement & responsibility policy",
+  "yourVehicle": "This is your vehicle",
+  "loginToBook": "Log in to book",
+  "bookInstant": "Book now",
+  "request": "Request to book",
+  "instantHint": "Instant book: confirmed as soon as you pay.",
+  "requestHint": "You won't be charged until the owner accepts.",
+  "checkAvailability": "Check availability",
+  "booking": "Booking",
+  "notFound": "Booking not found",
+  "timeline": "Timeline",
+  "extendedEvent": "Rental extended",
+  "notes": {
+   "owner_no_response": "owner didn't respond in time",
+   "payment_timeout": "payment not completed in time",
+   "payment_confirmed": "payment confirmed by provider"
+  },
+  "priceDetails": "Price details",
+  "extensions": "Extensions",
+  "lateFee": "Late return fee",
+  "refunded": "Refunded",
+  "yourEarning": "Your earning ({pct}%)",
+  "payments": "Payments",
+  "extension": "extension",
+  "owner": "Owner",
+  "renter": "Renter",
+  "message": "Send a message",
+  "agreement": "Rental agreement",
+  "agreementStatus": "Version {v} — accepted by:",
+  "statusHelp": {
+   "renter": {
+    "pending": "Waiting for the owner to accept your request.",
+    "accepted": "The owner accepted — complete payment to confirm.",
+    "confirmed": "You're all set. Show your pickup code to the owner.",
+    "active": "Enjoy your ride! Return on time to avoid late fees.",
+    "completed": "Rental complete. Thanks for riding with VELOX.",
+    "rejected": "The owner declined this request.",
+    "cancelled": "This booking was cancelled.",
+    "expired": "This booking expired."
+   },
+   "owner": {
+    "pending": "A renter wants your vehicle. Accept or decline.",
+    "accepted": "Waiting for the renter's payment.",
+    "confirmed": "Paid and confirmed. Meet the renter for handover.",
+    "active": "Your vehicle is out on rent.",
+    "completed": "Rental complete. Earnings are available.",
+    "rejected": "You declined this request.",
+    "cancelled": "This booking was cancelled.",
+    "expired": "This booking expired."
+   }
+  },
+  "panel": {
+   "payTitle": "Complete payment to confirm",
+   "payBody": "The owner accepted your request. This offer expires {when}.",
+   "waitingTitle": "Request sent",
+   "waitingBody": "The owner has until {when} to respond. You haven't been charged.",
+   "codeTitle": "Your pickup code",
+   "codeBody": "Give this code to the owner at pickup. Never share it before you meet.",
+   "qrSoon": "QR code pickup: coming soon",
+   "instructionsTitle": "Pickup instructions",
+   "instr1": "Confirm the meeting point with the owner in chat.",
+   "instr2": "Bring your ID (and SIM C for motorcycles).",
+   "instr3": "Check the vehicle together and complete the digital checklist.",
+   "instr4": "Give the owner your pickup code to start the rental.",
+   "activeTitle": "Rental in progress",
+   "activeBody": "Return due {when}. Need more time? Extend before the end time.",
+   "requestTitle": "New request from {name}",
+   "requestBody": "Respond before {when} or the request expires automatically.",
+   "awaitPayTitle": "Accepted — waiting for payment",
+   "awaitPayBody": "We'll notify you as soon as the payment provider confirms.",
+   "handoverTitle": "Ready for handover",
+   "handoverBody": "At pickup, ask the renter for their 6-digit code and complete the checklist together.",
+   "returnTitle": "Confirm the return",
+   "returnBody": "Due back {when}. Inspect the vehicle and complete the return checklist."
+  },
+  "payNow": "Pay {amount}",
+  "cancel": "Cancel booking",
+  "cancelRequest": "Cancel request",
+  "accept": "Accept",
+  "reject": "Decline",
+  "startRental": "Start rental",
+  "completeRental": "Confirm return",
+  "extend": "Extend rental",
+  "cancelTitle": "Cancel this booking?",
+  "cancelFree": "You haven't been charged, so cancelling is free.",
+  "cancelPolicy": "Cancelling 24 hours or more before pickup gives a full refund. Later cancellations refund 50% of the rental price plus the full deposit.",
+  "ownerCancelPolicy": "The renter will receive a full refund. Frequent owner cancellations may affect your listing.",
+  "rejectTitle": "Decline this request?",
+  "rejectBody": "The renter will be notified. You can add a short reason.",
+  "reasonPlaceholder": "Reason (optional)",
+  "extendTitle": "Extend your rental",
+  "extendBody": "Current return: {end}. Choose how much longer you need.",
+  "newReturn": "New return",
+  "extendPriceHint": "The extra cost is calculated from the owner's prices and paid before the extension applies.",
+  "extendPay": "Continue to payment",
+  "actionNeeded": "Action needed",
+  "leaveReview": "Leave a review",
+  "toast": {
+   "accepted": "Booking accepted",
+   "rejected": "Request declined",
+   "cancelled": "Booking cancelled",
+   "started": "Rental started",
+   "completed": "Return confirmed"
+  }
+ },
+ "availability": {
+  "START_IN_PAST": "The pickup time has already passed.",
+  "TOO_FAR_AHEAD": "Bookings can be made up to 90 days ahead.",
+  "TOO_LONG": "The maximum rental is 30 days.",
+  "TOO_SHORT": "The minimum rental is 30 minutes.",
+  "OUTSIDE_HOURS": "Pickup or return is outside the owner's handover hours.",
+  "BLOCKED": "The owner has marked these dates as unavailable.",
+  "ALREADY_BOOKED": "Already booked for part of this time. Try another time.",
+  "NOT_LISTED": "This vehicle isn't accepting bookings right now.",
+  "END_BEFORE_START": "Return must be after pickup."
+ },
+ "eligibility": {
+  "title": "Motorcycle eligibility",
+  "missing": "Still needed",
+  "fix": "Complete verification",
+  "ok": "You're verified to rent motorcycles.",
+  "intro": "To rent motorcycles you must be at least {age} and complete these checks:",
+  "items": {
+   "email": "Verified email",
+   "phone": "Verified phone number",
+   "date_of_birth": "Date of birth on your profile",
+   "age": "At least {age} years old",
+   "identity": "Approved ID (KTP / passport)",
+   "license": "Approved, valid SIM C licence"
+  }
+ },
+ "payment": {
+  "choose": "Choose a payment method",
+  "continue": "Continue · {amount}",
+  "methods": {
+   "qris": "QRIS",
+   "ewallet": "E-wallet",
+   "bank_transfer": "Bank transfer (VA)",
+   "card": "Debit / credit card"
+  },
+  "methodDesc": {
+   "qris": "Scan with any bank or e-wallet app",
+   "ewallet": "GoPay, OVO, DANA, ShopeePay",
+   "bank_transfer": "BCA, BNI, BRI, Mandiri virtual account",
+   "card": "Visa, Mastercard, JCB"
+  },
+  "demoNotice": "Demo mode: no real money moves. A payment gateway (e.g. Midtrans or Xendit) will be connected after business verification.",
+  "demoBanner": "DEMO PAYMENT GATEWAY — no real money is charged",
+  "mockGateway": "VELOX test checkout",
+  "status": "Status",
+  "reference": "Reference",
+  "simulateHelp": "In production, the gateway confirms payment to our server. Here you can simulate its response:",
+  "simulateSuccess": "Simulate successful payment",
+  "simulateFailure": "Simulate failed payment",
+  "backToBooking": "Back to booking",
+  "failed": "Payment failed. You can try again from the booking page.",
+  "notFound": "Payment not found",
+  "sampleQr": "Sample QR pattern (not scannable)",
+  "realNote": "A booking is only confirmed after the payment provider's confirmation reaches VELOX."
+ },
+ "handover": {
+  "title": "Handover checklists",
+  "pickup": "Pickup",
+  "return": "Return",
+  "ok": "Condition OK",
+  "issue": "Issue reported",
+  "pickupTitle": "Start rental — pickup checklist",
+  "returnTitle": "Confirm return — return checklist",
+  "enterCode": "Renter's pickup code",
+  "codeHint": "Ask the renter for the 6-digit code shown in their booking.",
+  "checklist": "Vehicle check",
+  "good": "OK",
+  "problem": "Issue",
+  "photos": "Photos",
+  "photosHint": "Photos are timestamped and stored with the booking.",
+  "notesPlaceholder": "Notes (scratches, fuel level, accessories…)",
+  "conditionOk": "Vehicle returned in the same condition",
+  "damageNote": "A damage dispute will be opened and the deposit held until VELOX reviews it.",
+  "items": {
+   "frame": "Frame",
+   "tires": "Tyres",
+   "brakes": "Brakes",
+   "chain": "Chain & gears",
+   "lights": "Lights & bell",
+   "lock": "Lock & accessories",
+   "body": "Body & mirrors",
+   "fuel": "Fuel / battery level",
+   "documents": "STNK on board",
+   "helmet": "Helmet(s)"
+  }
+ },
+ "review": {
+  "titleRenter": "How was your rental?",
+  "titleOwner": "How was this renter?",
+  "placeholder": "Share details that help others (optional)",
+  "submit": "Submit review",
+  "thanks": "Thanks for your review"
+ },
+ "dispute": {
+  "title": "Dispute",
+  "open": "Report a problem with this booking",
+  "submit": "Submit",
+  "sent": "Your report was sent to VELOX support",
+  "detailsPlaceholder": "Describe what happened (at least 10 characters)",
+  "hint": "Our team reviews the checklists, photos and messages before deciding.",
+  "reasons": {
+   "damage": "Damage",
+   "late_return": "Late return",
+   "not_as_described": "Not as described",
+   "no_show": "No-show",
+   "payment": "Payment issue",
+   "other": "Other"
+  }
+ },
+ "report": {
+  "title": "Report",
+  "listing": "Report this listing",
+  "submit": "Send report",
+  "sent": "Thanks — our team will review it.",
+  "detailsPlaceholder": "Tell us more (optional)",
+  "reasons": {
+   "fraud": "Fraud / scam",
+   "unsafe": "Unsafe",
+   "inaccurate": "Inaccurate listing",
+   "harassment": "Harassment",
+   "damage": "Damage",
+   "other": "Other"
+  }
+ },
+ "auth": {
+  "loginTitle": "Welcome back",
+  "registerTitle": "Create your VELOX account",
+  "noAccount": "New to VELOX?",
+  "haveAccount": "Already have an account?",
+  "email": "Email",
+  "password": "Password",
+  "phone": "Phone number",
+  "phoneHint": "Indonesian mobile number, e.g. 0812…",
+  "passwordHint": "At least 8 characters",
+  "fullName": "Full name",
+  "city": "City",
+  "university": "University",
+  "iWantTo": "I want to",
+  "roles": {
+   "renter": "Rent vehicles",
+   "renterDesc": "Find rides near me",
+   "owner": "List my vehicle",
+   "ownerDesc": "Earn from my bike or motorcycle"
+  },
+  "createAccount": "Create account",
+  "consent": "By creating an account you agree to the VELOX",
+  "sideNote": "MVP preview — demo data is clearly labelled.",
+  "demoTitle": "Try a demo account",
+  "demoBody": "These accounts contain demonstration data only.",
+  "demoRoles": {
+   "renter": "Demo renter",
+   "owner": "Demo owner",
+   "admin": "Demo admin"
+  }
+ },
+ "account": {
+  "title": "Account & verification",
+  "subtitle": "Manage your profile, verification documents and preferences.",
+  "becomeOwnerTitle": "Earn with your vehicle",
+  "becomeOwnerBody": "Activate your owner profile to list bicycles or motorcycles.",
+  "becomeOwner": "Become an owner",
+  "nowOwner": "Owner profile activated",
+  "profile": "Profile",
+  "changePhoto": "Change photo",
+  "dob": "Date of birth",
+  "dobHint": "Required for motorcycle eligibility.",
+  "bio": "About you",
+  "uniVerified": "Verified member",
+  "saved": "Profile saved",
+  "documents": "Verification documents",
+  "documentsBody": "Documents are reviewed by the VELOX team and stored privately. Only the last 4 digits of document numbers are kept.",
+  "validUntil": "valid until {d}",
+  "notSubmitted": "Not submitted",
+  "upload": "Upload",
+  "contact": "Contact verification",
+  "verified": "Verified",
+  "verify": "Verify",
+  "language": "Language",
+  "languageHint": "Saved to your account and used on every device.",
+  "privacy": "Your data",
+  "privacyBody": "VELOX uses your data only to run bookings, verification and safety. We never sell personal data.",
+  "exportSoon": "Data export & account deletion: coming soon.",
+  "verifyEmail": "Verify your email",
+  "verifyPhone": "Verify your phone",
+  "sendCode": "Send code",
+  "confirm": "Confirm",
+  "sendCodeBody": "We'll send a 6-digit code. It expires in 10 minutes.",
+  "enterCode": "Enter the 6-digit code we sent.",
+  "demoCodeTitle": "Demo mode",
+  "demoCodeBody": "Email/SMS delivery isn't connected yet. Your code is:",
+  "verifiedToast": "Verified successfully",
+  "docNumber": "Document number",
+  "docNumberHint": "Only the last 4 characters are stored.",
+  "licenseClass": "Licence class",
+  "expiry": "Expiry date",
+  "docFile": "Upload a photo or PDF of the document",
+  "docPrivacy": "Documents are stored in private storage and viewed only by verification staff.",
+  "submitDoc": "Submit for review",
+  "docSubmitted": "Submitted — we'll notify you after review"
+ },
+ "verification": {
+  "types": {
+   "identity": "Identity (KTP / passport)",
+   "driving_license": "Driving licence (SIM)",
+   "student": "Student card"
+  },
+  "hints": {
+   "identity": "Required for owners and for motorcycle rentals.",
+   "driving_license": "SIM C is required to rent motorcycles.",
+   "student": "Get the verified-student badge for your campus."
+  },
+  "idVerified": "ID verified",
+  "phoneVerified": "Phone verified"
+ },
+ "dashboard": {
+  "verifyTitle": "Verify your contact details",
+  "verifyBody": "Verified members get accepted faster. It takes one minute.",
+  "verifyCta": "Verify now",
+  "renter": {
+   "title": "Hi, {name}",
+   "subtitle": "Your rentals, saved vehicles and payments.",
+   "find": "Find a vehicle",
+   "active": "Active rentals",
+   "upcoming": "Upcoming",
+   "completed": "Completed",
+   "spent": "Total spent",
+   "tabs": {
+    "upcoming": "Active & upcoming",
+    "history": "History",
+    "reviews": "To review",
+    "saved": "Saved",
+    "payments": "Payments"
+   },
+   "noUpcoming": "No upcoming rentals",
+   "noUpcomingBody": "Find a bicycle or motorcycle near you.",
+   "noHistory": "No past rentals yet",
+   "noReviews": "You're all caught up",
+   "noSaved": "No saved vehicles yet",
+   "noPayments": "No payments yet"
+  },
+  "owner": {
+   "title": "Owner dashboard",
+   "subtitle": "Listings, requests, schedule and earnings.",
+   "addVehicle": "Add vehicle",
+   "verifyTitle": "Verify your identity",
+   "verifyBody": "Verified owners get a badge and more bookings. Upload your KTP in Account.",
+   "totalEarnings": "Total earnings",
+   "afterFee": "After VELOX fee",
+   "pendingEarnings": "Pending",
+   "pendingHint": "Released after return",
+   "activeBookings": "Active bookings",
+   "completed": "Completed rentals",
+   "tabs": {
+    "overview": "Overview",
+    "requests": "Requests",
+    "bookings": "All bookings",
+    "vehicles": "My vehicles",
+    "calendar": "Calendar",
+    "earnings": "Earnings"
+   },
+   "noRequests": "No pending requests",
+   "noRequestsBody": "New booking requests will appear here.",
+   "noBookings": "No bookings yet",
+   "monthly": "Monthly revenue",
+   "net": "Net earnings",
+   "noEarnings": "No earnings yet",
+   "popular": "Most popular vehicles",
+   "rentals": "{n} rentals",
+   "pendingRequests": "{n} request(s) waiting",
+   "respondSoon": "Respond quickly — requests expire automatically.",
+   "statusUpdated": "Listing updated",
+   "noVehicles": "No vehicles listed yet",
+   "noVehiclesBody": "List your first bicycle or motorcycle in a few minutes.",
+   "earnedOn": "Earned: {amount}",
+   "underReview": "Motorcycle listings go live after VELOX verifies the vehicle registration (STNK).",
+   "pause": "Pause",
+   "maintenance": "Maintenance",
+   "resume": "Resume",
+   "vehicle": "Vehicle",
+   "blockDates": "Block dates",
+   "editHours": "Edit hours",
+   "blockAdded": "Dates blocked",
+   "upcomingForVehicle": "Upcoming bookings",
+   "blocks": "Blocked dates",
+   "noBlocks": "No blocked dates",
+   "blockNotePlaceholder": "e.g. Service, holiday",
+   "available": "Available balance",
+   "feesPaid": "VELOX fees",
+   "payoutTitle": "Payouts",
+   "payoutBody": "Automatic payouts to your bank account or e-wallet will be enabled once the payment gateway is connected.",
+   "ledger": "Transactions",
+   "payoutSoon": "Payouts: coming soon"
+  }
+ },
+ "vehicleForm": {
+  "title": "List a vehicle",
+  "editTitle": "Edit listing",
+  "subtitle": "Clear photos and honest details get more bookings.",
+  "category": "Category & type",
+  "motoNotice": "Motorcycle listings require the vehicle registration (STNK) and plate number, and go live after VELOX review. Only verified, licensed adults can rent them.",
+  "details": "Details",
+  "name": "Listing title",
+  "nameHint": "e.g. \"Polygon city bike near UGM\"",
+  "brand": "Brand",
+  "model": "Model",
+  "year": "Year",
+  "condition": "Condition",
+  "description": "Description",
+  "descriptionPlaceholder": "Size, gears, accessories included, anything renters should know…",
+  "rules": "Rental rules",
+  "rulesPlaceholder": "e.g. Return clean and locked. No passengers.",
+  "photos": "Photos",
+  "addPhotos": "Add photos",
+  "photosHint": "Up to 8 photos. They're compressed automatically for fast loading.",
+  "location": "Pickup location",
+  "nearUniversity": "Near university",
+  "pickupAddress": "Pickup address / meeting point",
+  "pickupHint": "Shown on the listing. Share the exact spot in chat after booking.",
+  "lat": "Latitude",
+  "lng": "Longitude",
+  "useMyLocation": "Use my current location",
+  "pricing": "Prices",
+  "pricingHint": "Turn on the durations you offer and set a price for each. Renters always pay the cheapest combination for their time.",
+  "deposit": "Security deposit (Rp)",
+  "depositHint": "Held during the rental, refunded after return.",
+  "instantBook": "Instant book",
+  "instantBookHint": "Confirm bookings automatically, without manual approval.",
+  "youReceive": "You receive about {amount} per {d} after the 10% fee.",
+  "availability": "Pickup & return hours",
+  "availabilityHint": "Renters can only start and end rentals within these hours.",
+  "anytime": "Any time (24/7)",
+  "sameEveryDay": "Same hours every day",
+  "everyDay": "Every day",
+  "documents": "Vehicle documents",
+  "plate": "Plate number",
+  "plateHint": "Visible only to you and VELOX staff.",
+  "insurance": "Insurance (optional)",
+  "insurancePlaceholder": "Provider / policy notes",
+  "stnk": "Vehicle registration (STNK)",
+  "stnkHint": "Photo or PDF, stored privately",
+  "fileReady": "File ready",
+  "locationRequired": "Set the pickup coordinates",
+  "priceRequired": "Add at least one price",
+  "photoRequired": "Add at least one photo",
+  "stnkRequired": "Plate number and STNK are required for motorcycles",
+  "fixErrors": "Please fix the highlighted fields.",
+  "publish": "Publish listing",
+  "submitReview": "Submit for review",
+  "published": "Your listing is live!",
+  "submittedForReview": "Submitted — we'll review the STNK shortly.",
+  "saved": "Listing updated"
+ },
+ "messages": {
+  "title": "Messages",
+  "subtitle": "Private conversations between renters and owners.",
+  "empty": "No conversations yet",
+  "emptyBody": "Ask an owner a question from any listing.",
+  "as": {
+   "renter": "you're renting",
+   "owner": "you're the owner"
+  },
+  "noMessages": "No messages yet",
+  "select": "Select a conversation",
+  "notFound": "Conversation not found",
+  "safety": "Keep payments on VELOX. Phone numbers and emails are hidden until a booking is confirmed.",
+  "placeholder": "Write a message…",
+  "send": "Send"
+ },
+ "notifications": {
+  "title": "Notifications",
+  "markAll": "Mark all as read",
+  "empty": "You're all caught up",
+  "types": {
+   "booking_requested": {
+    "title": "New booking request",
+    "body": "{vehicle} · {code}"
+   },
+   "booking_accepted": {
+    "title": "Booking accepted",
+    "body": "Complete payment to confirm {code}."
+   },
+   "booking_rejected": {
+    "title": "Request declined",
+    "body": "{vehicle} isn't available for {code}."
+   },
+   "booking_expired": {
+    "title": "Booking expired",
+    "body": "{code} expired before it was completed."
+   },
+   "payment_confirmed": {
+    "title": "Payment confirmed",
+    "body": "{code} is confirmed."
+   },
+   "payment_failed": {
+    "title": "Payment failed",
+    "body": "Payment for {code} didn't go through."
+   },
+   "booking_cancelled": {
+    "title": "Booking cancelled",
+    "body": "{vehicle} · {code}"
+   },
+   "rental_started": {
+    "title": "Rental started",
+    "body": "Enjoy your ride! ({code})"
+   },
+   "rental_completed": {
+    "title": "Rental completed",
+    "body": "{code}"
+   },
+   "pickup_upcoming": {
+    "title": "Pickup within the hour",
+    "body": "Get ready for {code}."
+   },
+   "return_upcoming": {
+    "title": "Return due soon",
+    "body": "{code} ends within the hour."
+   },
+   "rental_extended": {
+    "title": "Rental extended",
+    "body": "{code} has a new return time."
+   },
+   "new_message": {
+    "title": "New message",
+    "body": "You have an unread message."
+   },
+   "review_request": {
+    "title": "How did it go?",
+    "body": "Leave a review for {code}."
+   },
+   "verification_approved": {
+    "title": "Verification approved",
+    "body": "{type} approved."
+   },
+   "verification_rejected": {
+    "title": "Verification needs attention",
+    "body": "{type} was not approved."
+   },
+   "account_suspended": {
+    "title": "Account suspended",
+    "body": "Contact VELOX support."
+   },
+   "listing_suspended": {
+    "title": "Listing suspended",
+    "body": "{vehicle} is no longer visible."
+   },
+   "dispute_opened": {
+    "title": "Dispute opened",
+    "body": "A dispute was opened for {code}."
+   },
+   "dispute_updated": {
+    "title": "Dispute updated",
+    "body": "There's an update on {code}."
+   }
+  }
+ },
+ "ledger": {
+  "renter_charge": "Rental charge",
+  "deposit_hold": "Deposit held",
+  "deposit_release": "Deposit released",
+  "deposit_capture": "Deposit captured",
+  "owner_earning": "Owner earning",
+  "platform_commission": "VELOX commission",
+  "refund": "Refund",
+  "late_fee": "Late fee",
+  "payout": "Payout"
+ },
+ "unis": {
+  "title": "University communities",
+  "subtitle": "Find vehicles listed by students around your campus.",
+  "vehicles": "{n} vehicles",
+  "members": "{n} members",
+  "openToAll": "Everyone can use VELOX — university membership is optional.",
+  "notFound": "University not found",
+  "member": "Your campus",
+  "verifiedMember": "Verified member",
+  "viewMap": "View on map",
+  "joinHint": "Set this as your university in your profile to join the community.",
+  "join": "Join",
+  "nearCampus": "Vehicles around campus",
+  "noVehicles": "No vehicles listed here yet",
+  "stats": {
+   "students": "Registered students",
+   "verified": "{n} verified",
+   "bicycles": "Available bicycles",
+   "motorcycles": "Available motorcycles",
+   "active": "Active rentals",
+   "completed": "Completed bookings"
+  }
+ },
+ "admin": {
+  "title": "Admin",
+  "subtitle": "Operate the VELOX marketplace.",
+  "tabs": {
+   "overview": "Overview",
+   "verifications": "Verification queue",
+   "users": "Users",
+   "vehicles": "Vehicles",
+   "bookings": "Bookings",
+   "finance": "Finance",
+   "reports": "Reports & disputes",
+   "cities": "Cities",
+   "settings": "Settings"
+  },
+  "stats": {
+   "users": "Users",
+   "owners": "{n} owners",
+   "vehicles": "Active listings",
+   "pendingReview": "{n} awaiting review",
+   "gmv": "Gross booking value",
+   "demoMoney": "Includes demo transactions",
+   "commission": "Platform commission",
+   "refunds": "Refunds: {amount}",
+   "bookings": "Bookings",
+   "active": "Active rentals",
+   "verifications": "Pending verifications",
+   "issues": "Open reports & disputes"
+  },
+  "daily": "Bookings — last 30 days",
+  "byCity": "By city",
+  "noData": "Nothing here yet",
+  "vehiclesN": "{n} vehicles",
+  "bookingsN": "{n} bookings",
+  "verif": {
+   "approved": "Approved",
+   "rejected": "Rejected",
+   "empty": "Queue is empty",
+   "viewDoc": "View document",
+   "demoNoDoc": "Demo — no file",
+   "notePlaceholder": "Note to the user (optional)"
+  },
+  "approve": "Approve",
+  "reject": "Reject",
+  "suspend": "Suspend",
+  "reinstate": "Reinstate",
+  "updated": "Updated",
+  "searchUsers": "Search name, email or phone…",
+  "cols": {
+   "name": "Name",
+   "role": "Role",
+   "verification": "Contact",
+   "activity": "Activity",
+   "joined": "Joined",
+   "status": "Status"
+  },
+  "activity": "{r} rentals · {v} vehicles",
+  "reportsN": "{n} reports",
+  "flagCancels": "{n} cancellations",
+  "viewStnk": "View STNK",
+  "financeDemo": "All amounts come from the mock payment provider. No real money has moved.",
+  "month": "Month",
+  "ledger": "Transaction ledger",
+  "disputes": "Disputes",
+  "reports": "Reports",
+  "depositHeld": "deposit {amount}",
+  "resolve": "Resolve",
+  "resolveDispute": "Resolve dispute",
+  "outcome": "Outcome",
+  "award": "Amount awarded to owner from deposit (Rp)",
+  "awardHint": "The remainder of the deposit is released to the renter.",
+  "resolution": "Resolution notes",
+  "markResolved": "Mark resolved",
+  "dismiss": "Dismiss",
+  "target": {
+   "user": "User",
+   "vehicle": "Vehicle",
+   "booking": "Booking",
+   "message": "Message"
+  },
+  "locTypes": {
+   "city": "City / regency",
+   "province": "Province"
+  },
+  "activate": "Activate",
+  "deactivate": "Deactivate",
+  "addLocation": "Add location",
+  "locType": "Type",
+  "name": "Name",
+  "timezone": "Time zone",
+  "add": "Add",
+  "cityAdded": "Location added",
+  "citiesHint": "New cities appear immediately in search, registration and listing forms — no code changes needed.",
+  "commission": "Platform commission",
+  "commissionHint": "Applies to new bookings. Existing bookings keep the rate they were made with.",
+  "currentRate": "Current rate",
+  "ownerGets": "Owners receive {pct}%",
+  "applyRate": "Apply",
+  "history": "History",
+  "rules": "Booking rules",
+  "settings": {
+   "motorcycle_min_age": "Minimum age for motorcycles",
+   "cancellation_free_hours": "Free cancellation window (hours before pickup)",
+   "late_cancellation_refund_pct": "Late cancellation refund (% of rental)",
+   "late_grace_minutes": "Late return grace period (minutes)",
+   "late_fee_multiplier": "Late fee multiplier (× hourly price)",
+   "request_expiry_minutes": "Owner response time (minutes)",
+   "payment_expiry_minutes": "Payment window (minutes)"
+  },
+  "translations": "Translations & content",
+  "translationsHint": "Interface text is managed in centralised locale files (en, id, jv, fa). An in-dashboard editor is planned."
+ },
+ "info": {
+  "trust": {
+   "title": "Trust & safety",
+   "subtitle": "How VELOX protects renters and owners.",
+   "verify": {
+    "title": "Verification",
+    "body": "Every member verifies their email and phone. Owners verify their identity (KTP or passport). Documents are reviewed by VELOX staff and stored privately."
+   },
+   "moto": {
+    "title": "Motorcycle rules",
+    "body": "Motorcycles can only be booked by members who meet the platform minimum age, hold an approved and valid SIM C licence and have a verified identity. Owners must provide the vehicle registration (STNK); listings go live only after review."
+   },
+   "handover": {
+    "title": "Digital handover",
+    "body": "At pickup the renter shares a one-time booking code. Both sides complete a timestamped checklist with photos at pickup and return, creating a clear record of the vehicle's condition."
+   },
+   "payments": {
+    "title": "Secure payments",
+    "body": "Payments go through a licensed payment gateway. A booking is confirmed only after the gateway confirms payment to our server. Security deposits are held and released after a successful return."
+   },
+   "messaging": {
+    "title": "Private messaging",
+    "body": "Renters and owners chat inside VELOX. Contact details are masked until a booking is confirmed, which helps prevent off-platform scams."
+   },
+   "reviews": {
+    "title": "Two-way reviews",
+    "body": "After each rental, renters and owners rate each other. Ratings are tied to real, completed bookings."
+   },
+   "reporting": {
+    "title": "Reports & disputes",
+    "body": "Report a listing, user or problem at any time. Damage, late returns and no-shows go to a dispute queue reviewed by our team using checklists, photos and messages."
+   },
+   "privacy": {
+    "title": "Your privacy",
+    "body": "We collect only what's needed to operate safely and keep only the last digits of document numbers. VELOX is being prepared to comply with Indonesia's Personal Data Protection Law (UU PDP) before public launch."
+   }
+  },
+  "terms": {
+   "title": "Rental agreement & terms",
+   "subtitle": "The rules every VELOX booking follows.",
+   "draftTitle": "Draft — legal review pending",
+   "draftBody": "This agreement is a working draft for the MVP and must be reviewed by an Indonesian legal professional before public launch.",
+   "scope": {
+    "title": "The VELOX platform",
+    "body": "VELOX is a marketplace that connects vehicle owners with renters. VELOX is not the owner of listed vehicles and is not a party to the rental itself, except for processing payments and operating dispute resolution."
+   },
+   "parties": {
+    "title": "Owner and renter responsibilities",
+    "body": "Owners confirm they legally own or are authorised to rent the vehicle, that it is roadworthy and that listing details are accurate. Renters agree to use the vehicle lawfully and carefully, only for personal transport, and to return it on time in the same condition."
+   },
+   "booking": {
+    "title": "Bookings",
+    "body": "A booking request becomes binding when the owner accepts it and the payment provider confirms payment. Both parties accept this agreement when the booking is made."
+   },
+   "payment": {
+    "title": "Prices and payment",
+    "body": "Prices are set by owners. Renters are charged the cheapest combination of the owner's published prices for the booked duration. VELOX deducts a platform commission from the owner's earnings."
+   },
+   "deposit": {
+    "title": "Security deposit",
+    "body": "If the listing has a deposit, it is held during the rental and released after a successful return, minus any late fees or amounts awarded in a dispute."
+   },
+   "cancellation": {
+    "title": "Cancellations",
+    "body": "Renters can cancel free of charge before payment. After payment, cancelling at least 24 hours before pickup gives a full refund; later cancellations refund 50% of the rental price plus the full deposit. If an owner cancels, the renter is refunded in full."
+   },
+   "late": {
+    "title": "Late returns and extensions",
+    "body": "Renters may extend a rental if the vehicle is free, by paying the additional amount. Returns later than the grace period incur a late fee per started hour."
+   },
+   "responsibility": {
+    "title": "Damage and responsibility",
+    "body": "The renter is responsible for the vehicle from pickup until return, including fines incurred during the rental. Damage is documented using the handover checklists and photos."
+   },
+   "motorcycles": {
+    "title": "Motorcycles",
+    "body": "Motorcycle renters must meet the platform minimum age, hold a valid SIM C licence and carry their ID and the vehicle's STNK while riding. Helmets meeting the SNI standard must be worn."
+   },
+   "disputes": {
+    "title": "Disputes",
+    "body": "Either party may open a dispute. VELOX reviews the evidence and may award part or all of the deposit to the owner or release it to the renter."
+   },
+   "data": {
+    "title": "Personal data",
+    "body": "Personal data is processed only to provide the service, verify members and keep the platform safe, in line with applicable Indonesian personal data protection law."
+   }
+  }
+ },
+ "footer": {
+  "about": "VELOX is a peer-to-peer mobility marketplace for Indonesia — starting with university communities, built for every city.",
+  "mvp": "MVP · Phase 1",
+  "explore": "Explore",
+  "company": "VELOX",
+  "trust": "Trust & safety",
+  "terms": "Rental agreement & terms",
+  "demoNote": "Listings, users, bookings and payments shown are demonstration data."
+ },
+ "notFound": {
+  "title": "Page not found",
+  "body": "The page you're looking for doesn't exist or has moved.",
+  "home": "Go home"
+ },
+ "validation": {
+  "V_REQUIRED": "This field is required",
+  "V_INVALID": "Please check this value",
+  "V_TOO_SHORT": "Too short",
+  "V_TOO_LONG": "Too long",
+  "V_EMAIL": "Enter a valid email address",
+  "V_PHONE": "Enter a valid Indonesian mobile number",
+  "V_PASSWORD": "Use at least 8 characters",
+  "V_CODE": "Enter the 6-digit code",
+  "V_DATE": "Enter a valid date",
+  "V_NUMBER": "Enter a number",
+  "V_EMAIL_TAKEN": "This email is already registered",
+  "V_PHONE_TAKEN": "This phone number is already registered",
+  "V_END_BEFORE_START": "End must be after start"
+ },
+ "errors": {
+  "INTERNAL": "Something went wrong. Please try again.",
+  "NETWORK": "No connection. Check your internet and try again.",
+  "UNAUTHORIZED": "Please log in to continue.",
+  "FORBIDDEN": "You don't have permission to do that.",
+  "NOT_FOUND": "Not found.",
+  "RATE_LIMITED": "Too many attempts. Please wait a moment.",
+  "VALIDATION_FAILED": "Please check the highlighted fields.",
+  "INVALID_CREDENTIALS": "Incorrect email or password.",
+  "ACCOUNT_SUSPENDED": "This account is suspended. Contact support.",
+  "EMAIL_TAKEN": "This email is already registered.",
+  "PHONE_TAKEN": "This phone number is already registered.",
+  "CODE_EXPIRED": "This code has expired. Request a new one.",
+  "CODE_INVALID": "Incorrect code.",
+  "VERIFICATION_PENDING": "You already have a document under review.",
+  "AGREEMENT_REQUIRED": "Please accept the rental agreement.",
+  "OWN_VEHICLE": "You can't book your own vehicle.",
+  "MOTORCYCLE_NOT_ELIGIBLE": "Complete motorcycle verification (age, ID and SIM C) before booking.",
+  "NO_PRICING": "This vehicle has no prices set.",
+  "INVALID_TRANSITION": "This action isn't possible in the booking's current status.",
+  "BOOKING_CHANGED": "The booking just changed. Refresh and try again.",
+  "NOT_AWAITING_PAYMENT": "This booking isn't awaiting payment.",
+  "PICKUP_CODE_INVALID": "The pickup code is incorrect.",
+  "TOO_EARLY_FOR_PICKUP": "Pickup can start at most 1 hour before the booked time.",
+  "NOT_CANCELLABLE": "This booking can no longer be cancelled.",
+  "NOT_EXTENDABLE": "This booking can't be extended.",
+  "REVIEW_NOT_ALLOWED": "Reviews open after the rental is completed.",
+  "REVIEW_WINDOW_CLOSED": "The review period has ended.",
+  "ALREADY_REVIEWED": "You've already reviewed this booking.",
+  "DISPUTE_OPEN": "A dispute is already open.",
+  "UPLOAD_EMPTY": "The file is empty.",
+  "UPLOAD_TOO_LARGE": "The file is too large (max 4 MB).",
+  "UPLOAD_TYPE": "Use a JPG, PNG, WEBP or PDF file.",
+  "TOO_MANY_IMAGES": "Maximum 8 photos.",
+  "LISTING_UNDER_REVIEW": "This listing is under review and can't be activated yet.",
+  "PAYLOAD_TOO_LARGE": "The request is too large.",
+  "INVALID_JSON": "Invalid request.",
+  "UNSUPPORTED_MEDIA_TYPE": "Invalid request.",
+  "BAD_ORIGIN": "Invalid request origin.",
+  "CANNOT_MODIFY_SELF": "You can't change your own admin account here.",
+  "SLUG_TAKEN": "A location with this name already exists.",
+  "INVALID_SIGNATURE": "Invalid signature.",
+  "NOT_MOCK": "Not a test payment.",
+  "INVALID_CHANNEL": "Invalid request.",
+  "START_IN_PAST": "The pickup time has already passed.",
+  "TOO_FAR_AHEAD": "Bookings can be made up to 90 days ahead.",
+  "TOO_LONG": "The maximum rental is 30 days.",
+  "TOO_SHORT": "The minimum rental is 30 minutes.",
+  "OUTSIDE_HOURS": "Pickup or return is outside the owner's handover hours.",
+  "BLOCKED": "The owner has marked these dates as unavailable.",
+  "ALREADY_BOOKED": "Sorry — someone just booked this time.",
+  "NOT_LISTED": "This vehicle isn't accepting bookings right now."
+ }
+}

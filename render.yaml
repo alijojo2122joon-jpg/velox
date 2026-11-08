@@ -1,0 +1,26 @@
+# Render Blueprint — one-click deploy of VELOX (demo mode).
+# Free plan note: the disk is temporary, so the SQLite demo database is re-created (and re-seeded) on each restart/deploy.
+services:
+  - type: web
+    name: velox
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22.12.0"
+      - key: NODE_ENV
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: PAYMENT_PROVIDER
+        value: mock
+      - key: MOCK_PAYMENT_SECRET
+        generateValue: true
+      - key: EXPOSE_DEV_CODES
+        value: "true"
+      - key: SEED_DEMO
+        value: "true"

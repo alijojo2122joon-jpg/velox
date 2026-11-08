@@ -1,0 +1,419 @@
+{
+  "brand": { "tagline": "Bebas Bergerak. Mudah Menghasilkan." },
+  "nav": {
+    "bicycles": "Sepeda", "motorcycles": "Motor", "universities": "Kampus", "listVehicle": "Sewakan kendaraan",
+    "login": "Masuk", "signup": "Daftar", "logout": "Keluar", "language": "Bahasa", "notifications": "Notifikasi", "menu": "Menu",
+    "myBookings": "Pesanan saya", "ownerDashboard": "Dasbor pemilik", "messages": "Pesan", "account": "Akun & verifikasi", "admin": "Admin", "browse": "Jelajahi"
+  },
+  "common": {
+    "back": "Kembali", "cancel": "Batal", "save": "Simpan", "saveChanges": "Simpan perubahan", "edit": "Ubah", "delete": "Hapus", "view": "Lihat",
+    "optional": "Opsional", "select": "Pilih…", "next": "Berikutnya", "previous": "Sebelumnya", "pageOf": "Halaman {page} dari {pages}", "from": "Dari", "to": "Sampai",
+    "note": "Catatan", "comingSoon": "Segera hadir"
+  },
+  "demo": { "label": "Demo", "tooltip": "Data demonstrasi — bukan orang, kendaraan, pesanan, atau pembayaran sungguhan." },
+  "units": {
+    "minutes": "{n} menit", "hours": "{n} jam", "oneHour": "1 jam", "days": "{n} hari", "oneDay": "1 hari", "km": "{n} km", "m": "{n} m", "pinPrice": "Rp{n}rb", "money": "Rp{n}"
+  },
+  "categories": { "bicycle": "Sepeda", "motorcycle": "Motor" },
+  "vehicleTypes": {
+    "mountain": "Sepeda gunung", "city": "Sepeda kota", "road": "Sepeda balap", "folding": "Sepeda lipat", "electric_bicycle": "Sepeda listrik", "student": "Sepeda pelajar",
+    "scooter": "Skuter", "automatic": "Motor matik", "manual": "Motor manual", "electric_motorcycle": "Motor listrik"
+  },
+  "conditions": { "new": "Baru", "excellent": "Sangat baik", "good": "Baik", "fair": "Cukup" },
+  "roles": { "renter": "Penyewa", "owner": "Pemilik", "admin": "Admin" },
+  "status": {
+    "pending": "Diajukan", "accepted": "Menunggu pembayaran", "confirmed": "Terkonfirmasi", "active": "Berjalan", "completed": "Selesai", "rejected": "Ditolak",
+    "cancelled": "Dibatalkan", "expired": "Kedaluwarsa", "approved": "Disetujui", "paused": "Dijeda", "maintenance": "Perawatan", "suspended": "Ditangguhkan",
+    "pending_review": "Sedang ditinjau", "succeeded": "Lunas", "failed": "Gagal", "refunded": "Dikembalikan", "partially_refunded": "Dikembalikan sebagian",
+    "open": "Terbuka", "reviewing": "Ditinjau", "resolved": "Selesai", "dismissed": "Diabaikan", "resolved_owner": "Dimenangkan pemilik",
+    "resolved_renter": "Dimenangkan penyewa", "closed": "Ditutup", "draft": "Draf", "not_required": "Tidak diperlukan"
+  },
+  "weekdays": {
+    "short": { "0": "Min", "1": "Sen", "2": "Sel", "3": "Rab", "4": "Kam", "5": "Jum", "6": "Sab" },
+    "long": { "0": "Minggu", "1": "Senin", "2": "Selasa", "3": "Rabu", "4": "Kamis", "5": "Jumat", "6": "Sabtu" }
+  },
+  "home": {
+    "badge": "Berbagi kendaraan antarwarga untuk Indonesia · mengutamakan mahasiswa",
+    "title1": "Sewa kendaraan terdekat.", "title2": "Hasilkan dari milikmu.",
+    "subtitle": "VELOX menghubungkan pemilik sepeda dan motor dengan orang yang membutuhkannya — untuk 30 menit, sehari, atau seminggu. Anggota terverifikasi, harga transparan, pembayaran aman.",
+    "anyCity": "Semua kota", "nearMe": "Di dekat saya", "search": "Cari",
+    "motoNote": "Motor hanya bisa disewa oleh orang dewasa terverifikasi yang memiliki SIM C yang berlaku.",
+    "trustline": { "verified": "Anggota terverifikasi", "checklist": "Checklist serah terima digital", "payments": "Pembayaran ditahan dengan aman" },
+    "preview": { "booked": "Pesanan terkonfirmasi", "pickup": "Tunjukkan kode ini saat penjemputan", "earned": "Pendapatan bulan ini" },
+    "stats": { "vehicles": "Kendaraan terdaftar", "cities": "Kota", "universities": "Kampus", "rentals": "Sewa selesai", "note": "Angka berasal dari data demonstrasi saat ini." },
+    "categories": {
+      "eyebrow": "Pilih kendaraanmu", "title": "Dari sepeda kampus hingga skuter akhir pekan",
+      "bicycleDesc": "Sepeda kota, gunung, balap, lipat, listrik, dan sepeda pelajar hemat.",
+      "motorcycleDesc": "Skuter, motor matik, manual, dan listrik untuk orang dewasa ber-SIM."
+    },
+    "browse": "Jelajahi", "viewAll": "Lihat semua",
+    "featured": { "eyebrow": "Rating tertinggi", "title": "Sepeda populer di sekitar kampus" },
+    "how": {
+      "eyebrow": "Cara kerja VELOX", "title": "Mudah bagi penyewa. Menguntungkan bagi pemilik.",
+      "renter": {
+        "label": "Untuk penyewa", "title": "Cari, pesan, berangkat.",
+        "s1": "Cari di sekitarmu", "s1d": "Saring berdasarkan jarak, kampus, harga, rating, dan ketersediaan di peta atau daftar.",
+        "s2": "Ajukan & bayar", "s2d": "Pilih 30 menit hingga beberapa hari. Bayar dengan aman setelah pemilik menerima.",
+        "s3": "Ambil dengan kode", "s3d": "Tunjukkan kode pesanan, isi checklist digital, lalu berangkat.",
+        "cta": "Cari kendaraan"
+      },
+      "owner": {
+        "label": "Untuk pemilik", "title": "Ubah waktu menganggur jadi penghasilan.",
+        "s1": "Daftarkan dalam hitungan menit", "s1d": "Tambahkan foto, atur harga sendiri per durasi dan jam serah terima.",
+        "s2": "Terima permintaan", "s2d": "Periksa verifikasi dan rating setiap penyewa sebelum menerima.",
+        "s3": "Terima bayaran", "s3d": "Dapatkan 90% dari setiap sewa. Pantau pendapatan di dasbor.",
+        "cta": "Mulai menghasilkan"
+      }
+    },
+    "trust": {
+      "eyebrow": "Kepercayaan & keamanan", "title": "Dirancang untuk sewa-menyewa antarorang asing",
+      "verify": "Identitas terverifikasi", "verifyd": "Verifikasi telepon, email, dan identitas. Motor memerlukan SIM C yang disetujui dan usia dewasa.",
+      "checklist": "Serah terima digital", "checklistd": "Checklist penjemputan dan pengembalian berstempel waktu dengan foto melindungi kedua pihak.",
+      "payments": "Pembayaran aman", "paymentsd": "Pesanan baru terkonfirmasi setelah penyedia pembayaran mengonfirmasi. Deposit ditahan, lalu dikembalikan.",
+      "reviews": "Ulasan dua arah", "reviewsd": "Penyewa dan pemilik saling memberi nilai setelah setiap sewa."
+    },
+    "unis": { "eyebrow": "Komunitas kampus", "title": "Mulai dari kampusmu", "vehicles": "{n} kendaraan" },
+    "earn": {
+      "title": "Sepedamu terparkir 23 jam sehari.", "body": "Daftarkan di VELOX dan dapatkan uang saat tidak dipakai. Kamu yang menentukan harga, jam, dan siapa yang menyewa.",
+      "cta": "Sewakan kendaraan", "example": "Contoh satu bulan (ilustrasi)", "rentals": "Jumlah sewa", "avg": "Rata-rata per sewa", "gross": "Bruto",
+      "fee": "Biaya VELOX ({pct}%)", "youEarn": "Kamu terima", "disclaimer": "Angka ilustrasi saja, bukan jaminan penghasilan. Komisi dapat diatur."
+    }
+  },
+  "search": {
+    "all": "Semua", "allCities": "Semua kota", "city": "Kota", "nearMe": "Di dekat saya", "locating": "Mencari lokasi…", "radius": "Radius", "filters": "Filter",
+    "sort": "Urutkan", "listView": "Tampilan daftar", "mapView": "Tampilan peta",
+    "sorts": { "nearest": "Terdekat", "price": "Harga terendah", "rating": "Rating tertinggi", "newest": "Terbaru", "available_now": "Tersedia sekarang" },
+    "results": "{n} kendaraan", "searching": "Mencari…", "nearYou": "di dekatmu", "inCity": "di {city}", "inIndonesia": "di seluruh Indonesia",
+    "geoError": "Lokasimu tidak dapat diambil. Periksa izin browser atau pilih kota.",
+    "motoNotice": "Sewa motor memerlukan identitas terverifikasi, SIM C yang disetujui, dan usia minimum platform.",
+    "emptyTitle": "Tidak ada kendaraan yang cocok", "emptyBody": "Coba radius lebih luas, tanggal lain, atau kurangi filter.", "clear": "Hapus filter",
+    "showResults": "Tampilkan {n} hasil", "vehicleType": "Jenis kendaraan", "availability": "Tersedia untuk",
+    "availabilityHint": "Hanya menampilkan kendaraan yang kosong untuk waktu jemput dan durasi ini (WIB).", "pricePerHour": "Harga per jam (perkiraan, Rp)",
+    "min": "Min", "max": "Maks", "minRating": "Rating minimum", "any": "Semua", "university": "Dekat kampus", "anyUniversity": "Semua kampus"
+  },
+  "map": { "loading": "Memuat peta…", "noPoints": "Tidak ada kendaraan untuk ditampilkan di peta", "fallback": "Peta sederhana (ubin peta tidak tersedia)" },
+  "vehicle": {
+    "from": "mulai", "total": "total", "instant": "Pesan instan", "licenseRequired": "Wajib SIM C", "notFound": "Kendaraan ini tidak tersedia",
+    "notPublic": "Iklan ini sedang tidak terlihat oleh penyewa.", "saved": "Disimpan ke daftarmu", "unsaved": "Dihapus dari simpanan", "save": "Simpan", "savedBtn": "Tersimpan",
+    "askOwner": "Tanya pemilik", "verifiedOwner": "Terverifikasi", "ownerStats": "{n} sewa selesai · anggota sejak {since}", "about": "Tentang kendaraan ini",
+    "pricing": "Harga", "pricingHint": "Kamu dikenai kombinasi termurah dari harga pemilik untuk durasi persismu.",
+    "deposit": "Deposit jaminan (dapat dikembalikan): {amount}", "availability": "Ketersediaan", "handoverHours": "Jam ambil & kembali",
+    "anytime": "Ambil dan kembali kapan saja (24/7).", "upcomingBusy": "Sudah dipesan", "noBusy": "Tidak ada pesanan dalam 60 hari ke depan.",
+    "busy": { "booked": "Dipesan", "blocked": "Tidak tersedia" }, "rules": "Aturan sewa",
+    "agreementNote": "Setiap pesanan menyertakan perjanjian sewa VELOX.", "readAgreement": "Baca perjanjian sewa", "location": "Lokasi penjemputan",
+    "exactLocation": "Titik temu pasti dikonfirmasi lewat chat setelah memesan.", "reviews": "Ulasan ({n})", "noReviews": "Belum ada ulasan.",
+    "flexible": "Durasi fleksibel"
+  },
+  "booking": {
+    "title": "Pesan kendaraan ini", "timesIn": "Waktu dalam {tz}", "pickup": "Ambil", "return": "Kembali", "pickupDate": "Tanggal ambil", "pickupTime": "Jam ambil",
+    "returnDate": "Tanggal kembali", "returnTime": "Jam kembali", "duration": "Durasi", "custom": "Atur sendiri", "available": "Tersedia untuk waktu ini",
+    "roundedUp": "Ditagih sebagai {d}", "depositRefundable": "Deposit jaminan (dikembalikan)", "total": "Total", "notePlaceholder": "Pesan untuk pemilik (opsional)",
+    "agree": "Saya menyetujui", "agreementLink": "perjanjian sewa & kebijakan tanggung jawab", "yourVehicle": "Ini kendaraanmu", "loginToBook": "Masuk untuk memesan",
+    "bookInstant": "Pesan sekarang", "request": "Ajukan pesanan", "instantHint": "Pesan instan: langsung terkonfirmasi setelah kamu membayar.",
+    "requestHint": "Kamu tidak akan ditagih sebelum pemilik menerima.", "checkAvailability": "Cek ketersediaan", "booking": "Pesanan", "notFound": "Pesanan tidak ditemukan",
+    "timeline": "Riwayat", "extendedEvent": "Sewa diperpanjang",
+    "notes": { "owner_no_response": "pemilik tidak merespons tepat waktu", "payment_timeout": "pembayaran tidak selesai tepat waktu", "payment_confirmed": "pembayaran dikonfirmasi penyedia" },
+    "priceDetails": "Rincian harga", "extensions": "Perpanjangan", "lateFee": "Denda keterlambatan", "refunded": "Dikembalikan", "yourEarning": "Pendapatanmu ({pct}%)",
+    "payments": "Pembayaran", "extension": "perpanjangan", "owner": "Pemilik", "renter": "Penyewa", "message": "Kirim pesan", "agreement": "Perjanjian sewa",
+    "agreementStatus": "Versi {v} — disetujui oleh:",
+    "statusHelp": {
+      "renter": {
+        "pending": "Menunggu pemilik menerima permintaanmu.", "accepted": "Pemilik menerima — selesaikan pembayaran untuk konfirmasi.",
+        "confirmed": "Semua siap. Tunjukkan kode penjemputan ke pemilik.", "active": "Selamat berkendara! Kembalikan tepat waktu agar tidak kena denda.",
+        "completed": "Sewa selesai. Terima kasih telah menggunakan VELOX.", "rejected": "Pemilik menolak permintaan ini.", "cancelled": "Pesanan ini dibatalkan.",
+        "expired": "Pesanan ini kedaluwarsa."
+      },
+      "owner": {
+        "pending": "Ada penyewa yang menginginkan kendaraanmu. Terima atau tolak.", "accepted": "Menunggu pembayaran dari penyewa.",
+        "confirmed": "Sudah dibayar dan terkonfirmasi. Temui penyewa untuk serah terima.", "active": "Kendaraanmu sedang disewa.", "completed": "Sewa selesai. Pendapatan sudah tersedia.",
+        "rejected": "Kamu menolak permintaan ini.", "cancelled": "Pesanan ini dibatalkan.", "expired": "Pesanan ini kedaluwarsa."
+      }
+    },
+    "panel": {
+      "payTitle": "Selesaikan pembayaran untuk konfirmasi", "payBody": "Pemilik menerima permintaanmu. Penawaran ini berakhir {when}.",
+      "waitingTitle": "Permintaan terkirim", "waitingBody": "Pemilik punya waktu sampai {when} untuk merespons. Kamu belum ditagih.",
+      "codeTitle": "Kode penjemputanmu", "codeBody": "Berikan kode ini ke pemilik saat penjemputan. Jangan bagikan sebelum bertemu.",
+      "qrSoon": "Penjemputan dengan kode QR: segera hadir", "instructionsTitle": "Petunjuk penjemputan",
+      "instr1": "Pastikan titik temu dengan pemilik lewat chat.", "instr2": "Bawa KTP (dan SIM C untuk motor).",
+      "instr3": "Periksa kendaraan bersama dan isi checklist digital.", "instr4": "Berikan kode penjemputan ke pemilik untuk memulai sewa.",
+      "activeTitle": "Sewa sedang berjalan", "activeBody": "Batas pengembalian {when}. Butuh waktu tambahan? Perpanjang sebelum waktu berakhir.",
+      "requestTitle": "Permintaan baru dari {name}", "requestBody": "Respons sebelum {when} atau permintaan akan kedaluwarsa otomatis.",
+      "awaitPayTitle": "Diterima — menunggu pembayaran", "awaitPayBody": "Kami akan memberi tahu segera setelah penyedia pembayaran mengonfirmasi.",
+      "handoverTitle": "Siap serah terima", "handoverBody": "Saat penjemputan, minta kode 6 digit dari penyewa dan isi checklist bersama.",
+      "returnTitle": "Konfirmasi pengembalian", "returnBody": "Batas kembali {when}. Periksa kendaraan dan isi checklist pengembalian."
+    },
+    "payNow": "Bayar {amount}", "cancel": "Batalkan pesanan", "cancelRequest": "Batalkan permintaan", "accept": "Terima", "reject": "Tolak",
+    "startRental": "Mulai sewa", "completeRental": "Konfirmasi pengembalian", "extend": "Perpanjang sewa",
+    "cancelTitle": "Batalkan pesanan ini?", "cancelFree": "Kamu belum ditagih, jadi pembatalan gratis.",
+    "cancelPolicy": "Pembatalan 24 jam atau lebih sebelum penjemputan dikembalikan penuh. Pembatalan setelahnya mengembalikan 50% harga sewa ditambah seluruh deposit.",
+    "ownerCancelPolicy": "Penyewa akan menerima pengembalian penuh. Pembatalan yang sering oleh pemilik dapat memengaruhi iklanmu.",
+    "rejectTitle": "Tolak permintaan ini?", "rejectBody": "Penyewa akan diberi tahu. Kamu bisa menambahkan alasan singkat.", "reasonPlaceholder": "Alasan (opsional)",
+    "extendTitle": "Perpanjang sewamu", "extendBody": "Waktu kembali saat ini: {end}. Pilih berapa lama tambahan yang kamu butuhkan.", "newReturn": "Waktu kembali baru",
+    "extendPriceHint": "Biaya tambahan dihitung dari harga pemilik dan dibayar sebelum perpanjangan berlaku.", "extendPay": "Lanjut ke pembayaran",
+    "actionNeeded": "Perlu tindakan", "leaveReview": "Beri ulasan",
+    "toast": { "accepted": "Pesanan diterima", "rejected": "Permintaan ditolak", "cancelled": "Pesanan dibatalkan", "started": "Sewa dimulai", "completed": "Pengembalian dikonfirmasi" }
+  },
+  "availability": {
+    "START_IN_PAST": "Waktu penjemputan sudah lewat.", "TOO_FAR_AHEAD": "Pemesanan bisa dilakukan hingga 90 hari ke depan.",
+    "TOO_LONG": "Sewa maksimal 30 hari.", "TOO_SHORT": "Sewa minimal 30 menit.",
+    "OUTSIDE_HOURS": "Waktu ambil atau kembali di luar jam serah terima pemilik.", "BLOCKED": "Pemilik menandai tanggal ini tidak tersedia.",
+    "ALREADY_BOOKED": "Sebagian waktu ini sudah dipesan. Coba waktu lain.", "NOT_LISTED": "Kendaraan ini sedang tidak menerima pesanan.",
+    "END_BEFORE_START": "Waktu kembali harus setelah waktu ambil."
+  },
+  "eligibility": {
+    "title": "Kelayakan sewa motor", "missing": "Masih diperlukan", "fix": "Lengkapi verifikasi",
+    "ok": "Kamu sudah terverifikasi untuk menyewa motor.", "intro": "Untuk menyewa motor, kamu harus berusia minimal {age} tahun dan menyelesaikan pemeriksaan berikut:",
+    "items": {
+      "email": "Email terverifikasi", "phone": "Nomor telepon terverifikasi", "date_of_birth": "Tanggal lahir di profil", "age": "Berusia minimal {age} tahun",
+      "identity": "Identitas disetujui (KTP / paspor)", "license": "SIM C yang disetujui dan masih berlaku"
+    }
+  },
+  "payment": {
+    "choose": "Pilih metode pembayaran", "continue": "Lanjut · {amount}",
+    "methods": { "qris": "QRIS", "ewallet": "Dompet digital", "bank_transfer": "Transfer bank (VA)", "card": "Kartu debit / kredit" },
+    "methodDesc": { "qris": "Pindai dengan aplikasi bank atau dompet digital apa pun", "ewallet": "GoPay, OVO, DANA, ShopeePay", "bank_transfer": "Virtual account BCA, BNI, BRI, Mandiri", "card": "Visa, Mastercard, JCB" },
+    "demoNotice": "Mode demo: tidak ada uang sungguhan yang berpindah. Payment gateway (misalnya Midtrans atau Xendit) akan dihubungkan setelah verifikasi usaha.",
+    "demoBanner": "PAYMENT GATEWAY DEMO — tidak ada uang sungguhan yang ditagih", "mockGateway": "Checkout uji VELOX", "status": "Status", "reference": "Referensi",
+    "simulateHelp": "Di versi produksi, gateway mengonfirmasi pembayaran ke server kami. Di sini kamu bisa mensimulasikan responsnya:",
+    "simulateSuccess": "Simulasikan pembayaran berhasil", "simulateFailure": "Simulasikan pembayaran gagal", "backToBooking": "Kembali ke pesanan",
+    "failed": "Pembayaran gagal. Kamu bisa mencoba lagi dari halaman pesanan.", "notFound": "Pembayaran tidak ditemukan", "sampleQr": "Contoh pola QR (tidak bisa dipindai)",
+    "realNote": "Pesanan hanya terkonfirmasi setelah konfirmasi dari penyedia pembayaran diterima VELOX."
+  },
+  "handover": {
+    "title": "Checklist serah terima", "pickup": "Penjemputan", "return": "Pengembalian", "ok": "Kondisi baik", "issue": "Ada masalah",
+    "pickupTitle": "Mulai sewa — checklist penjemputan", "returnTitle": "Konfirmasi pengembalian — checklist pengembalian", "enterCode": "Kode penjemputan penyewa",
+    "codeHint": "Minta penyewa menunjukkan kode 6 digit di pesanannya.", "checklist": "Pemeriksaan kendaraan", "good": "OK", "problem": "Masalah",
+    "photos": "Foto", "photosHint": "Foto diberi stempel waktu dan disimpan bersama pesanan.", "notesPlaceholder": "Catatan (lecet, bensin, aksesori…)",
+    "conditionOk": "Kendaraan kembali dalam kondisi yang sama", "damageNote": "Sengketa kerusakan akan dibuka dan deposit ditahan sampai VELOX meninjaunya.",
+    "items": {
+      "frame": "Rangka", "tires": "Ban", "brakes": "Rem", "chain": "Rantai & gigi", "lights": "Lampu & bel", "lock": "Gembok & aksesori",
+      "body": "Bodi & spion", "fuel": "Bensin / baterai", "documents": "STNK tersedia", "helmet": "Helm"
+    }
+  },
+  "review": {
+    "titleRenter": "Bagaimana sewamu?", "titleOwner": "Bagaimana penyewa ini?", "placeholder": "Bagikan detail yang membantu orang lain (opsional)",
+    "submit": "Kirim ulasan", "thanks": "Terima kasih atas ulasanmu"
+  },
+  "dispute": {
+    "title": "Sengketa", "open": "Laporkan masalah pada pesanan ini", "submit": "Kirim", "sent": "Laporanmu telah dikirim ke tim dukungan VELOX",
+    "detailsPlaceholder": "Jelaskan apa yang terjadi (minimal 10 karakter)", "hint": "Tim kami meninjau checklist, foto, dan pesan sebelum memutuskan.",
+    "reasons": { "damage": "Kerusakan", "late_return": "Terlambat kembali", "not_as_described": "Tidak sesuai deskripsi", "no_show": "Tidak datang", "payment": "Masalah pembayaran", "other": "Lainnya" }
+  },
+  "report": {
+    "title": "Laporkan", "listing": "Laporkan iklan ini", "submit": "Kirim laporan", "sent": "Terima kasih — tim kami akan meninjaunya.",
+    "detailsPlaceholder": "Ceritakan lebih lanjut (opsional)",
+    "reasons": { "fraud": "Penipuan", "unsafe": "Tidak aman", "inaccurate": "Iklan tidak akurat", "harassment": "Pelecehan", "damage": "Kerusakan", "other": "Lainnya" }
+  },
+  "auth": {
+    "loginTitle": "Selamat datang kembali", "registerTitle": "Buat akun VELOX", "noAccount": "Baru di VELOX?", "haveAccount": "Sudah punya akun?",
+    "email": "Email", "password": "Kata sandi", "phone": "Nomor HP", "phoneHint": "Nomor HP Indonesia, mis. 0812…", "passwordHint": "Minimal 8 karakter",
+    "fullName": "Nama lengkap", "city": "Kota", "university": "Kampus", "iWantTo": "Saya ingin",
+    "roles": { "renter": "Menyewa kendaraan", "renterDesc": "Cari kendaraan di dekat saya", "owner": "Menyewakan kendaraan", "ownerDesc": "Dapatkan uang dari sepeda atau motor" },
+    "createAccount": "Buat akun", "consent": "Dengan membuat akun, kamu menyetujui", "sideNote": "Pratinjau MVP — data demo diberi label jelas.",
+    "demoTitle": "Coba akun demo", "demoBody": "Akun ini hanya berisi data demonstrasi.",
+    "demoRoles": { "renter": "Penyewa demo", "owner": "Pemilik demo", "admin": "Admin demo" }
+  },
+  "account": {
+    "title": "Akun & verifikasi", "subtitle": "Kelola profil, dokumen verifikasi, dan preferensimu.",
+    "becomeOwnerTitle": "Dapatkan uang dari kendaraanmu", "becomeOwnerBody": "Aktifkan profil pemilik untuk menyewakan sepeda atau motor.", "becomeOwner": "Jadi pemilik",
+    "nowOwner": "Profil pemilik diaktifkan", "profile": "Profil", "changePhoto": "Ganti foto", "dob": "Tanggal lahir", "dobHint": "Diperlukan untuk kelayakan sewa motor.",
+    "bio": "Tentang kamu", "uniVerified": "Anggota terverifikasi", "saved": "Profil disimpan", "documents": "Dokumen verifikasi",
+    "documentsBody": "Dokumen ditinjau oleh tim VELOX dan disimpan secara privat. Hanya 4 digit terakhir nomor dokumen yang disimpan.",
+    "validUntil": "berlaku sampai {d}", "notSubmitted": "Belum dikirim", "upload": "Unggah", "contact": "Verifikasi kontak", "verified": "Terverifikasi", "verify": "Verifikasi",
+    "language": "Bahasa", "languageHint": "Disimpan di akunmu dan dipakai di semua perangkat.", "privacy": "Datamu",
+    "privacyBody": "VELOX hanya menggunakan datamu untuk menjalankan pemesanan, verifikasi, dan keamanan. Kami tidak pernah menjual data pribadi.", "exportSoon": "Ekspor data & penghapusan akun: segera hadir.",
+    "verifyEmail": "Verifikasi email", "verifyPhone": "Verifikasi nomor HP", "sendCode": "Kirim kode", "confirm": "Konfirmasi",
+    "sendCodeBody": "Kami akan mengirim kode 6 digit yang berlaku 10 menit.", "enterCode": "Masukkan kode 6 digit yang kami kirim.",
+    "demoCodeTitle": "Mode demo", "demoCodeBody": "Pengiriman email/SMS belum terhubung. Kodemu adalah:", "verifiedToast": "Berhasil diverifikasi",
+    "docNumber": "Nomor dokumen", "docNumberHint": "Hanya 4 karakter terakhir yang disimpan.", "licenseClass": "Golongan SIM", "expiry": "Tanggal berlaku",
+    "docFile": "Unggah foto atau PDF dokumen", "docPrivacy": "Dokumen disimpan di penyimpanan privat dan hanya dilihat oleh petugas verifikasi.",
+    "submitDoc": "Kirim untuk ditinjau", "docSubmitted": "Terkirim — kami akan memberi tahu setelah ditinjau"
+  },
+  "verification": {
+    "types": { "identity": "Identitas (KTP / paspor)", "driving_license": "Surat Izin Mengemudi (SIM)", "student": "Kartu mahasiswa" },
+    "hints": { "identity": "Wajib bagi pemilik dan untuk sewa motor.", "driving_license": "SIM C wajib untuk menyewa motor.", "student": "Dapatkan lencana mahasiswa terverifikasi untuk kampusmu." },
+    "idVerified": "Identitas terverifikasi", "phoneVerified": "HP terverifikasi"
+  },
+  "dashboard": {
+    "verifyTitle": "Verifikasi kontakmu", "verifyBody": "Anggota terverifikasi lebih cepat diterima. Hanya butuh satu menit.", "verifyCta": "Verifikasi sekarang",
+    "renter": {
+      "title": "Hai, {name}", "subtitle": "Sewa, kendaraan tersimpan, dan pembayaranmu.", "find": "Cari kendaraan", "active": "Sewa berjalan", "upcoming": "Akan datang",
+      "completed": "Selesai", "spent": "Total pengeluaran",
+      "tabs": { "upcoming": "Berjalan & akan datang", "history": "Riwayat", "reviews": "Perlu diulas", "saved": "Tersimpan", "payments": "Pembayaran" },
+      "noUpcoming": "Belum ada sewa yang akan datang", "noUpcomingBody": "Cari sepeda atau motor di dekatmu.", "noHistory": "Belum ada riwayat sewa",
+      "noReviews": "Semua sudah diulas", "noSaved": "Belum ada kendaraan tersimpan", "noPayments": "Belum ada pembayaran"
+    },
+    "owner": {
+      "title": "Dasbor pemilik", "subtitle": "Iklan, permintaan, jadwal, dan pendapatan.", "addVehicle": "Tambah kendaraan",
+      "verifyTitle": "Verifikasi identitasmu", "verifyBody": "Pemilik terverifikasi mendapat lencana dan lebih banyak pesanan. Unggah KTP di menu Akun.",
+      "totalEarnings": "Total pendapatan", "afterFee": "Setelah biaya VELOX", "pendingEarnings": "Tertunda", "pendingHint": "Cair setelah kendaraan kembali",
+      "activeBookings": "Pesanan aktif", "completed": "Sewa selesai",
+      "tabs": { "overview": "Ringkasan", "requests": "Permintaan", "bookings": "Semua pesanan", "vehicles": "Kendaraan saya", "calendar": "Kalender", "earnings": "Pendapatan" },
+      "noRequests": "Tidak ada permintaan tertunda", "noRequestsBody": "Permintaan pesanan baru akan muncul di sini.", "noBookings": "Belum ada pesanan",
+      "monthly": "Pendapatan bulanan", "net": "Pendapatan bersih", "noEarnings": "Belum ada pendapatan", "popular": "Kendaraan terpopuler", "rentals": "{n} sewa",
+      "pendingRequests": "{n} permintaan menunggu", "respondSoon": "Segera respons — permintaan kedaluwarsa otomatis.", "statusUpdated": "Iklan diperbarui",
+      "noVehicles": "Belum ada kendaraan terdaftar", "noVehiclesBody": "Daftarkan sepeda atau motor pertamamu dalam beberapa menit.", "earnedOn": "Pendapatan: {amount}",
+      "underReview": "Iklan motor tayang setelah VELOX memverifikasi STNK kendaraan.",
+      "pause": "Jeda", "maintenance": "Perawatan", "resume": "Aktifkan lagi", "vehicle": "Kendaraan", "blockDates": "Blokir tanggal", "editHours": "Ubah jam",
+      "blockAdded": "Tanggal diblokir", "upcomingForVehicle": "Pesanan mendatang", "blocks": "Tanggal diblokir", "noBlocks": "Tidak ada tanggal yang diblokir",
+      "blockNotePlaceholder": "mis. Servis, liburan", "available": "Saldo tersedia", "feesPaid": "Biaya VELOX",
+      "payoutTitle": "Pencairan", "payoutBody": "Pencairan otomatis ke rekening bank atau dompet digital akan diaktifkan setelah payment gateway terhubung.",
+      "ledger": "Transaksi", "payoutSoon": "Pencairan: segera hadir"
+    }
+  },
+  "vehicleForm": {
+    "title": "Daftarkan kendaraan", "editTitle": "Ubah iklan", "subtitle": "Foto jelas dan detail jujur mendatangkan lebih banyak pesanan.",
+    "category": "Kategori & jenis", "motoNotice": "Iklan motor memerlukan STNK dan nomor polisi, dan tayang setelah ditinjau VELOX. Hanya orang dewasa terverifikasi dan ber-SIM yang dapat menyewanya.",
+    "details": "Detail", "name": "Judul iklan", "nameHint": "mis. \"Sepeda kota Polygon dekat UGM\"", "brand": "Merek", "model": "Model", "year": "Tahun",
+    "condition": "Kondisi", "description": "Deskripsi", "descriptionPlaceholder": "Ukuran, gigi, aksesori yang disertakan, hal yang perlu diketahui penyewa…",
+    "rules": "Aturan sewa", "rulesPlaceholder": "mis. Kembalikan dalam keadaan bersih dan terkunci. Tanpa penumpang.",
+    "photos": "Foto", "addPhotos": "Tambah foto", "photosHint": "Hingga 8 foto. Foto dikompres otomatis agar cepat dimuat.",
+    "location": "Lokasi penjemputan", "nearUniversity": "Dekat kampus", "pickupAddress": "Alamat penjemputan / titik temu",
+    "pickupHint": "Ditampilkan di iklan. Bagikan titik pasti lewat chat setelah pemesanan.", "lat": "Lintang", "lng": "Bujur", "useMyLocation": "Gunakan lokasi saya saat ini",
+    "pricing": "Harga", "pricingHint": "Aktifkan durasi yang kamu tawarkan dan tetapkan harganya. Penyewa selalu membayar kombinasi termurah untuk waktu mereka.",
+    "deposit": "Deposit jaminan (Rp)", "depositHint": "Ditahan selama sewa, dikembalikan setelah kendaraan kembali.", "instantBook": "Pesan instan",
+    "instantBookHint": "Konfirmasi pesanan secara otomatis tanpa persetujuan manual.", "youReceive": "Kamu menerima sekitar {amount} per {d} setelah biaya 10%.",
+    "availability": "Jam ambil & kembali", "availabilityHint": "Penyewa hanya bisa memulai dan mengakhiri sewa pada jam ini.",
+    "anytime": "Kapan saja (24/7)", "sameEveryDay": "Jam yang sama setiap hari", "everyDay": "Setiap hari",
+    "documents": "Dokumen kendaraan", "plate": "Nomor polisi", "plateHint": "Hanya terlihat olehmu dan petugas VELOX.", "insurance": "Asuransi (opsional)",
+    "insurancePlaceholder": "Penyedia / catatan polis", "stnk": "Surat Tanda Nomor Kendaraan (STNK)", "stnkHint": "Foto atau PDF, disimpan secara privat", "fileReady": "File siap",
+    "locationRequired": "Tentukan koordinat penjemputan", "priceRequired": "Tambahkan minimal satu harga", "photoRequired": "Tambahkan minimal satu foto",
+    "stnkRequired": "Nomor polisi dan STNK wajib untuk motor", "fixErrors": "Mohon perbaiki kolom yang ditandai.",
+    "publish": "Tayangkan iklan", "submitReview": "Kirim untuk ditinjau", "published": "Iklanmu sudah tayang!", "submittedForReview": "Terkirim — kami akan segera meninjau STNK-nya.",
+    "saved": "Iklan diperbarui"
+  },
+  "messages": {
+    "title": "Pesan", "subtitle": "Percakapan pribadi antara penyewa dan pemilik.", "empty": "Belum ada percakapan",
+    "emptyBody": "Tanyakan sesuatu ke pemilik dari halaman iklan mana pun.", "as": { "renter": "kamu menyewa", "owner": "kamu pemiliknya" }, "noMessages": "Belum ada pesan",
+    "select": "Pilih percakapan", "notFound": "Percakapan tidak ditemukan",
+    "safety": "Lakukan pembayaran di VELOX. Nomor HP dan email disembunyikan sampai pesanan terkonfirmasi.", "placeholder": "Tulis pesan…", "send": "Kirim"
+  },
+  "notifications": {
+    "title": "Notifikasi", "markAll": "Tandai semua dibaca", "empty": "Tidak ada notifikasi baru",
+    "types": {
+      "booking_requested": { "title": "Permintaan pesanan baru", "body": "{vehicle} · {code}" },
+      "booking_accepted": { "title": "Pesanan diterima", "body": "Selesaikan pembayaran untuk mengonfirmasi {code}." },
+      "booking_rejected": { "title": "Permintaan ditolak", "body": "{vehicle} tidak tersedia untuk {code}." },
+      "booking_expired": { "title": "Pesanan kedaluwarsa", "body": "{code} kedaluwarsa sebelum selesai." },
+      "payment_confirmed": { "title": "Pembayaran dikonfirmasi", "body": "{code} sudah terkonfirmasi." },
+      "payment_failed": { "title": "Pembayaran gagal", "body": "Pembayaran untuk {code} tidak berhasil." },
+      "booking_cancelled": { "title": "Pesanan dibatalkan", "body": "{vehicle} · {code}" },
+      "rental_started": { "title": "Sewa dimulai", "body": "Selamat berkendara! ({code})" },
+      "rental_completed": { "title": "Sewa selesai", "body": "{code}" },
+      "pickup_upcoming": { "title": "Penjemputan dalam satu jam", "body": "Bersiaplah untuk {code}." },
+      "return_upcoming": { "title": "Segera kembalikan", "body": "{code} berakhir dalam satu jam." },
+      "rental_extended": { "title": "Sewa diperpanjang", "body": "{code} memiliki waktu kembali baru." },
+      "new_message": { "title": "Pesan baru", "body": "Kamu punya pesan yang belum dibaca." },
+      "review_request": { "title": "Bagaimana pengalamanmu?", "body": "Beri ulasan untuk {code}." },
+      "verification_approved": { "title": "Verifikasi disetujui", "body": "{type} disetujui." },
+      "verification_rejected": { "title": "Verifikasi perlu diperbaiki", "body": "{type} tidak disetujui." },
+      "account_suspended": { "title": "Akun ditangguhkan", "body": "Hubungi dukungan VELOX." },
+      "listing_suspended": { "title": "Iklan ditangguhkan", "body": "{vehicle} tidak lagi ditampilkan." },
+      "dispute_opened": { "title": "Sengketa dibuka", "body": "Sengketa dibuka untuk {code}." },
+      "dispute_updated": { "title": "Pembaruan sengketa", "body": "Ada pembaruan untuk {code}." }
+    }
+  },
+  "ledger": {
+    "renter_charge": "Biaya sewa", "deposit_hold": "Deposit ditahan", "deposit_release": "Deposit dikembalikan", "deposit_capture": "Deposit dipotong",
+    "owner_earning": "Pendapatan pemilik", "platform_commission": "Komisi VELOX", "refund": "Pengembalian dana", "late_fee": "Denda keterlambatan", "payout": "Pencairan"
+  },
+  "unis": {
+    "title": "Komunitas kampus", "subtitle": "Temukan kendaraan milik mahasiswa di sekitar kampusmu.", "vehicles": "{n} kendaraan", "members": "{n} anggota",
+    "openToAll": "Semua orang bisa memakai VELOX — keanggotaan kampus bersifat opsional.", "notFound": "Kampus tidak ditemukan", "member": "Kampusmu",
+    "verifiedMember": "Anggota terverifikasi", "viewMap": "Lihat di peta", "joinHint": "Atur kampus ini di profilmu untuk bergabung dengan komunitasnya.",
+    "join": "Gabung", "nearCampus": "Kendaraan di sekitar kampus", "noVehicles": "Belum ada kendaraan terdaftar di sini",
+    "stats": { "students": "Mahasiswa terdaftar", "verified": "{n} terverifikasi", "bicycles": "Sepeda tersedia", "motorcycles": "Motor tersedia", "active": "Sewa berjalan", "completed": "Pesanan selesai" }
+  },
+  "admin": {
+    "title": "Admin", "subtitle": "Kelola marketplace VELOX.",
+    "tabs": { "overview": "Ringkasan", "verifications": "Antrean verifikasi", "users": "Pengguna", "vehicles": "Kendaraan", "bookings": "Pesanan", "finance": "Keuangan", "reports": "Laporan & sengketa", "cities": "Kota", "settings": "Pengaturan" },
+    "stats": {
+      "users": "Pengguna", "owners": "{n} pemilik", "vehicles": "Iklan aktif", "pendingReview": "{n} menunggu tinjauan", "gmv": "Nilai pesanan bruto",
+      "demoMoney": "Termasuk transaksi demo", "commission": "Komisi platform", "refunds": "Pengembalian: {amount}", "bookings": "Pesanan",
+      "active": "Sewa berjalan", "verifications": "Verifikasi tertunda", "issues": "Laporan & sengketa terbuka"
+    },
+    "daily": "Pesanan — 30 hari terakhir", "byCity": "Per kota", "noData": "Belum ada data", "vehiclesN": "{n} kendaraan", "bookingsN": "{n} pesanan",
+    "verif": { "approved": "Disetujui", "rejected": "Ditolak", "empty": "Antrean kosong", "viewDoc": "Lihat dokumen", "demoNoDoc": "Demo — tanpa file", "notePlaceholder": "Catatan untuk pengguna (opsional)" },
+    "approve": "Setujui", "reject": "Tolak", "suspend": "Tangguhkan", "reinstate": "Pulihkan", "updated": "Diperbarui", "searchUsers": "Cari nama, email, atau nomor HP…",
+    "cols": { "name": "Nama", "role": "Peran", "verification": "Kontak", "activity": "Aktivitas", "joined": "Bergabung", "status": "Status" },
+    "activity": "{r} sewa · {v} kendaraan", "reportsN": "{n} laporan", "flagCancels": "{n} pembatalan", "viewStnk": "Lihat STNK",
+    "financeDemo": "Semua nominal berasal dari penyedia pembayaran tiruan. Tidak ada uang sungguhan yang berpindah.", "month": "Bulan", "ledger": "Buku besar transaksi",
+    "disputes": "Sengketa", "reports": "Laporan", "depositHeld": "deposit {amount}", "resolve": "Selesaikan", "resolveDispute": "Selesaikan sengketa", "outcome": "Keputusan",
+    "award": "Nominal dari deposit untuk pemilik (Rp)", "awardHint": "Sisa deposit dikembalikan ke penyewa.", "resolution": "Catatan penyelesaian",
+    "markResolved": "Tandai selesai", "dismiss": "Abaikan", "target": { "user": "Pengguna", "vehicle": "Kendaraan", "booking": "Pesanan", "message": "Pesan" },
+    "locTypes": { "city": "Kota / kabupaten", "province": "Provinsi" }, "activate": "Aktifkan", "deactivate": "Nonaktifkan", "addLocation": "Tambah lokasi",
+    "locType": "Jenis", "name": "Nama", "timezone": "Zona waktu", "add": "Tambah", "cityAdded": "Lokasi ditambahkan",
+    "citiesHint": "Kota baru langsung muncul di pencarian, pendaftaran, dan formulir iklan — tanpa perubahan kode.",
+    "commission": "Komisi platform", "commissionHint": "Berlaku untuk pesanan baru. Pesanan lama tetap memakai tarif saat dibuat.",
+    "currentRate": "Tarif saat ini", "ownerGets": "Pemilik menerima {pct}%", "applyRate": "Terapkan", "history": "Riwayat", "rules": "Aturan pemesanan",
+    "settings": {
+      "motorcycle_min_age": "Usia minimum untuk motor", "cancellation_free_hours": "Batas pembatalan gratis (jam sebelum penjemputan)",
+      "late_cancellation_refund_pct": "Pengembalian pembatalan terlambat (% harga sewa)", "late_grace_minutes": "Toleransi keterlambatan (menit)",
+      "late_fee_multiplier": "Pengali denda (× harga per jam)", "request_expiry_minutes": "Batas waktu respons pemilik (menit)", "payment_expiry_minutes": "Batas waktu pembayaran (menit)"
+    },
+    "translations": "Terjemahan & konten", "translationsHint": "Teks antarmuka dikelola di file bahasa terpusat (en, id, jv, fa). Editor di dalam dasbor sedang direncanakan."
+  },
+  "info": {
+    "trust": {
+      "title": "Kepercayaan & keamanan", "subtitle": "Cara VELOX melindungi penyewa dan pemilik.",
+      "verify": { "title": "Verifikasi", "body": "Setiap anggota memverifikasi email dan nomor HP. Pemilik memverifikasi identitas (KTP atau paspor). Dokumen ditinjau oleh tim VELOX dan disimpan secara privat." },
+      "moto": { "title": "Aturan motor", "body": "Motor hanya bisa dipesan oleh anggota yang memenuhi usia minimum platform, memiliki SIM C yang disetujui dan masih berlaku, serta identitas terverifikasi. Pemilik wajib menyertakan STNK; iklan tayang setelah ditinjau." },
+      "handover": { "title": "Serah terima digital", "body": "Saat penjemputan, penyewa memberikan kode pesanan sekali pakai. Kedua pihak mengisi checklist berstempel waktu dengan foto saat ambil dan kembali, sehingga kondisi kendaraan tercatat jelas." },
+      "payments": { "title": "Pembayaran aman", "body": "Pembayaran diproses melalui payment gateway berizin. Pesanan baru terkonfirmasi setelah gateway mengonfirmasi pembayaran ke server kami. Deposit ditahan dan dikembalikan setelah pengembalian berhasil." },
+      "messaging": { "title": "Pesan pribadi", "body": "Penyewa dan pemilik berkomunikasi di dalam VELOX. Detail kontak disamarkan sampai pesanan terkonfirmasi untuk mencegah penipuan di luar platform." },
+      "reviews": { "title": "Ulasan dua arah", "body": "Setelah setiap sewa, penyewa dan pemilik saling memberi nilai. Rating terkait dengan pesanan nyata yang telah selesai." },
+      "reporting": { "title": "Laporan & sengketa", "body": "Laporkan iklan, pengguna, atau masalah kapan saja. Kerusakan, keterlambatan, dan ketidakhadiran masuk ke antrean sengketa yang ditinjau tim kami berdasarkan checklist, foto, dan pesan." },
+      "privacy": { "title": "Privasimu", "body": "Kami hanya mengumpulkan data yang diperlukan agar layanan aman dan hanya menyimpan digit terakhir nomor dokumen. VELOX sedang dipersiapkan untuk mematuhi UU Pelindungan Data Pribadi (UU PDP) sebelum peluncuran publik." }
+    },
+    "terms": {
+      "title": "Perjanjian sewa & ketentuan", "subtitle": "Aturan yang berlaku untuk setiap pesanan VELOX.",
+      "draftTitle": "Draf — menunggu tinjauan hukum", "draftBody": "Perjanjian ini adalah draf kerja untuk MVP dan wajib ditinjau oleh praktisi hukum Indonesia sebelum peluncuran publik.",
+      "scope": { "title": "Platform VELOX", "body": "VELOX adalah marketplace yang menghubungkan pemilik kendaraan dengan penyewa. VELOX bukan pemilik kendaraan yang diiklankan dan bukan pihak dalam perjanjian sewa, kecuali untuk memproses pembayaran dan menjalankan penyelesaian sengketa." },
+      "parties": { "title": "Tanggung jawab pemilik dan penyewa", "body": "Pemilik menjamin bahwa mereka pemilik sah atau berwenang menyewakan kendaraan, kendaraan laik jalan, dan detail iklan akurat. Penyewa setuju menggunakan kendaraan secara sah dan hati-hati, hanya untuk transportasi pribadi, dan mengembalikannya tepat waktu dalam kondisi yang sama." },
+      "booking": { "title": "Pemesanan", "body": "Permintaan pesanan menjadi mengikat setelah pemilik menerimanya dan penyedia pembayaran mengonfirmasi pembayaran. Kedua pihak menyetujui perjanjian ini saat pesanan dibuat." },
+      "payment": { "title": "Harga dan pembayaran", "body": "Harga ditentukan oleh pemilik. Penyewa dikenai kombinasi termurah dari harga yang dipublikasikan pemilik untuk durasi yang dipesan. VELOX memotong komisi platform dari pendapatan pemilik." },
+      "deposit": { "title": "Deposit jaminan", "body": "Jika iklan memiliki deposit, deposit ditahan selama sewa dan dikembalikan setelah pengembalian berhasil, dikurangi denda keterlambatan atau nominal yang diputuskan dalam sengketa." },
+      "cancellation": { "title": "Pembatalan", "body": "Penyewa dapat membatalkan tanpa biaya sebelum membayar. Setelah membayar, pembatalan minimal 24 jam sebelum penjemputan dikembalikan penuh; pembatalan setelahnya mengembalikan 50% harga sewa ditambah seluruh deposit. Jika pemilik membatalkan, penyewa menerima pengembalian penuh." },
+      "late": { "title": "Keterlambatan dan perpanjangan", "body": "Penyewa dapat memperpanjang sewa jika kendaraan masih kosong dengan membayar tambahan biaya. Pengembalian melewati masa toleransi dikenai denda per jam yang berjalan." },
+      "responsibility": { "title": "Kerusakan dan tanggung jawab", "body": "Penyewa bertanggung jawab atas kendaraan sejak penjemputan hingga pengembalian, termasuk denda tilang selama masa sewa. Kerusakan didokumentasikan melalui checklist dan foto serah terima." },
+      "motorcycles": { "title": "Motor", "body": "Penyewa motor wajib memenuhi usia minimum platform, memiliki SIM C yang berlaku, serta membawa KTP dan STNK kendaraan selama berkendara. Wajib memakai helm berstandar SNI." },
+      "disputes": { "title": "Sengketa", "body": "Kedua pihak dapat membuka sengketa. VELOX meninjau bukti dan dapat memberikan sebagian atau seluruh deposit kepada pemilik atau mengembalikannya kepada penyewa." },
+      "data": { "title": "Data pribadi", "body": "Data pribadi hanya diproses untuk menyediakan layanan, memverifikasi anggota, dan menjaga keamanan platform, sesuai peraturan pelindungan data pribadi yang berlaku di Indonesia." }
+    }
+  },
+  "footer": {
+    "about": "VELOX adalah marketplace mobilitas antarwarga untuk Indonesia — dimulai dari komunitas kampus, dibangun untuk setiap kota.",
+    "mvp": "MVP · Fase 1", "explore": "Jelajahi", "company": "VELOX", "trust": "Kepercayaan & keamanan", "terms": "Perjanjian sewa & ketentuan",
+    "demoNote": "Iklan, pengguna, pesanan, dan pembayaran yang ditampilkan adalah data demonstrasi."
+  },
+  "notFound": { "title": "Halaman tidak ditemukan", "body": "Halaman yang kamu cari tidak ada atau sudah dipindahkan.", "home": "Ke beranda" },
+  "validation": {
+    "V_REQUIRED": "Kolom ini wajib diisi", "V_INVALID": "Periksa kembali nilai ini", "V_TOO_SHORT": "Terlalu pendek", "V_TOO_LONG": "Terlalu panjang",
+    "V_EMAIL": "Masukkan alamat email yang valid", "V_PHONE": "Masukkan nomor HP Indonesia yang valid", "V_PASSWORD": "Gunakan minimal 8 karakter",
+    "V_CODE": "Masukkan kode 6 digit", "V_DATE": "Masukkan tanggal yang valid", "V_NUMBER": "Masukkan angka", "V_EMAIL_TAKEN": "Email ini sudah terdaftar",
+    "V_PHONE_TAKEN": "Nomor HP ini sudah terdaftar", "V_END_BEFORE_START": "Waktu akhir harus setelah waktu mulai"
+  },
+  "errors": {
+    "INTERNAL": "Terjadi kesalahan. Silakan coba lagi.", "NETWORK": "Tidak ada koneksi. Periksa internetmu lalu coba lagi.",
+    "UNAUTHORIZED": "Silakan masuk untuk melanjutkan.", "FORBIDDEN": "Kamu tidak memiliki izin untuk itu.", "NOT_FOUND": "Tidak ditemukan.",
+    "RATE_LIMITED": "Terlalu banyak percobaan. Tunggu sebentar.", "VALIDATION_FAILED": "Periksa kolom yang ditandai.",
+    "INVALID_CREDENTIALS": "Email atau kata sandi salah.", "ACCOUNT_SUSPENDED": "Akun ini ditangguhkan. Hubungi dukungan.",
+    "EMAIL_TAKEN": "Email ini sudah terdaftar.", "PHONE_TAKEN": "Nomor HP ini sudah terdaftar.",
+    "CODE_EXPIRED": "Kode sudah kedaluwarsa. Minta kode baru.", "CODE_INVALID": "Kode salah.", "VERIFICATION_PENDING": "Kamu sudah punya dokumen yang sedang ditinjau.",
+    "AGREEMENT_REQUIRED": "Harap setujui perjanjian sewa.", "OWN_VEHICLE": "Kamu tidak bisa memesan kendaraanmu sendiri.",
+    "MOTORCYCLE_NOT_ELIGIBLE": "Lengkapi verifikasi motor (usia, identitas, dan SIM C) sebelum memesan.", "NO_PRICING": "Kendaraan ini belum memiliki harga.",
+    "INVALID_TRANSITION": "Tindakan ini tidak bisa dilakukan pada status pesanan saat ini.", "BOOKING_CHANGED": "Pesanan baru saja berubah. Muat ulang dan coba lagi.",
+    "NOT_AWAITING_PAYMENT": "Pesanan ini tidak sedang menunggu pembayaran.", "PICKUP_CODE_INVALID": "Kode penjemputan salah.",
+    "TOO_EARLY_FOR_PICKUP": "Penjemputan paling cepat 1 jam sebelum waktu pesanan.", "NOT_CANCELLABLE": "Pesanan ini tidak bisa dibatalkan lagi.",
+    "NOT_EXTENDABLE": "Pesanan ini tidak bisa diperpanjang.", "REVIEW_NOT_ALLOWED": "Ulasan dibuka setelah sewa selesai.",
+    "REVIEW_WINDOW_CLOSED": "Masa pemberian ulasan sudah berakhir.", "ALREADY_REVIEWED": "Kamu sudah mengulas pesanan ini.", "DISPUTE_OPEN": "Sengketa sudah dibuka.",
+    "UPLOAD_EMPTY": "File kosong.", "UPLOAD_TOO_LARGE": "File terlalu besar (maks 4 MB).", "UPLOAD_TYPE": "Gunakan file JPG, PNG, WEBP, atau PDF.",
+    "TOO_MANY_IMAGES": "Maksimal 8 foto.", "LISTING_UNDER_REVIEW": "Iklan ini sedang ditinjau dan belum bisa diaktifkan.",
+    "PAYLOAD_TOO_LARGE": "Permintaan terlalu besar.", "INVALID_JSON": "Permintaan tidak valid.", "UNSUPPORTED_MEDIA_TYPE": "Permintaan tidak valid.", "BAD_ORIGIN": "Asal permintaan tidak valid.",
+    "CANNOT_MODIFY_SELF": "Kamu tidak bisa mengubah akun admin sendiri di sini.", "SLUG_TAKEN": "Lokasi dengan nama ini sudah ada.",
+    "INVALID_SIGNATURE": "Tanda tangan tidak valid.", "NOT_MOCK": "Bukan pembayaran uji.", "INVALID_CHANNEL": "Permintaan tidak valid.",
+    "START_IN_PAST": "Waktu penjemputan sudah lewat.", "TOO_FAR_AHEAD": "Pemesanan bisa dilakukan hingga 90 hari ke depan.", "TOO_LONG": "Sewa maksimal 30 hari.",
+    "TOO_SHORT": "Sewa minimal 30 menit.", "OUTSIDE_HOURS": "Waktu ambil atau kembali di luar jam serah terima pemilik.",
+    "BLOCKED": "Pemilik menandai tanggal ini tidak tersedia.", "ALREADY_BOOKED": "Maaf — seseorang baru saja memesan waktu ini.", "NOT_LISTED": "Kendaraan ini sedang tidak menerima pesanan."
+  }
+}

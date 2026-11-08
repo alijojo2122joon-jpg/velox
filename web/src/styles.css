@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* ───────── VELOX design tokens ───────── */
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-fa: "Vazirmatn", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink-950: #050b1a;
+  --color-ink-900: #0a1631;
+  --color-ink-800: #14234a;
+  --color-ink-700: #24345c;
+  --color-ink-500: #5b6886;
+  --color-ink-400: #8792ab;
+  --color-ink-300: #b8c0d2;
+  --color-ink-200: #dde2ec;
+  --color-ink-100: #edf0f6;
+  --color-ink-50:  #f5f7fb;
+
+  --color-brand-50:  #eef4ff;
+  --color-brand-100: #dbe6ff;
+  --color-brand-200: #bcd0ff;
+  --color-brand-300: #8eb0ff;
+  --color-brand-400: #5b87ff;
+  --color-brand-500: #2f62ff;
+  --color-brand-600: #1f4ced;
+  --color-brand-700: #1a3cc4;
+  --color-brand-800: #1b359c;
+
+  --radius-xl: 14px;
+  --radius-2xl: 20px;
+  --radius-3xl: 28px;
+
+  --shadow-card: 0 1px 2px rgb(10 22 49 / 0.04), 0 4px 16px rgb(10 22 49 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(10 22 49 / 0.05), 0 16px 40px rgb(10 22 49 / 0.12);
+
+  --animate-fade-up: fade-up 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fade-in: fade-in 0.25s ease both;
+  @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-ink-50 text-ink-900 antialiased; font-family: var(--font-sans); }
+  html[lang="fa"] body { font-family: var(--font-fa); }
+  html[lang="fa"] .font-display { letter-spacing: 0 !important; }
+  ::selection { background: var(--color-brand-200); }
+  :focus-visible { outline: 2px solid var(--color-brand-500); outline-offset: 2px; }
+  input, select, textarea, button { font: inherit; }
+  .grid > * { min-width: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .card { @apply rounded-2xl bg-white shadow-card ring-1 ring-ink-900/5; }
+  .input { @apply h-11 w-full rounded-xl border border-ink-200 bg-white px-3.5 text-[15px] text-ink-900 placeholder:text-ink-400 transition outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15 disabled:bg-ink-50 disabled:text-ink-400; }
+  textarea.input { @apply h-auto py-2.5; }
+  .label { @apply mb-1.5 block text-sm font-semibold text-ink-800; }
+  .chip { @apply inline-flex h-9 items-center gap-1.5 rounded-full border border-ink-200 bg-white px-3.5 text-sm font-medium text-ink-700 transition hover:border-ink-300 hover:bg-ink-50; }
+  .chip-on { @apply border-ink-900 bg-ink-900 text-white hover:border-ink-900 hover:bg-ink-800; }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+}
+
+/* Leaflet price markers */
+.vx-marker { background: transparent; border: 0; }
+.vx-pin { transform: translate(-50%, -100%); display: inline-flex; white-space: nowrap; padding: 4px 9px; border-radius: 999px; background: #fff; color: #0a1631; font: 700 12px/1.2 var(--font-sans); box-shadow: 0 2px 8px rgb(10 22 49 / 0.25); border: 1px solid rgb(10 22 49 / 0.08); }
+.vx-pin.on { background: #0a1631; color: #fff; }
+.leaflet-container { font-family: var(--font-sans); }

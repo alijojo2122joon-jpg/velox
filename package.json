@@ -1,0 +1,32 @@
+{
+  "name": "velox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VELOX \u2014 peer-to-peer bicycle & motorcycle sharing marketplace for Indonesia",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "npm run build:web && tsx watch server/src/index.ts",
+    "start": "node --no-warnings dist/server.js",
+    "build": "npm run build:web && npm run build:server",
+    "build:web": "node scripts/build-web.mjs",
+    "build:server": "esbuild server/src/index.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/server.js --packages=external",
+    "db:reset": "node scripts/reset-db.mjs",
+    "test": "node --no-warnings scripts/e2e-test.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

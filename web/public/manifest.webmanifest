@@ -1,0 +1,10 @@
+{
+  "name": "VELOX",
+  "short_name": "VELOX",
+  "description": "Move Freely. Earn Easily.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#0a1631",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
