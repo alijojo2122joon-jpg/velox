@@ -5,7 +5,7 @@
   "description": "VELOX \u2014 peer-to-peer bicycle & motorcycle sharing marketplace for Indonesia",
   "type": "module",
   "engines": {
-    "node": ">=22.12"
+    "node": ">=22.14"
   },
   "scripts": {
     "dev": "npm run build:web && tsx watch server/src/index.ts",

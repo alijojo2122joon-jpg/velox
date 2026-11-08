@@ -4,7 +4,7 @@ Peer-to-peer bicycle & motorcycle sharing marketplace for Indonesia. Starts with
 
 **Status:** Phase 1 MVP (working end-to-end) + core Phase 2 trust/payment features with a mock payment gateway. All seeded content is demo data and is labelled **Demo** in the UI.
 
-## Run it (Node.js 22.5+ required — uses the built-in SQLite)
+## Run it (Node.js 22.14+ required — uses the built-in SQLite)
 
 ```bash
 npm install
