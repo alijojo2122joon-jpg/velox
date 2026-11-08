@@ -7,16 +7,25 @@ import { useApi, useInterval } from '../lib/hooks';
 import { useFormat } from '../lib/format';
 import { Icon } from './icons';
 import { Avatar, cx } from './ui';
+import { BRAND } from '../brand';
 
 export function Logo({ light = false, className = '' }: { light?: boolean; className?: string }) {
   return (
     <span className={cx('inline-flex items-center gap-2.5', className)} dir="ltr">
-      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
-        <rect width="64" height="64" rx="16" fill={light ? '#fff' : '#0a1631'} />
-        <path d="M14 18h9l9 20 9-20h9L36.5 46h-9z" fill={light ? '#0a1631' : '#fff'} />
-        <path d="M8 26h8M6 32h9M8 38h8" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" />
+      <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="vxlogo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#4f95ff" /><stop offset="1" stopColor="#184bc6" /></linearGradient></defs>
+        <rect width="64" height="64" rx="18" fill={light ? '#fff' : 'url(#vxlogo)'} />
+        <rect x="1" y="1" width="62" height="31" rx="17" fill="#fff" opacity={light ? 0 : 0.14} />
+        <g fill="none" stroke={light ? '#184bc6' : '#fff'} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="19" cy="40" r="9" /><circle cx="45" cy="40" r="9" />
+          <path d="M19 40l8-15h12l6 15M27 25l5 15h-13M36 19h6" />
+        </g>
+        <circle cx="45" cy="17" r="4" fill={light ? '#7cc625' : '#c8ec6a'} />
       </svg>
-      <span className={cx('font-display text-[21px] font-extrabold tracking-[0.14em]', light ? 'text-white' : 'text-ink-900')}>VELOX</span>
+      <span className="flex flex-col leading-none">
+        <span className={cx('font-display text-[19px] font-extrabold tracking-[0.08em]', light ? 'text-white' : 'text-ink-900')}>BALI BIKE</span>
+        <span className={cx('mt-0.5 hidden whitespace-nowrap text-[9.5px] font-semibold uppercase tracking-[0.2em] min-[420px]:block', light ? 'text-brand-200' : 'text-brand-600')}>Bicycle Reservation</span>
+      </span>
     </span>
   );
 }
@@ -43,7 +52,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
         <Icon name="globe" size={18} />{compact ? current.short : current.label}<Icon name="chevronDown" size={14} />
       </button>
       {open && (
-        <div className="absolute end-0 z-50 mt-2 w-52 animate-fade-up overflow-hidden rounded-2xl bg-white p-1.5 shadow-lift ring-1 ring-ink-900/5">
+        <div className="absolute end-0 z-50 mt-2 w-52 animate-fade-up overflow-hidden rounded-2xl bg-white/90 p-1.5 shadow-lift ring-1 ring-white backdrop-blur-xl">
           {LOCALES.map((l) => (
             <button key={l.code} onClick={() => { setLocale(l.code); setOpen(false); }} dir={l.dir}
               className={cx('flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-start text-sm transition hover:bg-ink-50', l.code === locale && 'bg-brand-50 font-semibold text-brand-700')}>
@@ -77,7 +86,7 @@ function NotificationBell() {
         {!!data?.unread && <span className="absolute end-1.5 top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-500 px-1 text-[10px] font-bold text-white">{data.unread > 9 ? '9+' : data.unread}</span>}
       </button>
       {open && (
-        <div className="absolute -end-12 z-50 mt-2 w-[min(92vw,380px)] animate-fade-up overflow-hidden rounded-2xl bg-white shadow-lift ring-1 ring-ink-900/5 sm:end-0">
+        <div className="absolute -end-12 z-50 mt-2 w-[min(92vw,380px)] animate-fade-up overflow-hidden rounded-2xl bg-white/90 shadow-lift ring-1 ring-white backdrop-blur-xl sm:end-0">
           <div className="flex items-center justify-between border-b border-ink-100 px-4 py-3">
             <span className="font-bold">{t('notifications.title')}</span>
             {!!data?.unread && <button onClick={async () => { await api.post('/api/notifications/read-all'); reload(); }} className="text-xs font-semibold text-brand-600 hover:underline">{t('notifications.markAll')}</button>}
@@ -121,7 +130,7 @@ function UserMenu() {
         <Icon name="menu" size={18} className="text-ink-600" />
       </button>
       {open && (
-        <div className="absolute end-0 z-50 mt-2 w-64 animate-fade-up overflow-hidden rounded-2xl bg-white p-1.5 shadow-lift ring-1 ring-ink-900/5">
+        <div className="absolute end-0 z-50 mt-2 w-64 animate-fade-up overflow-hidden rounded-2xl bg-white/90 p-1.5 shadow-lift ring-1 ring-white backdrop-blur-xl">
           <div className="px-3 py-2.5">
             <div className="truncate text-sm font-bold">{user.full_name}</div>
             <div className="truncate text-xs text-ink-500">{user.email}</div>
@@ -154,9 +163,9 @@ export function Navbar() {
     { to: '/universities', label: t('nav.universities'), match: '/universities' },
   ];
   return (
-    <header className="sticky top-0 z-[500] border-b border-ink-900/5 bg-white/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-[500] border-b border-white/60 bg-white/55 shadow-[0_6px_24px_-12px_rgb(36_78_140/0.25)] backdrop-blur-2xl backdrop-saturate-150">
       <div className="container-x flex h-16 items-center gap-4">
-        <Link to="/" aria-label="VELOX home"><Logo /></Link>
+        <Link to="/" aria-label={BRAND.name}><Logo /></Link>
         <nav className="ms-6 hidden items-center gap-1 lg:flex">
           {links.map((l) => (
             <Link key={l.to} to={l.to} className={cx('rounded-xl px-3.5 py-2 text-sm font-semibold transition hover:bg-ink-100',
@@ -170,7 +179,7 @@ export function Navbar() {
           {user ? (<><NotificationBell /><UserMenu /></>) : (
             <div className="hidden items-center gap-2 sm:flex">
               <Link to="/login" className="rounded-xl px-3.5 py-2 text-sm font-semibold text-ink-800 hover:bg-ink-100">{t('nav.login')}</Link>
-              <Link to="/register" className="rounded-xl bg-ink-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-ink-800">{t('nav.signup')}</Link>
+              <Link to="/register" className="rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgb(43_118_255/0.6)] hover:brightness-110">{t('nav.signup')}</Link>
             </div>
           )}
           <button className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-ink-100 lg:hidden" onClick={() => setMobile(!mobile)} aria-label={t('nav.menu')}>
@@ -179,14 +188,14 @@ export function Navbar() {
         </div>
       </div>
       {mobile && (
-        <div className="animate-fade-in border-t border-ink-100 bg-white lg:hidden">
+        <div className="animate-fade-in border-t border-white/60 bg-white/80 backdrop-blur-xl lg:hidden">
           <div className="container-x space-y-1 py-4">
             {links.map((l) => <Link key={l.to} to={l.to} className="block rounded-xl px-3 py-3 font-semibold hover:bg-ink-50">{l.label}</Link>)}
             <Link to={user && user.role !== 'renter' ? '/dashboard/owner/vehicles/new' : '/register?role=owner'} className="block rounded-xl px-3 py-3 font-semibold hover:bg-ink-50">{t('nav.listVehicle')}</Link>
             <div className="flex items-center justify-between px-1 pt-2"><LanguageSwitcher />
               {!user && <div className="flex gap-2">
                 <Link to="/login" className="rounded-xl px-4 py-2.5 text-sm font-semibold ring-1 ring-ink-200">{t('nav.login')}</Link>
-                <Link to="/register" className="rounded-xl bg-ink-900 px-4 py-2.5 text-sm font-semibold text-white">{t('nav.signup')}</Link>
+                <Link to="/register" className="rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 px-4 py-2.5 text-sm font-semibold text-white">{t('nav.signup')}</Link>
               </div>}
             </div>
           </div>
@@ -199,8 +208,10 @@ export function Navbar() {
 export function Footer() {
   const t = useT();
   return (
-    <footer className="mt-24 bg-ink-900 text-ink-300">
-      <div className="container-x grid gap-10 py-14 md:grid-cols-4">
+    <footer className="relative mt-24 overflow-hidden bg-[linear-gradient(180deg,#123068_0%,#0b1b3a_70%)] text-ink-300">
+      <div className="pointer-events-none absolute -end-32 -top-32 h-96 w-96 rounded-full bg-brand-500/25 blur-3xl" />
+      <div className="pointer-events-none absolute -start-20 bottom-0 h-72 w-72 rounded-full bg-grass-500/10 blur-3xl" />
+      <div className="container-x relative grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <Logo light />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-400">{t('footer.about')}</p>
@@ -225,7 +236,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/5">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} VELOX · {t('brand.tagline')}</span>
+          <span>© {new Date().getFullYear()} {BRAND.name} · {t('brand.tagline')}</span>
           <span>{t('footer.demoNote')}</span>
         </div>
       </div>

@@ -107,7 +107,7 @@ export function VehicleDetail({ id }: { id: number }) {
           <Section title={t('vehicle.pricing')}>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {data.pricing.map((p: any) => (
-                <div key={p.duration_minutes} className="rounded-2xl bg-white p-4 ring-1 ring-ink-900/5">
+                <div key={p.duration_minutes} className="card p-4">
                   <div className="text-xs font-semibold text-ink-500">{duration(p.duration_minutes)}</div>
                   <div className="mt-1 text-lg font-extrabold">{money(p.price)}</div>
                 </div>

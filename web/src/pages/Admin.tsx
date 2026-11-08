@@ -66,7 +66,7 @@ function Overview({ data }: { data: any }) {
         <Card className="p-6">
           <h3 className="font-bold">{t('admin.daily')}</h3>
           <div className="mt-6 flex h-44 items-end gap-1" dir="ltr">
-            {data.daily.map((d: any) => <div key={d.day} title={`${d.day}: ${d.bookings}`} className="flex-1 rounded-t bg-brand-500/80 hover:bg-brand-600" style={{ height: `${Math.max(3, (d.bookings / max) * 170)}px` }} />)}
+            {data.daily.map((d: any) => <div key={d.day} title={`${d.day}: ${d.bookings}`} className="flex-1 rounded-t-md bg-gradient-to-t from-brand-600 to-sky-300 hover:brightness-110" style={{ height: `${Math.max(3, (d.bookings / max) * 170)}px` }} />)}
           </div>
           {data.daily.length === 0 && <Empty icon="chart" title={t('admin.noData')} />}
         </Card>
@@ -232,7 +232,7 @@ function Finance() {
         <div className="max-h-[480px] divide-y divide-ink-100 overflow-y-auto">
           {data.items.map((x: any) => (
             <div key={x.id} className="flex items-center justify-between gap-3 px-5 py-2.5 text-sm">
-              <div><span className="font-semibold">{t(`ledger.${x.type}`)}</span> <span className="text-xs text-ink-500">· <span dir="ltr">{x.booking_code}</span> · {x.user_name ?? 'VELOX'}</span></div>
+              <div><span className="font-semibold">{t(`ledger.${x.type}`)}</span> <span className="text-xs text-ink-500">· <span dir="ltr">{x.booking_code}</span> · {x.user_name ?? 'Bali Bike'}</span></div>
               <div className="flex items-center gap-3"><span className="text-xs text-ink-400">{dateTime(x.created_at)}</span><span className="font-semibold">{money(x.amount)}</span></div>
             </div>
           ))}

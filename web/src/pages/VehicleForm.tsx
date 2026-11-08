@@ -123,7 +123,7 @@ export function VehicleForm({ id }: { id?: number }) {
           <div className="grid grid-cols-2 gap-3">
             {(['bicycle', 'motorcycle'] as const).map((c) => (
               <button key={c} type="button" disabled={editing} onClick={() => setCategory(c)}
-                className={cx('flex items-center gap-3 rounded-2xl p-4 text-start ring-1 transition disabled:cursor-not-allowed', f.category === c ? 'bg-ink-900 text-white ring-ink-900' : 'bg-white ring-ink-200 hover:ring-ink-300')}>
+                className={cx('flex items-center gap-3 rounded-2xl p-4 text-start ring-1 transition disabled:cursor-not-allowed', f.category === c ? 'bg-gradient-to-br from-brand-500 to-brand-700 text-white ring-transparent shadow-[0_8px_20px_-8px_rgb(43_118_255/0.6)]' : 'bg-white ring-ink-200 hover:ring-ink-300')}>
                 <Icon name={c === 'bicycle' ? 'bike' : 'moto'} size={26} /><span className="font-bold">{t(`categories.${c}`)}</span>
               </button>
             ))}

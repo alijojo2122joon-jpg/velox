@@ -129,10 +129,10 @@
   }
  },
  "home": {
-  "badge": "Peer-to-peer mobility for Indonesia · student-first",
+  "badge": "Bicycle reservation in Bali · bikes & scooters",
   "title1": "Rent a ride nearby.",
   "title2": "Earn from yours.",
-  "subtitle": "VELOX connects people who own bicycles and motorcycles with people who need one — for 30 minutes, a day, or a week. Verified members, transparent prices, secure payments.",
+  "subtitle": "Bali Bike connects people who own bicycles and motorcycles with people who need one — for 30 minutes, a day, or a week. Verified members, transparent prices, secure payments.",
   "anyCity": "All cities",
   "nearMe": "Near me",
   "search": "Search",
@@ -167,7 +167,7 @@
    "title": "Popular bicycles near campus"
   },
   "how": {
-   "eyebrow": "How VELOX works",
+   "eyebrow": "How Bali Bike works",
    "title": "Simple for renters. Rewarding for owners.",
    "renter": {
     "label": "For renters",
@@ -211,13 +211,13 @@
   },
   "earn": {
    "title": "Your bike is parked 23 hours a day.",
-   "body": "List it on VELOX and earn when you're not riding. You set the prices, the hours and who rents it.",
+   "body": "List it on Bali Bike and earn when you're not riding. You set the prices, the hours and who rents it.",
    "cta": "List your vehicle",
    "example": "Example month (illustrative)",
    "rentals": "Rentals",
    "avg": "Average rental",
    "gross": "Gross",
-   "fee": "VELOX fee ({pct}%)",
+   "fee": "Bali Bike fee ({pct}%)",
    "youEarn": "You earn",
    "disclaimer": "Illustrative figures only, not a promise of income. Commission is configurable."
   }
@@ -295,7 +295,7 @@
    "blocked": "Unavailable"
   },
   "rules": "Rental rules",
-  "agreementNote": "Every booking includes the VELOX rental agreement.",
+  "agreementNote": "Every booking includes the Bali Bike rental agreement.",
   "readAgreement": "Read the rental agreement",
   "location": "Pickup location",
   "exactLocation": "The exact meeting point is confirmed in chat after booking.",
@@ -355,7 +355,7 @@
     "accepted": "The owner accepted — complete payment to confirm.",
     "confirmed": "You're all set. Show your pickup code to the owner.",
     "active": "Enjoy your ride! Return on time to avoid late fees.",
-    "completed": "Rental complete. Thanks for riding with VELOX.",
+    "completed": "Rental complete. Thanks for riding with Bali Bike.",
     "rejected": "The owner declined this request.",
     "cancelled": "This booking was cancelled.",
     "expired": "This booking expired."
@@ -468,7 +468,7 @@
   },
   "demoNotice": "Demo mode: no real money moves. A payment gateway (e.g. Midtrans or Xendit) will be connected after business verification.",
   "demoBanner": "DEMO PAYMENT GATEWAY — no real money is charged",
-  "mockGateway": "VELOX test checkout",
+  "mockGateway": "Bali Bike test checkout",
   "status": "Status",
   "reference": "Reference",
   "simulateHelp": "In production, the gateway confirms payment to our server. Here you can simulate its response:",
@@ -478,7 +478,7 @@
   "failed": "Payment failed. You can try again from the booking page.",
   "notFound": "Payment not found",
   "sampleQr": "Sample QR pattern (not scannable)",
-  "realNote": "A booking is only confirmed after the payment provider's confirmation reaches VELOX."
+  "realNote": "A booking is only confirmed after the payment provider's confirmation reaches Bali Bike."
  },
  "handover": {
   "title": "Handover checklists",
@@ -497,7 +497,7 @@
   "photosHint": "Photos are timestamped and stored with the booking.",
   "notesPlaceholder": "Notes (scratches, fuel level, accessories…)",
   "conditionOk": "Vehicle returned in the same condition",
-  "damageNote": "A damage dispute will be opened and the deposit held until VELOX reviews it.",
+  "damageNote": "A damage dispute will be opened and the deposit held until Bali Bike reviews it.",
   "items": {
    "frame": "Frame",
    "tires": "Tyres",
@@ -522,7 +522,7 @@
   "title": "Dispute",
   "open": "Report a problem with this booking",
   "submit": "Submit",
-  "sent": "Your report was sent to VELOX support",
+  "sent": "Your report was sent to Bali Bike support",
   "detailsPlaceholder": "Describe what happened (at least 10 characters)",
   "hint": "Our team reviews the checklists, photos and messages before deciding.",
   "reasons": {
@@ -551,8 +551,8 @@
  },
  "auth": {
   "loginTitle": "Welcome back",
-  "registerTitle": "Create your VELOX account",
-  "noAccount": "New to VELOX?",
+  "registerTitle": "Create your Bali Bike account",
+  "noAccount": "New to Bali Bike?",
   "haveAccount": "Already have an account?",
   "email": "Email",
   "password": "Password",
@@ -570,7 +570,7 @@
    "ownerDesc": "Earn from my bike or motorcycle"
   },
   "createAccount": "Create account",
-  "consent": "By creating an account you agree to the VELOX",
+  "consent": "By creating an account you agree to the Bali Bike",
   "sideNote": "MVP preview — demo data is clearly labelled.",
   "demoTitle": "Try a demo account",
   "demoBody": "These accounts contain demonstration data only.",
@@ -595,7 +595,7 @@
   "uniVerified": "Verified member",
   "saved": "Profile saved",
   "documents": "Verification documents",
-  "documentsBody": "Documents are reviewed by the VELOX team and stored privately. Only the last 4 digits of document numbers are kept.",
+  "documentsBody": "Documents are reviewed by the Bali Bike team and stored privately. Only the last 4 digits of document numbers are kept.",
   "validUntil": "valid until {d}",
   "notSubmitted": "Not submitted",
   "upload": "Upload",
@@ -605,7 +605,7 @@
   "language": "Language",
   "languageHint": "Saved to your account and used on every device.",
   "privacy": "Your data",
-  "privacyBody": "VELOX uses your data only to run bookings, verification and safety. We never sell personal data.",
+  "privacyBody": "Bali Bike uses your data only to run bookings, verification and safety. We never sell personal data.",
   "exportSoon": "Data export & account deletion: coming soon.",
   "verifyEmail": "Verify your email",
   "verifyPhone": "Verify your phone",
@@ -672,7 +672,7 @@
    "verifyTitle": "Verify your identity",
    "verifyBody": "Verified owners get a badge and more bookings. Upload your KTP in Account.",
    "totalEarnings": "Total earnings",
-   "afterFee": "After VELOX fee",
+   "afterFee": "After Bali Bike fee",
    "pendingEarnings": "Pending",
    "pendingHint": "Released after return",
    "activeBookings": "Active bookings",
@@ -699,7 +699,7 @@
    "noVehicles": "No vehicles listed yet",
    "noVehiclesBody": "List your first bicycle or motorcycle in a few minutes.",
    "earnedOn": "Earned: {amount}",
-   "underReview": "Motorcycle listings go live after VELOX verifies the vehicle registration (STNK).",
+   "underReview": "Motorcycle listings go live after Bali Bike verifies the vehicle registration (STNK).",
    "pause": "Pause",
    "maintenance": "Maintenance",
    "resume": "Resume",
@@ -712,7 +712,7 @@
    "noBlocks": "No blocked dates",
    "blockNotePlaceholder": "e.g. Service, holiday",
    "available": "Available balance",
-   "feesPaid": "VELOX fees",
+   "feesPaid": "Bali Bike fees",
    "payoutTitle": "Payouts",
    "payoutBody": "Automatic payouts to your bank account or e-wallet will be enabled once the payment gateway is connected.",
    "ledger": "Transactions",
@@ -724,7 +724,7 @@
   "editTitle": "Edit listing",
   "subtitle": "Clear photos and honest details get more bookings.",
   "category": "Category & type",
-  "motoNotice": "Motorcycle listings require the vehicle registration (STNK) and plate number, and go live after VELOX review. Only verified, licensed adults can rent them.",
+  "motoNotice": "Motorcycle listings require the vehicle registration (STNK) and plate number, and go live after Bali Bike review. Only verified, licensed adults can rent them.",
   "details": "Details",
   "name": "Listing title",
   "nameHint": "e.g. \"Polygon city bike near UGM\"",
@@ -760,7 +760,7 @@
   "everyDay": "Every day",
   "documents": "Vehicle documents",
   "plate": "Plate number",
-  "plateHint": "Visible only to you and VELOX staff.",
+  "plateHint": "Visible only to you and Bali Bike staff.",
   "insurance": "Insurance (optional)",
   "insurancePlaceholder": "Provider / policy notes",
   "stnk": "Vehicle registration (STNK)",
@@ -789,7 +789,7 @@
   "noMessages": "No messages yet",
   "select": "Select a conversation",
   "notFound": "Conversation not found",
-  "safety": "Keep payments on VELOX. Phone numbers and emails are hidden until a booking is confirmed.",
+  "safety": "Keep payments on Bali Bike. Phone numbers and emails are hidden until a booking is confirmed.",
   "placeholder": "Write a message…",
   "send": "Send"
  },
@@ -864,7 +864,7 @@
    },
    "account_suspended": {
     "title": "Account suspended",
-    "body": "Contact VELOX support."
+    "body": "Contact Bali Bike support."
    },
    "listing_suspended": {
     "title": "Listing suspended",
@@ -886,7 +886,7 @@
   "deposit_release": "Deposit released",
   "deposit_capture": "Deposit captured",
   "owner_earning": "Owner earning",
-  "platform_commission": "VELOX commission",
+  "platform_commission": "Bali Bike commission",
   "refund": "Refund",
   "late_fee": "Late fee",
   "payout": "Payout"
@@ -896,7 +896,7 @@
   "subtitle": "Find vehicles listed by students around your campus.",
   "vehicles": "{n} vehicles",
   "members": "{n} members",
-  "openToAll": "Everyone can use VELOX — university membership is optional.",
+  "openToAll": "Everyone can use Bali Bike — university membership is optional.",
   "notFound": "University not found",
   "member": "Your campus",
   "verifiedMember": "Verified member",
@@ -916,7 +916,7 @@
  },
  "admin": {
   "title": "Admin",
-  "subtitle": "Operate the VELOX marketplace.",
+  "subtitle": "Operate the Bali Bike marketplace.",
   "tabs": {
    "overview": "Overview",
    "verifications": "Verification queue",
@@ -1028,10 +1028,10 @@
  "info": {
   "trust": {
    "title": "Trust & safety",
-   "subtitle": "How VELOX protects renters and owners.",
+   "subtitle": "How Bali Bike protects renters and owners.",
    "verify": {
     "title": "Verification",
-    "body": "Every member verifies their email and phone. Owners verify their identity (KTP or passport). Documents are reviewed by VELOX staff and stored privately."
+    "body": "Every member verifies their email and phone. Owners verify their identity (KTP or passport). Documents are reviewed by Bali Bike staff and stored privately."
    },
    "moto": {
     "title": "Motorcycle rules",
@@ -1047,7 +1047,7 @@
    },
    "messaging": {
     "title": "Private messaging",
-    "body": "Renters and owners chat inside VELOX. Contact details are masked until a booking is confirmed, which helps prevent off-platform scams."
+    "body": "Renters and owners chat inside Bali Bike. Contact details are masked until a booking is confirmed, which helps prevent off-platform scams."
    },
    "reviews": {
     "title": "Two-way reviews",
@@ -1059,17 +1059,17 @@
    },
    "privacy": {
     "title": "Your privacy",
-    "body": "We collect only what's needed to operate safely and keep only the last digits of document numbers. VELOX is being prepared to comply with Indonesia's Personal Data Protection Law (UU PDP) before public launch."
+    "body": "We collect only what's needed to operate safely and keep only the last digits of document numbers. Bali Bike is being prepared to comply with Indonesia's Personal Data Protection Law (UU PDP) before public launch."
    }
   },
   "terms": {
    "title": "Rental agreement & terms",
-   "subtitle": "The rules every VELOX booking follows.",
+   "subtitle": "The rules every Bali Bike booking follows.",
    "draftTitle": "Draft — legal review pending",
    "draftBody": "This agreement is a working draft for the MVP and must be reviewed by an Indonesian legal professional before public launch.",
    "scope": {
-    "title": "The VELOX platform",
-    "body": "VELOX is a marketplace that connects vehicle owners with renters. VELOX is not the owner of listed vehicles and is not a party to the rental itself, except for processing payments and operating dispute resolution."
+    "title": "The Bali Bike platform",
+    "body": "Bali Bike is a marketplace that connects vehicle owners with renters. Bali Bike is not the owner of listed vehicles and is not a party to the rental itself, except for processing payments and operating dispute resolution."
    },
    "parties": {
     "title": "Owner and renter responsibilities",
@@ -1081,7 +1081,7 @@
    },
    "payment": {
     "title": "Prices and payment",
-    "body": "Prices are set by owners. Renters are charged the cheapest combination of the owner's published prices for the booked duration. VELOX deducts a platform commission from the owner's earnings."
+    "body": "Prices are set by owners. Renters are charged the cheapest combination of the owner's published prices for the booked duration. Bali Bike deducts a platform commission from the owner's earnings."
    },
    "deposit": {
     "title": "Security deposit",
@@ -1105,7 +1105,7 @@
    },
    "disputes": {
     "title": "Disputes",
-    "body": "Either party may open a dispute. VELOX reviews the evidence and may award part or all of the deposit to the owner or release it to the renter."
+    "body": "Either party may open a dispute. Bali Bike reviews the evidence and may award part or all of the deposit to the owner or release it to the renter."
    },
    "data": {
     "title": "Personal data",
@@ -1114,10 +1114,10 @@
   }
  },
  "footer": {
-  "about": "VELOX is a peer-to-peer mobility marketplace for Indonesia — starting with university communities, built for every city.",
+  "about": "Bali Bike is a peer-to-peer mobility marketplace for Indonesia — starting with university communities, built for every city.",
   "mvp": "MVP · Phase 1",
   "explore": "Explore",
-  "company": "VELOX",
+  "company": "Bali Bike",
   "trust": "Trust & safety",
   "terms": "Rental agreement & terms",
   "demoNote": "Listings, users, bookings and payments shown are demonstration data."

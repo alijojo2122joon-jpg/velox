@@ -75,7 +75,7 @@ function Overview({ data, pending }: { data: any; pending: any[] }) {
             {monthly.map((m: any) => (
               <div key={m.month} className="group flex flex-1 flex-col items-center gap-2">
                 <div className="text-[11px] font-semibold text-ink-600 opacity-0 transition group-hover:opacity-100">{money(m.net)}</div>
-                <div className="w-full max-w-12 rounded-t-lg bg-brand-500 transition group-hover:bg-brand-600" style={{ height: `${Math.max(4, (m.net / max) * 160)}px` }} />
+                <div className="w-full max-w-12 rounded-t-xl bg-gradient-to-t from-brand-600 to-sky-300 shadow-[0_8px_20px_-6px_rgb(43_118_255/0.5)] transition group-hover:brightness-110" style={{ height: `${Math.max(4, (m.net / max) * 160)}px` }} />
                 <div className="text-[11px] text-ink-500">{m.month.slice(5)}/{m.month.slice(2, 4)}</div>
               </div>
             ))}

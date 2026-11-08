@@ -1,4 +1,4 @@
-# VELOX — Move Freely. Earn Easily.
+# Bali Bike — Bicycle Reservation (codename VELOX)
 
 Peer-to-peer bicycle & motorcycle sharing marketplace for Indonesia. Starts with university communities, built for every city.
 
@@ -18,9 +18,9 @@ Reset demo data: `npm run db:reset`, then start again.
 ### Demo accounts (password `Demo1234!`)
 | Role | Email | Notes |
 |---|---|---|
-| Renter | renter@velox.demo | Verified, has SIM C → can book motorcycles |
-| Owner | owner@velox.demo | 4 listings in Yogyakarta, a pending request |
-| Admin | admin@velox.demo | Verification queue, disputes, commission, cities |
+| Renter | renter@balibike.demo | Verified, has SIM C → can book motorcycles |
+| Owner | owner@balibike.demo | 4 listings in Yogyakarta, a pending request |
+| Admin | admin@balibike.demo | Verification queue, disputes, commission, cities |
 
 The login page has one-click buttons for these.
 

@@ -81,7 +81,7 @@ export function Account() {
                 const v = latest(type);
                 return (
                   <div key={type} className="flex flex-wrap items-center gap-3 rounded-2xl bg-ink-50 p-4">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-ink-200"><Icon name={type === 'student' ? 'graduation' : type === 'identity' ? 'user' : 'moto'} /></span>
+                    <span className="neu-icon h-10 w-10"><Icon name={type === 'student' ? 'graduation' : type === 'identity' ? 'user' : 'moto'} /></span>
                     <div className="min-w-0 flex-1">
                       <div className="font-semibold">{t(`verification.types.${type}`)}</div>
                       <div className="text-xs text-ink-500">{t(`verification.hints.${type}`)}</div>
@@ -131,7 +131,7 @@ export function Account() {
           <Card className="p-6">
             <h2 className="mb-3 text-lg font-bold">{t('account.language')}</h2>
             <div className="grid grid-cols-2 gap-2">
-              {LOCALES.map((l) => <button key={l.code} dir={l.dir} onClick={() => setLocale(l.code)} className={cx('rounded-xl px-3 py-2.5 text-sm font-semibold ring-1 transition', locale === l.code ? 'bg-ink-900 text-white ring-ink-900' : 'ring-ink-200 hover:bg-ink-50')}>{l.label}</button>)}
+              {LOCALES.map((l) => <button key={l.code} dir={l.dir} onClick={() => setLocale(l.code)} className={cx('rounded-xl px-3 py-2.5 text-sm font-semibold ring-1 transition', locale === l.code ? 'bg-gradient-to-br from-brand-500 to-brand-700 text-white ring-transparent shadow-[0_8px_20px_-8px_rgb(43_118_255/0.6)]' : 'ring-ink-200 hover:bg-ink-50')}>{l.label}</button>)}
             </div>
             <p className="mt-2 text-xs text-ink-500">{t('account.languageHint')}</p>
           </Card>

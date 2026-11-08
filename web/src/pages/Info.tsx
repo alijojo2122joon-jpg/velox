@@ -16,7 +16,7 @@ export function InfoPage({ page }: { page: 'trust' | 'terms' }) {
         {sections.map((s, i) => (
           <Card key={s} className="p-6">
             <h2 className="flex items-center gap-3 font-bold">
-              {page === 'trust' ? <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-ink-900 text-white"><Icon name={icons[s]} size={18} /></span>
+              {page === 'trust' ? <span className="neu-icon h-11 w-11"><Icon name={icons[s]} size={18} /></span>
                 : <span className="text-brand-600">{i + 1}.</span>}
               {t(`info.${page}.${s}.title`)}
             </h2>

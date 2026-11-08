@@ -84,7 +84,7 @@ function Thread({ id, onSent }: { id: number; onSent: () => void }) {
             <div key={m.id}>
               {showDay && <div className="my-3 text-center text-xs font-semibold text-ink-400">{day}</div>}
               <div className={cx('flex', mine ? 'justify-end' : 'justify-start')}>
-                <div className={cx('max-w-[78%] rounded-2xl px-4 py-2.5 text-sm shadow-sm', mine ? 'rounded-ee-md bg-ink-900 text-white' : 'rounded-es-md bg-white text-ink-900 ring-1 ring-ink-900/5')}>
+                <div className={cx('max-w-[78%] rounded-2xl px-4 py-2.5 text-sm shadow-sm', mine ? 'rounded-ee-md bg-gradient-to-br from-brand-500 to-brand-700 text-white' : 'rounded-es-md bg-white/90 text-ink-900 ring-1 ring-white')}>
                   <div className="whitespace-pre-wrap break-words">{m.body}</div>
                   <div className={cx('mt-1 text-end text-[10px]', mine ? 'text-ink-300' : 'text-ink-400')}>{time(m.created_at)}{mine && m.read_at && ' · ✓✓'}</div>
                 </div>

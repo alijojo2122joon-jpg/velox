@@ -1,10 +1,10 @@
 {
-  "name": "VELOX",
-  "short_name": "VELOX",
+  "name": "Bali Bike — Bicycle Reservation",
+  "short_name": "Bali Bike",
   "description": "Move Freely. Earn Easily.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5f7fb",
-  "theme_color": "#0a1631",
+  "background_color": "#f2f7fd",
+  "theme_color": "#2b76ff",
   "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
 }

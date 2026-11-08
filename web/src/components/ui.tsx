@@ -10,12 +10,12 @@ export const cx = (...c: (string | false | null | undefined)[]) => c.filter(Bool
 // ───────── Button ─────────
 type Variant = 'primary' | 'brand' | 'secondary' | 'ghost' | 'danger' | 'success';
 const variants: Record<Variant, string> = {
-  primary: 'bg-ink-900 text-white hover:bg-ink-800 active:bg-ink-950 shadow-sm',
-  brand: 'bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700 shadow-sm shadow-brand-500/25',
-  secondary: 'bg-white text-ink-900 ring-1 ring-inset ring-ink-200 hover:bg-ink-50 hover:ring-ink-300',
-  ghost: 'text-ink-700 hover:bg-ink-100',
-  danger: 'bg-white text-red-600 ring-1 ring-inset ring-red-200 hover:bg-red-50',
-  success: 'bg-emerald-600 text-white hover:bg-emerald-700',
+  primary: 'bg-gradient-to-b from-ink-800 to-ink-950 text-white shadow-[0_8px_20px_-8px_rgb(11_27_58/0.6),inset_0_1px_0_rgb(255_255_255/0.15)] hover:brightness-125',
+  brand: 'bg-gradient-to-br from-brand-400 via-brand-500 to-brand-700 text-white shadow-[0_10px_24px_-8px_rgb(43_118_255/0.65),inset_0_1px_0_rgb(255_255_255/0.35)] hover:brightness-110',
+  secondary: 'bg-white/75 text-ink-900 border border-white shadow-[0_4px_14px_-6px_rgb(36_78_140/0.3)] backdrop-blur hover:bg-white',
+  ghost: 'text-ink-700 hover:bg-white/70',
+  danger: 'bg-white/80 text-red-600 border border-red-100 shadow-[0_4px_14px_-6px_rgb(220_38_38/0.25)] hover:bg-red-50',
+  success: 'bg-gradient-to-br from-grass-500 to-emerald-600 text-white shadow-[0_10px_24px_-8px_rgb(85_165_21/0.6),inset_0_1px_0_rgb(255_255_255/0.3)] hover:brightness-110',
 };
 const sizes = { sm: 'h-9 px-3.5 text-sm rounded-xl gap-1.5', md: 'h-11 px-5 text-[15px] rounded-xl gap-2', lg: 'h-13 px-6 text-base rounded-2xl gap-2' };
 
@@ -109,7 +109,7 @@ export function Avatar({ name, url, size = 40 }: { name?: string | null; url?: s
   const initials = (name ?? '?').split(' ').map((p) => p[0]).slice(0, 2).join('').toUpperCase();
   return url
     ? <img src={url} alt="" width={size} height={size} className="shrink-0 rounded-full object-cover" style={{ width: size, height: size }} />
-    : <span className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-100 to-brand-200 font-bold text-brand-800" style={{ width: size, height: size, fontSize: size * 0.38 }}>{initials}</span>;
+    : <span className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-sky-soft to-brand-200 font-bold text-brand-800 ring-2 ring-white" style={{ width: size, height: size, fontSize: size * 0.38 }}>{initials}</span>;
 }
 
 export function Stars({ value, count, size = 14 }: { value: number; count?: number; size?: number }) {
@@ -123,7 +123,7 @@ export function Card({ children, className, ...rest }: { children: ReactNode; cl
 }
 
 export function Stat({ label, value, icon, hint, tone = 'blue' }: { label: string; value: ReactNode; icon?: string; hint?: ReactNode; tone?: 'blue' | 'green' | 'amber' | 'violet' }) {
-  const tones = { blue: 'bg-brand-50 text-brand-600', green: 'bg-emerald-50 text-emerald-600', amber: 'bg-amber-50 text-amber-600', violet: 'bg-violet-50 text-violet-600' };
+  const tones = { blue: 'text-brand-500', green: 'text-grass-600', amber: 'text-amber-500', violet: 'text-violet-500' };
   return (
     <Card className="p-5">
       <div className="flex items-start justify-between gap-3">
@@ -132,7 +132,7 @@ export function Stat({ label, value, icon, hint, tone = 'blue' }: { label: strin
           <div className="mt-1.5 break-words text-xl font-bold tracking-tight text-ink-900 sm:text-2xl">{value}</div>
           {hint && <div className="mt-1 text-xs text-ink-500">{hint}</div>}
         </div>
-        {icon && <span className={cx('hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl sm:flex', tones[tone])}><Icon name={icon} /></span>}
+        {icon && <span className={cx('neu-icon hidden h-11 w-11 shrink-0 sm:inline-flex', tones[tone])}><Icon name={icon} /></span>}
       </div>
     </Card>
   );
@@ -141,7 +141,7 @@ export function Stat({ label, value, icon, hint, tone = 'blue' }: { label: strin
 export function Empty({ icon = 'search', title, body, action }: { icon?: string; title: string; body?: ReactNode; action?: ReactNode }) {
   return (
     <div className="flex flex-col items-center justify-center px-6 py-14 text-center">
-      <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-ink-100 text-ink-500"><Icon name={icon} size={26} /></span>
+      <span className="neu-icon mb-5 h-16 w-16"><Icon name={icon} size={26} /></span>
       <h3 className="text-base font-bold text-ink-900">{title}</h3>
       {body && <p className="mt-1.5 max-w-sm text-sm text-ink-500">{body}</p>}
       {action && <div className="mt-5">{action}</div>}
@@ -159,7 +159,7 @@ export function PageLoader() {
 
 export function Notice({ tone = 'info', title, children, icon, action }: { tone?: 'info' | 'warn' | 'error' | 'success' | 'demo'; title?: ReactNode; children?: ReactNode; icon?: string; action?: ReactNode }) {
   const tones = {
-    info: 'bg-brand-50 text-brand-900 ring-brand-200', warn: 'bg-amber-50 text-amber-900 ring-amber-200',
+    info: 'bg-brand-50/80 text-brand-900 ring-brand-200/70', warn: 'bg-amber-50 text-amber-900 ring-amber-200',
     error: 'bg-red-50 text-red-900 ring-red-200', success: 'bg-emerald-50 text-emerald-900 ring-emerald-200', demo: 'bg-amber-50 text-amber-900 ring-amber-300 ring-dashed',
   };
   const icons = { info: 'info', warn: 'alert', error: 'alert', success: 'check', demo: 'sparkle' };
@@ -181,9 +181,9 @@ export function Tabs<T extends string>({ value, onChange, items }: { value: T; o
       {items.map((it) => (
         <button key={it.value} onClick={() => onChange(it.value)}
           className={cx('flex h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm font-semibold transition',
-            value === it.value ? 'bg-ink-900 text-white' : 'text-ink-600 hover:bg-ink-100')}>
+            value === it.value ? 'bg-gradient-to-br from-brand-500 to-brand-700 text-white shadow-[0_8px_20px_-8px_rgb(43_118_255/0.6)]' : 'text-ink-600 hover:bg-white/70')}>
           {it.label}
-          {!!it.count && <span className={cx('rounded-full px-1.5 text-[11px]', value === it.value ? 'bg-white/20' : 'bg-ink-200 text-ink-700')}>{it.count}</span>}
+          {!!it.count && <span className={cx('rounded-full px-1.5 text-[11px]', value === it.value ? 'bg-white/25' : 'bg-white text-ink-700 shadow-sm')}>{it.count}</span>}
         </button>
       ))}
     </div>
@@ -202,7 +202,7 @@ export function Modal({ open, onClose, title, children, footer, wide }: { open: 
   return (
     <div className="fixed inset-0 z-[1000] flex items-end justify-center sm:items-center sm:p-4" role="dialog" aria-modal="true">
       <div className="absolute inset-0 animate-fade-in bg-ink-950/50 backdrop-blur-[2px]" onClick={onClose} />
-      <div className={cx('relative flex max-h-[92vh] w-full animate-fade-up flex-col rounded-t-3xl bg-white shadow-lift sm:rounded-3xl', wide ? 'sm:max-w-2xl' : 'sm:max-w-lg')}>
+      <div className={cx('relative flex max-h-[92vh] w-full animate-fade-up flex-col rounded-t-3xl bg-white/95 shadow-lift backdrop-blur-xl sm:rounded-3xl', wide ? 'sm:max-w-2xl' : 'sm:max-w-lg')}>
         <div className="flex items-center justify-between gap-4 border-b border-ink-100 px-6 py-4">
           <h2 className="text-lg font-bold">{title}</h2>
           <button onClick={onClose} className="rounded-lg p-1.5 text-ink-500 hover:bg-ink-100" aria-label="Close"><Icon name="x" /></button>
@@ -230,7 +230,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       <div className="pointer-events-none fixed inset-x-0 bottom-4 z-[2000] flex flex-col items-center gap-2 px-4">
         {items.map((t) => (
           <div key={t.id} className={cx('pointer-events-auto flex max-w-md animate-fade-up items-center gap-2.5 rounded-2xl px-4 py-3 text-sm font-medium text-white shadow-lift',
-            t.tone === 'error' ? 'bg-red-600' : t.tone === 'info' ? 'bg-ink-800' : 'bg-ink-900')}>
+            t.tone === 'error' ? 'bg-red-600' : 'glass-dark')}>
             <Icon name={t.tone === 'error' ? 'alert' : 'check'} size={18} className={t.tone === 'success' ? 'text-emerald-400' : ''} />{t.text}
           </div>
         ))}

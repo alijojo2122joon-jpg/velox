@@ -7,6 +7,7 @@ import { useApi } from '../lib/hooks';
 import { Icon } from '../components/icons';
 import { Button, Field, Input, Notice, Select, cx, useErrorText, useFieldErrors } from '../components/ui';
 import { Logo } from '../components/Layout';
+import { SkyScene } from '../components/Sky';
 
 function AuthShell({ title, subtitle, children }: { title: string; subtitle: React.ReactNode; children: React.ReactNode }) {
   const { t } = useI18n();
@@ -17,16 +18,16 @@ function AuthShell({ title, subtitle, children }: { title: string; subtitle: Rea
         <p className="mt-2 text-ink-500">{subtitle}</p>
         <div className="mt-8">{children}</div>
       </div>
-      <div className="relative hidden h-full min-h-[560px] overflow-hidden rounded-[2rem] bg-ink-900 p-10 text-white lg:flex lg:flex-col lg:justify-between">
-        <div className="pointer-events-none absolute -end-20 -top-20 h-96 w-96 rounded-full bg-brand-500/30 blur-3xl" />
-        <Logo light />
-        <div className="relative">
-          <p className="font-display text-4xl font-extrabold leading-tight">{t('brand.tagline')}</p>
-          <ul className="mt-8 space-y-4 text-ink-300">
-            {['verified', 'checklist', 'payments'].map((k) => <li key={k} className="flex items-center gap-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10"><Icon name="check" size={16} /></span>{t(`home.trustline.${k}`)}</li>)}
+      <div className="relative hidden h-full min-h-[560px] overflow-hidden rounded-[2rem] p-10 shadow-lift ring-1 ring-white lg:flex lg:flex-col lg:justify-between">
+        <SkyScene compact />
+        <div className="relative"><Logo /></div>
+        <div className="glass relative rounded-3xl p-7">
+          <p className="font-display text-3xl font-extrabold leading-tight text-ink-900">{t('brand.tagline')}</p>
+          <ul className="mt-6 space-y-3.5 text-ink-700">
+            {['verified', 'checklist', 'payments'].map((k) => <li key={k} className="flex items-center gap-3 font-medium"><span className="neu-icon h-9 w-9"><Icon name="check" size={16} strokeWidth={2.4} /></span>{t(`home.trustline.${k}`)}</li>)}
           </ul>
+          <span className="mt-6 block text-sm text-ink-500">{t('auth.sideNote')}</span>
         </div>
-        <span className="relative text-sm text-ink-400">{t('auth.sideNote')}</span>
       </div>
     </div>
   );
@@ -57,7 +58,7 @@ export function Login() {
     } catch (e) { setErr(errText(e)); } finally { setBusy(false); }
   };
   const demos = [
-    { email: 'renter@velox.demo', role: 'renter' }, { email: 'owner@velox.demo', role: 'owner' }, { email: 'admin@velox.demo', role: 'admin' },
+    { email: 'renter@balibike.demo', role: 'renter' }, { email: 'owner@balibike.demo', role: 'owner' }, { email: 'admin@balibike.demo', role: 'admin' },
   ];
 
   return (
@@ -66,15 +67,15 @@ export function Login() {
         <Field label={t('auth.email')}><Input type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} /></Field>
         <Field label={t('auth.password')}><Input type="password" autoComplete="current-password" required value={password} onChange={(e) => setPassword(e.target.value)} /></Field>
         {err && <Notice tone="error">{err}</Notice>}
-        <Button type="submit" size="lg" className="w-full" loading={busy}>{t('nav.login')}</Button>
+        <Button type="submit" variant="brand" size="lg" className="w-full" loading={busy}>{t('nav.login')}</Button>
       </form>
-      <div className="mt-8 rounded-2xl border border-dashed border-amber-300 bg-amber-50/60 p-4">
+      <div className="mt-8 glass rounded-2xl border-dashed p-4">
         <div className="text-sm font-bold text-amber-900">{t('auth.demoTitle')}</div>
         <p className="mt-0.5 text-xs text-amber-800">{t('auth.demoBody')}</p>
         <div className="mt-3 grid gap-2 sm:grid-cols-3">
           {demos.map((d) => (
             <button key={d.email} disabled={busy} onClick={() => submit(undefined, { email: d.email, password: 'Demo1234!' })}
-              className="rounded-xl bg-white px-3 py-2.5 text-start text-sm font-semibold text-ink-800 ring-1 ring-amber-200 transition hover:ring-amber-400">
+              className="rounded-xl bg-white/80 px-3 py-2.5 text-start text-sm font-semibold text-ink-800 shadow-[0_4px_14px_-6px_rgb(36_78_140/0.3)] transition hover:bg-white">
               {t(`auth.demoRoles.${d.role}`)}<span className="block truncate text-[11px] font-normal text-ink-500" dir="ltr">{d.email}</span>
             </button>
           ))}
@@ -131,10 +132,10 @@ export function Register() {
           <div className="grid grid-cols-2 gap-2">
             {(['renter', 'owner'] as const).map((r) => (
               <button type="button" key={r} onClick={() => setRole(r)}
-                className={cx('rounded-2xl p-4 text-start ring-1 transition', role === r ? 'bg-ink-900 text-white ring-ink-900' : 'bg-white ring-ink-200 hover:ring-ink-300')}>
+                className={cx('rounded-2xl p-4 text-start ring-1 transition', role === r ? 'bg-gradient-to-br from-brand-500 to-brand-700 text-white ring-transparent shadow-[0_10px_24px_-8px_rgb(43_118_255/0.6)]' : 'bg-white/70 ring-white shadow-[0_4px_14px_-6px_rgb(36_78_140/0.25)] hover:bg-white')}>
                 <Icon name={r === 'renter' ? 'search' : 'wallet'} size={20} />
                 <div className="mt-2 text-sm font-bold">{t(`auth.roles.${r}`)}</div>
-                <div className={cx('text-xs', role === r ? 'text-ink-300' : 'text-ink-500')}>{t(`auth.roles.${r}Desc`)}</div>
+                <div className={cx('text-xs', role === r ? 'text-brand-100' : 'text-ink-500')}>{t(`auth.roles.${r}Desc`)}</div>
               </button>
             ))}
           </div>
@@ -152,7 +153,7 @@ export function Register() {
             <option value="">{t('common.optional')}</option>{unis?.items.map((u) => <option key={u.id} value={u.id}>{u.short_name}</option>)}</Select></Field>
         </div>
         {err && <Notice tone="error">{err}</Notice>}
-        <Button type="submit" size="lg" className="w-full" loading={busy}>{t('auth.createAccount')}</Button>
+        <Button type="submit" variant="brand" size="lg" className="w-full" loading={busy}>{t('auth.createAccount')}</Button>
         <p className="text-center text-xs text-ink-500">{t('auth.consent')} <Link to="/terms" className="underline">{t('footer.terms')}</Link></p>
       </form>
     </AuthShell>

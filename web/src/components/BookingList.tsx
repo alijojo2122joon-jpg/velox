@@ -11,7 +11,7 @@ export function BookingRow({ b, as }: { b: any; as: 'renter' | 'owner' }) {
   const needsAction = (as === 'owner' && b.status === 'pending') || (as === 'renter' && b.status === 'accepted') ||
     (b.status === 'completed' && !b.reviewed);
   return (
-    <Link to={href} className="flex items-center gap-4 rounded-2xl bg-white p-3 ring-1 ring-ink-900/5 transition hover:shadow-card sm:p-4">
+    <Link to={href} className="card flex items-center gap-4 p-3 transition hover:-translate-y-0.5 hover:shadow-lift sm:p-4">
       {b.cover_url && <img src={b.cover_url} alt="" className="h-16 w-20 shrink-0 rounded-xl object-cover sm:h-18 sm:w-24" loading="lazy" />}
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">

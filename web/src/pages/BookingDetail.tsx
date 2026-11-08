@@ -219,7 +219,7 @@ function ActionPanel({ data, onOpen, onAccept, busy }: { data: any; onOpen: (m: 
   );
   if (isRenter && s === 'confirmed') return (
     <Card className="overflow-hidden">
-      <div className="bg-ink-900 p-6 text-white">
+      <div className="bg-[linear-gradient(150deg,#2b76ff_0%,#184bc6_60%,#123068_100%)] p-6 text-white">
         <div className="flex items-center gap-2 text-sm font-semibold text-brand-300"><Icon name="qr" size={18} />{t('booking.panel.codeTitle')}</div>
         <div className="mt-3 flex gap-2" dir="ltr">{String(b.pickup_code).split('').map((d: string, i: number) => <span key={i} className="flex h-14 w-11 items-center justify-center rounded-xl bg-white/10 font-mono text-3xl font-extrabold">{d}</span>)}</div>
         <p className="mt-3 text-sm text-ink-300">{t('booking.panel.codeBody')}</p>
@@ -279,7 +279,7 @@ function PayModal({ open, onClose, booking }: { open: boolean; onClose: () => vo
       <div className="space-y-2">
         {METHODS.map((m) => (
           <button key={m} onClick={() => setMethod(m)} className={cx('flex w-full items-center gap-3 rounded-2xl p-4 text-start ring-1 transition', method === m ? 'bg-brand-50 ring-2 ring-brand-500' : 'ring-ink-200 hover:ring-ink-300')}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-ink-200"><Icon name={m === 'qris' ? 'qr' : m === 'card' ? 'wallet' : m === 'ewallet' ? 'phone' : 'layers'} /></span>
+            <span className="neu-icon h-10 w-10"><Icon name={m === 'qris' ? 'qr' : m === 'card' ? 'wallet' : m === 'ewallet' ? 'phone' : 'layers'} /></span>
             <span className="flex-1"><span className="block font-semibold">{t(`payment.methods.${m}`)}</span><span className="text-xs text-ink-500">{t(`payment.methodDesc.${m}`)}</span></span>
             {method === m && <Icon name="check" className="text-brand-600" />}
           </button>

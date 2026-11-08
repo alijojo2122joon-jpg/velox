@@ -118,18 +118,18 @@ const VEHICLES: VSpec[] = [
 ];
 
 const PEOPLE: Record<string, { name: string; email: string; city: string; uni?: string; role: 'owner' | 'renter' | 'admin'; dob: string; verified: boolean }> = {
-  admin: { name: 'VELOX Admin (Demo)', email: 'admin@velox.demo', city: 'Jakarta', role: 'admin', dob: '1990-01-01', verified: true },
-  rina: { name: 'Rina Wulandari', email: 'owner@velox.demo', city: 'Yogyakarta', uni: 'UGM', role: 'owner', dob: '2001-04-12', verified: true },
-  dimas: { name: 'Dimas Pratama', email: 'dimas@velox.demo', city: 'Yogyakarta', uni: 'UNY', role: 'owner', dob: '2000-09-03', verified: true },
-  ayu: { name: 'Ayu Lestari', email: 'ayu@velox.demo', city: 'Bandung', uni: 'ITB', role: 'owner', dob: '1999-11-21', verified: true },
-  putu: { name: 'Putu Wirawan', email: 'putu@velox.demo', city: 'Denpasar', uni: 'UNUD', role: 'owner', dob: '1998-02-14', verified: true },
-  fajar: { name: 'Fajar Nugroho', email: 'fajar@velox.demo', city: 'Surabaya', uni: 'ITS', role: 'owner', dob: '2000-06-30', verified: false },
-  sinta: { name: 'Sinta Maharani', email: 'sinta@velox.demo', city: 'Malang', uni: 'UB', role: 'owner', dob: '2001-08-08', verified: true },
-  bayu: { name: 'Bayu Saputra', email: 'bayu@velox.demo', city: 'Jakarta', uni: 'UNJ', role: 'owner', dob: '1997-12-01', verified: true },
-  lestari: { name: 'Lestari Siregar', email: 'lestari@velox.demo', city: 'Medan', uni: 'USU', role: 'owner', dob: '2000-03-17', verified: false },
-  budi: { name: 'Budi Santoso', email: 'renter@velox.demo', city: 'Yogyakarta', uni: 'UGM', role: 'renter', dob: '2003-05-20', verified: true },
-  sari: { name: 'Sari Indah', email: 'sari@velox.demo', city: 'Yogyakarta', uni: 'UGM', role: 'renter', dob: '2005-10-02', verified: false },
-  reza: { name: 'Reza Hidayat', email: 'reza@velox.demo', city: 'Bandung', uni: 'ITB', role: 'renter', dob: '2002-07-11', verified: true },
+  admin: { name: 'VELOX Admin (Demo)', email: 'admin@balibike.demo', city: 'Jakarta', role: 'admin', dob: '1990-01-01', verified: true },
+  rina: { name: 'Rina Wulandari', email: 'owner@balibike.demo', city: 'Yogyakarta', uni: 'UGM', role: 'owner', dob: '2001-04-12', verified: true },
+  dimas: { name: 'Dimas Pratama', email: 'dimas@balibike.demo', city: 'Yogyakarta', uni: 'UNY', role: 'owner', dob: '2000-09-03', verified: true },
+  ayu: { name: 'Ayu Lestari', email: 'ayu@balibike.demo', city: 'Bandung', uni: 'ITB', role: 'owner', dob: '1999-11-21', verified: true },
+  putu: { name: 'Putu Wirawan', email: 'putu@balibike.demo', city: 'Denpasar', uni: 'UNUD', role: 'owner', dob: '1998-02-14', verified: true },
+  fajar: { name: 'Fajar Nugroho', email: 'fajar@balibike.demo', city: 'Surabaya', uni: 'ITS', role: 'owner', dob: '2000-06-30', verified: false },
+  sinta: { name: 'Sinta Maharani', email: 'sinta@balibike.demo', city: 'Malang', uni: 'UB', role: 'owner', dob: '2001-08-08', verified: true },
+  bayu: { name: 'Bayu Saputra', email: 'bayu@balibike.demo', city: 'Jakarta', uni: 'UNJ', role: 'owner', dob: '1997-12-01', verified: true },
+  lestari: { name: 'Lestari Siregar', email: 'lestari@balibike.demo', city: 'Medan', uni: 'USU', role: 'owner', dob: '2000-03-17', verified: false },
+  budi: { name: 'Budi Santoso', email: 'renter@balibike.demo', city: 'Yogyakarta', uni: 'UGM', role: 'renter', dob: '2003-05-20', verified: true },
+  sari: { name: 'Sari Indah', email: 'sari@balibike.demo', city: 'Yogyakarta', uni: 'UGM', role: 'renter', dob: '2005-10-02', verified: false },
+  reza: { name: 'Reza Hidayat', email: 'reza@balibike.demo', city: 'Bandung', uni: 'ITB', role: 'renter', dob: '2002-07-11', verified: true },
 };
 
 const REVIEW_TEXTS = [

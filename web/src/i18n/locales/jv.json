@@ -1,419 +1,1198 @@
 {
-  "brand": { "tagline": "Bebas Mlaku. Gampang Entuk Asil." },
-  "nav": {
-    "bicycles": "Pit", "motorcycles": "Motor", "universities": "Kampus", "listVehicle": "Nyewakake kendaraan",
-    "login": "Mlebu", "signup": "Ndaftar", "logout": "Metu", "language": "Basa", "notifications": "Kabar", "menu": "Menu",
-    "myBookings": "Pesenanku", "ownerDashboard": "Dasbor pemilik", "messages": "Pesen", "account": "Akun & verifikasi", "admin": "Admin", "browse": "Golèki"
+ "brand": {
+  "tagline": "Bebas Mlaku. Gampang Entuk Asil."
+ },
+ "nav": {
+  "bicycles": "Pit",
+  "motorcycles": "Motor",
+  "universities": "Kampus",
+  "listVehicle": "Nyewakake kendaraan",
+  "login": "Mlebu",
+  "signup": "Ndaftar",
+  "logout": "Metu",
+  "language": "Basa",
+  "notifications": "Kabar",
+  "menu": "Menu",
+  "myBookings": "Pesenanku",
+  "ownerDashboard": "Dasbor pemilik",
+  "messages": "Pesen",
+  "account": "Akun & verifikasi",
+  "admin": "Admin",
+  "browse": "Golèki"
+ },
+ "common": {
+  "back": "Bali",
+  "cancel": "Batal",
+  "save": "Simpen",
+  "saveChanges": "Simpen owahan",
+  "edit": "Owahi",
+  "delete": "Busak",
+  "view": "Deleng",
+  "optional": "Opsional",
+  "select": "Pilih…",
+  "next": "Sabanjuré",
+  "previous": "Sadurungé",
+  "pageOf": "Kaca {page} saka {pages}",
+  "from": "Saka",
+  "to": "Nganti",
+  "note": "Cathetan",
+  "comingSoon": "Enggal teka"
+ },
+ "demo": {
+  "label": "Demo",
+  "tooltip": "Data démo — dudu wong, kendaraan, pesenan, utawa pambayaran sing asli."
+ },
+ "units": {
+  "minutes": "{n} menit",
+  "hours": "{n} jam",
+  "oneHour": "1 jam",
+  "days": "{n} dina",
+  "oneDay": "1 dina",
+  "km": "{n} km",
+  "m": "{n} m",
+  "pinPrice": "Rp{n}èwu",
+  "money": "Rp{n}"
+ },
+ "categories": {
+  "bicycle": "Pit",
+  "motorcycle": "Motor"
+ },
+ "vehicleTypes": {
+  "mountain": "Pit gunung",
+  "city": "Pit kutha",
+  "road": "Pit balap",
+  "folding": "Pit lempit",
+  "electric_bicycle": "Pit listrik",
+  "student": "Pit sekolah",
+  "scooter": "Skuter",
+  "automatic": "Motor matik",
+  "manual": "Motor manual",
+  "electric_motorcycle": "Motor listrik"
+ },
+ "conditions": {
+  "new": "Anyar",
+  "excellent": "Apik banget",
+  "good": "Apik",
+  "fair": "Lumayan"
+ },
+ "roles": {
+  "renter": "Penyéwa",
+  "owner": "Pemilik",
+  "admin": "Admin"
+ },
+ "status": {
+  "pending": "Diajokaké",
+  "accepted": "Nunggu pambayaran",
+  "confirmed": "Dikonfirmasi",
+  "active": "Mlaku",
+  "completed": "Rampung",
+  "rejected": "Ditolak",
+  "cancelled": "Dibatalaké",
+  "expired": "Kadaluwarsa",
+  "approved": "Disetujoni",
+  "paused": "Diendheg",
+  "maintenance": "Perawatan",
+  "suspended": "Ditangguhaké",
+  "pending_review": "Lagi dipriksa",
+  "succeeded": "Lunas",
+  "failed": "Gagal",
+  "refunded": "Dibalèkaké",
+  "partially_refunded": "Dibalèkaké sebagéyan",
+  "open": "Bukak",
+  "reviewing": "Dipriksa",
+  "resolved": "Rampung",
+  "dismissed": "Ditinggal",
+  "resolved_owner": "Menangé pemilik",
+  "resolved_renter": "Menangé penyéwa",
+  "closed": "Ditutup",
+  "draft": "Draf",
+  "not_required": "Ora perlu"
+ },
+ "weekdays": {
+  "short": {
+   "0": "Min",
+   "1": "Sen",
+   "2": "Sel",
+   "3": "Rab",
+   "4": "Kam",
+   "5": "Jum",
+   "6": "Sab"
   },
-  "common": {
-    "back": "Bali", "cancel": "Batal", "save": "Simpen", "saveChanges": "Simpen owahan", "edit": "Owahi", "delete": "Busak", "view": "Deleng",
-    "optional": "Opsional", "select": "Pilih…", "next": "Sabanjuré", "previous": "Sadurungé", "pageOf": "Kaca {page} saka {pages}", "from": "Saka", "to": "Nganti",
-    "note": "Cathetan", "comingSoon": "Enggal teka"
+  "long": {
+   "0": "Minggu",
+   "1": "Senèn",
+   "2": "Selasa",
+   "3": "Rebo",
+   "4": "Kemis",
+   "5": "Jemuwah",
+   "6": "Setu"
+  }
+ },
+ "home": {
+  "badge": "Pesen pit ing Bali · pit & motor",
+  "title1": "Nyéwa kendaraan sing cedhak.",
+  "title2": "Entuk asil saka duwèkmu.",
+  "subtitle": "Bali Bike nyambungaké sing duwé pit lan motor karo wong sing butuh — kanggo 30 menit, sedina, utawa seminggu. Anggota wis diverifikasi, rega cetha, pambayaran aman.",
+  "anyCity": "Kabèh kutha",
+  "nearMe": "Cedhak aku",
+  "search": "Golèki",
+  "motoNote": "Motor mung bisa disewa wong diwasa sing wis diverifikasi lan duwé SIM C sing isih laku.",
+  "trustline": {
+   "verified": "Anggota diverifikasi",
+   "checklist": "Checklist serah-tampa digital",
+   "payments": "Pambayaran disimpen aman"
   },
-  "demo": { "label": "Demo", "tooltip": "Data démo — dudu wong, kendaraan, pesenan, utawa pambayaran sing asli." },
-  "units": {
-    "minutes": "{n} menit", "hours": "{n} jam", "oneHour": "1 jam", "days": "{n} dina", "oneDay": "1 dina", "km": "{n} km", "m": "{n} m", "pinPrice": "Rp{n}èwu", "money": "Rp{n}"
+  "preview": {
+   "booked": "Pesenan dikonfirmasi",
+   "pickup": "Tuduhna kode iki pas njupuk",
+   "earned": "Asil sasi iki"
   },
-  "categories": { "bicycle": "Pit", "motorcycle": "Motor" },
-  "vehicleTypes": {
-    "mountain": "Pit gunung", "city": "Pit kutha", "road": "Pit balap", "folding": "Pit lempit", "electric_bicycle": "Pit listrik", "student": "Pit sekolah",
-    "scooter": "Skuter", "automatic": "Motor matik", "manual": "Motor manual", "electric_motorcycle": "Motor listrik"
+  "stats": {
+   "vehicles": "Kendaraan kadhaftar",
+   "cities": "Kutha",
+   "universities": "Kampus",
+   "rentals": "Sewan rampung",
+   "note": "Angka iki saka data démo saiki."
   },
-  "conditions": { "new": "Anyar", "excellent": "Apik banget", "good": "Apik", "fair": "Lumayan" },
-  "roles": { "renter": "Penyéwa", "owner": "Pemilik", "admin": "Admin" },
-  "status": {
-    "pending": "Diajokaké", "accepted": "Nunggu pambayaran", "confirmed": "Dikonfirmasi", "active": "Mlaku", "completed": "Rampung", "rejected": "Ditolak",
-    "cancelled": "Dibatalaké", "expired": "Kadaluwarsa", "approved": "Disetujoni", "paused": "Diendheg", "maintenance": "Perawatan", "suspended": "Ditangguhaké",
-    "pending_review": "Lagi dipriksa", "succeeded": "Lunas", "failed": "Gagal", "refunded": "Dibalèkaké", "partially_refunded": "Dibalèkaké sebagéyan",
-    "open": "Bukak", "reviewing": "Dipriksa", "resolved": "Rampung", "dismissed": "Ditinggal", "resolved_owner": "Menangé pemilik",
-    "resolved_renter": "Menangé penyéwa", "closed": "Ditutup", "draft": "Draf", "not_required": "Ora perlu"
+  "categories": {
+   "eyebrow": "Pilih kendaraanmu",
+   "title": "Saka pit kampus nganti skuter akhir minggu",
+   "bicycleDesc": "Pit kutha, gunung, balap, lempit, listrik, lan pit sekolah sing murah.",
+   "motorcycleDesc": "Skuter, motor matik, manual, lan listrik kanggo wong diwasa sing duwé SIM."
   },
-  "weekdays": {
-    "short": { "0": "Min", "1": "Sen", "2": "Sel", "3": "Rab", "4": "Kam", "5": "Jum", "6": "Sab" },
-    "long": { "0": "Minggu", "1": "Senèn", "2": "Selasa", "3": "Rebo", "4": "Kemis", "5": "Jemuwah", "6": "Setu" }
+  "browse": "Golèki",
+  "viewAll": "Deleng kabèh",
+  "featured": {
+   "eyebrow": "Biji paling dhuwur",
+   "title": "Pit sing laris ing sacedhaké kampus"
   },
-  "home": {
-    "badge": "Sewa-sinewa kendaraan antarwarga kanggo Indonésia · mahasiswa dhisik",
-    "title1": "Nyéwa kendaraan sing cedhak.", "title2": "Entuk asil saka duwèkmu.",
-    "subtitle": "VELOX nyambungaké sing duwé pit lan motor karo wong sing butuh — kanggo 30 menit, sedina, utawa seminggu. Anggota wis diverifikasi, rega cetha, pambayaran aman.",
-    "anyCity": "Kabèh kutha", "nearMe": "Cedhak aku", "search": "Golèki",
-    "motoNote": "Motor mung bisa disewa wong diwasa sing wis diverifikasi lan duwé SIM C sing isih laku.",
-    "trustline": { "verified": "Anggota diverifikasi", "checklist": "Checklist serah-tampa digital", "payments": "Pambayaran disimpen aman" },
-    "preview": { "booked": "Pesenan dikonfirmasi", "pickup": "Tuduhna kode iki pas njupuk", "earned": "Asil sasi iki" },
-    "stats": { "vehicles": "Kendaraan kadhaftar", "cities": "Kutha", "universities": "Kampus", "rentals": "Sewan rampung", "note": "Angka iki saka data démo saiki." },
-    "categories": {
-      "eyebrow": "Pilih kendaraanmu", "title": "Saka pit kampus nganti skuter akhir minggu",
-      "bicycleDesc": "Pit kutha, gunung, balap, lempit, listrik, lan pit sekolah sing murah.",
-      "motorcycleDesc": "Skuter, motor matik, manual, lan listrik kanggo wong diwasa sing duwé SIM."
-    },
-    "browse": "Golèki", "viewAll": "Deleng kabèh",
-    "featured": { "eyebrow": "Biji paling dhuwur", "title": "Pit sing laris ing sacedhaké kampus" },
-    "how": {
-      "eyebrow": "Carané VELOX mlaku", "title": "Gampang kanggo penyéwa. Nguntungaké kanggo pemilik.",
-      "renter": {
-        "label": "Kanggo penyéwa", "title": "Golèki, pesen, mangkat.",
-        "s1": "Golèki sing cedhak", "s1d": "Saring miturut adoh-cedhaké, kampus, rega, biji, lan wektu kosong ing peta utawa dhaptar.",
-        "s2": "Ajokaké & bayar", "s2d": "Pilih 30 menit nganti pirang-pirang dina. Bayar kanthi aman sawisé pemilik nampa.",
-        "s3": "Jupuk nganggo kode", "s3d": "Tuduhna kode pesenan, isi checklist digital, banjur mangkat.",
-        "cta": "Golèki kendaraan"
-      },
-      "owner": {
-        "label": "Kanggo pemilik", "title": "Owahi wektu nganggur dadi penghasilan.",
-        "s1": "Ndaftar mung sawetara menit", "s1d": "Tambahna foto, atur rega dhéwé saben durasi lan jam serah-tampa.",
-        "s2": "Tampa panjaluk", "s2d": "Priksa verifikasi lan biji saben penyéwa sadurungé nampa.",
-        "s3": "Tampa bayaran", "s3d": "Entuk 90% saka saben sewan. Pantau asil ing dasbor.",
-        "cta": "Wiwit golèk asil"
-      }
-    },
-    "trust": {
-      "eyebrow": "Kapercayan & keamanan", "title": "Digawé kanggo sewa-sinewa karo wong sing durung kenal",
-      "verify": "Identitas diverifikasi", "verifyd": "Verifikasi telpon, email, lan identitas. Motor mbutuhaké SIM C sing disetujoni lan umur diwasa.",
-      "checklist": "Serah-tampa digital", "checklistd": "Checklist njupuk lan mbalèkaké sing ana wektuné lan fotoné nglindhungi loro-loroné.",
-      "payments": "Pambayaran aman", "paymentsd": "Pesenan lagi dikonfirmasi sawisé penyedia pambayaran ngonfirmasi. Deposit disimpen, banjur dibalèkaké.",
-      "reviews": "Ulasan rong arah", "reviewsd": "Penyéwa lan pemilik padha awèh biji sawisé saben sewan."
-    },
-    "unis": { "eyebrow": "Komunitas kampus", "title": "Wiwiti saka kampusmu", "vehicles": "{n} kendaraan" },
-    "earn": {
-      "title": "Pitmu diparkir 23 jam sedina.", "body": "Daftarna ing VELOX lan entuk dhuwit nalika ora dienggo. Kowé sing nemtokaké rega, jam, lan sapa sing nyéwa.",
-      "cta": "Nyewakake kendaraan", "example": "Conto sesasi (ilustrasi)", "rentals": "Cacahé sewan", "avg": "Rata-rata saben sewan", "gross": "Bruto",
-      "fee": "Ragad VELOX ({pct}%)", "youEarn": "Sing kok tampa", "disclaimer": "Angka mung ilustrasi, dudu janji penghasilan. Komisi bisa diatur."
-    }
+  "how": {
+   "eyebrow": "Carané Bali Bike mlaku",
+   "title": "Gampang kanggo penyéwa. Nguntungaké kanggo pemilik.",
+   "renter": {
+    "label": "Kanggo penyéwa",
+    "title": "Golèki, pesen, mangkat.",
+    "s1": "Golèki sing cedhak",
+    "s1d": "Saring miturut adoh-cedhaké, kampus, rega, biji, lan wektu kosong ing peta utawa dhaptar.",
+    "s2": "Ajokaké & bayar",
+    "s2d": "Pilih 30 menit nganti pirang-pirang dina. Bayar kanthi aman sawisé pemilik nampa.",
+    "s3": "Jupuk nganggo kode",
+    "s3d": "Tuduhna kode pesenan, isi checklist digital, banjur mangkat.",
+    "cta": "Golèki kendaraan"
+   },
+   "owner": {
+    "label": "Kanggo pemilik",
+    "title": "Owahi wektu nganggur dadi penghasilan.",
+    "s1": "Ndaftar mung sawetara menit",
+    "s1d": "Tambahna foto, atur rega dhéwé saben durasi lan jam serah-tampa.",
+    "s2": "Tampa panjaluk",
+    "s2d": "Priksa verifikasi lan biji saben penyéwa sadurungé nampa.",
+    "s3": "Tampa bayaran",
+    "s3d": "Entuk 90% saka saben sewan. Pantau asil ing dasbor.",
+    "cta": "Wiwit golèk asil"
+   }
   },
-  "search": {
-    "all": "Kabèh", "allCities": "Kabèh kutha", "city": "Kutha", "nearMe": "Cedhak aku", "locating": "Nggolèki lokasi…", "radius": "Radius", "filters": "Saringan",
-    "sort": "Urutaké", "listView": "Tampilan dhaptar", "mapView": "Tampilan peta",
-    "sorts": { "nearest": "Paling cedhak", "price": "Paling murah", "rating": "Biji paling dhuwur", "newest": "Paling anyar", "available_now": "Kosong saiki" },
-    "results": "{n} kendaraan", "searching": "Nggolèki…", "nearYou": "cedhak kowé", "inCity": "ing {city}", "inIndonesia": "ing saindhenging Indonésia",
-    "geoError": "Lokasimu ora bisa dijupuk. Priksa idin browser utawa pilih kutha.",
-    "motoNotice": "Nyéwa motor mbutuhaké identitas diverifikasi, SIM C sing disetujoni, lan umur minimal platform.",
-    "emptyTitle": "Ora ana kendaraan sing cocog", "emptyBody": "Coba radius luwih amba, tanggal liya, utawa saringan luwih sithik.", "clear": "Busak saringan",
-    "showResults": "Tuduhna {n} asil", "vehicleType": "Jinis kendaraan", "availability": "Kosong kanggo",
-    "availabilityHint": "Mung nuduhaké kendaraan sing kosong kanggo wektu njupuk lan durasi iki (WIB).", "pricePerHour": "Rega saben jam (kira-kira, Rp)",
-    "min": "Min", "max": "Maks", "minRating": "Biji minimal", "any": "Apa waé", "university": "Cedhak kampus", "anyUniversity": "Kabèh kampus"
-  },
-  "map": { "loading": "Ngemot peta…", "noPoints": "Ora ana kendaraan sing dituduhaké ing peta", "fallback": "Peta prasaja (ubin peta ora kasedhiya)" },
-  "vehicle": {
-    "from": "wiwit", "total": "gunggung", "instant": "Pesen langsung", "licenseRequired": "Kudu SIM C", "notFound": "Kendaraan iki ora kasedhiya",
-    "notPublic": "Pariwara iki saiki ora katon kanggo penyéwa.", "saved": "Disimpen ing dhaptarmu", "unsaved": "Dibusak saka simpenan", "save": "Simpen", "savedBtn": "Kesimpen",
-    "askOwner": "Takon pemilik", "verifiedOwner": "Diverifikasi", "ownerStats": "{n} sewan rampung · anggota wiwit {since}", "about": "Bab kendaraan iki",
-    "pricing": "Rega", "pricingHint": "Kowé dikenani gabungan rega pemilik sing paling murah kanggo durasimu.",
-    "deposit": "Deposit jaminan (bisa bali): {amount}", "availability": "Wektu kosong", "handoverHours": "Jam njupuk & mbalèkaké",
-    "anytime": "Njupuk lan mbalèkaké kapan waé (24/7).", "upcomingBusy": "Wis dipesen", "noBusy": "Ora ana pesenan 60 dina ngarep.",
-    "busy": { "booked": "Dipesen", "blocked": "Ora kasedhiya" }, "rules": "Aturan sewa",
-    "agreementNote": "Saben pesenan kalebu prajanjian sewa VELOX.", "readAgreement": "Waca prajanjian sewa", "location": "Panggonan njupuk",
-    "exactLocation": "Panggonan ketemu sing pas dikonfirmasi liwat chat sawisé pesen.", "reviews": "Ulasan ({n})", "noReviews": "Durung ana ulasan.",
-    "flexible": "Durasi fleksibel"
-  },
-  "booking": {
-    "title": "Pesen kendaraan iki", "timesIn": "Wektu nganggo {tz}", "pickup": "Njupuk", "return": "Mbalèkaké", "pickupDate": "Tanggal njupuk", "pickupTime": "Jam njupuk",
-    "returnDate": "Tanggal mbalèkaké", "returnTime": "Jam mbalèkaké", "duration": "Suwéné", "custom": "Atur dhéwé", "available": "Kosong kanggo wektu iki",
-    "roundedUp": "Ditagih dadi {d}", "depositRefundable": "Deposit jaminan (dibalèkaké)", "total": "Gunggung", "notePlaceholder": "Pesen kanggo pemilik (opsional)",
-    "agree": "Aku setuju karo", "agreementLink": "prajanjian sewa & kawicaksanan tanggung jawab", "yourVehicle": "Iki kendaraanmu", "loginToBook": "Mlebu kanggo pesen",
-    "bookInstant": "Pesen saiki", "request": "Ajokaké pesenan", "instantHint": "Pesen langsung: dikonfirmasi sanalika sawisé kowé mbayar.",
-    "requestHint": "Kowé ora ditagih sadurungé pemilik nampa.", "checkAvailability": "Priksa wektu kosong", "booking": "Pesenan", "notFound": "Pesenan ora ketemu",
-    "timeline": "Lelakon", "extendedEvent": "Sewan diterusaké",
-    "notes": { "owner_no_response": "pemilik ora mangsuli pas wektuné", "payment_timeout": "pambayaran ora rampung pas wektuné", "payment_confirmed": "pambayaran dikonfirmasi penyedia" },
-    "priceDetails": "Rincian rega", "extensions": "Tambahan wektu", "lateFee": "Dhendha telat", "refunded": "Dibalèkaké", "yourEarning": "Asilmu ({pct}%)",
-    "payments": "Pambayaran", "extension": "tambahan wektu", "owner": "Pemilik", "renter": "Penyéwa", "message": "Kirim pesen", "agreement": "Prajanjian sewa",
-    "agreementStatus": "Versi {v} — disetujoni déning:",
-    "statusHelp": {
-      "renter": {
-        "pending": "Nunggu pemilik nampa panjalukmu.", "accepted": "Pemilik nampa — rampungna pambayaran kanggo konfirmasi.",
-        "confirmed": "Kabèh wis siyap. Tuduhna kode njupuk marang pemilik.", "active": "Sugeng tindak! Balèkna pas wektuné supaya ora kena dhendha.",
-        "completed": "Sewan rampung. Matur nuwun wis nganggo VELOX.", "rejected": "Pemilik nolak panjaluk iki.", "cancelled": "Pesenan iki dibatalaké.",
-        "expired": "Pesenan iki kadaluwarsa."
-      },
-      "owner": {
-        "pending": "Ana penyéwa sing pengin kendaraanmu. Tampa utawa tolak.", "accepted": "Nunggu pambayaran saka penyéwa.",
-        "confirmed": "Wis dibayar lan dikonfirmasi. Temoni penyéwa kanggo serah-tampa.", "active": "Kendaraanmu lagi disewa.", "completed": "Sewan rampung. Asil wis kasedhiya.",
-        "rejected": "Kowé nolak panjaluk iki.", "cancelled": "Pesenan iki dibatalaké.", "expired": "Pesenan iki kadaluwarsa."
-      }
-    },
-    "panel": {
-      "payTitle": "Rampungna pambayaran kanggo konfirmasi", "payBody": "Pemilik nampa panjalukmu. Tawaran iki entèk {when}.",
-      "waitingTitle": "Panjaluk wis dikirim", "waitingBody": "Pemilik duwé wektu nganti {when} kanggo mangsuli. Kowé durung ditagih.",
-      "codeTitle": "Kode njupukmu", "codeBody": "Wènèhna kode iki marang pemilik pas njupuk. Aja dibagi sadurungé ketemu.",
-      "qrSoon": "Njupuk nganggo kode QR: enggal teka", "instructionsTitle": "Pituduh njupuk",
-      "instr1": "Pesthèkna panggonan ketemu karo pemilik liwat chat.", "instr2": "Gawa KTP (lan SIM C kanggo motor).",
-      "instr3": "Priksa kendaraan bebarengan lan isi checklist digital.", "instr4": "Wènèhna kode njupuk marang pemilik kanggo miwiti sewan.",
-      "activeTitle": "Sewan lagi mlaku", "activeBody": "Wates mbalèkaké {when}. Butuh wektu tambahan? Terusna sadurungé wektuné entèk.",
-      "requestTitle": "Panjaluk anyar saka {name}", "requestBody": "Wangsulana sadurungé {when} utawa panjaluk bakal kadaluwarsa dhéwé.",
-      "awaitPayTitle": "Ditampa — nunggu pambayaran", "awaitPayBody": "Awaké dhéwé bakal ngabari sanalika penyedia pambayaran ngonfirmasi.",
-      "handoverTitle": "Siyap serah-tampa", "handoverBody": "Pas njupuk, jaluk kode 6 angka saka penyéwa lan isi checklist bebarengan.",
-      "returnTitle": "Konfirmasi mbalèkaké", "returnBody": "Wates bali {when}. Priksa kendaraan lan isi checklist mbalèkaké."
-    },
-    "payNow": "Bayar {amount}", "cancel": "Batalaké pesenan", "cancelRequest": "Batalaké panjaluk", "accept": "Tampa", "reject": "Tolak",
-    "startRental": "Wiwiti sewan", "completeRental": "Konfirmasi mbalèkaké", "extend": "Terusaké sewan",
-    "cancelTitle": "Batalaké pesenan iki?", "cancelFree": "Kowé durung ditagih, dadi mbatalaké gratis.",
-    "cancelPolicy": "Mbatalaké 24 jam utawa luwih sadurungé njupuk dibalèkaké kabèh. Mbatalaké sawisé iku mbalèkaké 50% rega sewa ditambah kabèh deposit.",
-    "ownerCancelPolicy": "Penyéwa bakal nampa pambalèkan kabèh. Pemilik sing kerep mbatalaké bisa ngaruhi pariwarané.",
-    "rejectTitle": "Tolak panjaluk iki?", "rejectBody": "Penyéwa bakal dikabari. Kowé bisa nambahi alesan cekak.", "reasonPlaceholder": "Alesan (opsional)",
-    "extendTitle": "Terusaké sewanmu", "extendBody": "Wektu mbalèkaké saiki: {end}. Pilih pira suwéné tambahan sing kok butuhaké.", "newReturn": "Wektu mbalèkaké anyar",
-    "extendPriceHint": "Ragad tambahan diétung saka rega pemilik lan dibayar sadurungé tambahan wektu laku.", "extendPay": "Terus menyang pambayaran",
-    "actionNeeded": "Perlu tumindak", "leaveReview": "Wènèh ulasan",
-    "toast": { "accepted": "Pesenan ditampa", "rejected": "Panjaluk ditolak", "cancelled": "Pesenan dibatalaké", "started": "Sewan diwiwiti", "completed": "Mbalèkaké dikonfirmasi" }
-  },
-  "availability": {
-    "START_IN_PAST": "Wektu njupuk wis liwat.", "TOO_FAR_AHEAD": "Pesen bisa nganti 90 dina ngarep.",
-    "TOO_LONG": "Sewan paling suwé 30 dina.", "TOO_SHORT": "Sewan paling cendhak 30 menit.",
-    "OUTSIDE_HOURS": "Wektu njupuk utawa mbalèkaké ana ing njaba jam serah-tampa pemilik.", "BLOCKED": "Pemilik nandhani tanggal iki ora kasedhiya.",
-    "ALREADY_BOOKED": "Sebagéyan wektu iki wis dipesen. Coba wektu liya.", "NOT_LISTED": "Kendaraan iki saiki ora nampa pesenan.",
-    "END_BEFORE_START": "Wektu mbalèkaké kudu sawisé wektu njupuk."
-  },
-  "eligibility": {
-    "title": "Syarat nyéwa motor", "missing": "Isih dibutuhaké", "fix": "Rampungna verifikasi",
-    "ok": "Kowé wis diverifikasi kanggo nyéwa motor.", "intro": "Kanggo nyéwa motor, umurmu paling sethithik {age} taun lan kudu ngrampungaké pamriksan iki:",
-    "items": {
-      "email": "Email diverifikasi", "phone": "Nomer telpon diverifikasi", "date_of_birth": "Tanggal lair ing profil", "age": "Umur paling sethithik {age} taun",
-      "identity": "Identitas disetujoni (KTP / paspor)", "license": "SIM C sing disetujoni lan isih laku"
-    }
-  },
-  "payment": {
-    "choose": "Pilih cara mbayar", "continue": "Terus · {amount}",
-    "methods": { "qris": "QRIS", "ewallet": "Dompèt digital", "bank_transfer": "Transfer bank (VA)", "card": "Kertu debit / kredit" },
-    "methodDesc": { "qris": "Pindai nganggo aplikasi bank utawa dompèt digital apa waé", "ewallet": "GoPay, OVO, DANA, ShopeePay", "bank_transfer": "Virtual account BCA, BNI, BRI, Mandiri", "card": "Visa, Mastercard, JCB" },
-    "demoNotice": "Mode démo: ora ana dhuwit asli sing pindhah. Payment gateway (contoné Midtrans utawa Xendit) bakal disambungaké sawisé verifikasi usaha.",
-    "demoBanner": "PAYMENT GATEWAY DÉMO — ora ana dhuwit asli sing ditagih", "mockGateway": "Checkout uji VELOX", "status": "Status", "reference": "Referensi",
-    "simulateHelp": "Ing versi asli, gateway ngonfirmasi pambayaran menyang server awaké dhéwé. Ing kéné kowé bisa nyimulasèkaké wangsulané:",
-    "simulateSuccess": "Simulasi pambayaran kasil", "simulateFailure": "Simulasi pambayaran gagal", "backToBooking": "Bali menyang pesenan",
-    "failed": "Pambayaran gagal. Kowé bisa nyoba manèh saka kaca pesenan.", "notFound": "Pambayaran ora ketemu", "sampleQr": "Conto pola QR (ora bisa dipindai)",
-    "realNote": "Pesenan mung dikonfirmasi sawisé konfirmasi saka penyedia pambayaran tekan VELOX."
-  },
-  "handover": {
-    "title": "Checklist serah-tampa", "pickup": "Njupuk", "return": "Mbalèkaké", "ok": "Kahanan apik", "issue": "Ana masalah",
-    "pickupTitle": "Wiwiti sewan — checklist njupuk", "returnTitle": "Konfirmasi mbalèkaké — checklist mbalèkaké", "enterCode": "Kode njupuk penyéwa",
-    "codeHint": "Jaluk penyéwa nuduhaké kode 6 angka ing pesenané.", "checklist": "Pamriksan kendaraan", "good": "OK", "problem": "Masalah",
-    "photos": "Foto", "photosHint": "Foto ana wektuné lan disimpen bebarengan karo pesenan.", "notesPlaceholder": "Cathetan (gorèsan, bensin, aksesori…)",
-    "conditionOk": "Kendaraan bali kanthi kahanan padha", "damageNote": "Sengketa karusakan bakal dibukak lan deposit ditahan nganti VELOX mriksa.",
-    "items": {
-      "frame": "Rangka", "tires": "Ban", "brakes": "Rem", "chain": "Ranté & gir", "lights": "Lampu & bèl", "lock": "Gembok & aksesori",
-      "body": "Bodi & spion", "fuel": "Bensin / batré", "documents": "STNK ana", "helmet": "Helm"
-    }
-  },
-  "review": {
-    "titleRenter": "Kepiyé sewanmu?", "titleOwner": "Kepiyé penyéwa iki?", "placeholder": "Bagi rincian sing mbiyantu wong liya (opsional)",
-    "submit": "Kirim ulasan", "thanks": "Matur nuwun ulasané"
-  },
-  "dispute": {
-    "title": "Sengketa", "open": "Laporaké masalah ing pesenan iki", "submit": "Kirim", "sent": "Laporanmu wis dikirim menyang tim VELOX",
-    "detailsPlaceholder": "Critakna apa sing kedadéyan (paling sethithik 10 aksara)", "hint": "Tim awaké dhéwé mriksa checklist, foto, lan pesen sadurungé mutusaké.",
-    "reasons": { "damage": "Karusakan", "late_return": "Telat mbalèkaké", "not_as_described": "Ora cocog karo katrangan", "no_show": "Ora teka", "payment": "Masalah pambayaran", "other": "Liyané" }
-  },
-  "report": {
-    "title": "Laporaké", "listing": "Laporaké pariwara iki", "submit": "Kirim laporan", "sent": "Matur nuwun — tim awaké dhéwé bakal mriksa.",
-    "detailsPlaceholder": "Critakna luwih akèh (opsional)",
-    "reasons": { "fraud": "Apus-apus", "unsafe": "Ora aman", "inaccurate": "Pariwara ora bener", "harassment": "Gangguan", "damage": "Karusakan", "other": "Liyané" }
-  },
-  "auth": {
-    "loginTitle": "Sugeng rawuh manèh", "registerTitle": "Gawé akun VELOX", "noAccount": "Anyar ing VELOX?", "haveAccount": "Wis duwé akun?",
-    "email": "Email", "password": "Tembung sandhi", "phone": "Nomer HP", "phoneHint": "Nomer HP Indonésia, contoné 0812…", "passwordHint": "Paling sethithik 8 aksara",
-    "fullName": "Jeneng jangkep", "city": "Kutha", "university": "Kampus", "iWantTo": "Aku pengin",
-    "roles": { "renter": "Nyéwa kendaraan", "renterDesc": "Golèk kendaraan sing cedhak", "owner": "Nyewakake kendaraan", "ownerDesc": "Entuk dhuwit saka pit utawa motor" },
-    "createAccount": "Gawé akun", "consent": "Kanthi gawé akun, kowé setuju karo", "sideNote": "Pratinjau MVP — data démo diwènèhi tandha cetha.",
-    "demoTitle": "Jajal akun démo", "demoBody": "Akun iki mung isi data démo.",
-    "demoRoles": { "renter": "Penyéwa démo", "owner": "Pemilik démo", "admin": "Admin démo" }
-  },
-  "account": {
-    "title": "Akun & verifikasi", "subtitle": "Atur profil, dokumen verifikasi, lan setélanmu.",
-    "becomeOwnerTitle": "Entuk asil saka kendaraanmu", "becomeOwnerBody": "Uripna profil pemilik kanggo nyewakake pit utawa motor.", "becomeOwner": "Dadi pemilik",
-    "nowOwner": "Profil pemilik wis urip", "profile": "Profil", "changePhoto": "Ganti foto", "dob": "Tanggal lair", "dobHint": "Dibutuhaké kanggo syarat nyéwa motor.",
-    "bio": "Bab kowé", "uniVerified": "Anggota diverifikasi", "saved": "Profil disimpen", "documents": "Dokumen verifikasi",
-    "documentsBody": "Dokumen dipriksa tim VELOX lan disimpen kanthi pribadi. Mung 4 angka pungkasan nomer dokumen sing disimpen.",
-    "validUntil": "laku nganti {d}", "notSubmitted": "Durung dikirim", "upload": "Unggah", "contact": "Verifikasi kontak", "verified": "Diverifikasi", "verify": "Verifikasi",
-    "language": "Basa", "languageHint": "Disimpen ing akunmu lan dienggo ing kabèh piranti.", "privacy": "Datamu",
-    "privacyBody": "VELOX mung nganggo datamu kanggo nglakokaké pesenan, verifikasi, lan keamanan. Awaké dhéwé ora tau adol data pribadi.", "exportSoon": "Ekspor data & mbusak akun: enggal teka.",
-    "verifyEmail": "Verifikasi email", "verifyPhone": "Verifikasi nomer HP", "sendCode": "Kirim kode", "confirm": "Konfirmasi",
-    "sendCodeBody": "Awaké dhéwé bakal ngirim kode 6 angka sing laku 10 menit.", "enterCode": "Lebokna kode 6 angka sing dikirim.",
-    "demoCodeTitle": "Mode démo", "demoCodeBody": "Ngirim email/SMS durung disambungaké. Kodemu yaiku:", "verifiedToast": "Kasil diverifikasi",
-    "docNumber": "Nomer dokumen", "docNumberHint": "Mung 4 aksara pungkasan sing disimpen.", "licenseClass": "Golongan SIM", "expiry": "Tanggal laku",
-    "docFile": "Unggah foto utawa PDF dokumen", "docPrivacy": "Dokumen disimpen ing panyimpenan pribadi lan mung dideleng petugas verifikasi.",
-    "submitDoc": "Kirim kanggo dipriksa", "docSubmitted": "Wis dikirim — awaké dhéwé bakal ngabari sawisé dipriksa"
-  },
-  "verification": {
-    "types": { "identity": "Identitas (KTP / paspor)", "driving_license": "Surat Ijin Nyopir (SIM)", "student": "Kertu mahasiswa" },
-    "hints": { "identity": "Wajib kanggo pemilik lan kanggo nyéwa motor.", "driving_license": "SIM C wajib kanggo nyéwa motor.", "student": "Entuk tandha mahasiswa diverifikasi kanggo kampusmu." },
-    "idVerified": "Identitas diverifikasi", "phoneVerified": "HP diverifikasi"
-  },
-  "dashboard": {
-    "verifyTitle": "Verifikasi kontakmu", "verifyBody": "Anggota sing wis diverifikasi luwih cepet ditampa. Mung sak menit.", "verifyCta": "Verifikasi saiki",
-    "renter": {
-      "title": "Halo, {name}", "subtitle": "Sewan, kendaraan simpenan, lan pambayaranmu.", "find": "Golèki kendaraan", "active": "Sewan mlaku", "upcoming": "Bakal teka",
-      "completed": "Rampung", "spent": "Gunggung blanja",
-      "tabs": { "upcoming": "Mlaku & bakal teka", "history": "Riwayat", "reviews": "Perlu diulas", "saved": "Kesimpen", "payments": "Pambayaran" },
-      "noUpcoming": "Durung ana sewan sing bakal teka", "noUpcomingBody": "Golèki pit utawa motor sing cedhak.", "noHistory": "Durung ana riwayat sewan",
-      "noReviews": "Kabèh wis diulas", "noSaved": "Durung ana kendaraan sing disimpen", "noPayments": "Durung ana pambayaran"
-    },
-    "owner": {
-      "title": "Dasbor pemilik", "subtitle": "Pariwara, panjaluk, jadwal, lan asil.", "addVehicle": "Tambah kendaraan",
-      "verifyTitle": "Verifikasi identitasmu", "verifyBody": "Pemilik sing diverifikasi entuk tandha lan luwih akèh pesenan. Unggah KTP ing menu Akun.",
-      "totalEarnings": "Gunggung asil", "afterFee": "Sawisé ragad VELOX", "pendingEarnings": "Ditundha", "pendingHint": "Cair sawisé kendaraan bali",
-      "activeBookings": "Pesenan aktif", "completed": "Sewan rampung",
-      "tabs": { "overview": "Ringkesan", "requests": "Panjaluk", "bookings": "Kabèh pesenan", "vehicles": "Kendaraanku", "calendar": "Tanggalan", "earnings": "Asil" },
-      "noRequests": "Ora ana panjaluk sing ditundha", "noRequestsBody": "Panjaluk pesenan anyar bakal katon ing kéné.", "noBookings": "Durung ana pesenan",
-      "monthly": "Asil saben sasi", "net": "Asil resik", "noEarnings": "Durung ana asil", "popular": "Kendaraan paling laris", "rentals": "{n} sewan",
-      "pendingRequests": "{n} panjaluk nunggu", "respondSoon": "Enggal wangsulana — panjaluk kadaluwarsa dhéwé.", "statusUpdated": "Pariwara dianyari",
-      "noVehicles": "Durung ana kendaraan sing kadhaftar", "noVehiclesBody": "Daftarna pit utawa motor pisananmu mung sawetara menit.", "earnedOn": "Asil: {amount}",
-      "underReview": "Pariwara motor tayang sawisé VELOX mriksa STNK kendaraan.",
-      "pause": "Endhegaké", "maintenance": "Perawatan", "resume": "Uripaké manèh", "vehicle": "Kendaraan", "blockDates": "Blokir tanggal", "editHours": "Owahi jam",
-      "blockAdded": "Tanggal diblokir", "upcomingForVehicle": "Pesenan sing bakal teka", "blocks": "Tanggal diblokir", "noBlocks": "Ora ana tanggal sing diblokir",
-      "blockNotePlaceholder": "contoné Servis, prèi", "available": "Saldo kasedhiya", "feesPaid": "Ragad VELOX",
-      "payoutTitle": "Pencairan", "payoutBody": "Pencairan otomatis menyang rekening bank utawa dompèt digital bakal diuripaké sawisé payment gateway disambungaké.",
-      "ledger": "Transaksi", "payoutSoon": "Pencairan: enggal teka"
-    }
-  },
-  "vehicleForm": {
-    "title": "Daftarna kendaraan", "editTitle": "Owahi pariwara", "subtitle": "Foto cetha lan katrangan jujur nekakaké luwih akèh pesenan.",
-    "category": "Kategori & jinis", "motoNotice": "Pariwara motor mbutuhaké STNK lan nomer polisi, lan tayang sawisé dipriksa VELOX. Mung wong diwasa sing diverifikasi lan duwé SIM sing bisa nyéwa.",
-    "details": "Rincian", "name": "Irah-irahan pariwara", "nameHint": "contoné \"Pit kutha Polygon cedhak UGM\"", "brand": "Merek", "model": "Model", "year": "Taun",
-    "condition": "Kahanan", "description": "Katrangan", "descriptionPlaceholder": "Ukuran, gir, aksesori sing kalebu, apa waé sing perlu dingertèni penyéwa…",
-    "rules": "Aturan sewa", "rulesPlaceholder": "contoné Balèkna resik lan dikunci. Ora olèh mbonceng.",
-    "photos": "Foto", "addPhotos": "Tambah foto", "photosHint": "Nganti 8 foto. Foto dikompres otomatis supaya cepet diemot.",
-    "location": "Panggonan njupuk", "nearUniversity": "Cedhak kampus", "pickupAddress": "Alamat njupuk / panggonan ketemu",
-    "pickupHint": "Katon ing pariwara. Bagi panggonan sing pas liwat chat sawisé pesen.", "lat": "Garis lintang", "lng": "Garis bujur", "useMyLocation": "Nganggo lokasiku saiki",
-    "pricing": "Rega", "pricingHint": "Uripna durasi sing kok tawakaké lan atur regané. Penyéwa tansah mbayar gabungan sing paling murah kanggo wektuné.",
-    "deposit": "Deposit jaminan (Rp)", "depositHint": "Ditahan selawasé sewan, dibalèkaké sawisé kendaraan bali.", "instantBook": "Pesen langsung",
-    "instantBookHint": "Konfirmasi pesenan kanthi otomatis tanpa setuju manual.", "youReceive": "Kowé nampa kira-kira {amount} saben {d} sawisé ragad 10%.",
-    "availability": "Jam njupuk & mbalèkaké", "availabilityHint": "Penyéwa mung bisa miwiti lan ngrampungaké sewan ing jam iki.",
-    "anytime": "Kapan waé (24/7)", "sameEveryDay": "Jam padha saben dina", "everyDay": "Saben dina",
-    "documents": "Dokumen kendaraan", "plate": "Nomer polisi", "plateHint": "Mung katon kanggo kowé lan petugas VELOX.", "insurance": "Asuransi (opsional)",
-    "insurancePlaceholder": "Penyedia / cathetan polis", "stnk": "Surat Tandha Nomer Kendaraan (STNK)", "stnkHint": "Foto utawa PDF, disimpen pribadi", "fileReady": "Berkas siyap",
-    "locationRequired": "Temtokaké koordinat njupuk", "priceRequired": "Tambahna paling sethithik siji rega", "photoRequired": "Tambahna paling sethithik siji foto",
-    "stnkRequired": "Nomer polisi lan STNK wajib kanggo motor", "fixErrors": "Tulung bènèrna kolom sing ditandhani.",
-    "publish": "Tayangaké pariwara", "submitReview": "Kirim kanggo dipriksa", "published": "Pariwaramu wis tayang!", "submittedForReview": "Wis dikirim — STNK enggal dipriksa.",
-    "saved": "Pariwara dianyari"
-  },
-  "messages": {
-    "title": "Pesen", "subtitle": "Obrolan pribadi antarané penyéwa lan pemilik.", "empty": "Durung ana obrolan",
-    "emptyBody": "Takon marang pemilik saka kaca pariwara apa waé.", "as": { "renter": "kowé nyéwa", "owner": "kowé sing duwé" }, "noMessages": "Durung ana pesen",
-    "select": "Pilih obrolan", "notFound": "Obrolan ora ketemu",
-    "safety": "Bayar ing VELOX. Nomer HP lan email didhelikaké nganti pesenan dikonfirmasi.", "placeholder": "Tulis pesen…", "send": "Kirim"
-  },
-  "notifications": {
-    "title": "Kabar", "markAll": "Tandhani kabèh wis diwaca", "empty": "Ora ana kabar anyar",
-    "types": {
-      "booking_requested": { "title": "Panjaluk pesenan anyar", "body": "{vehicle} · {code}" },
-      "booking_accepted": { "title": "Pesenan ditampa", "body": "Rampungna pambayaran kanggo konfirmasi {code}." },
-      "booking_rejected": { "title": "Panjaluk ditolak", "body": "{vehicle} ora kasedhiya kanggo {code}." },
-      "booking_expired": { "title": "Pesenan kadaluwarsa", "body": "{code} kadaluwarsa sadurungé rampung." },
-      "payment_confirmed": { "title": "Pambayaran dikonfirmasi", "body": "{code} wis dikonfirmasi." },
-      "payment_failed": { "title": "Pambayaran gagal", "body": "Pambayaran kanggo {code} ora kasil." },
-      "booking_cancelled": { "title": "Pesenan dibatalaké", "body": "{vehicle} · {code}" },
-      "rental_started": { "title": "Sewan diwiwiti", "body": "Sugeng tindak! ({code})" },
-      "rental_completed": { "title": "Sewan rampung", "body": "{code}" },
-      "pickup_upcoming": { "title": "Njupuk kurang saka sejam", "body": "Siyap-siyap kanggo {code}." },
-      "return_upcoming": { "title": "Enggal balèkna", "body": "{code} rampung kurang saka sejam." },
-      "rental_extended": { "title": "Sewan diterusaké", "body": "{code} duwé wektu mbalèkaké anyar." },
-      "new_message": { "title": "Pesen anyar", "body": "Ana pesen sing durung diwaca." },
-      "review_request": { "title": "Kepiyé pengalamanmu?", "body": "Wènèh ulasan kanggo {code}." },
-      "verification_approved": { "title": "Verifikasi disetujoni", "body": "{type} disetujoni." },
-      "verification_rejected": { "title": "Verifikasi perlu dibenahi", "body": "{type} ora disetujoni." },
-      "account_suspended": { "title": "Akun ditangguhaké", "body": "Hubungi tim VELOX." },
-      "listing_suspended": { "title": "Pariwara ditangguhaké", "body": "{vehicle} wis ora katon." },
-      "dispute_opened": { "title": "Sengketa dibukak", "body": "Sengketa dibukak kanggo {code}." },
-      "dispute_updated": { "title": "Kabar sengketa", "body": "Ana kabar anyar bab {code}." }
-    }
-  },
-  "ledger": {
-    "renter_charge": "Ragad sewa", "deposit_hold": "Deposit ditahan", "deposit_release": "Deposit dibalèkaké", "deposit_capture": "Deposit dipotong",
-    "owner_earning": "Asil pemilik", "platform_commission": "Komisi VELOX", "refund": "Pambalèkan dhuwit", "late_fee": "Dhendha telat", "payout": "Pencairan"
+  "trust": {
+   "eyebrow": "Kapercayan & keamanan",
+   "title": "Digawé kanggo sewa-sinewa karo wong sing durung kenal",
+   "verify": "Identitas diverifikasi",
+   "verifyd": "Verifikasi telpon, email, lan identitas. Motor mbutuhaké SIM C sing disetujoni lan umur diwasa.",
+   "checklist": "Serah-tampa digital",
+   "checklistd": "Checklist njupuk lan mbalèkaké sing ana wektuné lan fotoné nglindhungi loro-loroné.",
+   "payments": "Pambayaran aman",
+   "paymentsd": "Pesenan lagi dikonfirmasi sawisé penyedia pambayaran ngonfirmasi. Deposit disimpen, banjur dibalèkaké.",
+   "reviews": "Ulasan rong arah",
+   "reviewsd": "Penyéwa lan pemilik padha awèh biji sawisé saben sewan."
   },
   "unis": {
-    "title": "Komunitas kampus", "subtitle": "Golèki kendaraan duwèké mahasiswa ing sacedhaké kampusmu.", "vehicles": "{n} kendaraan", "members": "{n} anggota",
-    "openToAll": "Sapa waé bisa nganggo VELOX — dadi anggota kampus iku opsional.", "notFound": "Kampus ora ketemu", "member": "Kampusmu",
-    "verifiedMember": "Anggota diverifikasi", "viewMap": "Deleng ing peta", "joinHint": "Atur kampus iki ing profilmu kanggo mlebu komunitasé.",
-    "join": "Gabung", "nearCampus": "Kendaraan ing sacedhaké kampus", "noVehicles": "Durung ana kendaraan sing kadhaftar ing kéné",
-    "stats": { "students": "Mahasiswa kadhaftar", "verified": "{n} diverifikasi", "bicycles": "Pit kasedhiya", "motorcycles": "Motor kasedhiya", "active": "Sewan mlaku", "completed": "Pesenan rampung" }
+   "eyebrow": "Komunitas kampus",
+   "title": "Wiwiti saka kampusmu",
+   "vehicles": "{n} kendaraan"
   },
-  "admin": {
-    "title": "Admin", "subtitle": "Ngatur marketplace VELOX.",
-    "tabs": { "overview": "Ringkesan", "verifications": "Antrian verifikasi", "users": "Pangguna", "vehicles": "Kendaraan", "bookings": "Pesenan", "finance": "Keuangan", "reports": "Laporan & sengketa", "cities": "Kutha", "settings": "Setélan" },
-    "stats": {
-      "users": "Pangguna", "owners": "{n} pemilik", "vehicles": "Pariwara aktif", "pendingReview": "{n} nunggu dipriksa", "gmv": "Nilai pesenan bruto",
-      "demoMoney": "Kalebu transaksi démo", "commission": "Komisi platform", "refunds": "Pambalèkan: {amount}", "bookings": "Pesenan",
-      "active": "Sewan mlaku", "verifications": "Verifikasi ditundha", "issues": "Laporan & sengketa bukak"
-    },
-    "daily": "Pesenan — 30 dina kepungkur", "byCity": "Saben kutha", "noData": "Durung ana data", "vehiclesN": "{n} kendaraan", "bookingsN": "{n} pesenan",
-    "verif": { "approved": "Disetujoni", "rejected": "Ditolak", "empty": "Antrian kosong", "viewDoc": "Deleng dokumen", "demoNoDoc": "Démo — tanpa berkas", "notePlaceholder": "Cathetan kanggo pangguna (opsional)" },
-    "approve": "Setujoni", "reject": "Tolak", "suspend": "Tangguhaké", "reinstate": "Pulihaké", "updated": "Dianyari", "searchUsers": "Golèki jeneng, email, utawa HP…",
-    "cols": { "name": "Jeneng", "role": "Peran", "verification": "Kontak", "activity": "Kagiyatan", "joined": "Gabung", "status": "Status" },
-    "activity": "{r} sewan · {v} kendaraan", "reportsN": "{n} laporan", "flagCancels": "{n} pembatalan", "viewStnk": "Deleng STNK",
-    "financeDemo": "Kabèh nominal saka penyedia pambayaran tiron. Ora ana dhuwit asli sing pindhah.", "month": "Sasi", "ledger": "Buku transaksi",
-    "disputes": "Sengketa", "reports": "Laporan", "depositHeld": "deposit {amount}", "resolve": "Rampungaké", "resolveDispute": "Rampungaké sengketa", "outcome": "Kaputusan",
-    "award": "Nominal saka deposit kanggo pemilik (Rp)", "awardHint": "Turahan deposit dibalèkaké marang penyéwa.", "resolution": "Cathetan kaputusan",
-    "markResolved": "Tandhani rampung", "dismiss": "Tinggalaké", "target": { "user": "Pangguna", "vehicle": "Kendaraan", "booking": "Pesenan", "message": "Pesen" },
-    "locTypes": { "city": "Kutha / kabupatèn", "province": "Provinsi" }, "activate": "Uripaké", "deactivate": "Patèni", "addLocation": "Tambah lokasi",
-    "locType": "Jinis", "name": "Jeneng", "timezone": "Zona wektu", "add": "Tambah", "cityAdded": "Lokasi ditambahaké",
-    "citiesHint": "Kutha anyar langsung katon ing panggolèkan, pendhaftaran, lan formulir pariwara — tanpa owah kode.",
-    "commission": "Komisi platform", "commissionHint": "Laku kanggo pesenan anyar. Pesenan lawas tetep nganggo tarif nalika digawé.",
-    "currentRate": "Tarif saiki", "ownerGets": "Pemilik nampa {pct}%", "applyRate": "Trapaké", "history": "Riwayat", "rules": "Aturan pesenan",
-    "settings": {
-      "motorcycle_min_age": "Umur minimal kanggo motor", "cancellation_free_hours": "Wates batal gratis (jam sadurungé njupuk)",
-      "late_cancellation_refund_pct": "Pambalèkan batal telat (% rega sewa)", "late_grace_minutes": "Toleransi telat (menit)",
-      "late_fee_multiplier": "Pengali dhendha (× rega saben jam)", "request_expiry_minutes": "Wates wektu wangsulan pemilik (menit)", "payment_expiry_minutes": "Wates wektu pambayaran (menit)"
-    },
-    "translations": "Terjemahan & isi", "translationsHint": "Teks antarmuka diatur ing berkas basa terpusat (en, id, jv, fa). Editor ing njero dasbor lagi direncanakaké."
-  },
-  "info": {
-    "trust": {
-      "title": "Kapercayan & keamanan", "subtitle": "Carané VELOX nglindhungi penyéwa lan pemilik.",
-      "verify": { "title": "Verifikasi", "body": "Saben anggota verifikasi email lan nomer HP. Pemilik verifikasi identitas (KTP utawa paspor). Dokumen dipriksa tim VELOX lan disimpen kanthi pribadi." },
-      "moto": { "title": "Aturan motor", "body": "Motor mung bisa dipesen anggota sing nyukupi umur minimal platform, duwé SIM C sing disetujoni lan isih laku, sarta identitas diverifikasi. Pemilik kudu nyertakaké STNK; pariwara tayang sawisé dipriksa." },
-      "handover": { "title": "Serah-tampa digital", "body": "Pas njupuk, penyéwa awèh kode pesenan sing mung sepisan dienggo. Loro-loroné ngisi checklist sing ana wektuné lan fotoné pas njupuk lan mbalèkaké, saéngga kahanan kendaraan kacathet cetha." },
-      "payments": { "title": "Pambayaran aman", "body": "Pambayaran diproses liwat payment gateway sing duwé ijin. Pesenan lagi dikonfirmasi sawisé gateway ngonfirmasi pambayaran menyang server awaké dhéwé. Deposit ditahan lan dibalèkaké sawisé kendaraan bali kanthi apik." },
-      "messaging": { "title": "Pesen pribadi", "body": "Penyéwa lan pemilik ngobrol ing njero VELOX. Rincian kontak didhelikaké nganti pesenan dikonfirmasi kanggo nyegah apus-apus ing njaba platform." },
-      "reviews": { "title": "Ulasan rong arah", "body": "Sawisé saben sewan, penyéwa lan pemilik padha awèh biji. Biji gegayutan karo pesenan asli sing wis rampung." },
-      "reporting": { "title": "Laporan & sengketa", "body": "Laporaké pariwara, pangguna, utawa masalah kapan waé. Karusakan, telat, lan ora teka mlebu antrian sengketa sing dipriksa tim awaké dhéwé adhedhasar checklist, foto, lan pesen." },
-      "privacy": { "title": "Privasimu", "body": "Awaké dhéwé mung nglumpukaké data sing perlu supaya layanan aman lan mung nyimpen angka pungkasan nomer dokumen. VELOX lagi disiapaké supaya manut UU Pelindungan Data Pribadi (UU PDP) sadurungé diluncuraké kanggo umum." }
-    },
-    "terms": {
-      "title": "Prajanjian sewa & katemtuan", "subtitle": "Aturan sing laku kanggo saben pesenan VELOX.",
-      "draftTitle": "Draf — nunggu dipriksa ahli hukum", "draftBody": "Prajanjian iki draf kerja kanggo MVP lan kudu dipriksa ahli hukum Indonésia sadurungé diluncuraké kanggo umum.",
-      "scope": { "title": "Platform VELOX", "body": "VELOX iku marketplace sing nyambungaké pemilik kendaraan karo penyéwa. VELOX dudu pemilik kendaraan sing dipariwarakaké lan dudu pihak ing prajanjian sewa, kejaba kanggo ngolah pambayaran lan ngrampungaké sengketa." },
-      "parties": { "title": "Tanggung jawab pemilik lan penyéwa", "body": "Pemilik njamin yèn dhèwèké pemilik sah utawa olèh nyewakaké kendaraan, kendaraan laik dalan, lan rincian pariwara bener. Penyéwa setuju nganggo kendaraan kanthi sah lan ati-ati, mung kanggo lelungan pribadi, lan mbalèkaké pas wektuné kanthi kahanan padha." },
-      "booking": { "title": "Pesenan", "body": "Panjaluk pesenan dadi mengikat sawisé pemilik nampa lan penyedia pambayaran ngonfirmasi pambayaran. Loro-loroné setuju prajanjian iki nalika pesenan digawé." },
-      "payment": { "title": "Rega lan pambayaran", "body": "Rega ditemtokaké pemilik. Penyéwa dikenani gabungan rega pemilik sing paling murah kanggo durasi sing dipesen. VELOX motong komisi platform saka asil pemilik." },
-      "deposit": { "title": "Deposit jaminan", "body": "Yèn pariwara nganggo deposit, deposit ditahan selawasé sewan lan dibalèkaké sawisé kendaraan bali kanthi apik, dikurangi dhendha telat utawa nominal sing diputusaké ing sengketa." },
-      "cancellation": { "title": "Pembatalan", "body": "Penyéwa bisa mbatalaké gratis sadurungé mbayar. Sawisé mbayar, mbatalaké paling ora 24 jam sadurungé njupuk dibalèkaké kabèh; mbatalaké sawisé iku mbalèkaké 50% rega sewa ditambah kabèh deposit. Yèn pemilik mbatalaké, penyéwa nampa pambalèkan kabèh." },
-      "late": { "title": "Telat lan tambahan wektu", "body": "Penyéwa bisa nerusaké sewan yèn kendaraan isih kosong kanthi mbayar tambahan. Mbalèkaké ngliwati wektu toleransi kena dhendha saben jam sing wis mlaku." },
-      "responsibility": { "title": "Karusakan lan tanggung jawab", "body": "Penyéwa tanggung jawab marang kendaraan wiwit njupuk nganti mbalèkaké, kalebu dhendha tilang selawasé sewan. Karusakan dicathet nganggo checklist lan foto serah-tampa." },
-      "motorcycles": { "title": "Motor", "body": "Penyéwa motor kudu nyukupi umur minimal platform, duwé SIM C sing isih laku, sarta nggawa KTP lan STNK kendaraan nalika nyetir. Wajib nganggo helm standar SNI." },
-      "disputes": { "title": "Sengketa", "body": "Pihak sapa waé bisa mbukak sengketa. VELOX mriksa bukti lan bisa awèh sebagéyan utawa kabèh deposit marang pemilik utawa mbalèkaké marang penyéwa." },
-      "data": { "title": "Data pribadi", "body": "Data pribadi mung diolah kanggo nyedhiyakaké layanan, verifikasi anggota, lan njaga keamanan platform, manut aturan pelindungan data pribadi sing laku ing Indonésia." }
-    }
-  },
-  "footer": {
-    "about": "VELOX iku marketplace mobilitas antarwarga kanggo Indonésia — diwiwiti saka komunitas kampus, digawé kanggo saben kutha.",
-    "mvp": "MVP · Tahap 1", "explore": "Golèki", "company": "VELOX", "trust": "Kapercayan & keamanan", "terms": "Prajanjian sewa & katemtuan",
-    "demoNote": "Pariwara, pangguna, pesenan, lan pambayaran sing katon iku data démo."
-  },
-  "notFound": { "title": "Kaca ora ketemu", "body": "Kaca sing kok golèki ora ana utawa wis dipindhah.", "home": "Menyang ngarep" },
-  "validation": {
-    "V_REQUIRED": "Kolom iki kudu diisi", "V_INVALID": "Priksa manèh isiné", "V_TOO_SHORT": "Kecendhakan", "V_TOO_LONG": "Kedawanen",
-    "V_EMAIL": "Lebokna alamat email sing bener", "V_PHONE": "Lebokna nomer HP Indonésia sing bener", "V_PASSWORD": "Paling sethithik 8 aksara",
-    "V_CODE": "Lebokna kode 6 angka", "V_DATE": "Lebokna tanggal sing bener", "V_NUMBER": "Lebokna angka", "V_EMAIL_TAKEN": "Email iki wis kadhaftar",
-    "V_PHONE_TAKEN": "Nomer HP iki wis kadhaftar", "V_END_BEFORE_START": "Wektu pungkasan kudu sawisé wektu wiwitan"
-  },
-  "errors": {
-    "INTERNAL": "Ana sing salah. Coba manèh.", "NETWORK": "Ora ana sambungan. Priksa internetmu banjur coba manèh.",
-    "UNAUTHORIZED": "Mlebu dhisik kanggo nerusaké.", "FORBIDDEN": "Kowé ora duwé ijin kanggo kuwi.", "NOT_FOUND": "Ora ketemu.",
-    "RATE_LIMITED": "Kakèhan nyoba. Ngenteni sedhéla.", "VALIDATION_FAILED": "Priksa kolom sing ditandhani.",
-    "INVALID_CREDENTIALS": "Email utawa tembung sandhi salah.", "ACCOUNT_SUSPENDED": "Akun iki ditangguhaké. Hubungi tim dhukungan.",
-    "EMAIL_TAKEN": "Email iki wis kadhaftar.", "PHONE_TAKEN": "Nomer HP iki wis kadhaftar.",
-    "CODE_EXPIRED": "Kodené wis kadaluwarsa. Jaluk kode anyar.", "CODE_INVALID": "Kodené salah.", "VERIFICATION_PENDING": "Kowé wis duwé dokumen sing lagi dipriksa.",
-    "AGREEMENT_REQUIRED": "Tulung setujoni prajanjian sewa.", "OWN_VEHICLE": "Kowé ora bisa pesen kendaraanmu dhéwé.",
-    "MOTORCYCLE_NOT_ELIGIBLE": "Rampungna verifikasi motor (umur, identitas, lan SIM C) sadurungé pesen.", "NO_PRICING": "Kendaraan iki durung duwé rega.",
-    "INVALID_TRANSITION": "Tumindak iki ora bisa ing status pesenan saiki.", "BOOKING_CHANGED": "Pesenan lagi waé owah. Muat manèh lan coba manèh.",
-    "NOT_AWAITING_PAYMENT": "Pesenan iki ora lagi nunggu pambayaran.", "PICKUP_CODE_INVALID": "Kode njupuk salah.",
-    "TOO_EARLY_FOR_PICKUP": "Njupuk paling cepet 1 jam sadurungé wektu pesenan.", "NOT_CANCELLABLE": "Pesenan iki wis ora bisa dibatalaké.",
-    "NOT_EXTENDABLE": "Pesenan iki ora bisa diterusaké.", "REVIEW_NOT_ALLOWED": "Ulasan dibukak sawisé sewan rampung.",
-    "REVIEW_WINDOW_CLOSED": "Wektu awèh ulasan wis entèk.", "ALREADY_REVIEWED": "Kowé wis ngulas pesenan iki.", "DISPUTE_OPEN": "Sengketa wis dibukak.",
-    "UPLOAD_EMPTY": "Berkasé kosong.", "UPLOAD_TOO_LARGE": "Berkasé kegedhèn (maks 4 MB).", "UPLOAD_TYPE": "Nganggo berkas JPG, PNG, WEBP, utawa PDF.",
-    "TOO_MANY_IMAGES": "Paling akèh 8 foto.", "LISTING_UNDER_REVIEW": "Pariwara iki lagi dipriksa lan durung bisa diuripaké.",
-    "PAYLOAD_TOO_LARGE": "Panjaluké kegedhèn.", "INVALID_JSON": "Panjaluk ora bener.", "UNSUPPORTED_MEDIA_TYPE": "Panjaluk ora bener.", "BAD_ORIGIN": "Asal panjaluk ora bener.",
-    "CANNOT_MODIFY_SELF": "Kowé ora bisa ngowahi akun admin dhéwé ing kéné.", "SLUG_TAKEN": "Lokasi kanthi jeneng iki wis ana.",
-    "INVALID_SIGNATURE": "Tandha tangan ora bener.", "NOT_MOCK": "Dudu pambayaran uji.", "INVALID_CHANNEL": "Panjaluk ora bener.",
-    "START_IN_PAST": "Wektu njupuk wis liwat.", "TOO_FAR_AHEAD": "Pesen bisa nganti 90 dina ngarep.", "TOO_LONG": "Sewan paling suwé 30 dina.",
-    "TOO_SHORT": "Sewan paling cendhak 30 menit.", "OUTSIDE_HOURS": "Wektu njupuk utawa mbalèkaké ana ing njaba jam serah-tampa pemilik.",
-    "BLOCKED": "Pemilik nandhani tanggal iki ora kasedhiya.", "ALREADY_BOOKED": "Nyuwun ngapura — ana wong sing lagi waé mesen wektu iki.", "NOT_LISTED": "Kendaraan iki saiki ora nampa pesenan."
+  "earn": {
+   "title": "Pitmu diparkir 23 jam sedina.",
+   "body": "Daftarna ing Bali Bike lan entuk dhuwit nalika ora dienggo. Kowé sing nemtokaké rega, jam, lan sapa sing nyéwa.",
+   "cta": "Nyewakake kendaraan",
+   "example": "Conto sesasi (ilustrasi)",
+   "rentals": "Cacahé sewan",
+   "avg": "Rata-rata saben sewan",
+   "gross": "Bruto",
+   "fee": "Ragad Bali Bike ({pct}%)",
+   "youEarn": "Sing kok tampa",
+   "disclaimer": "Angka mung ilustrasi, dudu janji penghasilan. Komisi bisa diatur."
   }
+ },
+ "search": {
+  "all": "Kabèh",
+  "allCities": "Kabèh kutha",
+  "city": "Kutha",
+  "nearMe": "Cedhak aku",
+  "locating": "Nggolèki lokasi…",
+  "radius": "Radius",
+  "filters": "Saringan",
+  "sort": "Urutaké",
+  "listView": "Tampilan dhaptar",
+  "mapView": "Tampilan peta",
+  "sorts": {
+   "nearest": "Paling cedhak",
+   "price": "Paling murah",
+   "rating": "Biji paling dhuwur",
+   "newest": "Paling anyar",
+   "available_now": "Kosong saiki"
+  },
+  "results": "{n} kendaraan",
+  "searching": "Nggolèki…",
+  "nearYou": "cedhak kowé",
+  "inCity": "ing {city}",
+  "inIndonesia": "ing saindhenging Indonésia",
+  "geoError": "Lokasimu ora bisa dijupuk. Priksa idin browser utawa pilih kutha.",
+  "motoNotice": "Nyéwa motor mbutuhaké identitas diverifikasi, SIM C sing disetujoni, lan umur minimal platform.",
+  "emptyTitle": "Ora ana kendaraan sing cocog",
+  "emptyBody": "Coba radius luwih amba, tanggal liya, utawa saringan luwih sithik.",
+  "clear": "Busak saringan",
+  "showResults": "Tuduhna {n} asil",
+  "vehicleType": "Jinis kendaraan",
+  "availability": "Kosong kanggo",
+  "availabilityHint": "Mung nuduhaké kendaraan sing kosong kanggo wektu njupuk lan durasi iki (WIB).",
+  "pricePerHour": "Rega saben jam (kira-kira, Rp)",
+  "min": "Min",
+  "max": "Maks",
+  "minRating": "Biji minimal",
+  "any": "Apa waé",
+  "university": "Cedhak kampus",
+  "anyUniversity": "Kabèh kampus"
+ },
+ "map": {
+  "loading": "Ngemot peta…",
+  "noPoints": "Ora ana kendaraan sing dituduhaké ing peta",
+  "fallback": "Peta prasaja (ubin peta ora kasedhiya)"
+ },
+ "vehicle": {
+  "from": "wiwit",
+  "total": "gunggung",
+  "instant": "Pesen langsung",
+  "licenseRequired": "Kudu SIM C",
+  "notFound": "Kendaraan iki ora kasedhiya",
+  "notPublic": "Pariwara iki saiki ora katon kanggo penyéwa.",
+  "saved": "Disimpen ing dhaptarmu",
+  "unsaved": "Dibusak saka simpenan",
+  "save": "Simpen",
+  "savedBtn": "Kesimpen",
+  "askOwner": "Takon pemilik",
+  "verifiedOwner": "Diverifikasi",
+  "ownerStats": "{n} sewan rampung · anggota wiwit {since}",
+  "about": "Bab kendaraan iki",
+  "pricing": "Rega",
+  "pricingHint": "Kowé dikenani gabungan rega pemilik sing paling murah kanggo durasimu.",
+  "deposit": "Deposit jaminan (bisa bali): {amount}",
+  "availability": "Wektu kosong",
+  "handoverHours": "Jam njupuk & mbalèkaké",
+  "anytime": "Njupuk lan mbalèkaké kapan waé (24/7).",
+  "upcomingBusy": "Wis dipesen",
+  "noBusy": "Ora ana pesenan 60 dina ngarep.",
+  "busy": {
+   "booked": "Dipesen",
+   "blocked": "Ora kasedhiya"
+  },
+  "rules": "Aturan sewa",
+  "agreementNote": "Saben pesenan kalebu prajanjian sewa Bali Bike.",
+  "readAgreement": "Waca prajanjian sewa",
+  "location": "Panggonan njupuk",
+  "exactLocation": "Panggonan ketemu sing pas dikonfirmasi liwat chat sawisé pesen.",
+  "reviews": "Ulasan ({n})",
+  "noReviews": "Durung ana ulasan.",
+  "flexible": "Durasi fleksibel"
+ },
+ "booking": {
+  "title": "Pesen kendaraan iki",
+  "timesIn": "Wektu nganggo {tz}",
+  "pickup": "Njupuk",
+  "return": "Mbalèkaké",
+  "pickupDate": "Tanggal njupuk",
+  "pickupTime": "Jam njupuk",
+  "returnDate": "Tanggal mbalèkaké",
+  "returnTime": "Jam mbalèkaké",
+  "duration": "Suwéné",
+  "custom": "Atur dhéwé",
+  "available": "Kosong kanggo wektu iki",
+  "roundedUp": "Ditagih dadi {d}",
+  "depositRefundable": "Deposit jaminan (dibalèkaké)",
+  "total": "Gunggung",
+  "notePlaceholder": "Pesen kanggo pemilik (opsional)",
+  "agree": "Aku setuju karo",
+  "agreementLink": "prajanjian sewa & kawicaksanan tanggung jawab",
+  "yourVehicle": "Iki kendaraanmu",
+  "loginToBook": "Mlebu kanggo pesen",
+  "bookInstant": "Pesen saiki",
+  "request": "Ajokaké pesenan",
+  "instantHint": "Pesen langsung: dikonfirmasi sanalika sawisé kowé mbayar.",
+  "requestHint": "Kowé ora ditagih sadurungé pemilik nampa.",
+  "checkAvailability": "Priksa wektu kosong",
+  "booking": "Pesenan",
+  "notFound": "Pesenan ora ketemu",
+  "timeline": "Lelakon",
+  "extendedEvent": "Sewan diterusaké",
+  "notes": {
+   "owner_no_response": "pemilik ora mangsuli pas wektuné",
+   "payment_timeout": "pambayaran ora rampung pas wektuné",
+   "payment_confirmed": "pambayaran dikonfirmasi penyedia"
+  },
+  "priceDetails": "Rincian rega",
+  "extensions": "Tambahan wektu",
+  "lateFee": "Dhendha telat",
+  "refunded": "Dibalèkaké",
+  "yourEarning": "Asilmu ({pct}%)",
+  "payments": "Pambayaran",
+  "extension": "tambahan wektu",
+  "owner": "Pemilik",
+  "renter": "Penyéwa",
+  "message": "Kirim pesen",
+  "agreement": "Prajanjian sewa",
+  "agreementStatus": "Versi {v} — disetujoni déning:",
+  "statusHelp": {
+   "renter": {
+    "pending": "Nunggu pemilik nampa panjalukmu.",
+    "accepted": "Pemilik nampa — rampungna pambayaran kanggo konfirmasi.",
+    "confirmed": "Kabèh wis siyap. Tuduhna kode njupuk marang pemilik.",
+    "active": "Sugeng tindak! Balèkna pas wektuné supaya ora kena dhendha.",
+    "completed": "Sewan rampung. Matur nuwun wis nganggo Bali Bike.",
+    "rejected": "Pemilik nolak panjaluk iki.",
+    "cancelled": "Pesenan iki dibatalaké.",
+    "expired": "Pesenan iki kadaluwarsa."
+   },
+   "owner": {
+    "pending": "Ana penyéwa sing pengin kendaraanmu. Tampa utawa tolak.",
+    "accepted": "Nunggu pambayaran saka penyéwa.",
+    "confirmed": "Wis dibayar lan dikonfirmasi. Temoni penyéwa kanggo serah-tampa.",
+    "active": "Kendaraanmu lagi disewa.",
+    "completed": "Sewan rampung. Asil wis kasedhiya.",
+    "rejected": "Kowé nolak panjaluk iki.",
+    "cancelled": "Pesenan iki dibatalaké.",
+    "expired": "Pesenan iki kadaluwarsa."
+   }
+  },
+  "panel": {
+   "payTitle": "Rampungna pambayaran kanggo konfirmasi",
+   "payBody": "Pemilik nampa panjalukmu. Tawaran iki entèk {when}.",
+   "waitingTitle": "Panjaluk wis dikirim",
+   "waitingBody": "Pemilik duwé wektu nganti {when} kanggo mangsuli. Kowé durung ditagih.",
+   "codeTitle": "Kode njupukmu",
+   "codeBody": "Wènèhna kode iki marang pemilik pas njupuk. Aja dibagi sadurungé ketemu.",
+   "qrSoon": "Njupuk nganggo kode QR: enggal teka",
+   "instructionsTitle": "Pituduh njupuk",
+   "instr1": "Pesthèkna panggonan ketemu karo pemilik liwat chat.",
+   "instr2": "Gawa KTP (lan SIM C kanggo motor).",
+   "instr3": "Priksa kendaraan bebarengan lan isi checklist digital.",
+   "instr4": "Wènèhna kode njupuk marang pemilik kanggo miwiti sewan.",
+   "activeTitle": "Sewan lagi mlaku",
+   "activeBody": "Wates mbalèkaké {when}. Butuh wektu tambahan? Terusna sadurungé wektuné entèk.",
+   "requestTitle": "Panjaluk anyar saka {name}",
+   "requestBody": "Wangsulana sadurungé {when} utawa panjaluk bakal kadaluwarsa dhéwé.",
+   "awaitPayTitle": "Ditampa — nunggu pambayaran",
+   "awaitPayBody": "Awaké dhéwé bakal ngabari sanalika penyedia pambayaran ngonfirmasi.",
+   "handoverTitle": "Siyap serah-tampa",
+   "handoverBody": "Pas njupuk, jaluk kode 6 angka saka penyéwa lan isi checklist bebarengan.",
+   "returnTitle": "Konfirmasi mbalèkaké",
+   "returnBody": "Wates bali {when}. Priksa kendaraan lan isi checklist mbalèkaké."
+  },
+  "payNow": "Bayar {amount}",
+  "cancel": "Batalaké pesenan",
+  "cancelRequest": "Batalaké panjaluk",
+  "accept": "Tampa",
+  "reject": "Tolak",
+  "startRental": "Wiwiti sewan",
+  "completeRental": "Konfirmasi mbalèkaké",
+  "extend": "Terusaké sewan",
+  "cancelTitle": "Batalaké pesenan iki?",
+  "cancelFree": "Kowé durung ditagih, dadi mbatalaké gratis.",
+  "cancelPolicy": "Mbatalaké 24 jam utawa luwih sadurungé njupuk dibalèkaké kabèh. Mbatalaké sawisé iku mbalèkaké 50% rega sewa ditambah kabèh deposit.",
+  "ownerCancelPolicy": "Penyéwa bakal nampa pambalèkan kabèh. Pemilik sing kerep mbatalaké bisa ngaruhi pariwarané.",
+  "rejectTitle": "Tolak panjaluk iki?",
+  "rejectBody": "Penyéwa bakal dikabari. Kowé bisa nambahi alesan cekak.",
+  "reasonPlaceholder": "Alesan (opsional)",
+  "extendTitle": "Terusaké sewanmu",
+  "extendBody": "Wektu mbalèkaké saiki: {end}. Pilih pira suwéné tambahan sing kok butuhaké.",
+  "newReturn": "Wektu mbalèkaké anyar",
+  "extendPriceHint": "Ragad tambahan diétung saka rega pemilik lan dibayar sadurungé tambahan wektu laku.",
+  "extendPay": "Terus menyang pambayaran",
+  "actionNeeded": "Perlu tumindak",
+  "leaveReview": "Wènèh ulasan",
+  "toast": {
+   "accepted": "Pesenan ditampa",
+   "rejected": "Panjaluk ditolak",
+   "cancelled": "Pesenan dibatalaké",
+   "started": "Sewan diwiwiti",
+   "completed": "Mbalèkaké dikonfirmasi"
+  }
+ },
+ "availability": {
+  "START_IN_PAST": "Wektu njupuk wis liwat.",
+  "TOO_FAR_AHEAD": "Pesen bisa nganti 90 dina ngarep.",
+  "TOO_LONG": "Sewan paling suwé 30 dina.",
+  "TOO_SHORT": "Sewan paling cendhak 30 menit.",
+  "OUTSIDE_HOURS": "Wektu njupuk utawa mbalèkaké ana ing njaba jam serah-tampa pemilik.",
+  "BLOCKED": "Pemilik nandhani tanggal iki ora kasedhiya.",
+  "ALREADY_BOOKED": "Sebagéyan wektu iki wis dipesen. Coba wektu liya.",
+  "NOT_LISTED": "Kendaraan iki saiki ora nampa pesenan.",
+  "END_BEFORE_START": "Wektu mbalèkaké kudu sawisé wektu njupuk."
+ },
+ "eligibility": {
+  "title": "Syarat nyéwa motor",
+  "missing": "Isih dibutuhaké",
+  "fix": "Rampungna verifikasi",
+  "ok": "Kowé wis diverifikasi kanggo nyéwa motor.",
+  "intro": "Kanggo nyéwa motor, umurmu paling sethithik {age} taun lan kudu ngrampungaké pamriksan iki:",
+  "items": {
+   "email": "Email diverifikasi",
+   "phone": "Nomer telpon diverifikasi",
+   "date_of_birth": "Tanggal lair ing profil",
+   "age": "Umur paling sethithik {age} taun",
+   "identity": "Identitas disetujoni (KTP / paspor)",
+   "license": "SIM C sing disetujoni lan isih laku"
+  }
+ },
+ "payment": {
+  "choose": "Pilih cara mbayar",
+  "continue": "Terus · {amount}",
+  "methods": {
+   "qris": "QRIS",
+   "ewallet": "Dompèt digital",
+   "bank_transfer": "Transfer bank (VA)",
+   "card": "Kertu debit / kredit"
+  },
+  "methodDesc": {
+   "qris": "Pindai nganggo aplikasi bank utawa dompèt digital apa waé",
+   "ewallet": "GoPay, OVO, DANA, ShopeePay",
+   "bank_transfer": "Virtual account BCA, BNI, BRI, Mandiri",
+   "card": "Visa, Mastercard, JCB"
+  },
+  "demoNotice": "Mode démo: ora ana dhuwit asli sing pindhah. Payment gateway (contoné Midtrans utawa Xendit) bakal disambungaké sawisé verifikasi usaha.",
+  "demoBanner": "PAYMENT GATEWAY DÉMO — ora ana dhuwit asli sing ditagih",
+  "mockGateway": "Checkout uji Bali Bike",
+  "status": "Status",
+  "reference": "Referensi",
+  "simulateHelp": "Ing versi asli, gateway ngonfirmasi pambayaran menyang server awaké dhéwé. Ing kéné kowé bisa nyimulasèkaké wangsulané:",
+  "simulateSuccess": "Simulasi pambayaran kasil",
+  "simulateFailure": "Simulasi pambayaran gagal",
+  "backToBooking": "Bali menyang pesenan",
+  "failed": "Pambayaran gagal. Kowé bisa nyoba manèh saka kaca pesenan.",
+  "notFound": "Pambayaran ora ketemu",
+  "sampleQr": "Conto pola QR (ora bisa dipindai)",
+  "realNote": "Pesenan mung dikonfirmasi sawisé konfirmasi saka penyedia pambayaran tekan Bali Bike."
+ },
+ "handover": {
+  "title": "Checklist serah-tampa",
+  "pickup": "Njupuk",
+  "return": "Mbalèkaké",
+  "ok": "Kahanan apik",
+  "issue": "Ana masalah",
+  "pickupTitle": "Wiwiti sewan — checklist njupuk",
+  "returnTitle": "Konfirmasi mbalèkaké — checklist mbalèkaké",
+  "enterCode": "Kode njupuk penyéwa",
+  "codeHint": "Jaluk penyéwa nuduhaké kode 6 angka ing pesenané.",
+  "checklist": "Pamriksan kendaraan",
+  "good": "OK",
+  "problem": "Masalah",
+  "photos": "Foto",
+  "photosHint": "Foto ana wektuné lan disimpen bebarengan karo pesenan.",
+  "notesPlaceholder": "Cathetan (gorèsan, bensin, aksesori…)",
+  "conditionOk": "Kendaraan bali kanthi kahanan padha",
+  "damageNote": "Sengketa karusakan bakal dibukak lan deposit ditahan nganti Bali Bike mriksa.",
+  "items": {
+   "frame": "Rangka",
+   "tires": "Ban",
+   "brakes": "Rem",
+   "chain": "Ranté & gir",
+   "lights": "Lampu & bèl",
+   "lock": "Gembok & aksesori",
+   "body": "Bodi & spion",
+   "fuel": "Bensin / batré",
+   "documents": "STNK ana",
+   "helmet": "Helm"
+  }
+ },
+ "review": {
+  "titleRenter": "Kepiyé sewanmu?",
+  "titleOwner": "Kepiyé penyéwa iki?",
+  "placeholder": "Bagi rincian sing mbiyantu wong liya (opsional)",
+  "submit": "Kirim ulasan",
+  "thanks": "Matur nuwun ulasané"
+ },
+ "dispute": {
+  "title": "Sengketa",
+  "open": "Laporaké masalah ing pesenan iki",
+  "submit": "Kirim",
+  "sent": "Laporanmu wis dikirim menyang tim Bali Bike",
+  "detailsPlaceholder": "Critakna apa sing kedadéyan (paling sethithik 10 aksara)",
+  "hint": "Tim awaké dhéwé mriksa checklist, foto, lan pesen sadurungé mutusaké.",
+  "reasons": {
+   "damage": "Karusakan",
+   "late_return": "Telat mbalèkaké",
+   "not_as_described": "Ora cocog karo katrangan",
+   "no_show": "Ora teka",
+   "payment": "Masalah pambayaran",
+   "other": "Liyané"
+  }
+ },
+ "report": {
+  "title": "Laporaké",
+  "listing": "Laporaké pariwara iki",
+  "submit": "Kirim laporan",
+  "sent": "Matur nuwun — tim awaké dhéwé bakal mriksa.",
+  "detailsPlaceholder": "Critakna luwih akèh (opsional)",
+  "reasons": {
+   "fraud": "Apus-apus",
+   "unsafe": "Ora aman",
+   "inaccurate": "Pariwara ora bener",
+   "harassment": "Gangguan",
+   "damage": "Karusakan",
+   "other": "Liyané"
+  }
+ },
+ "auth": {
+  "loginTitle": "Sugeng rawuh manèh",
+  "registerTitle": "Gawé akun Bali Bike",
+  "noAccount": "Anyar ing Bali Bike?",
+  "haveAccount": "Wis duwé akun?",
+  "email": "Email",
+  "password": "Tembung sandhi",
+  "phone": "Nomer HP",
+  "phoneHint": "Nomer HP Indonésia, contoné 0812…",
+  "passwordHint": "Paling sethithik 8 aksara",
+  "fullName": "Jeneng jangkep",
+  "city": "Kutha",
+  "university": "Kampus",
+  "iWantTo": "Aku pengin",
+  "roles": {
+   "renter": "Nyéwa kendaraan",
+   "renterDesc": "Golèk kendaraan sing cedhak",
+   "owner": "Nyewakake kendaraan",
+   "ownerDesc": "Entuk dhuwit saka pit utawa motor"
+  },
+  "createAccount": "Gawé akun",
+  "consent": "Kanthi gawé akun, kowé setuju karo",
+  "sideNote": "Pratinjau MVP — data démo diwènèhi tandha cetha.",
+  "demoTitle": "Jajal akun démo",
+  "demoBody": "Akun iki mung isi data démo.",
+  "demoRoles": {
+   "renter": "Penyéwa démo",
+   "owner": "Pemilik démo",
+   "admin": "Admin démo"
+  }
+ },
+ "account": {
+  "title": "Akun & verifikasi",
+  "subtitle": "Atur profil, dokumen verifikasi, lan setélanmu.",
+  "becomeOwnerTitle": "Entuk asil saka kendaraanmu",
+  "becomeOwnerBody": "Uripna profil pemilik kanggo nyewakake pit utawa motor.",
+  "becomeOwner": "Dadi pemilik",
+  "nowOwner": "Profil pemilik wis urip",
+  "profile": "Profil",
+  "changePhoto": "Ganti foto",
+  "dob": "Tanggal lair",
+  "dobHint": "Dibutuhaké kanggo syarat nyéwa motor.",
+  "bio": "Bab kowé",
+  "uniVerified": "Anggota diverifikasi",
+  "saved": "Profil disimpen",
+  "documents": "Dokumen verifikasi",
+  "documentsBody": "Dokumen dipriksa tim Bali Bike lan disimpen kanthi pribadi. Mung 4 angka pungkasan nomer dokumen sing disimpen.",
+  "validUntil": "laku nganti {d}",
+  "notSubmitted": "Durung dikirim",
+  "upload": "Unggah",
+  "contact": "Verifikasi kontak",
+  "verified": "Diverifikasi",
+  "verify": "Verifikasi",
+  "language": "Basa",
+  "languageHint": "Disimpen ing akunmu lan dienggo ing kabèh piranti.",
+  "privacy": "Datamu",
+  "privacyBody": "Bali Bike mung nganggo datamu kanggo nglakokaké pesenan, verifikasi, lan keamanan. Awaké dhéwé ora tau adol data pribadi.",
+  "exportSoon": "Ekspor data & mbusak akun: enggal teka.",
+  "verifyEmail": "Verifikasi email",
+  "verifyPhone": "Verifikasi nomer HP",
+  "sendCode": "Kirim kode",
+  "confirm": "Konfirmasi",
+  "sendCodeBody": "Awaké dhéwé bakal ngirim kode 6 angka sing laku 10 menit.",
+  "enterCode": "Lebokna kode 6 angka sing dikirim.",
+  "demoCodeTitle": "Mode démo",
+  "demoCodeBody": "Ngirim email/SMS durung disambungaké. Kodemu yaiku:",
+  "verifiedToast": "Kasil diverifikasi",
+  "docNumber": "Nomer dokumen",
+  "docNumberHint": "Mung 4 aksara pungkasan sing disimpen.",
+  "licenseClass": "Golongan SIM",
+  "expiry": "Tanggal laku",
+  "docFile": "Unggah foto utawa PDF dokumen",
+  "docPrivacy": "Dokumen disimpen ing panyimpenan pribadi lan mung dideleng petugas verifikasi.",
+  "submitDoc": "Kirim kanggo dipriksa",
+  "docSubmitted": "Wis dikirim — awaké dhéwé bakal ngabari sawisé dipriksa"
+ },
+ "verification": {
+  "types": {
+   "identity": "Identitas (KTP / paspor)",
+   "driving_license": "Surat Ijin Nyopir (SIM)",
+   "student": "Kertu mahasiswa"
+  },
+  "hints": {
+   "identity": "Wajib kanggo pemilik lan kanggo nyéwa motor.",
+   "driving_license": "SIM C wajib kanggo nyéwa motor.",
+   "student": "Entuk tandha mahasiswa diverifikasi kanggo kampusmu."
+  },
+  "idVerified": "Identitas diverifikasi",
+  "phoneVerified": "HP diverifikasi"
+ },
+ "dashboard": {
+  "verifyTitle": "Verifikasi kontakmu",
+  "verifyBody": "Anggota sing wis diverifikasi luwih cepet ditampa. Mung sak menit.",
+  "verifyCta": "Verifikasi saiki",
+  "renter": {
+   "title": "Halo, {name}",
+   "subtitle": "Sewan, kendaraan simpenan, lan pambayaranmu.",
+   "find": "Golèki kendaraan",
+   "active": "Sewan mlaku",
+   "upcoming": "Bakal teka",
+   "completed": "Rampung",
+   "spent": "Gunggung blanja",
+   "tabs": {
+    "upcoming": "Mlaku & bakal teka",
+    "history": "Riwayat",
+    "reviews": "Perlu diulas",
+    "saved": "Kesimpen",
+    "payments": "Pambayaran"
+   },
+   "noUpcoming": "Durung ana sewan sing bakal teka",
+   "noUpcomingBody": "Golèki pit utawa motor sing cedhak.",
+   "noHistory": "Durung ana riwayat sewan",
+   "noReviews": "Kabèh wis diulas",
+   "noSaved": "Durung ana kendaraan sing disimpen",
+   "noPayments": "Durung ana pambayaran"
+  },
+  "owner": {
+   "title": "Dasbor pemilik",
+   "subtitle": "Pariwara, panjaluk, jadwal, lan asil.",
+   "addVehicle": "Tambah kendaraan",
+   "verifyTitle": "Verifikasi identitasmu",
+   "verifyBody": "Pemilik sing diverifikasi entuk tandha lan luwih akèh pesenan. Unggah KTP ing menu Akun.",
+   "totalEarnings": "Gunggung asil",
+   "afterFee": "Sawisé ragad Bali Bike",
+   "pendingEarnings": "Ditundha",
+   "pendingHint": "Cair sawisé kendaraan bali",
+   "activeBookings": "Pesenan aktif",
+   "completed": "Sewan rampung",
+   "tabs": {
+    "overview": "Ringkesan",
+    "requests": "Panjaluk",
+    "bookings": "Kabèh pesenan",
+    "vehicles": "Kendaraanku",
+    "calendar": "Tanggalan",
+    "earnings": "Asil"
+   },
+   "noRequests": "Ora ana panjaluk sing ditundha",
+   "noRequestsBody": "Panjaluk pesenan anyar bakal katon ing kéné.",
+   "noBookings": "Durung ana pesenan",
+   "monthly": "Asil saben sasi",
+   "net": "Asil resik",
+   "noEarnings": "Durung ana asil",
+   "popular": "Kendaraan paling laris",
+   "rentals": "{n} sewan",
+   "pendingRequests": "{n} panjaluk nunggu",
+   "respondSoon": "Enggal wangsulana — panjaluk kadaluwarsa dhéwé.",
+   "statusUpdated": "Pariwara dianyari",
+   "noVehicles": "Durung ana kendaraan sing kadhaftar",
+   "noVehiclesBody": "Daftarna pit utawa motor pisananmu mung sawetara menit.",
+   "earnedOn": "Asil: {amount}",
+   "underReview": "Pariwara motor tayang sawisé Bali Bike mriksa STNK kendaraan.",
+   "pause": "Endhegaké",
+   "maintenance": "Perawatan",
+   "resume": "Uripaké manèh",
+   "vehicle": "Kendaraan",
+   "blockDates": "Blokir tanggal",
+   "editHours": "Owahi jam",
+   "blockAdded": "Tanggal diblokir",
+   "upcomingForVehicle": "Pesenan sing bakal teka",
+   "blocks": "Tanggal diblokir",
+   "noBlocks": "Ora ana tanggal sing diblokir",
+   "blockNotePlaceholder": "contoné Servis, prèi",
+   "available": "Saldo kasedhiya",
+   "feesPaid": "Ragad Bali Bike",
+   "payoutTitle": "Pencairan",
+   "payoutBody": "Pencairan otomatis menyang rekening bank utawa dompèt digital bakal diuripaké sawisé payment gateway disambungaké.",
+   "ledger": "Transaksi",
+   "payoutSoon": "Pencairan: enggal teka"
+  }
+ },
+ "vehicleForm": {
+  "title": "Daftarna kendaraan",
+  "editTitle": "Owahi pariwara",
+  "subtitle": "Foto cetha lan katrangan jujur nekakaké luwih akèh pesenan.",
+  "category": "Kategori & jinis",
+  "motoNotice": "Pariwara motor mbutuhaké STNK lan nomer polisi, lan tayang sawisé dipriksa Bali Bike. Mung wong diwasa sing diverifikasi lan duwé SIM sing bisa nyéwa.",
+  "details": "Rincian",
+  "name": "Irah-irahan pariwara",
+  "nameHint": "contoné \"Pit kutha Polygon cedhak UGM\"",
+  "brand": "Merek",
+  "model": "Model",
+  "year": "Taun",
+  "condition": "Kahanan",
+  "description": "Katrangan",
+  "descriptionPlaceholder": "Ukuran, gir, aksesori sing kalebu, apa waé sing perlu dingertèni penyéwa…",
+  "rules": "Aturan sewa",
+  "rulesPlaceholder": "contoné Balèkna resik lan dikunci. Ora olèh mbonceng.",
+  "photos": "Foto",
+  "addPhotos": "Tambah foto",
+  "photosHint": "Nganti 8 foto. Foto dikompres otomatis supaya cepet diemot.",
+  "location": "Panggonan njupuk",
+  "nearUniversity": "Cedhak kampus",
+  "pickupAddress": "Alamat njupuk / panggonan ketemu",
+  "pickupHint": "Katon ing pariwara. Bagi panggonan sing pas liwat chat sawisé pesen.",
+  "lat": "Garis lintang",
+  "lng": "Garis bujur",
+  "useMyLocation": "Nganggo lokasiku saiki",
+  "pricing": "Rega",
+  "pricingHint": "Uripna durasi sing kok tawakaké lan atur regané. Penyéwa tansah mbayar gabungan sing paling murah kanggo wektuné.",
+  "deposit": "Deposit jaminan (Rp)",
+  "depositHint": "Ditahan selawasé sewan, dibalèkaké sawisé kendaraan bali.",
+  "instantBook": "Pesen langsung",
+  "instantBookHint": "Konfirmasi pesenan kanthi otomatis tanpa setuju manual.",
+  "youReceive": "Kowé nampa kira-kira {amount} saben {d} sawisé ragad 10%.",
+  "availability": "Jam njupuk & mbalèkaké",
+  "availabilityHint": "Penyéwa mung bisa miwiti lan ngrampungaké sewan ing jam iki.",
+  "anytime": "Kapan waé (24/7)",
+  "sameEveryDay": "Jam padha saben dina",
+  "everyDay": "Saben dina",
+  "documents": "Dokumen kendaraan",
+  "plate": "Nomer polisi",
+  "plateHint": "Mung katon kanggo kowé lan petugas Bali Bike.",
+  "insurance": "Asuransi (opsional)",
+  "insurancePlaceholder": "Penyedia / cathetan polis",
+  "stnk": "Surat Tandha Nomer Kendaraan (STNK)",
+  "stnkHint": "Foto utawa PDF, disimpen pribadi",
+  "fileReady": "Berkas siyap",
+  "locationRequired": "Temtokaké koordinat njupuk",
+  "priceRequired": "Tambahna paling sethithik siji rega",
+  "photoRequired": "Tambahna paling sethithik siji foto",
+  "stnkRequired": "Nomer polisi lan STNK wajib kanggo motor",
+  "fixErrors": "Tulung bènèrna kolom sing ditandhani.",
+  "publish": "Tayangaké pariwara",
+  "submitReview": "Kirim kanggo dipriksa",
+  "published": "Pariwaramu wis tayang!",
+  "submittedForReview": "Wis dikirim — STNK enggal dipriksa.",
+  "saved": "Pariwara dianyari"
+ },
+ "messages": {
+  "title": "Pesen",
+  "subtitle": "Obrolan pribadi antarané penyéwa lan pemilik.",
+  "empty": "Durung ana obrolan",
+  "emptyBody": "Takon marang pemilik saka kaca pariwara apa waé.",
+  "as": {
+   "renter": "kowé nyéwa",
+   "owner": "kowé sing duwé"
+  },
+  "noMessages": "Durung ana pesen",
+  "select": "Pilih obrolan",
+  "notFound": "Obrolan ora ketemu",
+  "safety": "Bayar ing Bali Bike. Nomer HP lan email didhelikaké nganti pesenan dikonfirmasi.",
+  "placeholder": "Tulis pesen…",
+  "send": "Kirim"
+ },
+ "notifications": {
+  "title": "Kabar",
+  "markAll": "Tandhani kabèh wis diwaca",
+  "empty": "Ora ana kabar anyar",
+  "types": {
+   "booking_requested": {
+    "title": "Panjaluk pesenan anyar",
+    "body": "{vehicle} · {code}"
+   },
+   "booking_accepted": {
+    "title": "Pesenan ditampa",
+    "body": "Rampungna pambayaran kanggo konfirmasi {code}."
+   },
+   "booking_rejected": {
+    "title": "Panjaluk ditolak",
+    "body": "{vehicle} ora kasedhiya kanggo {code}."
+   },
+   "booking_expired": {
+    "title": "Pesenan kadaluwarsa",
+    "body": "{code} kadaluwarsa sadurungé rampung."
+   },
+   "payment_confirmed": {
+    "title": "Pambayaran dikonfirmasi",
+    "body": "{code} wis dikonfirmasi."
+   },
+   "payment_failed": {
+    "title": "Pambayaran gagal",
+    "body": "Pambayaran kanggo {code} ora kasil."
+   },
+   "booking_cancelled": {
+    "title": "Pesenan dibatalaké",
+    "body": "{vehicle} · {code}"
+   },
+   "rental_started": {
+    "title": "Sewan diwiwiti",
+    "body": "Sugeng tindak! ({code})"
+   },
+   "rental_completed": {
+    "title": "Sewan rampung",
+    "body": "{code}"
+   },
+   "pickup_upcoming": {
+    "title": "Njupuk kurang saka sejam",
+    "body": "Siyap-siyap kanggo {code}."
+   },
+   "return_upcoming": {
+    "title": "Enggal balèkna",
+    "body": "{code} rampung kurang saka sejam."
+   },
+   "rental_extended": {
+    "title": "Sewan diterusaké",
+    "body": "{code} duwé wektu mbalèkaké anyar."
+   },
+   "new_message": {
+    "title": "Pesen anyar",
+    "body": "Ana pesen sing durung diwaca."
+   },
+   "review_request": {
+    "title": "Kepiyé pengalamanmu?",
+    "body": "Wènèh ulasan kanggo {code}."
+   },
+   "verification_approved": {
+    "title": "Verifikasi disetujoni",
+    "body": "{type} disetujoni."
+   },
+   "verification_rejected": {
+    "title": "Verifikasi perlu dibenahi",
+    "body": "{type} ora disetujoni."
+   },
+   "account_suspended": {
+    "title": "Akun ditangguhaké",
+    "body": "Hubungi tim Bali Bike."
+   },
+   "listing_suspended": {
+    "title": "Pariwara ditangguhaké",
+    "body": "{vehicle} wis ora katon."
+   },
+   "dispute_opened": {
+    "title": "Sengketa dibukak",
+    "body": "Sengketa dibukak kanggo {code}."
+   },
+   "dispute_updated": {
+    "title": "Kabar sengketa",
+    "body": "Ana kabar anyar bab {code}."
+   }
+  }
+ },
+ "ledger": {
+  "renter_charge": "Ragad sewa",
+  "deposit_hold": "Deposit ditahan",
+  "deposit_release": "Deposit dibalèkaké",
+  "deposit_capture": "Deposit dipotong",
+  "owner_earning": "Asil pemilik",
+  "platform_commission": "Komisi Bali Bike",
+  "refund": "Pambalèkan dhuwit",
+  "late_fee": "Dhendha telat",
+  "payout": "Pencairan"
+ },
+ "unis": {
+  "title": "Komunitas kampus",
+  "subtitle": "Golèki kendaraan duwèké mahasiswa ing sacedhaké kampusmu.",
+  "vehicles": "{n} kendaraan",
+  "members": "{n} anggota",
+  "openToAll": "Sapa waé bisa nganggo Bali Bike — dadi anggota kampus iku opsional.",
+  "notFound": "Kampus ora ketemu",
+  "member": "Kampusmu",
+  "verifiedMember": "Anggota diverifikasi",
+  "viewMap": "Deleng ing peta",
+  "joinHint": "Atur kampus iki ing profilmu kanggo mlebu komunitasé.",
+  "join": "Gabung",
+  "nearCampus": "Kendaraan ing sacedhaké kampus",
+  "noVehicles": "Durung ana kendaraan sing kadhaftar ing kéné",
+  "stats": {
+   "students": "Mahasiswa kadhaftar",
+   "verified": "{n} diverifikasi",
+   "bicycles": "Pit kasedhiya",
+   "motorcycles": "Motor kasedhiya",
+   "active": "Sewan mlaku",
+   "completed": "Pesenan rampung"
+  }
+ },
+ "admin": {
+  "title": "Admin",
+  "subtitle": "Ngatur marketplace Bali Bike.",
+  "tabs": {
+   "overview": "Ringkesan",
+   "verifications": "Antrian verifikasi",
+   "users": "Pangguna",
+   "vehicles": "Kendaraan",
+   "bookings": "Pesenan",
+   "finance": "Keuangan",
+   "reports": "Laporan & sengketa",
+   "cities": "Kutha",
+   "settings": "Setélan"
+  },
+  "stats": {
+   "users": "Pangguna",
+   "owners": "{n} pemilik",
+   "vehicles": "Pariwara aktif",
+   "pendingReview": "{n} nunggu dipriksa",
+   "gmv": "Nilai pesenan bruto",
+   "demoMoney": "Kalebu transaksi démo",
+   "commission": "Komisi platform",
+   "refunds": "Pambalèkan: {amount}",
+   "bookings": "Pesenan",
+   "active": "Sewan mlaku",
+   "verifications": "Verifikasi ditundha",
+   "issues": "Laporan & sengketa bukak"
+  },
+  "daily": "Pesenan — 30 dina kepungkur",
+  "byCity": "Saben kutha",
+  "noData": "Durung ana data",
+  "vehiclesN": "{n} kendaraan",
+  "bookingsN": "{n} pesenan",
+  "verif": {
+   "approved": "Disetujoni",
+   "rejected": "Ditolak",
+   "empty": "Antrian kosong",
+   "viewDoc": "Deleng dokumen",
+   "demoNoDoc": "Démo — tanpa berkas",
+   "notePlaceholder": "Cathetan kanggo pangguna (opsional)"
+  },
+  "approve": "Setujoni",
+  "reject": "Tolak",
+  "suspend": "Tangguhaké",
+  "reinstate": "Pulihaké",
+  "updated": "Dianyari",
+  "searchUsers": "Golèki jeneng, email, utawa HP…",
+  "cols": {
+   "name": "Jeneng",
+   "role": "Peran",
+   "verification": "Kontak",
+   "activity": "Kagiyatan",
+   "joined": "Gabung",
+   "status": "Status"
+  },
+  "activity": "{r} sewan · {v} kendaraan",
+  "reportsN": "{n} laporan",
+  "flagCancels": "{n} pembatalan",
+  "viewStnk": "Deleng STNK",
+  "financeDemo": "Kabèh nominal saka penyedia pambayaran tiron. Ora ana dhuwit asli sing pindhah.",
+  "month": "Sasi",
+  "ledger": "Buku transaksi",
+  "disputes": "Sengketa",
+  "reports": "Laporan",
+  "depositHeld": "deposit {amount}",
+  "resolve": "Rampungaké",
+  "resolveDispute": "Rampungaké sengketa",
+  "outcome": "Kaputusan",
+  "award": "Nominal saka deposit kanggo pemilik (Rp)",
+  "awardHint": "Turahan deposit dibalèkaké marang penyéwa.",
+  "resolution": "Cathetan kaputusan",
+  "markResolved": "Tandhani rampung",
+  "dismiss": "Tinggalaké",
+  "target": {
+   "user": "Pangguna",
+   "vehicle": "Kendaraan",
+   "booking": "Pesenan",
+   "message": "Pesen"
+  },
+  "locTypes": {
+   "city": "Kutha / kabupatèn",
+   "province": "Provinsi"
+  },
+  "activate": "Uripaké",
+  "deactivate": "Patèni",
+  "addLocation": "Tambah lokasi",
+  "locType": "Jinis",
+  "name": "Jeneng",
+  "timezone": "Zona wektu",
+  "add": "Tambah",
+  "cityAdded": "Lokasi ditambahaké",
+  "citiesHint": "Kutha anyar langsung katon ing panggolèkan, pendhaftaran, lan formulir pariwara — tanpa owah kode.",
+  "commission": "Komisi platform",
+  "commissionHint": "Laku kanggo pesenan anyar. Pesenan lawas tetep nganggo tarif nalika digawé.",
+  "currentRate": "Tarif saiki",
+  "ownerGets": "Pemilik nampa {pct}%",
+  "applyRate": "Trapaké",
+  "history": "Riwayat",
+  "rules": "Aturan pesenan",
+  "settings": {
+   "motorcycle_min_age": "Umur minimal kanggo motor",
+   "cancellation_free_hours": "Wates batal gratis (jam sadurungé njupuk)",
+   "late_cancellation_refund_pct": "Pambalèkan batal telat (% rega sewa)",
+   "late_grace_minutes": "Toleransi telat (menit)",
+   "late_fee_multiplier": "Pengali dhendha (× rega saben jam)",
+   "request_expiry_minutes": "Wates wektu wangsulan pemilik (menit)",
+   "payment_expiry_minutes": "Wates wektu pambayaran (menit)"
+  },
+  "translations": "Terjemahan & isi",
+  "translationsHint": "Teks antarmuka diatur ing berkas basa terpusat (en, id, jv, fa). Editor ing njero dasbor lagi direncanakaké."
+ },
+ "info": {
+  "trust": {
+   "title": "Kapercayan & keamanan",
+   "subtitle": "Carané Bali Bike nglindhungi penyéwa lan pemilik.",
+   "verify": {
+    "title": "Verifikasi",
+    "body": "Saben anggota verifikasi email lan nomer HP. Pemilik verifikasi identitas (KTP utawa paspor). Dokumen dipriksa tim Bali Bike lan disimpen kanthi pribadi."
+   },
+   "moto": {
+    "title": "Aturan motor",
+    "body": "Motor mung bisa dipesen anggota sing nyukupi umur minimal platform, duwé SIM C sing disetujoni lan isih laku, sarta identitas diverifikasi. Pemilik kudu nyertakaké STNK; pariwara tayang sawisé dipriksa."
+   },
+   "handover": {
+    "title": "Serah-tampa digital",
+    "body": "Pas njupuk, penyéwa awèh kode pesenan sing mung sepisan dienggo. Loro-loroné ngisi checklist sing ana wektuné lan fotoné pas njupuk lan mbalèkaké, saéngga kahanan kendaraan kacathet cetha."
+   },
+   "payments": {
+    "title": "Pambayaran aman",
+    "body": "Pambayaran diproses liwat payment gateway sing duwé ijin. Pesenan lagi dikonfirmasi sawisé gateway ngonfirmasi pambayaran menyang server awaké dhéwé. Deposit ditahan lan dibalèkaké sawisé kendaraan bali kanthi apik."
+   },
+   "messaging": {
+    "title": "Pesen pribadi",
+    "body": "Penyéwa lan pemilik ngobrol ing njero Bali Bike. Rincian kontak didhelikaké nganti pesenan dikonfirmasi kanggo nyegah apus-apus ing njaba platform."
+   },
+   "reviews": {
+    "title": "Ulasan rong arah",
+    "body": "Sawisé saben sewan, penyéwa lan pemilik padha awèh biji. Biji gegayutan karo pesenan asli sing wis rampung."
+   },
+   "reporting": {
+    "title": "Laporan & sengketa",
+    "body": "Laporaké pariwara, pangguna, utawa masalah kapan waé. Karusakan, telat, lan ora teka mlebu antrian sengketa sing dipriksa tim awaké dhéwé adhedhasar checklist, foto, lan pesen."
+   },
+   "privacy": {
+    "title": "Privasimu",
+    "body": "Awaké dhéwé mung nglumpukaké data sing perlu supaya layanan aman lan mung nyimpen angka pungkasan nomer dokumen. Bali Bike lagi disiapaké supaya manut UU Pelindungan Data Pribadi (UU PDP) sadurungé diluncuraké kanggo umum."
+   }
+  },
+  "terms": {
+   "title": "Prajanjian sewa & katemtuan",
+   "subtitle": "Aturan sing laku kanggo saben pesenan Bali Bike.",
+   "draftTitle": "Draf — nunggu dipriksa ahli hukum",
+   "draftBody": "Prajanjian iki draf kerja kanggo MVP lan kudu dipriksa ahli hukum Indonésia sadurungé diluncuraké kanggo umum.",
+   "scope": {
+    "title": "Platform Bali Bike",
+    "body": "Bali Bike iku marketplace sing nyambungaké pemilik kendaraan karo penyéwa. Bali Bike dudu pemilik kendaraan sing dipariwarakaké lan dudu pihak ing prajanjian sewa, kejaba kanggo ngolah pambayaran lan ngrampungaké sengketa."
+   },
+   "parties": {
+    "title": "Tanggung jawab pemilik lan penyéwa",
+    "body": "Pemilik njamin yèn dhèwèké pemilik sah utawa olèh nyewakaké kendaraan, kendaraan laik dalan, lan rincian pariwara bener. Penyéwa setuju nganggo kendaraan kanthi sah lan ati-ati, mung kanggo lelungan pribadi, lan mbalèkaké pas wektuné kanthi kahanan padha."
+   },
+   "booking": {
+    "title": "Pesenan",
+    "body": "Panjaluk pesenan dadi mengikat sawisé pemilik nampa lan penyedia pambayaran ngonfirmasi pambayaran. Loro-loroné setuju prajanjian iki nalika pesenan digawé."
+   },
+   "payment": {
+    "title": "Rega lan pambayaran",
+    "body": "Rega ditemtokaké pemilik. Penyéwa dikenani gabungan rega pemilik sing paling murah kanggo durasi sing dipesen. Bali Bike motong komisi platform saka asil pemilik."
+   },
+   "deposit": {
+    "title": "Deposit jaminan",
+    "body": "Yèn pariwara nganggo deposit, deposit ditahan selawasé sewan lan dibalèkaké sawisé kendaraan bali kanthi apik, dikurangi dhendha telat utawa nominal sing diputusaké ing sengketa."
+   },
+   "cancellation": {
+    "title": "Pembatalan",
+    "body": "Penyéwa bisa mbatalaké gratis sadurungé mbayar. Sawisé mbayar, mbatalaké paling ora 24 jam sadurungé njupuk dibalèkaké kabèh; mbatalaké sawisé iku mbalèkaké 50% rega sewa ditambah kabèh deposit. Yèn pemilik mbatalaké, penyéwa nampa pambalèkan kabèh."
+   },
+   "late": {
+    "title": "Telat lan tambahan wektu",
+    "body": "Penyéwa bisa nerusaké sewan yèn kendaraan isih kosong kanthi mbayar tambahan. Mbalèkaké ngliwati wektu toleransi kena dhendha saben jam sing wis mlaku."
+   },
+   "responsibility": {
+    "title": "Karusakan lan tanggung jawab",
+    "body": "Penyéwa tanggung jawab marang kendaraan wiwit njupuk nganti mbalèkaké, kalebu dhendha tilang selawasé sewan. Karusakan dicathet nganggo checklist lan foto serah-tampa."
+   },
+   "motorcycles": {
+    "title": "Motor",
+    "body": "Penyéwa motor kudu nyukupi umur minimal platform, duwé SIM C sing isih laku, sarta nggawa KTP lan STNK kendaraan nalika nyetir. Wajib nganggo helm standar SNI."
+   },
+   "disputes": {
+    "title": "Sengketa",
+    "body": "Pihak sapa waé bisa mbukak sengketa. Bali Bike mriksa bukti lan bisa awèh sebagéyan utawa kabèh deposit marang pemilik utawa mbalèkaké marang penyéwa."
+   },
+   "data": {
+    "title": "Data pribadi",
+    "body": "Data pribadi mung diolah kanggo nyedhiyakaké layanan, verifikasi anggota, lan njaga keamanan platform, manut aturan pelindungan data pribadi sing laku ing Indonésia."
+   }
+  }
+ },
+ "footer": {
+  "about": "Bali Bike iku marketplace mobilitas antarwarga kanggo Indonésia — diwiwiti saka komunitas kampus, digawé kanggo saben kutha.",
+  "mvp": "MVP · Tahap 1",
+  "explore": "Golèki",
+  "company": "Bali Bike",
+  "trust": "Kapercayan & keamanan",
+  "terms": "Prajanjian sewa & katemtuan",
+  "demoNote": "Pariwara, pangguna, pesenan, lan pambayaran sing katon iku data démo."
+ },
+ "notFound": {
+  "title": "Kaca ora ketemu",
+  "body": "Kaca sing kok golèki ora ana utawa wis dipindhah.",
+  "home": "Menyang ngarep"
+ },
+ "validation": {
+  "V_REQUIRED": "Kolom iki kudu diisi",
+  "V_INVALID": "Priksa manèh isiné",
+  "V_TOO_SHORT": "Kecendhakan",
+  "V_TOO_LONG": "Kedawanen",
+  "V_EMAIL": "Lebokna alamat email sing bener",
+  "V_PHONE": "Lebokna nomer HP Indonésia sing bener",
+  "V_PASSWORD": "Paling sethithik 8 aksara",
+  "V_CODE": "Lebokna kode 6 angka",
+  "V_DATE": "Lebokna tanggal sing bener",
+  "V_NUMBER": "Lebokna angka",
+  "V_EMAIL_TAKEN": "Email iki wis kadhaftar",
+  "V_PHONE_TAKEN": "Nomer HP iki wis kadhaftar",
+  "V_END_BEFORE_START": "Wektu pungkasan kudu sawisé wektu wiwitan"
+ },
+ "errors": {
+  "INTERNAL": "Ana sing salah. Coba manèh.",
+  "NETWORK": "Ora ana sambungan. Priksa internetmu banjur coba manèh.",
+  "UNAUTHORIZED": "Mlebu dhisik kanggo nerusaké.",
+  "FORBIDDEN": "Kowé ora duwé ijin kanggo kuwi.",
+  "NOT_FOUND": "Ora ketemu.",
+  "RATE_LIMITED": "Kakèhan nyoba. Ngenteni sedhéla.",
+  "VALIDATION_FAILED": "Priksa kolom sing ditandhani.",
+  "INVALID_CREDENTIALS": "Email utawa tembung sandhi salah.",
+  "ACCOUNT_SUSPENDED": "Akun iki ditangguhaké. Hubungi tim dhukungan.",
+  "EMAIL_TAKEN": "Email iki wis kadhaftar.",
+  "PHONE_TAKEN": "Nomer HP iki wis kadhaftar.",
+  "CODE_EXPIRED": "Kodené wis kadaluwarsa. Jaluk kode anyar.",
+  "CODE_INVALID": "Kodené salah.",
+  "VERIFICATION_PENDING": "Kowé wis duwé dokumen sing lagi dipriksa.",
+  "AGREEMENT_REQUIRED": "Tulung setujoni prajanjian sewa.",
+  "OWN_VEHICLE": "Kowé ora bisa pesen kendaraanmu dhéwé.",
+  "MOTORCYCLE_NOT_ELIGIBLE": "Rampungna verifikasi motor (umur, identitas, lan SIM C) sadurungé pesen.",
+  "NO_PRICING": "Kendaraan iki durung duwé rega.",
+  "INVALID_TRANSITION": "Tumindak iki ora bisa ing status pesenan saiki.",
+  "BOOKING_CHANGED": "Pesenan lagi waé owah. Muat manèh lan coba manèh.",
+  "NOT_AWAITING_PAYMENT": "Pesenan iki ora lagi nunggu pambayaran.",
+  "PICKUP_CODE_INVALID": "Kode njupuk salah.",
+  "TOO_EARLY_FOR_PICKUP": "Njupuk paling cepet 1 jam sadurungé wektu pesenan.",
+  "NOT_CANCELLABLE": "Pesenan iki wis ora bisa dibatalaké.",
+  "NOT_EXTENDABLE": "Pesenan iki ora bisa diterusaké.",
+  "REVIEW_NOT_ALLOWED": "Ulasan dibukak sawisé sewan rampung.",
+  "REVIEW_WINDOW_CLOSED": "Wektu awèh ulasan wis entèk.",
+  "ALREADY_REVIEWED": "Kowé wis ngulas pesenan iki.",
+  "DISPUTE_OPEN": "Sengketa wis dibukak.",
+  "UPLOAD_EMPTY": "Berkasé kosong.",
+  "UPLOAD_TOO_LARGE": "Berkasé kegedhèn (maks 4 MB).",
+  "UPLOAD_TYPE": "Nganggo berkas JPG, PNG, WEBP, utawa PDF.",
+  "TOO_MANY_IMAGES": "Paling akèh 8 foto.",
+  "LISTING_UNDER_REVIEW": "Pariwara iki lagi dipriksa lan durung bisa diuripaké.",
+  "PAYLOAD_TOO_LARGE": "Panjaluké kegedhèn.",
+  "INVALID_JSON": "Panjaluk ora bener.",
+  "UNSUPPORTED_MEDIA_TYPE": "Panjaluk ora bener.",
+  "BAD_ORIGIN": "Asal panjaluk ora bener.",
+  "CANNOT_MODIFY_SELF": "Kowé ora bisa ngowahi akun admin dhéwé ing kéné.",
+  "SLUG_TAKEN": "Lokasi kanthi jeneng iki wis ana.",
+  "INVALID_SIGNATURE": "Tandha tangan ora bener.",
+  "NOT_MOCK": "Dudu pambayaran uji.",
+  "INVALID_CHANNEL": "Panjaluk ora bener.",
+  "START_IN_PAST": "Wektu njupuk wis liwat.",
+  "TOO_FAR_AHEAD": "Pesen bisa nganti 90 dina ngarep.",
+  "TOO_LONG": "Sewan paling suwé 30 dina.",
+  "TOO_SHORT": "Sewan paling cendhak 30 menit.",
+  "OUTSIDE_HOURS": "Wektu njupuk utawa mbalèkaké ana ing njaba jam serah-tampa pemilik.",
+  "BLOCKED": "Pemilik nandhani tanggal iki ora kasedhiya.",
+  "ALREADY_BOOKED": "Nyuwun ngapura — ana wong sing lagi waé mesen wektu iki.",
+  "NOT_LISTED": "Kendaraan iki saiki ora nampa pesenan."
+ }
 }

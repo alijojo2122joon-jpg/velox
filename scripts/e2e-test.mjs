@@ -161,9 +161,9 @@ await step('full rental lifecycle on demo data: pickup code → active → retur
   // The demo renter (Budi) has a confirmed booking ~26h ahead; pickup is only allowed within 1h of start,
   // so we create a fresh near-term booking on an instant-book listing instead.
   const budi = client();
-  await budi('POST', '/api/auth/login', { email: 'renter@velox.demo', password: 'Demo1234!' });
+  await budi('POST', '/api/auth/login', { email: 'renter@balibike.demo', password: 'Demo1234!' });
   const rina = client();
-  await rina('POST', '/api/auth/login', { email: 'owner@velox.demo', password: 'Demo1234!' });
+  await rina('POST', '/api/auth/login', { email: 'owner@balibike.demo', password: 'Demo1234!' });
   const mine = await rina('GET', '/api/owner/vehicles');
   // Make sure the window is open around "now" for this test listing.
   const v = mine.items.find((x) => x.name.includes('Dahon'));
@@ -195,7 +195,7 @@ await step('full rental lifecycle on demo data: pickup code → active → retur
 
 await step('eligible demo renter (verified SIM C) can request a motorcycle', async () => {
   const budi = client();
-  await budi('POST', '/api/auth/login', { email: 'renter@velox.demo', password: 'Demo1234!' });
+  await budi('POST', '/api/auth/login', { email: 'renter@balibike.demo', password: 'Demo1234!' });
   const me = await budi('GET', '/api/auth/me');
   assert.equal(me.user.eligibility.motorcycle, true, JSON.stringify(me.user.eligibility));
   const s = await budi('GET', '/api/vehicles?category=motorcycle&q=Vario');
@@ -207,7 +207,7 @@ await step('eligible demo renter (verified SIM C) can request a motorcycle', asy
 
 await step('RBAC: renters cannot reach admin endpoints; admin can', async () => {
   assert.equal((await renter('GET', '/api/admin/overview')).status, 403);
-  await admin('POST', '/api/auth/login', { email: 'admin@velox.demo', password: 'Demo1234!' });
+  await admin('POST', '/api/auth/login', { email: 'admin@balibike.demo', password: 'Demo1234!' });
   const o = await admin('GET', '/api/admin/overview');
   assert.ok(o.counts.users > 5);
 });

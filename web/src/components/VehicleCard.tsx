@@ -16,12 +16,12 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
   const { money, duration, km } = useFormat();
   return (
     <Link to={`/vehicles/${v.id}`} onMouseEnter={() => onHover?.(v.id)} onMouseLeave={() => onHover?.(null)}
-      className={cx('group block animate-fade-up overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-ink-900/5 transition duration-200 hover:-translate-y-0.5 hover:shadow-lift',
+      className={cx('card group block animate-fade-up overflow-hidden p-1.5 transition duration-300 hover:-translate-y-1 hover:shadow-lift',
         highlighted && 'ring-2 ring-brand-500')}>
-      <div className="relative aspect-[4/3] overflow-hidden bg-ink-100">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[17px] bg-ink-100">
         {v.cover_url && <img src={v.cover_url} alt={v.name} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />}
         <div className="absolute inset-x-3 top-3 flex items-start justify-between gap-2">
-          <Badge tone="dark" icon={v.category === 'bicycle' ? 'bike' : 'moto'} className="bg-ink-900/85 backdrop-blur">{t(`vehicleTypes.${v.type}`)}</Badge>
+          <Badge tone="dark" icon={v.category === 'bicycle' ? 'bike' : 'moto'} className="bg-ink-900/60 backdrop-blur-md">{t(`vehicleTypes.${v.type}`)}</Badge>
           {!!v.is_demo && <DemoBadge />}
         </div>
         {v.distance_km != null && (
@@ -31,7 +31,7 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
         )}
         {v.category === 'motorcycle' && <span className="absolute bottom-3 end-3 rounded-full bg-amber-400 px-2 py-0.5 text-[11px] font-bold text-amber-950">{t('vehicle.licenseRequired')}</span>}
       </div>
-      <div className={cx('p-4', compact && 'p-3.5')}>
+      <div className={cx('px-3 pb-3 pt-3.5', compact && 'px-2.5 pb-2.5')}>
         <div className="flex items-start justify-between gap-2">
           <h3 className="line-clamp-1 font-bold text-ink-900">{v.name}</h3>
           <Stars value={v.rating_avg} count={v.rating_count} />
@@ -56,8 +56,8 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
 
 export function VehicleCardSkeleton() {
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-ink-900/5">
-      <div className="aspect-[4/3] animate-pulse bg-ink-100" />
+    <div className="card overflow-hidden p-1.5">
+      <div className="aspect-[4/3] animate-pulse rounded-[17px] bg-ink-100" />
       <div className="space-y-2 p-4"><div className="h-4 w-3/4 animate-pulse rounded bg-ink-100" /><div className="h-3 w-1/2 animate-pulse rounded bg-ink-100" /><div className="h-5 w-1/3 animate-pulse rounded bg-ink-100" /></div>
     </div>
   );

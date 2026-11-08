@@ -37,7 +37,7 @@ const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
 });
 walk(path.join(web, 'src'));
 const candidates = new Set();
-for (const f of files) for (const tok of fs.readFileSync(f, 'utf8').split(/[\s"'`{}()<>;,]+/)) if (tok && tok.length < 120) candidates.add(tok);
+for (const f of files) for (const tok of fs.readFileSync(f, 'utf8').split(/[\s"'`{}<>;]+/)) if (tok && tok.length < 120) candidates.add(tok);
 
 const cssEntry = fs.readFileSync(path.join(web, 'src', 'styles.css'), 'utf8');
 const compiler = await compile(cssEntry, {
