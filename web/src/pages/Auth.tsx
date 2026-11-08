@@ -58,7 +58,7 @@ export function Login() {
     } catch (e) { setErr(errText(e)); } finally { setBusy(false); }
   };
   const demos = [
-    { email: 'renter@balibike.demo', role: 'renter' }, { email: 'owner@balibike.demo', role: 'owner' }, { email: 'admin@balibike.demo', role: 'admin' },
+    { email: 'renter@balibike.demo', role: 'renter' }, { email: 'visitor@balibike.demo', role: 'visitor' }, { email: 'owner@balibike.demo', role: 'owner' }, { email: 'admin@balibike.demo', role: 'admin' },
   ];
 
   return (
@@ -72,7 +72,7 @@ export function Login() {
       <div className="mt-8 glass rounded-2xl border-dashed p-4">
         <div className="text-sm font-bold text-amber-900">{t('auth.demoTitle')}</div>
         <p className="mt-0.5 text-xs text-amber-800">{t('auth.demoBody')}</p>
-        <div className="mt-3 grid gap-2 sm:grid-cols-3">
+        <div className="mt-3 grid grid-cols-2 gap-2">
           {demos.map((d) => (
             <button key={d.email} disabled={busy} onClick={() => submit(undefined, { email: d.email, password: 'Demo1234!' })}
               className="rounded-xl bg-white/80 px-3 py-2.5 text-start text-sm font-semibold text-ink-800 shadow-[0_4px_14px_-6px_rgb(36_78_140/0.3)] transition hover:bg-white">

@@ -103,7 +103,7 @@ function Verifications({ onChange }: { onChange: () => void }) {
               <div className="mt-1 text-sm text-ink-500" dir="ltr">{v.email}</div>
               <div className="mt-2 grid gap-x-6 gap-y-1 text-sm sm:grid-cols-2">
                 <span>{t('account.docNumber')}: <b dir="ltr">{v.document_number}</b></span>
-                {v.license_class && <span>{t('account.licenseClass')}: <b>SIM {v.license_class}</b></span>}
+                {v.license_class && <span>{t('account.licenseClass')}: <b>{v.license_class === 'IDP' ? 'IDP' : `SIM ${v.license_class}`}</b></span>}
                 {v.expires_on && <span>{t('account.expiry')}: <b>{date(v.expires_on)}</b></span>}
                 <span>{t('account.dob')}: <b>{v.date_of_birth ? date(v.date_of_birth) : '—'}</b></span>
                 <span className="text-ink-500">{dateTime(v.created_at)}</span>

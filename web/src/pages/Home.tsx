@@ -6,7 +6,7 @@ import { qs } from '../lib/api';
 import { useFormat } from '../lib/format';
 import { useAuth } from '../lib/auth';
 import { Icon } from '../components/icons';
-import { Button, ButtonLink, Select, cx, DemoBadge } from '../components/ui';
+import { Button, ButtonLink, Select, cx, DemoBadge, StepDisc } from '../components/ui';
 import { VehicleCard, VehicleCardSkeleton, type VehicleSummary } from '../components/VehicleCard';
 import { SkyScene, GlassTiles, Cloud } from '../components/Sky';
 
@@ -20,12 +20,14 @@ function HeroSearch() {
   const [cityId, setCityId] = useState('');
   const [locating, setLocating] = useState(false);
 
-  const go = (extra: Record<string, unknown> = {}) => navigate('/search' + qs({ category, cityId: cityId || undefined, ...extra }));
+  // '' = all of Bali (default market), 'all' = every city in Indonesia, otherwise a specific area/city.
+  const go = (extra: Record<string, unknown> = {}) => navigate('/search' + qs({ category,
+    cityId: cityId && cityId !== 'all' ? cityId : undefined, region: cityId === '' ? 'bali' : undefined, ...extra }));
   const nearMe = () => {
     if (!navigator.geolocation) return go();
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
-      (p) => { setLocating(false); go({ lat: p.coords.latitude.toFixed(5), lng: p.coords.longitude.toFixed(5), radiusKm: 2, sort: 'nearest', cityId: undefined }); },
+      (p) => { setLocating(false); go({ lat: p.coords.latitude.toFixed(5), lng: p.coords.longitude.toFixed(5), radiusKm: 2, sort: 'nearest', cityId: undefined, region: undefined }); },
       () => { setLocating(false); go(); }, { timeout: 8000 });
   };
 
@@ -43,8 +45,7 @@ function HeroSearch() {
         <div className="relative flex-1">
           <Icon name="pin" size={18} className="pointer-events-none absolute start-3.5 top-1/2 z-10 -translate-y-1/2 text-ink-400" />
           <Select value={cityId} onChange={(e) => setCityId(e.target.value)} className="h-13 ps-10 text-base" aria-label={t('search.city')}>
-            <option value="">{t('home.anyCity')}</option>
-            {cities?.items.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+            <CityOptions cities={cities?.items ?? []} />
           </Select>
         </div>
         <Button variant="secondary" size="lg" icon="locate" loading={locating} onClick={nearMe} className="h-13">{t('home.nearMe')}</Button>
@@ -61,9 +62,11 @@ export function Home() {
   const t = useT();
   const { money, num } = useFormat();
   const { user } = useAuth();
-  const { data: featured, loading } = useApi<{ items: VehicleSummary[] }>('/api/vehicles?sort=rating&category=bicycle');
+  const { data: featured, loading } = useApi<{ items: VehicleSummary[] }>('/api/vehicles?sort=rating&category=bicycle&region=bali');
   const { data: stats } = useApi<any>('/api/stats');
   const { data: unis } = useApi<{ items: any[] }>('/api/universities');
+  const { data: cityList } = useApi<{ items: any[] }>('/api/locations/cities');
+  const baliAreas = (cityList?.items ?? []).filter((c) => c.province_slug === 'prov-bali');
   const hero = featured?.items[0];
   const listHref = user && user.role !== 'renter' ? '/dashboard/owner/vehicles/new' : user ? '/account?become=owner' : '/register?role=owner';
 
@@ -114,7 +117,7 @@ export function Home() {
       {stats && (
         <section className="container-x relative z-10 -mt-24 sm:-mt-28">
           <div className="glass grid grid-cols-2 gap-6 rounded-3xl px-6 py-8 sm:px-10 md:grid-cols-4">
-            {[['vehicles', stats.vehicles], ['cities', stats.cities], ['universities', stats.universities], ['rentals', stats.completed]].map(([k, v]) => (
+            {[['vehicles', stats.vehicles], ['cities', stats.bali_areas], ['universities', stats.universities], ['rentals', stats.completed]].map(([k, v]) => (
               <div key={k as string} className="text-center">
                 <div className="text-water font-display text-5xl font-extrabold tracking-tight sm:text-6xl">{num(v as number)}</div>
                 <div className="mt-1 text-sm font-semibold text-ink-600">{t(`home.stats.${k}`)}</div>
@@ -139,20 +142,41 @@ export function Home() {
                   <h3 className="mt-4 text-xl font-bold">{t(`categories.${cat}`)}</h3>
                   <p className="mt-1 max-w-sm text-sm text-ink-500">{t(`home.categories.${cat}Desc`)}</p>
                 </div>
-                <ButtonLink to={`/search?category=${cat}`} variant="secondary" size="sm" iconEnd="arrowRight">{t('home.browse')}</ButtonLink>
+                <ButtonLink to={`/search?category=${cat}&region=bali`} variant="secondary" size="sm" iconEnd="arrowRight">{t('home.browse')}</ButtonLink>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
-                {types.map((tp) => <Link key={tp} to={`/search?category=${cat}&type=${tp}`} className="chip">{t(`vehicleTypes.${tp}`)}</Link>)}
+                {types.map((tp) => <Link key={tp} to={`/search?category=${cat}&type=${tp}&region=bali`} className="chip">{t(`vehicleTypes.${tp}`)}</Link>)}
               </div>
             </div>
           ))}
         </div>
       </section>
 
+      {/* ───── Explore Bali ───── */}
+      {baliAreas.length > 0 && (
+        <section className="container-x pt-20">
+          <SectionTitle eyebrow={t('home.areas.eyebrow')} title={t('home.areas.title')} />
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {baliAreas.map((a, i) => (
+              <Link key={a.id} to={`/search?cityId=${a.id}`} className="group relative overflow-hidden rounded-3xl p-5 shadow-card ring-1 ring-white transition duration-300 hover:-translate-y-1 hover:shadow-lift"
+                style={{ background: AREA_BG[i % AREA_BG.length] }}>
+                <Cloud className="pointer-events-none absolute -end-6 -top-4 w-24 opacity-90 transition duration-500 group-hover:-translate-y-1" shadow={false} />
+                <div className="relative mt-10">
+                  <div className="font-display text-xl font-extrabold text-ink-900">{a.name}</div>
+                  <div className="mt-1 inline-flex items-center gap-1 rounded-full bg-white/70 px-2.5 py-0.5 text-xs font-semibold text-ink-700 backdrop-blur">
+                    <Icon name="bike" size={13} />{t('home.areas.vehicles', { n: num(a.vehicle_count) })}</div>
+                  <p className="mt-2 line-clamp-2 text-xs text-ink-600">{t(`home.areas.tips.${a.slug}`)}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ───── Featured ───── */}
       <section className="container-x pt-20">
         <SectionTitle eyebrow={t('home.featured.eyebrow')} title={t('home.featured.title')}
-          action={<ButtonLink to="/search?sort=rating" variant="ghost" iconEnd="arrowRight">{t('home.viewAll')}</ButtonLink>} />
+          action={<ButtonLink to="/search?sort=rating&region=bali" variant="ghost" iconEnd="arrowRight">{t('home.viewAll')}</ButtonLink>} />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {loading && Array.from({ length: 4 }).map((_, i) => <VehicleCardSkeleton key={i} />)}
           {featured?.items.slice(0, 8).map((v) => <VehicleCard key={v.id} v={v} />)}
@@ -167,10 +191,11 @@ export function Home() {
             <div key={side} className={cx('rounded-3xl p-7 sm:p-9', side === 'renter' ? 'card' : 'relative overflow-hidden bg-[linear-gradient(150deg,#2b76ff_0%,#184bc6_55%,#123068_100%)] text-white shadow-lift')}>
               <div className={cx('text-sm font-bold uppercase tracking-wider', side === 'renter' ? 'text-brand-600' : 'text-grass-300')}>{t(`home.how.${side}.label`)}</div>
               <h3 className="mt-2 text-2xl font-bold">{t(`home.how.${side}.title`)}</h3>
-              <ol className="mt-7 space-y-6">
+              <ol className="mt-8 space-y-7">
                 {[1, 2, 3].map((n) => (
-                  <li key={n} className="flex gap-4">
-                    <span className={cx('flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-extrabold', side === 'renter' ? 'neu-icon h-9 w-9 rounded-xl' : 'bg-white/15 text-white ring-1 ring-white/25')}>{num(n)}</span>
+                  <li key={n} className="relative flex items-center gap-5">
+                    {n < 3 && <span className={cx('absolute start-[27px] top-14 h-7 w-0.5 rounded-full', side === 'renter' ? 'bg-gradient-to-b from-brand-300 to-sky-200' : 'bg-gradient-to-b from-grass-300/80 to-white/30')} />}
+                    <StepDisc n={num(n).padStart(2, num(0))} color={side === 'renter' ? ['#2b76ff', '#0ea5e9', '#7cc625'][n - 1] : ['#7cc625', '#a6db3c', '#c8ec6a'][n - 1]} />
                     <div>
                       <div className="font-bold">{t(`home.how.${side}.s${n}`)}</div>
                       <div className={cx('mt-0.5 text-sm', side === 'renter' ? 'text-ink-500' : 'text-brand-100')}>{t(`home.how.${side}.s${n}d`)}</div>
@@ -245,6 +270,27 @@ export function Home() {
         </div>
       </section>
     </div>
+  );
+}
+
+const AREA_BG = [
+  'linear-gradient(160deg,#bfe0fa,#eaf5fd 70%)', 'linear-gradient(160deg,#d8f2a6,#f2fbe3 70%)', 'linear-gradient(160deg,#c7e3ff,#f0f7ff 70%)',
+  'linear-gradient(160deg,#bdeee4,#ecfbf7 70%)', 'linear-gradient(160deg,#cfe0ff,#f3f6ff 70%)', 'linear-gradient(160deg,#e2f5b8,#f7fdea 70%)',
+  'linear-gradient(160deg,#b8e2f7,#eef9fe 70%)', 'linear-gradient(160deg,#d6e9ff,#f5f9ff 70%)',
+];
+
+/** City select with Bali areas first (default market), then every other city in Indonesia. */
+export function CityOptions({ cities }: { cities: any[] }) {
+  const t = useT();
+  const bali = cities.filter((c) => c.province_slug === 'prov-bali');
+  const other = cities.filter((c) => c.province_slug !== 'prov-bali');
+  return (
+    <>
+      <option value="">{t('home.allBali')}</option>
+      <optgroup label="Bali">{bali.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</optgroup>
+      <option value="all">{t('home.allIndonesia')}</option>
+      <optgroup label={t('home.otherCities')}>{other.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</optgroup>
+    </>
   );
 }
 

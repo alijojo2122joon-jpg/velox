@@ -158,8 +158,8 @@ export function Navbar() {
   const [mobile, setMobile] = useState(false);
   useEffect(() => setMobile(false), [path]);
   const links = [
-    { to: '/search?category=bicycle', label: t('nav.bicycles'), match: 'bicycle' },
-    { to: '/search?category=motorcycle', label: t('nav.motorcycles'), match: 'motorcycle' },
+    { to: '/search?category=bicycle&region=bali', label: t('nav.bicycles'), match: 'bicycle' },
+    { to: '/search?category=motorcycle&region=bali', label: t('nav.motorcycles'), match: 'motorcycle' },
     { to: '/universities', label: t('nav.universities'), match: '/universities' },
   ];
   return (
@@ -220,8 +220,8 @@ export function Footer() {
         <div>
           <div className="text-sm font-bold text-white">{t('footer.explore')}</div>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li><Link className="hover:text-white" to="/search?category=bicycle">{t('nav.bicycles')}</Link></li>
-            <li><Link className="hover:text-white" to="/search?category=motorcycle">{t('nav.motorcycles')}</Link></li>
+            <li><Link className="hover:text-white" to="/search?category=bicycle&region=bali">{t('nav.bicycles')}</Link></li>
+            <li><Link className="hover:text-white" to="/search?category=motorcycle&region=bali">{t('nav.motorcycles')}</Link></li>
             <li><Link className="hover:text-white" to="/universities">{t('nav.universities')}</Link></li>
           </ul>
         </div>

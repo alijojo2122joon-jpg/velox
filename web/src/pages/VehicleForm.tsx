@@ -174,8 +174,8 @@ export function VehicleForm({ id }: { id?: number }) {
             <Field label={t('vehicleForm.nearUniversity')}><Select value={f.universityId} disabled={!f.cityId} onChange={(e) => fillFromUniversity(e.target.value)}>
               <option value="">{t('common.optional')}</option>{unis?.items.map((u) => <option key={u.id} value={u.id}>{u.short_name} — {u.name}</option>)}</Select></Field>
             <Field className="sm:col-span-2" label={t('vehicleForm.pickupAddress')} error={errors.pickupAddress} hint={t('vehicleForm.pickupHint')}><Input value={f.pickupAddress} onChange={up('pickupAddress')} /></Field>
-            <Field label={t('vehicleForm.lat')} error={errors.lat}><Input dir="ltr" inputMode="decimal" value={f.lat} onChange={up('lat')} placeholder="-7.7713" /></Field>
-            <Field label={t('vehicleForm.lng')}><Input dir="ltr" inputMode="decimal" value={f.lng} onChange={up('lng')} placeholder="110.3775" /></Field>
+            <Field label={t('vehicleForm.lat')} error={errors.lat}><Input dir="ltr" inputMode="decimal" value={f.lat} onChange={up('lat')} placeholder="-8.6500" /></Field>
+            <Field label={t('vehicleForm.lng')}><Input dir="ltr" inputMode="decimal" value={f.lng} onChange={up('lng')} placeholder="115.2167" /></Field>
           </div>
           <Button type="button" variant="secondary" size="sm" icon="locate" className="mt-3" onClick={useMyLocation}>{t('vehicleForm.useMyLocation')}</Button>
         </FormCard>

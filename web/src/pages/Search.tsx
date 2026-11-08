@@ -8,6 +8,7 @@ import { Icon } from '../components/icons';
 import { Button, Select, Input, Modal, cx, Empty, Notice } from '../components/ui';
 import { VehicleCard, VehicleCardSkeleton, type VehicleSummary } from '../components/VehicleCard';
 import { MapView, usePinLabel } from '../components/MapView';
+import { CityOptions } from './Home';
 
 const TYPES = { bicycle: ['city', 'mountain', 'road', 'folding', 'electric_bicycle', 'student'], motorcycle: ['scooter', 'automatic', 'manual', 'electric_motorcycle'] };
 const SORTS = ['nearest', 'price', 'rating', 'newest', 'available_now'];
@@ -42,7 +43,7 @@ export function Search() {
     if (!navigator.geolocation) { setGeoError(true); return; }
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
-      (pos) => { setLocating(false); setGeoError(false); set({ lat: pos.coords.latitude.toFixed(5), lng: pos.coords.longitude.toFixed(5), radiusKm: p.radiusKm ?? 2, sort: 'nearest', cityId: undefined, universityId: undefined }); },
+      (pos) => { setLocating(false); setGeoError(false); set({ lat: pos.coords.latitude.toFixed(5), lng: pos.coords.longitude.toFixed(5), radiusKm: p.radiusKm ?? 2, sort: 'nearest', cityId: undefined, region: undefined, universityId: undefined }); },
       () => { setLocating(false); setGeoError(true); }, { timeout: 8000 });
   };
   const activeFilters = ['type', 'minPrice', 'maxPrice', 'minRating', 'start', 'universityId'].filter((k) => p[k]).length;
@@ -63,9 +64,9 @@ export function Search() {
             ))}
           </div>
           <div className="w-44">
-            <Select value={p.cityId ?? ''} onChange={(e) => set({ cityId: e.target.value || undefined, universityId: undefined, lat: undefined, lng: undefined, radiusKm: undefined, sort: undefined })} className="h-10 text-sm" aria-label={t('search.city')}>
-              <option value="">{t('search.allCities')}</option>
-              {cities?.items.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+            <Select value={p.cityId ?? (p.region === 'bali' ? '' : 'all')} className="h-10 text-sm" aria-label={t('search.city')}
+              onChange={(e) => { const v = e.target.value; set({ cityId: v && v !== 'all' ? v : undefined, region: v === '' ? 'bali' : undefined, universityId: undefined, lat: undefined, lng: undefined, radiusKm: undefined, sort: undefined }); }}>
+              <CityOptions cities={cities?.items ?? []} />
             </Select>
           </div>
           <button onClick={nearMe} className={cx('chip h-10', userLoc && 'chip-on')}>
@@ -107,7 +108,7 @@ export function Search() {
             <div className="mb-5 flex items-baseline justify-between gap-3">
               <h1 className="text-lg font-bold">
                 {loading ? t('search.searching') : t('search.results', { n: num(data?.total ?? 0) })}
-                <span className="font-normal text-ink-500"> {userLoc ? t('search.nearYou') : city ? t('search.inCity', { city: city.name }) : t('search.inIndonesia')}</span>
+                <span className="font-normal text-ink-500"> {userLoc ? t('search.nearYou') : city ? t('search.inCity', { city: city.name }) : p.region === 'bali' ? t('search.inBali') : t('search.inIndonesia')}</span>
               </h1>
             </div>
             {p.category === 'motorcycle' && <div className="mb-5"><Notice tone="info" icon="shield">{t('search.motoNotice')}</Notice></div>}
@@ -153,13 +154,13 @@ function Filters({ p, set, unis }: { p: Record<string, string>; set: (o: Record<
   const types = p.category ? TYPES[p.category as keyof typeof TYPES] : [...TYPES.bicycle, ...TYPES.motorcycle];
   const selected = new Set((p.type ?? '').split(',').filter(Boolean));
   const toggleType = (tp: string) => { selected.has(tp) ? selected.delete(tp) : selected.add(tp); set({ type: [...selected].join(',') || undefined }); };
-  const startLocal = p.start ? new Date(new Date(p.start).getTime() + 420 * 60000).toISOString() : '';
+  const startLocal = p.start ? new Date(new Date(p.start).getTime() + 480 * 60000).toISOString() : '';
   const [date, setDate] = useState(startLocal.slice(0, 10));
   const [time, setTime] = useState(startLocal.slice(11, 16) || '09:00');
   const [hours, setHours] = useState(p.start && p.end ? String((new Date(p.end).getTime() - new Date(p.start).getTime()) / 3600000) : '3');
   const applyDates = (d = date, tm = time, h = hours) => {
     if (!d) return set({ start: undefined, end: undefined });
-    const s = localToIso(d, tm, 420);
+    const s = localToIso(d, tm, 480);
     set({ start: s, end: new Date(new Date(s).getTime() + Number(h) * 3600000).toISOString() });
   };
   return (

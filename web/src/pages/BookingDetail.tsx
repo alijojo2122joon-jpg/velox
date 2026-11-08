@@ -44,15 +44,22 @@ export function BookingDetail({ id }: { id: number }) {
 
       {/* Progress */}
       {!terminal && (
-        <div className="mb-8 grid grid-cols-5 gap-2">
-          {STEPS.map((s, i) => (
-            <div key={s}>
-              <div className={cx('h-1.5 rounded-full', i <= stepIndex ? 'bg-brand-500' : 'bg-ink-200')} />
-              <div className={cx('mt-2 hidden text-xs font-semibold sm:block', i <= stepIndex ? 'text-ink-900' : 'text-ink-400')}>{t(`status.${s}`)}</div>
+        <div className="mb-10 pt-8">
+          <div className="soft-track relative h-4 rounded-full">
+            <div className="soft-fill absolute inset-y-0 start-0 rounded-full transition-all duration-700" style={{ width: `${((stepIndex + 1) / STEPS.length) * 100}%` }} />
+            <div className="absolute -top-9 -translate-x-1/2 rtl:translate-x-1/2" style={{ insetInlineStart: `${((stepIndex + 1) / STEPS.length) * 100}%` }}>
+              <span className="relative block whitespace-nowrap rounded-lg bg-white px-2.5 py-1 text-xs font-bold text-ink-700 shadow-[0_4px_12px_-2px_rgb(36_78_140/0.3)]">
+                {t(`status.${b.status}`)}
+                <span className="absolute -bottom-1 start-1/2 h-2 w-2 -translate-x-1/2 rotate-45 bg-white rtl:translate-x-1/2" />
+              </span>
             </div>
-          ))}
+          </div>
+          <div className="mt-3 hidden grid-cols-5 sm:grid">
+            {STEPS.map((st, i) => <div key={st} className={cx('text-xs font-semibold', i <= stepIndex ? 'text-ink-800' : 'text-ink-400')}>{t(`status.${st}`)}</div>)}
+          </div>
         </div>
       )}
+
 
       <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
         <div className="space-y-6">

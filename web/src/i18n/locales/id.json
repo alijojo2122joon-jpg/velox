@@ -132,11 +132,11 @@
   "badge": "Reservasi sepeda di Bali · sepeda & motor",
   "title1": "Sewa kendaraan terdekat.",
   "title2": "Hasilkan dari milikmu.",
-  "subtitle": "Bali Bike menghubungkan pemilik sepeda dan motor dengan orang yang membutuhkannya — untuk 30 menit, sehari, atau seminggu. Anggota terverifikasi, harga transparan, pembayaran aman.",
+  "subtitle": "Bali Bike menghubungkan warga pemilik sepeda dan motor dengan mahasiswa, penduduk, dan wisatawan di Bali — untuk 30 menit, sehari, atau seminggu. Anggota terverifikasi, harga transparan, pembayaran aman.",
   "anyCity": "Semua kota",
   "nearMe": "Di dekat saya",
   "search": "Cari",
-  "motoNote": "Motor hanya bisa disewa oleh orang dewasa terverifikasi yang memiliki SIM C yang berlaku.",
+  "motoNote": "Motor hanya untuk orang dewasa terverifikasi dengan SIM C atau SIM Internasional (sepeda motor) yang berlaku.",
   "trustline": {
    "verified": "Anggota terverifikasi",
    "checklist": "Checklist serah terima digital",
@@ -149,14 +149,14 @@
   },
   "stats": {
    "vehicles": "Kendaraan terdaftar",
-   "cities": "Kota",
+   "cities": "Area di Bali",
    "universities": "Kampus",
    "rentals": "Sewa selesai",
    "note": "Angka berasal dari data demonstrasi saat ini."
   },
   "categories": {
    "eyebrow": "Pilih kendaraanmu",
-   "title": "Dari sepeda kampus hingga skuter akhir pekan",
+   "title": "Dari sepeda listrik Ubud hingga cruiser pantai Canggu",
    "bicycleDesc": "Sepeda kota, gunung, balap, lipat, listrik, dan sepeda pelajar hemat.",
    "motorcycleDesc": "Skuter, motor matik, manual, dan listrik untuk orang dewasa ber-SIM."
   },
@@ -164,7 +164,7 @@
   "viewAll": "Lihat semua",
   "featured": {
    "eyebrow": "Rating tertinggi",
-   "title": "Sepeda populer di sekitar kampus"
+   "title": "Sepeda populer di Bali"
   },
   "how": {
    "eyebrow": "Cara kerja Bali Bike",
@@ -196,7 +196,7 @@
    "eyebrow": "Kepercayaan & keamanan",
    "title": "Dirancang untuk sewa-menyewa antarorang asing",
    "verify": "Identitas terverifikasi",
-   "verifyd": "Verifikasi telepon, email, dan identitas. Motor memerlukan SIM C yang disetujui dan usia dewasa.",
+   "verifyd": "Verifikasi telepon, email, dan KTP atau paspor. Motor memerlukan SIM C atau SIM Internasional yang disetujui dan usia dewasa.",
    "checklist": "Serah terima digital",
    "checklistd": "Checklist penjemputan dan pengembalian berstempel waktu dengan foto melindungi kedua pihak.",
    "payments": "Pembayaran aman",
@@ -220,6 +220,24 @@
    "fee": "Biaya Bali Bike ({pct}%)",
    "youEarn": "Kamu terima",
    "disclaimer": "Angka ilustrasi saja, bukan jaminan penghasilan. Komisi dapat diatur."
+  },
+  "allBali": "Seluruh Bali",
+  "allIndonesia": "Semua kota di Indonesia",
+  "otherCities": "Kota lain",
+  "areas": {
+   "eyebrow": "Jelajahi Bali",
+   "title": "Pilih areamu",
+   "vehicles": "{n} kendaraan",
+   "tips": {
+    "denpasar": "Kampus, Lapangan Renon, dan pusat kota.",
+    "ubud": "Sawah terasering, Bukit Campuhan, dan kafe di tengah hutan.",
+    "canggu": "Pantai selancar dan jalan di tengah sawah.",
+    "seminyak": "Kafe, butik, dan pantai matahari terbenam.",
+    "kuta": "Pantai, Legian, dan kampus Jimbaran.",
+    "sanur": "Jalur pantai datar 5 km — pas untuk bersepeda.",
+    "nusa-dua": "Jalan mulus dan rute keliling Bukit.",
+    "uluwatu": "Tebing, pura, dan ombak kelas dunia."
+   }
   }
  },
  "search": {
@@ -246,7 +264,7 @@
   "inCity": "di {city}",
   "inIndonesia": "di seluruh Indonesia",
   "geoError": "Lokasimu tidak dapat diambil. Periksa izin browser atau pilih kota.",
-  "motoNotice": "Sewa motor memerlukan identitas terverifikasi, SIM C yang disetujui, dan usia minimum platform.",
+  "motoNotice": "Sewa motor memerlukan KTP atau paspor terverifikasi, SIM C atau SIM Internasional golongan sepeda motor yang disetujui, dan usia minimum platform.",
   "emptyTitle": "Tidak ada kendaraan yang cocok",
   "emptyBody": "Coba radius lebih luas, tanggal lain, atau kurangi filter.",
   "clear": "Hapus filter",
@@ -260,7 +278,8 @@
   "minRating": "Rating minimum",
   "any": "Semua",
   "university": "Dekat kampus",
-  "anyUniversity": "Semua kampus"
+  "anyUniversity": "Semua kampus",
+  "inBali": "di Bali"
  },
  "map": {
   "loading": "Memuat peta…",
@@ -271,7 +290,7 @@
   "from": "mulai",
   "total": "total",
   "instant": "Pesan instan",
-  "licenseRequired": "Wajib SIM C",
+  "licenseRequired": "Wajib SIM C / IDP",
   "notFound": "Kendaraan ini tidak tersedia",
   "notPublic": "Iklan ini sedang tidak terlihat oleh penyewa.",
   "saved": "Disimpan ke daftarmu",
@@ -381,7 +400,7 @@
    "qrSoon": "Penjemputan dengan kode QR: segera hadir",
    "instructionsTitle": "Petunjuk penjemputan",
    "instr1": "Pastikan titik temu dengan pemilik lewat chat.",
-   "instr2": "Bawa KTP (dan SIM C untuk motor).",
+   "instr2": "Bawa KTP atau paspor (dan SIM C atau IDP untuk motor).",
    "instr3": "Periksa kendaraan bersama dan isi checklist digital.",
    "instr4": "Berikan kode penjemputan ke pemilik untuk memulai sewa.",
    "activeTitle": "Sewa sedang berjalan",
@@ -448,7 +467,7 @@
    "date_of_birth": "Tanggal lahir di profil",
    "age": "Berusia minimal {age} tahun",
    "identity": "Identitas disetujui (KTP / paspor)",
-   "license": "SIM C yang disetujui dan masih berlaku"
+   "license": "SIM C atau SIM Internasional (sepeda motor) yang disetujui dan berlaku"
   }
  },
  "payment": {
@@ -577,7 +596,8 @@
   "demoRoles": {
    "renter": "Penyewa demo",
    "owner": "Pemilik demo",
-   "admin": "Admin demo"
+   "admin": "Admin demo",
+   "visitor": "Wisatawan demo (IDP)"
   }
  },
  "account": {
@@ -623,7 +643,8 @@
   "docFile": "Unggah foto atau PDF dokumen",
   "docPrivacy": "Dokumen disimpan di penyimpanan privat dan hanya dilihat oleh petugas verifikasi.",
   "submitDoc": "Kirim untuk ditinjau",
-  "docSubmitted": "Terkirim — kami akan memberi tahu setelah ditinjau"
+  "docSubmitted": "Terkirim — kami akan memberi tahu setelah ditinjau",
+  "idp": "SIM Internasional (sepeda motor)"
  },
  "verification": {
   "types": {
@@ -633,7 +654,7 @@
   },
   "hints": {
    "identity": "Wajib bagi pemilik dan untuk sewa motor.",
-   "driving_license": "SIM C wajib untuk menyewa motor.",
+   "driving_license": "SIM C, atau SIM Internasional golongan sepeda motor bagi wisatawan, wajib untuk menyewa motor.",
    "student": "Dapatkan lencana mahasiswa terverifikasi untuk kampusmu."
   },
   "idVerified": "Identitas terverifikasi",
@@ -727,7 +748,7 @@
   "motoNotice": "Iklan motor memerlukan STNK dan nomor polisi, dan tayang setelah ditinjau Bali Bike. Hanya orang dewasa terverifikasi dan ber-SIM yang dapat menyewanya.",
   "details": "Detail",
   "name": "Judul iklan",
-  "nameHint": "mis. \"Sepeda kota Polygon dekat UGM\"",
+  "nameHint": "mis. \"Sepeda cruiser pantai di Sanur\"",
   "brand": "Merek",
   "model": "Model",
   "year": "Tahun",
@@ -1035,7 +1056,7 @@
    },
    "moto": {
     "title": "Aturan motor",
-    "body": "Motor hanya bisa dipesan oleh anggota yang memenuhi usia minimum platform, memiliki SIM C yang disetujui dan masih berlaku, serta identitas terverifikasi. Pemilik wajib menyertakan STNK; iklan tayang setelah ditinjau."
+    "body": "Motor hanya bisa dipesan oleh anggota yang memenuhi usia minimum platform, memiliki SIM C yang disetujui dan berlaku (atau SIM Internasional golongan sepeda motor bagi wisatawan), serta KTP atau paspor terverifikasi. Pemilik wajib menyertakan STNK; iklan tayang setelah ditinjau."
    },
    "handover": {
     "title": "Serah terima digital",
@@ -1101,7 +1122,7 @@
    },
    "motorcycles": {
     "title": "Motor",
-    "body": "Penyewa motor wajib memenuhi usia minimum platform, memiliki SIM C yang berlaku, serta membawa KTP dan STNK kendaraan selama berkendara. Wajib memakai helm berstandar SNI."
+    "body": "Penyewa motor wajib memenuhi usia minimum platform, memiliki SIM C atau SIM Internasional golongan sepeda motor yang berlaku, serta membawa KTP atau paspor dan STNK kendaraan selama berkendara. Wajib memakai helm berstandar SNI."
    },
    "disputes": {
     "title": "Sengketa",
@@ -1114,7 +1135,7 @@
   }
  },
  "footer": {
-  "about": "Bali Bike adalah marketplace mobilitas antarwarga untuk Indonesia — dimulai dari komunitas kampus, dibangun untuk setiap kota.",
+  "about": "Bali Bike adalah marketplace sewa sepeda dan motor antarwarga — dimulai di Bali, dibangun untuk berkembang ke seluruh Indonesia.",
   "mvp": "MVP · Fase 1",
   "explore": "Jelajahi",
   "company": "Bali Bike",
@@ -1159,7 +1180,7 @@
   "VERIFICATION_PENDING": "Kamu sudah punya dokumen yang sedang ditinjau.",
   "AGREEMENT_REQUIRED": "Harap setujui perjanjian sewa.",
   "OWN_VEHICLE": "Kamu tidak bisa memesan kendaraanmu sendiri.",
-  "MOTORCYCLE_NOT_ELIGIBLE": "Lengkapi verifikasi motor (usia, identitas, dan SIM C) sebelum memesan.",
+  "MOTORCYCLE_NOT_ELIGIBLE": "Lengkapi verifikasi motor (usia, identitas, dan SIM C atau IDP) sebelum memesan.",
   "NO_PRICING": "Kendaraan ini belum memiliki harga.",
   "INVALID_TRANSITION": "Tindakan ini tidak bisa dilakukan pada status pesanan saat ini.",
   "BOOKING_CHANGED": "Pesanan baru saja berubah. Muat ulang dan coba lagi.",

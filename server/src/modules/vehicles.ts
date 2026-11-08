@@ -21,6 +21,7 @@ const searchSchema = z.object({
   category: z.enum(['bicycle', 'motorcycle']).optional(),
   type: z.string().optional(),
   cityId: z.coerce.number().int().positive().optional(),
+  region: z.string().regex(/^[a-z-]{2,40}$/).optional(), // province slug without 'prov-', e.g. 'bali'
   universityId: z.coerce.number().int().positive().optional(),
   lat: z.coerce.number().min(-90).max(90).optional(),
   lng: z.coerce.number().min(-180).max(180).optional(),
@@ -54,6 +55,9 @@ export function searchVehicles(params: Record<string, string>) {
     if (types.length) { where.push(`v.type IN (${types.map(() => '?').join(',')})`); args.push(...types); }
   }
   if (f.cityId) { where.push('v.city_id = ?'); args.push(f.cityId); }
+  else if (f.region) {
+    where.push(`v.city_id IN (SELECT id FROM locations WHERE parent_id = (SELECT id FROM locations WHERE slug = ?))`); args.push('prov-' + f.region);
+  }
   if (f.q) {
     where.push(`(v.name LIKE ? OR v.brand LIKE ? OR v.model LIKE ? OR v.pickup_address LIKE ?)`);
     const like = `%${f.q.replace(/[%_]/g, '')}%`;

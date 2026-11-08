@@ -23,6 +23,14 @@ const CITIES = [
   { name: 'Malang', province: 'Jawa Timur', lat: -7.9666, lng: 112.6326, tz: 420 },
   { name: 'Semarang', province: 'Jawa Tengah', lat: -6.9667, lng: 110.4167, tz: 420 },
   { name: 'Denpasar', province: 'Bali', lat: -8.6705, lng: 115.2126, tz: 480 },
+  // Bali areas are modelled as city-level locations so renters can pick them directly (Kuta, Ubud, Canggu …).
+  { name: 'Ubud', province: 'Bali', lat: -8.5069, lng: 115.2625, tz: 480 },
+  { name: 'Canggu', province: 'Bali', lat: -8.6478, lng: 115.1385, tz: 480 },
+  { name: 'Seminyak', province: 'Bali', lat: -8.6913, lng: 115.1683, tz: 480 },
+  { name: 'Kuta', province: 'Bali', lat: -8.7180, lng: 115.1686, tz: 480 },
+  { name: 'Sanur', province: 'Bali', lat: -8.6939, lng: 115.2600, tz: 480 },
+  { name: 'Nusa Dua', province: 'Bali', lat: -8.8008, lng: 115.2317, tz: 480 },
+  { name: 'Uluwatu', province: 'Bali', lat: -8.8291, lng: 115.0849, tz: 480 },
   { name: 'Medan', province: 'Sumatera Utara', lat: 3.5952, lng: 98.6722, tz: 420 },
 ];
 
@@ -45,6 +53,10 @@ const UNIVERSITIES = [
   { city: 'Malang', name: 'Universitas Brawijaya', short: 'UB', domain: 'ub.ac.id', lat: -7.9525, lng: 112.6144 },
   { city: 'Semarang', name: 'Universitas Diponegoro', short: 'UNDIP', domain: 'undip.ac.id', lat: -7.0506, lng: 110.4381 },
   { city: 'Denpasar', name: 'Universitas Udayana (Sudirman)', short: 'UNUD', domain: 'unud.ac.id', lat: -8.6735, lng: 115.2210 },
+  { city: 'Kuta', name: 'Universitas Udayana (Jimbaran)', short: 'UNUD Jimbaran', domain: 'unud.ac.id', lat: -8.7975, lng: 115.1730 },
+  { city: 'Denpasar', name: 'Universitas Warmadewa', short: 'WARMADEWA', domain: 'warmadewa.ac.id', lat: -8.6526, lng: 115.2370 },
+  { city: 'Kuta', name: 'Politeknik Negeri Bali', short: 'PNB', domain: 'pnb.ac.id', lat: -8.7990, lng: 115.1610 },
+  { city: 'Denpasar', name: 'Institut Seni Indonesia Denpasar', short: 'ISI Denpasar', domain: 'isi-dps.ac.id', lat: -8.6545, lng: 115.2404 },
   { city: 'Medan', name: 'Universitas Sumatera Utara', short: 'USU', domain: 'usu.ac.id', lat: 3.5617, lng: 98.6567 },
 ];
 
@@ -59,7 +71,7 @@ const jitter = (km: number) => (rnd() - 0.5) * 2 * (km / 111);
 const slugify = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 type VSpec = {
-  owner: string; uni: string; category: 'bicycle' | 'motorcycle'; type: string; name: string; brand: string; model: string; year: number;
+  owner: string; uni?: string; area?: string; category: 'bicycle' | 'motorcycle'; type: string; name: string; brand: string; model: string; year: number;
   condition: string; deposit: number; prices: [number, number][]; desc: string; hours?: [number, number]; instant?: boolean; color: string;
 };
 
@@ -115,6 +127,43 @@ const VEHICLES: VSpec[] = [
     prices: [[360, 55000], [1440, 95000]], desc: 'Compact automatic for Jakarta traffic. E-toll card not included.', hours: [7, 21], color: '#991b1b' },
   { owner: 'lestari', uni: 'USU', category: 'bicycle', type: 'mountain', name: 'Thrill Ravage MTB', brand: 'Thrill', model: 'Ravage 3.0', year: 2022, condition: 'good', deposit: 100000,
     prices: [[60, 10000], [360, 40000], [1440, 70000]], desc: 'Mountain bike near USU Padang Bulan.', hours: [6, 20], color: '#15803d' },
+  // ───── Bali (primary market) ─────
+  { owner: 'made', area: 'Ubud', category: 'bicycle', type: 'electric_bicycle', name: 'E-bike for Ubud rice terraces', brand: 'Selis', model: 'Elvio Plus', year: 2024, condition: 'new', deposit: 200000,
+    prices: [[60, 25000], [180, 60000], [360, 100000], [1440, 150000]], desc: 'Pedal-assist e-bike — Ubud hills feel flat. Ride to Tegallalang terraces and Campuhan Ridge. Helmet, lock and phone holder included.', hours: [7, 19], instant: true, color: '#16a34a' },
+  { owner: 'made', area: 'Ubud', category: 'bicycle', type: 'city', name: 'Ubud village cruiser', brand: 'Polygon', model: 'Sierra Deluxe', year: 2023, condition: 'excellent', deposit: 100000,
+    prices: [[60, 15000], [360, 50000], [1440, 75000]], desc: 'Upright cruiser with basket for cafés, the Monkey Forest road and Ubud market.', hours: [7, 19], color: '#0ea5e9' },
+  { owner: 'made', area: 'Ubud', category: 'bicycle', type: 'mountain', name: 'Kintamani downhill MTB', brand: 'Polygon', model: 'Xtrada 7', year: 2023, condition: 'excellent', deposit: 300000,
+    prices: [[360, 120000], [1440, 180000]], desc: 'Hydraulic disc brakes and front suspension — perfect for the classic Kintamani-to-Ubud downhill route.', hours: [6, 18], color: '#ea580c' },
+  { owner: 'made', area: 'Ubud', category: 'motorcycle', type: 'scooter', name: 'Honda Scoopy — Ubud', brand: 'Honda', model: 'Scoopy', year: 2023, condition: 'excellent', deposit: 500000,
+    prices: [[720, 80000], [1440, 100000]], desc: 'Easy automatic scooter. Two SNI helmets, raincoat and STNK included. SIM C or International Driving Permit (motorcycle) required.', hours: [8, 20], color: '#db2777' },
+  { owner: 'ketut', area: 'Canggu', category: 'bicycle', type: 'city', name: 'Canggu beach cruiser + surf rack', brand: 'Pacific', model: 'Cruiser 26', year: 2023, condition: 'good', deposit: 100000,
+    prices: [[60, 15000], [360, 45000], [1440, 70000]], desc: 'Fat-tyre beach cruiser with side surfboard rack. Batu Bolong and Echo Beach in minutes.', hours: [6, 21], instant: true, color: '#0891b2' },
+  { owner: 'ketut', area: 'Canggu', category: 'bicycle', type: 'road', name: 'Canggu road bike', brand: 'Element', model: 'FRC 39', year: 2024, condition: 'new', deposit: 300000,
+    prices: [[180, 80000], [360, 120000], [1440, 180000]], desc: 'Lightweight road bike for early-morning rides along the rice fields to Tanah Lot.', hours: [5, 19], color: '#1d4ed8' },
+  { owner: 'ketut', area: 'Canggu', category: 'motorcycle', type: 'automatic', name: 'Honda Vario 160 — Canggu', brand: 'Honda', model: 'Vario 160', year: 2024, condition: 'new', deposit: 500000,
+    prices: [[720, 90000], [1440, 120000]], desc: 'Powerful automatic with surf rack on request. Helmets included. Valid SIM C or IDP with motorcycle category required.', hours: [8, 21], color: '#334155' },
+  { owner: 'ketut', area: 'Canggu', category: 'motorcycle', type: 'scooter', name: 'Yamaha NMAX — Canggu', brand: 'Yamaha', model: 'NMAX 155', year: 2023, condition: 'excellent', deposit: 700000,
+    prices: [[720, 120000], [1440, 160000]], desc: 'Comfortable maxi-scooter for day trips to Bedugul or Uluwatu.', hours: [8, 20], color: '#0f172a' },
+  { owner: 'komang', area: 'Sanur', category: 'bicycle', type: 'city', name: 'Sanur beach path cruiser', brand: 'United', model: 'Bimax Cruiser', year: 2022, condition: 'good', deposit: 50000,
+    prices: [[30, 8000], [60, 12000], [360, 40000], [1440, 60000]], desc: 'Relaxed cruiser for the 5 km Sanur beachfront path. Child seat available on request.', hours: [6, 20], instant: true, color: '#f59e0b' },
+  { owner: 'komang', area: 'Sanur', category: 'bicycle', type: 'electric_bicycle', name: 'Sanur e-bike', brand: 'Uwinfly', model: 'Wingman', year: 2024, condition: 'new', deposit: 200000,
+    prices: [[60, 20000], [360, 80000], [1440, 120000]], desc: 'E-bike for exploring Sanur, Serangan and the mangrove trail.', hours: [7, 19], color: '#059669' },
+  { owner: 'komang', area: 'Sanur', category: 'bicycle', type: 'student', name: 'Budget bike — Sanur', brand: 'Pacific', model: 'Exotic 2.0', year: 2021, condition: 'fair', deposit: 0,
+    prices: [[30, 5000], [60, 8000], [1440, 40000]], desc: 'Simple, cheap and reliable for short errands.', hours: [6, 21], color: '#7c3aed' },
+  { owner: 'wayan', area: 'Kuta', uni: 'UNUD Jimbaran', category: 'bicycle', type: 'student', name: 'Campus bike — Udayana Jimbaran', brand: 'United', model: 'Bimax', year: 2022, condition: 'good', deposit: 0,
+    prices: [[30, 5000], [60, 8000], [1440, 40000]], desc: 'For getting around the Udayana Jimbaran campus and Bukit area.', hours: [6, 21], instant: true, color: '#2563eb' },
+  { owner: 'wayan', area: 'Kuta', category: 'bicycle', type: 'folding', name: 'Kuta folding bike', brand: 'Dahon', model: 'Mariner D8', year: 2022, condition: 'good', deposit: 150000,
+    prices: [[60, 15000], [360, 50000], [1440, 80000]], desc: 'Folds into a taxi boot or Grab car. Great for Kuta–Legian–Seminyak.', hours: [7, 21], color: '#0f766e' },
+  { owner: 'wayan', area: 'Kuta', category: 'motorcycle', type: 'automatic', name: 'Honda BeAT — Kuta', brand: 'Honda', model: 'BeAT', year: 2023, condition: 'excellent', deposit: 400000,
+    prices: [[720, 60000], [1440, 75000]], desc: 'Light, fuel-efficient scooter. Pickup near Kuta Beach. Helmets and raincoat included.', hours: [8, 21], color: '#dc2626' },
+  { owner: 'kadek', area: 'Seminyak', category: 'bicycle', type: 'city', name: 'Seminyak café cruiser', brand: 'Polygon', model: 'Zenith 2', year: 2023, condition: 'excellent', deposit: 100000,
+    prices: [[60, 15000], [360, 50000], [1440, 75000]], desc: 'Stylish city bike for Seminyak cafés and sunset at Double Six.', hours: [8, 22], color: '#be123c' },
+  { owner: 'kadek', area: 'Nusa Dua', category: 'bicycle', type: 'road', name: 'Nusa Dua road bike', brand: 'Polygon', model: 'Strattos S3', year: 2023, condition: 'excellent', deposit: 300000,
+    prices: [[180, 70000], [360, 110000], [1440, 160000]], desc: 'Smooth roads of Nusa Dua and the Bukit peninsula loop.', hours: [6, 18], color: '#4f46e5' },
+  { owner: 'kadek', area: 'Uluwatu', category: 'motorcycle', type: 'automatic', name: 'Uluwatu surf scooter', brand: 'Honda', model: 'Vario 125', year: 2022, condition: 'good', deposit: 500000,
+    prices: [[720, 75000], [1440, 95000]], desc: 'Comes with a surfboard rack for Padang Padang, Bingin and Uluwatu breaks.', hours: [7, 20], color: '#475569' },
+  { owner: 'wayan', area: 'Denpasar', uni: 'WARMADEWA', category: 'bicycle', type: 'city', name: 'Denpasar commuter — near Warmadewa', brand: 'Genio', model: 'Urban 26', year: 2022, condition: 'good', deposit: 50000,
+    prices: [[30, 5000], [60, 8000], [1440, 45000]], desc: 'City bike for students near Warmadewa and Renon.', hours: [6, 21], color: '#0369a1' },
 ];
 
 const PEOPLE: Record<string, { name: string; email: string; city: string; uni?: string; role: 'owner' | 'renter' | 'admin'; dob: string; verified: boolean }> = {
@@ -126,9 +175,15 @@ const PEOPLE: Record<string, { name: string; email: string; city: string; uni?: 
   fajar: { name: 'Fajar Nugroho', email: 'fajar@balibike.demo', city: 'Surabaya', uni: 'ITS', role: 'owner', dob: '2000-06-30', verified: false },
   sinta: { name: 'Sinta Maharani', email: 'sinta@balibike.demo', city: 'Malang', uni: 'UB', role: 'owner', dob: '2001-08-08', verified: true },
   bayu: { name: 'Bayu Saputra', email: 'bayu@balibike.demo', city: 'Jakarta', uni: 'UNJ', role: 'owner', dob: '1997-12-01', verified: true },
+  made: { name: 'Made Sudarsana', email: 'made@balibike.demo', city: 'Ubud', role: 'owner', dob: '1996-03-09', verified: true },
+  ketut: { name: 'Ketut Ariani', email: 'ketut@balibike.demo', city: 'Canggu', role: 'owner', dob: '1999-07-22', verified: true },
+  komang: { name: 'Komang Adi Putra', email: 'komang@balibike.demo', city: 'Sanur', role: 'owner', dob: '2001-01-15', verified: true },
+  wayan: { name: 'Wayan Gede Saputra', email: 'wayan@balibike.demo', city: 'Kuta', uni: 'UNUD Jimbaran', role: 'owner', dob: '2002-10-30', verified: true },
+  kadek: { name: 'Kadek Dewi Lestari', email: 'kadek@balibike.demo', city: 'Seminyak', role: 'owner', dob: '1998-05-18', verified: false },
   lestari: { name: 'Lestari Siregar', email: 'lestari@balibike.demo', city: 'Medan', uni: 'USU', role: 'owner', dob: '2000-03-17', verified: false },
   budi: { name: 'Budi Santoso', email: 'renter@balibike.demo', city: 'Yogyakarta', uni: 'UGM', role: 'renter', dob: '2003-05-20', verified: true },
   sari: { name: 'Sari Indah', email: 'sari@balibike.demo', city: 'Yogyakarta', uni: 'UGM', role: 'renter', dob: '2005-10-02', verified: false },
+  emma: { name: 'Emma Novak (visitor)', email: 'visitor@balibike.demo', city: 'Canggu', role: 'renter', dob: '1997-02-11', verified: true },
   reza: { name: 'Reza Hidayat', email: 'reza@balibike.demo', city: 'Bandung', uni: 'ITB', role: 'renter', dob: '2002-07-11', verified: true },
 };
 
@@ -185,6 +240,9 @@ export function seedDemo() {
            VALUES (?, 'driving_license', 'approved', '••••5678', 'C', '2030-05-20', ?)`, [userIds.budi, verifiedAt]);
     q.run(`INSERT INTO user_verifications (user_id, type, status, document_number, license_class, expires_on, reviewed_at)
            VALUES (?, 'driving_license', 'approved', '••••9012', 'C', '2029-07-11', ?)`, [userIds.reza, verifiedAt]);
+    // Emma is a visitor with a passport + International Driving Permit (motorcycle) → eligible for scooters.
+    q.run(`INSERT INTO user_verifications (user_id, type, status, document_number, license_class, expires_on, reviewed_at)
+           VALUES (?, 'driving_license', 'approved', '••••4410', 'IDP', '2027-02-11', ?)`, [userIds.emma, verifiedAt]);
     // Pending items so the admin verification queue has something to review.
     q.run(`INSERT INTO user_verifications (user_id, type, status, document_number) VALUES (?, 'identity', 'pending', '••••3344')`, [userIds.fajar]);
     q.run(`INSERT INTO user_verifications (user_id, type, status, document_number) VALUES (?, 'identity', 'pending', '••••7788')`, [userIds.sari]);
@@ -192,16 +250,20 @@ export function seedDemo() {
     // Vehicles
     const vehicleIds: number[] = [];
     VEHICLES.forEach((v, idx) => {
-      const uni = uniIds[v.uni];
-      const lat = uni.lat + jitter(1.6), lng = uni.lng + jitter(1.6);
+      const uni = v.uni ? uniIds[v.uni] : undefined;
+      const area = v.area ? CITIES.find((c) => c.name === v.area)! : undefined;
+      const base = area && !uni ? area : uni!;
+      const lat = base.lat + jitter(area && !uni ? 2.2 : 1.6), lng = base.lng + jitter(area && !uni ? 2.2 : 1.6);
+      const cityName = area ? area.name : uni!.city;
+      const pickup = uni ? `Near ${UNIVERSITIES.find((u) => u.short === v.uni)!.name} (demo pickup point)` : `${area!.name}, Bali (demo pickup point)`;
       const isMoto = v.category === 'motorcycle';
       const created = new Date(Date.UTC(2026, 8, 1) + idx * 2.3 * 86400_000).toISOString();
       const id = q.run(`INSERT INTO vehicles (owner_id, category, type, name, brand, model, year, description, condition, rules, deposit, city_id, university_id,
           pickup_address, lat, lng, plate_number, registration_status, status, instant_book, is_demo, created_at)
           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, 'active', ?, 1, ?)`,
         [userIds[v.owner], v.category, v.type, v.name, v.brand, v.model, v.year, v.desc, v.condition, isMoto ? MOTO_RULES : BIKE_RULES, v.deposit,
-          cityIds[uni.city], uni.id, `Near ${UNIVERSITIES.find((u) => u.short === v.uni)!.name} (demo pickup point)`, lat, lng,
-          isMoto ? `AB ${1000 + idx * 37} ${pick(['XY', 'KL', 'RT', 'MN'])}` : null, isMoto ? 'approved' : 'not_required', v.instant ? 1 : 0, created]).id;
+          cityIds[cityName], uni?.id ?? null, pickup, lat, lng,
+          isMoto ? `${area || cityName === 'Denpasar' ? 'DK' : 'AB'} ${1000 + idx * 37} ${pick(['XY', 'KL', 'RT', 'MN'])}` : null, isMoto ? 'approved' : 'not_required', v.instant ? 1 : 0, created]).id;
       vehicleIds.push(id);
       for (const [d, p] of v.prices) q.run('INSERT INTO vehicle_pricing (vehicle_id, duration_minutes, price) VALUES (?, ?, ?)', [id, d, p]);
       if (v.hours) for (let wd = 0; wd < 7; wd++)
@@ -260,7 +322,8 @@ export function seedDemo() {
     for (let i = 0; i < VEHICLES.length; i++) {
       const times = VEHICLES[i].category === 'bicycle' ? 2 : 1;
       for (let k = 0; k < times; k++) {
-        const renter = VEHICLES[i].category === 'motorcycle' ? pick(['budi', 'reza']) : pick(renters);
+        const isBali = !!VEHICLES[i].area;
+        const renter = VEHICLES[i].category === 'motorcycle' ? (isBali ? pick(['emma', 'budi']) : pick(['budi', 'reza'])) : isBali ? pick(['emma', 'budi', 'sari']) : pick(renters);
         mk(i, renter, -24 * (5 + ((n * 7) % 55)) - k * 30, pick([1, 3, 6, 24]), 'completed');
         n++;
       }

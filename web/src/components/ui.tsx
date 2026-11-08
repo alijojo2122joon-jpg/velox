@@ -70,9 +70,9 @@ export const Select = ({ className, children, ...p }: SelectHTMLAttributes<HTMLS
 
 export function Toggle({ checked, onChange, label }: { checked: boolean; onChange: (v: boolean) => void; label?: ReactNode }) {
   return (
-    <button type="button" role="switch" aria-checked={checked} onClick={() => onChange(!checked)} className="inline-flex items-center gap-3 text-sm font-medium text-ink-800">
-      <span className={cx('relative h-6 w-11 rounded-full transition', checked ? 'bg-brand-500' : 'bg-ink-200')}>
-        <span className={cx('absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all', checked ? 'start-[22px]' : 'start-0.5')} />
+    <button type="button" role="switch" aria-checked={checked} onClick={() => onChange(!checked)} className="inline-flex items-center gap-3 text-start text-sm font-medium text-ink-800">
+      <span className={cx('relative h-7 w-[52px] shrink-0 overflow-hidden rounded-full p-[3px] ring-2 ring-white transition-all duration-300', checked ? 'grass-track' : 'empty-track')}>
+        <span className={cx('marble-knob absolute top-[3px] h-[22px] w-[22px] rounded-full transition-all duration-300 ease-[cubic-bezier(.3,1.4,.5,1)]', checked ? 'start-[27px]' : 'start-[3px]')} />
       </span>
       {label}
     </button>
@@ -153,8 +153,27 @@ export function Skeleton({ className }: { className?: string }) {
   return <div className={cx('animate-pulse rounded-xl bg-ink-200/60', className)} />;
 }
 
+/** Glowing dial loader (reference: thermostat ring). */
 export function PageLoader() {
-  return <div className="flex min-h-[50vh] items-center justify-center text-ink-400"><Spinner size={28} /></div>;
+  return (
+    <div className="flex min-h-[50vh] items-center justify-center" role="status" aria-busy="true">
+      <div className="relative h-20 w-20">
+        <div className="absolute inset-0 animate-[spin-slow_1.6s_linear_infinite] rounded-full bg-[conic-gradient(from_0deg,transparent_0_55%,#4f95ff_80%,#2b76ff_100%)] blur-[3px]" />
+        <div className="step-disc absolute inset-[5px] flex items-center justify-center rounded-full">
+          <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#2b76ff" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"><circle cx="19" cy="40" r="9" /><circle cx="45" cy="40" r="9" /><path d="M19 40l8-15h12l6 15M27 25l5 15h-13" /></g></svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Raised disc with coloured arc ring, used for numbered steps. */
+export function StepDisc({ n, color = '#2b76ff', size = 56, children }: { n?: string; color?: string; size?: number; children?: ReactNode }) {
+  return (
+    <span className="step-ring relative inline-flex shrink-0 items-center justify-center rounded-full p-[3px]" style={{ width: size, height: size, ['--ring' as any]: color, filter: `drop-shadow(0 0 6px ${color}66)` }}>
+      <span className="step-disc flex h-full w-full items-center justify-center rounded-full font-display text-lg font-extrabold" style={{ color }}>{children ?? n}</span>
+    </span>
+  );
 }
 
 export function Notice({ tone = 'info', title, children, icon, action }: { tone?: 'info' | 'warn' | 'error' | 'success' | 'demo'; title?: ReactNode; children?: ReactNode; icon?: string; action?: ReactNode }) {

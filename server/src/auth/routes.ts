@@ -54,7 +54,8 @@ export function getMe(userId: number) {
  * Motorcycle eligibility (enforced server-side on every motorcycle booking):
  *  - verified email + phone
  *  - approved identity document (KTP / passport)
- *  - approved, unexpired SIM C (motorcycle driving licence)
+ *  - approved, unexpired SIM C (motorcycle driving licence) — or, for visitors, an International Driving Permit
+ *    with motorcycle category (stored as licence class 'IDP')
  *  - age ≥ platform minimum (default 18, admin-configurable; Indonesian law sets SIM C at 17)
  */
 export function motorcycleEligibility(userId: number) {
@@ -63,7 +64,7 @@ export function motorcycleEligibility(userId: number) {
   const today = new Date().toISOString().slice(0, 10);
   const idOk = !!q.get(`SELECT 1 FROM user_verifications WHERE user_id = ? AND type = 'identity' AND status = 'approved'`, [userId]);
   const simOk = !!q.get(`SELECT 1 FROM user_verifications WHERE user_id = ? AND type = 'driving_license'
-                         AND status = 'approved' AND license_class = 'C' AND (expires_on IS NULL OR expires_on >= ?)`, [userId, today]);
+                         AND status = 'approved' AND license_class IN ('C', 'IDP') AND (expires_on IS NULL OR expires_on >= ?)`, [userId, today]);
   const minAge = getNumberSetting('motorcycle_min_age');
   let age: number | null = null;
   if (u?.date_of_birth) {
@@ -187,7 +188,7 @@ export const authRoutes = (r: Router) => {
     const b = validate(z.object({
       type: z.enum(['identity', 'driving_license', 'student']),
       documentNumber: z.string().trim().min(4).max(40),
-      licenseClass: z.enum(['A', 'C', 'C1', 'C2']).optional(),
+      licenseClass: z.enum(['A', 'C', 'C1', 'C2', 'IDP']).optional(),
       expiresOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'V_DATE').optional(),
       document: z.string().min(10).max(6_000_000),
     }), req.body);

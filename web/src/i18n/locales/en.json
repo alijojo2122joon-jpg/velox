@@ -132,11 +132,11 @@
   "badge": "Bicycle reservation in Bali · bikes & scooters",
   "title1": "Rent a ride nearby.",
   "title2": "Earn from yours.",
-  "subtitle": "Bali Bike connects people who own bicycles and motorcycles with people who need one — for 30 minutes, a day, or a week. Verified members, transparent prices, secure payments.",
+  "subtitle": "Bali Bike connects locals who own bicycles and scooters with students, residents and travellers in Bali — for 30 minutes, a day or a week. Verified members, transparent prices, secure payments.",
   "anyCity": "All cities",
   "nearMe": "Near me",
   "search": "Search",
-  "motoNote": "Motorcycles are only available to verified adults with a valid SIM C licence.",
+  "motoNote": "Scooters and motorcycles are only for verified adults with a valid SIM C or an International Driving Permit for motorcycles.",
   "trustline": {
    "verified": "Verified members",
    "checklist": "Digital handover checklist",
@@ -149,14 +149,14 @@
   },
   "stats": {
    "vehicles": "Vehicles listed",
-   "cities": "Cities",
+   "cities": "Areas in Bali",
    "universities": "Campuses",
    "rentals": "Completed rentals",
    "note": "Figures reflect the current demonstration dataset."
   },
   "categories": {
    "eyebrow": "Choose your ride",
-   "title": "From campus cruisers to weekend scooters",
+   "title": "From Ubud e-bikes to Canggu beach cruisers",
    "bicycleDesc": "City, mountain, road, folding, electric and budget student bikes.",
    "motorcycleDesc": "Scooters, automatics, manuals and electric motorcycles for licensed adults."
   },
@@ -164,7 +164,7 @@
   "viewAll": "View all",
   "featured": {
    "eyebrow": "Top rated",
-   "title": "Popular bicycles near campus"
+   "title": "Popular bicycles in Bali"
   },
   "how": {
    "eyebrow": "How Bali Bike works",
@@ -196,7 +196,7 @@
    "eyebrow": "Trust & safety",
    "title": "Built for renting between strangers",
    "verify": "Verified identities",
-   "verifyd": "Phone, email and ID checks. Motorcycles require an approved SIM C and adult age.",
+   "verifyd": "Phone, email and ID or passport checks. Scooters require an approved SIM C or International Driving Permit and adult age.",
    "checklist": "Digital handover",
    "checklistd": "Timestamped pickup and return checklists with photos protect both sides.",
    "payments": "Secure payments",
@@ -220,6 +220,24 @@
    "fee": "Bali Bike fee ({pct}%)",
    "youEarn": "You earn",
    "disclaimer": "Illustrative figures only, not a promise of income. Commission is configurable."
+  },
+  "allBali": "All of Bali",
+  "allIndonesia": "All cities in Indonesia",
+  "otherCities": "Other cities",
+  "areas": {
+   "eyebrow": "Explore Bali",
+   "title": "Pick your area",
+   "vehicles": "{n} vehicles",
+   "tips": {
+    "denpasar": "Campuses, Renon park and the city centre.",
+    "ubud": "Rice terraces, Campuhan Ridge and jungle cafés.",
+    "canggu": "Surf beaches and rice-field roads.",
+    "seminyak": "Cafés, boutiques and sunset beaches.",
+    "kuta": "Beachfront, Legian and the Jimbaran campus.",
+    "sanur": "Flat 5 km beach path — ideal for cycling.",
+    "nusa-dua": "Smooth roads and the Bukit peninsula loop.",
+    "uluwatu": "Cliffs, temples and world-class surf breaks."
+   }
   }
  },
  "search": {
@@ -246,7 +264,7 @@
   "inCity": "in {city}",
   "inIndonesia": "across Indonesia",
   "geoError": "We couldn't get your location. Check your browser permission or choose a city.",
-  "motoNotice": "Motorcycle rentals require a verified identity, an approved SIM C licence and the platform minimum age.",
+  "motoNotice": "Motorcycle rentals require a verified ID or passport, an approved SIM C or International Driving Permit (motorcycle category), and the platform minimum age.",
   "emptyTitle": "No vehicles match",
   "emptyBody": "Try a wider radius, another date or fewer filters.",
   "clear": "Clear filters",
@@ -260,7 +278,8 @@
   "minRating": "Minimum rating",
   "any": "Any",
   "university": "Near university",
-  "anyUniversity": "Any university"
+  "anyUniversity": "Any university",
+  "inBali": "in Bali"
  },
  "map": {
   "loading": "Loading map…",
@@ -271,7 +290,7 @@
   "from": "from",
   "total": "total",
   "instant": "Instant book",
-  "licenseRequired": "SIM C required",
+  "licenseRequired": "SIM C / IDP required",
   "notFound": "This vehicle isn't available",
   "notPublic": "This listing is not visible to renters right now.",
   "saved": "Saved to your list",
@@ -381,7 +400,7 @@
    "qrSoon": "QR code pickup: coming soon",
    "instructionsTitle": "Pickup instructions",
    "instr1": "Confirm the meeting point with the owner in chat.",
-   "instr2": "Bring your ID (and SIM C for motorcycles).",
+   "instr2": "Bring your ID or passport (and SIM C or IDP for scooters).",
    "instr3": "Check the vehicle together and complete the digital checklist.",
    "instr4": "Give the owner your pickup code to start the rental.",
    "activeTitle": "Rental in progress",
@@ -448,7 +467,7 @@
    "date_of_birth": "Date of birth on your profile",
    "age": "At least {age} years old",
    "identity": "Approved ID (KTP / passport)",
-   "license": "Approved, valid SIM C licence"
+   "license": "Approved, valid SIM C or International Driving Permit (motorcycle)"
   }
  },
  "payment": {
@@ -577,7 +596,8 @@
   "demoRoles": {
    "renter": "Demo renter",
    "owner": "Demo owner",
-   "admin": "Demo admin"
+   "admin": "Demo admin",
+   "visitor": "Demo visitor (IDP)"
   }
  },
  "account": {
@@ -623,7 +643,8 @@
   "docFile": "Upload a photo or PDF of the document",
   "docPrivacy": "Documents are stored in private storage and viewed only by verification staff.",
   "submitDoc": "Submit for review",
-  "docSubmitted": "Submitted — we'll notify you after review"
+  "docSubmitted": "Submitted — we'll notify you after review",
+  "idp": "International Driving Permit (motorcycle)"
  },
  "verification": {
   "types": {
@@ -633,7 +654,7 @@
   },
   "hints": {
    "identity": "Required for owners and for motorcycle rentals.",
-   "driving_license": "SIM C is required to rent motorcycles.",
+   "driving_license": "SIM C, or an International Driving Permit with motorcycle category for visitors, is required for motorcycles.",
    "student": "Get the verified-student badge for your campus."
   },
   "idVerified": "ID verified",
@@ -727,7 +748,7 @@
   "motoNotice": "Motorcycle listings require the vehicle registration (STNK) and plate number, and go live after Bali Bike review. Only verified, licensed adults can rent them.",
   "details": "Details",
   "name": "Listing title",
-  "nameHint": "e.g. \"Polygon city bike near UGM\"",
+  "nameHint": "e.g. \"Beach cruiser in Sanur\"",
   "brand": "Brand",
   "model": "Model",
   "year": "Year",
@@ -1035,7 +1056,7 @@
    },
    "moto": {
     "title": "Motorcycle rules",
-    "body": "Motorcycles can only be booked by members who meet the platform minimum age, hold an approved and valid SIM C licence and have a verified identity. Owners must provide the vehicle registration (STNK); listings go live only after review."
+    "body": "Motorcycles and scooters can only be booked by members who meet the platform minimum age, hold an approved valid SIM C (or, for visitors, an International Driving Permit with motorcycle category) and have a verified ID or passport. Owners must provide the vehicle registration (STNK); listings go live only after review."
    },
    "handover": {
     "title": "Digital handover",
@@ -1101,7 +1122,7 @@
    },
    "motorcycles": {
     "title": "Motorcycles",
-    "body": "Motorcycle renters must meet the platform minimum age, hold a valid SIM C licence and carry their ID and the vehicle's STNK while riding. Helmets meeting the SNI standard must be worn."
+    "body": "Motorcycle renters must meet the platform minimum age, hold a valid SIM C or an International Driving Permit with motorcycle category, and carry their ID or passport and the vehicle's STNK while riding. Helmets meeting the SNI standard must be worn."
    },
    "disputes": {
     "title": "Disputes",
@@ -1114,7 +1135,7 @@
   }
  },
  "footer": {
-  "about": "Bali Bike is a peer-to-peer mobility marketplace for Indonesia — starting with university communities, built for every city.",
+  "about": "Bali Bike is a peer-to-peer bicycle and scooter marketplace — starting in Bali, built to grow across Indonesia.",
   "mvp": "MVP · Phase 1",
   "explore": "Explore",
   "company": "Bali Bike",
@@ -1159,7 +1180,7 @@
   "VERIFICATION_PENDING": "You already have a document under review.",
   "AGREEMENT_REQUIRED": "Please accept the rental agreement.",
   "OWN_VEHICLE": "You can't book your own vehicle.",
-  "MOTORCYCLE_NOT_ELIGIBLE": "Complete motorcycle verification (age, ID and SIM C) before booking.",
+  "MOTORCYCLE_NOT_ELIGIBLE": "Complete motorcycle verification (age, ID and SIM C or IDP) before booking.",
   "NO_PRICING": "This vehicle has no prices set.",
   "INVALID_TRANSITION": "This action isn't possible in the booking's current status.",
   "BOOKING_CHANGED": "The booking just changed. Refresh and try again.",

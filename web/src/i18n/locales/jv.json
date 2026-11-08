@@ -132,11 +132,11 @@
   "badge": "Pesen pit ing Bali · pit & motor",
   "title1": "Nyéwa kendaraan sing cedhak.",
   "title2": "Entuk asil saka duwèkmu.",
-  "subtitle": "Bali Bike nyambungaké sing duwé pit lan motor karo wong sing butuh — kanggo 30 menit, sedina, utawa seminggu. Anggota wis diverifikasi, rega cetha, pambayaran aman.",
+  "subtitle": "Bali Bike nyambungaké warga sing duwé pit lan motor karo mahasiswa, warga, lan wisatawan ing Bali — kanggo 30 menit, sedina, utawa seminggu. Anggota diverifikasi, rega cetha, pambayaran aman.",
   "anyCity": "Kabèh kutha",
   "nearMe": "Cedhak aku",
   "search": "Golèki",
-  "motoNote": "Motor mung bisa disewa wong diwasa sing wis diverifikasi lan duwé SIM C sing isih laku.",
+  "motoNote": "Motor mung kanggo wong diwasa sing diverifikasi lan duwé SIM C utawa SIM Internasional (motor) sing isih laku.",
   "trustline": {
    "verified": "Anggota diverifikasi",
    "checklist": "Checklist serah-tampa digital",
@@ -149,14 +149,14 @@
   },
   "stats": {
    "vehicles": "Kendaraan kadhaftar",
-   "cities": "Kutha",
+   "cities": "Wilayah ing Bali",
    "universities": "Kampus",
    "rentals": "Sewan rampung",
    "note": "Angka iki saka data démo saiki."
   },
   "categories": {
    "eyebrow": "Pilih kendaraanmu",
-   "title": "Saka pit kampus nganti skuter akhir minggu",
+   "title": "Saka pit listrik Ubud nganti cruiser pantai Canggu",
    "bicycleDesc": "Pit kutha, gunung, balap, lempit, listrik, lan pit sekolah sing murah.",
    "motorcycleDesc": "Skuter, motor matik, manual, lan listrik kanggo wong diwasa sing duwé SIM."
   },
@@ -164,7 +164,7 @@
   "viewAll": "Deleng kabèh",
   "featured": {
    "eyebrow": "Biji paling dhuwur",
-   "title": "Pit sing laris ing sacedhaké kampus"
+   "title": "Pit sing laris ing Bali"
   },
   "how": {
    "eyebrow": "Carané Bali Bike mlaku",
@@ -196,7 +196,7 @@
    "eyebrow": "Kapercayan & keamanan",
    "title": "Digawé kanggo sewa-sinewa karo wong sing durung kenal",
    "verify": "Identitas diverifikasi",
-   "verifyd": "Verifikasi telpon, email, lan identitas. Motor mbutuhaké SIM C sing disetujoni lan umur diwasa.",
+   "verifyd": "Verifikasi telpon, email, lan KTP utawa paspor. Motor mbutuhaké SIM C utawa SIM Internasional sing disetujoni lan umur diwasa.",
    "checklist": "Serah-tampa digital",
    "checklistd": "Checklist njupuk lan mbalèkaké sing ana wektuné lan fotoné nglindhungi loro-loroné.",
    "payments": "Pambayaran aman",
@@ -220,6 +220,24 @@
    "fee": "Ragad Bali Bike ({pct}%)",
    "youEarn": "Sing kok tampa",
    "disclaimer": "Angka mung ilustrasi, dudu janji penghasilan. Komisi bisa diatur."
+  },
+  "allBali": "Sak Bali kabèh",
+  "allIndonesia": "Kabèh kutha ing Indonésia",
+  "otherCities": "Kutha liyané",
+  "areas": {
+   "eyebrow": "Golèki Bali",
+   "title": "Pilih wilayahmu",
+   "vehicles": "{n} kendaraan",
+   "tips": {
+    "denpasar": "Kampus, Lapangan Renon, lan tengah kutha.",
+    "ubud": "Sawah terasering, Bukit Campuhan, lan kafé ing alas.",
+    "canggu": "Pantai selancar lan dalan ing tengah sawah.",
+    "seminyak": "Kafé, butik, lan pantai srengéngé surup.",
+    "kuta": "Pantai, Legian, lan kampus Jimbaran.",
+    "sanur": "Dalan pantai rata 5 km — pas kanggo ngepit.",
+    "nusa-dua": "Dalan alus lan rute ngubengi Bukit.",
+    "uluwatu": "Jurang, pura, lan ombak kelas donya."
+   }
   }
  },
  "search": {
@@ -246,7 +264,7 @@
   "inCity": "ing {city}",
   "inIndonesia": "ing saindhenging Indonésia",
   "geoError": "Lokasimu ora bisa dijupuk. Priksa idin browser utawa pilih kutha.",
-  "motoNotice": "Nyéwa motor mbutuhaké identitas diverifikasi, SIM C sing disetujoni, lan umur minimal platform.",
+  "motoNotice": "Nyéwa motor mbutuhaké KTP utawa paspor diverifikasi, SIM C utawa SIM Internasional golongan motor sing disetujoni, lan umur minimal platform.",
   "emptyTitle": "Ora ana kendaraan sing cocog",
   "emptyBody": "Coba radius luwih amba, tanggal liya, utawa saringan luwih sithik.",
   "clear": "Busak saringan",
@@ -260,7 +278,8 @@
   "minRating": "Biji minimal",
   "any": "Apa waé",
   "university": "Cedhak kampus",
-  "anyUniversity": "Kabèh kampus"
+  "anyUniversity": "Kabèh kampus",
+  "inBali": "ing Bali"
  },
  "map": {
   "loading": "Ngemot peta…",
@@ -271,7 +290,7 @@
   "from": "wiwit",
   "total": "gunggung",
   "instant": "Pesen langsung",
-  "licenseRequired": "Kudu SIM C",
+  "licenseRequired": "Kudu SIM C / IDP",
   "notFound": "Kendaraan iki ora kasedhiya",
   "notPublic": "Pariwara iki saiki ora katon kanggo penyéwa.",
   "saved": "Disimpen ing dhaptarmu",
@@ -381,7 +400,7 @@
    "qrSoon": "Njupuk nganggo kode QR: enggal teka",
    "instructionsTitle": "Pituduh njupuk",
    "instr1": "Pesthèkna panggonan ketemu karo pemilik liwat chat.",
-   "instr2": "Gawa KTP (lan SIM C kanggo motor).",
+   "instr2": "Gawa KTP utawa paspor (lan SIM C utawa IDP kanggo motor).",
    "instr3": "Priksa kendaraan bebarengan lan isi checklist digital.",
    "instr4": "Wènèhna kode njupuk marang pemilik kanggo miwiti sewan.",
    "activeTitle": "Sewan lagi mlaku",
@@ -448,7 +467,7 @@
    "date_of_birth": "Tanggal lair ing profil",
    "age": "Umur paling sethithik {age} taun",
    "identity": "Identitas disetujoni (KTP / paspor)",
-   "license": "SIM C sing disetujoni lan isih laku"
+   "license": "SIM C utawa SIM Internasional (motor) sing disetujoni lan isih laku"
   }
  },
  "payment": {
@@ -577,7 +596,8 @@
   "demoRoles": {
    "renter": "Penyéwa démo",
    "owner": "Pemilik démo",
-   "admin": "Admin démo"
+   "admin": "Admin démo",
+   "visitor": "Wisatawan démo (IDP)"
   }
  },
  "account": {
@@ -623,7 +643,8 @@
   "docFile": "Unggah foto utawa PDF dokumen",
   "docPrivacy": "Dokumen disimpen ing panyimpenan pribadi lan mung dideleng petugas verifikasi.",
   "submitDoc": "Kirim kanggo dipriksa",
-  "docSubmitted": "Wis dikirim — awaké dhéwé bakal ngabari sawisé dipriksa"
+  "docSubmitted": "Wis dikirim — awaké dhéwé bakal ngabari sawisé dipriksa",
+  "idp": "SIM Internasional (motor)"
  },
  "verification": {
   "types": {
@@ -633,7 +654,7 @@
   },
   "hints": {
    "identity": "Wajib kanggo pemilik lan kanggo nyéwa motor.",
-   "driving_license": "SIM C wajib kanggo nyéwa motor.",
+   "driving_license": "SIM C, utawa SIM Internasional golongan motor kanggo wisatawan, wajib kanggo nyéwa motor.",
    "student": "Entuk tandha mahasiswa diverifikasi kanggo kampusmu."
   },
   "idVerified": "Identitas diverifikasi",
@@ -727,7 +748,7 @@
   "motoNotice": "Pariwara motor mbutuhaké STNK lan nomer polisi, lan tayang sawisé dipriksa Bali Bike. Mung wong diwasa sing diverifikasi lan duwé SIM sing bisa nyéwa.",
   "details": "Rincian",
   "name": "Irah-irahan pariwara",
-  "nameHint": "contoné \"Pit kutha Polygon cedhak UGM\"",
+  "nameHint": "contoné \"Pit cruiser pantai ing Sanur\"",
   "brand": "Merek",
   "model": "Model",
   "year": "Taun",
@@ -1035,7 +1056,7 @@
    },
    "moto": {
     "title": "Aturan motor",
-    "body": "Motor mung bisa dipesen anggota sing nyukupi umur minimal platform, duwé SIM C sing disetujoni lan isih laku, sarta identitas diverifikasi. Pemilik kudu nyertakaké STNK; pariwara tayang sawisé dipriksa."
+    "body": "Motor mung bisa dipesen anggota sing nyukupi umur minimal platform, duwé SIM C sing disetujoni lan isih laku (utawa SIM Internasional golongan motor kanggo wisatawan), sarta KTP utawa paspor sing diverifikasi. Pemilik kudu nyertakaké STNK; pariwara tayang sawisé dipriksa."
    },
    "handover": {
     "title": "Serah-tampa digital",
@@ -1101,7 +1122,7 @@
    },
    "motorcycles": {
     "title": "Motor",
-    "body": "Penyéwa motor kudu nyukupi umur minimal platform, duwé SIM C sing isih laku, sarta nggawa KTP lan STNK kendaraan nalika nyetir. Wajib nganggo helm standar SNI."
+    "body": "Penyéwa motor kudu nyukupi umur minimal platform, duwé SIM C utawa SIM Internasional golongan motor sing isih laku, sarta nggawa KTP utawa paspor lan STNK kendaraan nalika nyetir. Wajib nganggo helm standar SNI."
    },
    "disputes": {
     "title": "Sengketa",
@@ -1114,7 +1135,7 @@
   }
  },
  "footer": {
-  "about": "Bali Bike iku marketplace mobilitas antarwarga kanggo Indonésia — diwiwiti saka komunitas kampus, digawé kanggo saben kutha.",
+  "about": "Bali Bike iku marketplace sewa pit lan motor antarwarga — diwiwiti ing Bali, digawé supaya bisa ngrembaka ing saindhenging Indonésia.",
   "mvp": "MVP · Tahap 1",
   "explore": "Golèki",
   "company": "Bali Bike",
@@ -1159,7 +1180,7 @@
   "VERIFICATION_PENDING": "Kowé wis duwé dokumen sing lagi dipriksa.",
   "AGREEMENT_REQUIRED": "Tulung setujoni prajanjian sewa.",
   "OWN_VEHICLE": "Kowé ora bisa pesen kendaraanmu dhéwé.",
-  "MOTORCYCLE_NOT_ELIGIBLE": "Rampungna verifikasi motor (umur, identitas, lan SIM C) sadurungé pesen.",
+  "MOTORCYCLE_NOT_ELIGIBLE": "Rampungna verifikasi motor (umur, identitas, lan SIM C utawa IDP) sadurungé pesen.",
   "NO_PRICING": "Kendaraan iki durung duwé rega.",
   "INVALID_TRANSITION": "Tumindak iki ora bisa ing status pesenan saiki.",
   "BOOKING_CHANGED": "Pesenan lagi waé owah. Muat manèh lan coba manèh.",

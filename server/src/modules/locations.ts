@@ -12,16 +12,17 @@ export const locationRoutes = (r: Router) => {
     res.json(q.get(`SELECT
       (SELECT COUNT(*) FROM vehicles WHERE status = 'active') AS vehicles,
       (SELECT COUNT(DISTINCT city_id) FROM vehicles WHERE status = 'active') AS cities,
+      (SELECT COUNT(DISTINCT v.city_id) FROM vehicles v JOIN locations c ON c.id = v.city_id JOIN locations p ON p.id = c.parent_id WHERE v.status = 'active' AND p.slug = 'prov-bali') AS bali_areas,
       (SELECT COUNT(*) FROM universities WHERE is_active = 1) AS universities,
       (SELECT COUNT(*) FROM bookings WHERE status = 'completed') AS completed`));
   });
 
   r.get('/api/locations/cities', (_req, res) => {
     const items = q.all(`
-      SELECT c.id, c.name, c.slug, c.lat, c.lng, c.utc_offset_minutes, p.name AS province,
+      SELECT c.id, c.name, c.slug, c.lat, c.lng, c.utc_offset_minutes, p.name AS province, p.slug AS province_slug,
         (SELECT COUNT(*) FROM vehicles v WHERE v.city_id = c.id AND v.status = 'active') AS vehicle_count
       FROM locations c LEFT JOIN locations p ON p.id = c.parent_id
-      WHERE c.type = 'city' AND c.is_active = 1 ORDER BY vehicle_count DESC, c.name`);
+      WHERE c.type = 'city' AND c.is_active = 1 ORDER BY (p.slug = 'prov-bali') DESC, vehicle_count DESC, c.name`);
     res.json({ items });
   });
 
@@ -33,11 +34,11 @@ export const locationRoutes = (r: Router) => {
   r.get('/api/universities', (req, res) => {
     const cityId = req.query.get('cityId');
     const items = q.all(`
-      SELECT u.id, u.name, u.short_name, u.slug, u.lat, u.lng, u.city_id, c.name AS city_name,
+      SELECT u.id, u.name, u.short_name, u.slug, u.lat, u.lng, u.city_id, c.name AS city_name, p.slug AS province_slug,
         (SELECT COUNT(*) FROM user_profiles p WHERE p.university_id = u.id) AS member_count,
         (SELECT COUNT(*) FROM vehicles v WHERE v.university_id = u.id AND v.status = 'active') AS vehicle_count
-      FROM universities u JOIN locations c ON c.id = u.city_id
-      WHERE u.is_active = 1 ${cityId ? 'AND u.city_id = ?' : ''} ORDER BY vehicle_count DESC, u.name`,
+      FROM universities u JOIN locations c ON c.id = u.city_id LEFT JOIN locations p ON p.id = c.parent_id
+      WHERE u.is_active = 1 ${cityId ? 'AND u.city_id = ?' : ''} ORDER BY (p.slug = 'prov-bali') DESC, vehicle_count DESC, u.name`,
       cityId ? [Number(cityId)] : []);
     res.json({ items });
   });

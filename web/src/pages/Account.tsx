@@ -86,7 +86,7 @@ export function Account() {
                       <div className="font-semibold">{t(`verification.types.${type}`)}</div>
                       <div className="text-xs text-ink-500">{t(`verification.hints.${type}`)}</div>
                       {v?.review_note && v.status === 'rejected' && <div className="mt-1 text-xs text-red-600">{v.review_note}</div>}
-                      {v?.license_class && <div className="mt-0.5 text-xs text-ink-500">SIM {v.license_class}{v.expires_on ? ` · ${t('account.validUntil', { d: date(v.expires_on) })}` : ''}</div>}
+                      {v?.license_class && <div className="mt-0.5 text-xs text-ink-500">{v.license_class === 'IDP' ? t('account.idp') : `SIM ${v.license_class}`}{v.expires_on ? ` · ${t('account.validUntil', { d: date(v.expires_on) })}` : ''}</div>}
                     </div>
                     {v ? <StatusBadge status={v.status} /> : <Badge>{t('account.notSubmitted')}</Badge>}
                     {(!v || v.status === 'rejected') && <Button size="sm" variant="secondary" icon="plus" onClick={() => setDoc(type)}>{t('account.upload')}</Button>}
@@ -204,7 +204,7 @@ function DocumentModal({ type, onClose }: { type: null | 'identity' | 'driving_l
         <Field label={t('account.docNumber')} hint={t('account.docNumberHint')}><Input dir="ltr" value={f.documentNumber} onChange={(e) => setF({ ...f, documentNumber: e.target.value })} /></Field>
         {type === 'driving_license' && (
           <div className="grid gap-4 sm:grid-cols-2">
-            <Field label={t('account.licenseClass')}><Select value={f.licenseClass} onChange={(e) => setF({ ...f, licenseClass: e.target.value })}>{['C', 'C1', 'C2', 'A'].map((c) => <option key={c} value={c}>SIM {c}</option>)}</Select></Field>
+            <Field label={t('account.licenseClass')}><Select value={f.licenseClass} onChange={(e) => setF({ ...f, licenseClass: e.target.value })}>{['C', 'IDP', 'C1', 'C2', 'A'].map((c) => <option key={c} value={c}>{c === 'IDP' ? t('account.idp') : `SIM ${c}`}</option>)}</Select></Field>
             <Field label={t('account.expiry')}><Input type="date" value={f.expiresOn} onChange={(e) => setF({ ...f, expiresOn: e.target.value })} /></Field>
           </div>
         )}
