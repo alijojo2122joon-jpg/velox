@@ -8,6 +8,7 @@ import { useFormat } from '../lib/format';
 import { Icon } from './icons';
 import { Avatar, cx } from './ui';
 import { BRAND } from '../brand';
+import { PHOTO_CREDITS } from '../photos';
 
 export function Logo({ light = false, className = '' }: { light?: boolean; className?: string }) {
   return (
@@ -237,7 +238,7 @@ export function Footer() {
       <div className="border-t border-white/5">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} {BRAND.name} · {t('brand.tagline')}</span>
-          <span>{t('footer.demoNote')}</span>
+          <span>{t('footer.demoNote')} · <a href="https://unsplash.com/license" target="_blank" rel="noreferrer" className="underline hover:text-white" title={PHOTO_CREDITS.join(', ')}>{t('footer.photos')}</a></span>
         </div>
       </div>
     </footer>

@@ -48,7 +48,7 @@ const SECURITY_HEADERS: Record<string, string> = {
     "script-src 'self' https://unpkg.com",
     "style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com data:",
-    "img-src 'self' data: blob: https://*.tile.openstreetmap.org https://unpkg.com",
+    "img-src 'self' data: blob: https://*.tile.openstreetmap.org https://unpkg.com https://images.unsplash.com",
     "connect-src 'self'",
     "frame-ancestors 'none'",
   ].join('; '),

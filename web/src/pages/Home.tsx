@@ -9,6 +9,8 @@ import { Icon } from '../components/icons';
 import { Button, ButtonLink, Select, cx, DemoBadge, StepDisc } from '../components/ui';
 import { VehicleCard, VehicleCardSkeleton, type VehicleSummary } from '../components/VehicleCard';
 import { SkyScene, GlassTiles, Cloud } from '../components/Sky';
+import { Orb, StepOrb } from '../components/Orb';
+import { PHOTOS, AREA_PHOTOS } from '../photos';
 
 const BIKE_TYPES = ['city', 'mountain', 'road', 'folding', 'electric_bicycle', 'student'];
 const MOTO_TYPES = ['scooter', 'automatic', 'manual', 'electric_motorcycle'];
@@ -133,8 +135,10 @@ export function Home() {
         <SectionTitle eyebrow={t('home.categories.eyebrow')} title={t('home.categories.title')} />
         <div className="grid gap-5 md:grid-cols-2">
           {([['bicycle', BIKE_TYPES], ['motorcycle', MOTO_TYPES]] as const).map(([cat, types]) => (
-            <div key={cat} className="card overflow-hidden p-6 sm:p-8">
-              <div className="flex items-start justify-between gap-4">
+            <div key={cat} className="card relative overflow-hidden p-6 sm:p-8">
+              <div aria-hidden="true" className="pointer-events-none absolute -bottom-16 -end-16 h-44 w-44 rounded-full opacity-90 shadow-[inset_0_0_0_6px_rgb(255_255_255/0.8),0_20px_40px_-12px_rgb(40_80_15/0.45)]"
+                style={{ background: `url(${cat === 'bicycle' ? PHOTOS.pebbles.src : PHOTOS.grass.src}) center / cover` }} />
+              <div className="relative z-10 flex items-start justify-between gap-4">
                 <div>
                   <span className={cx('neu-icon h-14 w-14', cat === 'motorcycle' && 'text-grass-600')}>
                     <Icon name={cat === 'bicycle' ? 'bike' : 'moto'} size={26} />
@@ -144,7 +148,7 @@ export function Home() {
                 </div>
                 <ButtonLink to={`/search?category=${cat}&region=bali`} variant="secondary" size="sm" iconEnd="arrowRight">{t('home.browse')}</ButtonLink>
               </div>
-              <div className="mt-6 flex flex-wrap gap-2.5">
+              <div className="relative z-10 mt-6 flex max-w-[85%] flex-wrap gap-2.5">
                 {types.map((tp) => <Link key={tp} to={`/search?category=${cat}&type=${tp}&region=bali`} className="pebble">{t(`vehicleTypes.${tp}`)}</Link>)}
               </div>
             </div>
@@ -152,21 +156,19 @@ export function Home() {
         </div>
       </section>
 
-      {/* ───── Explore Bali ───── */}
+      {/* ───── Explore Bali: photo orbs ───── */}
       {baliAreas.length > 0 && (
-        <section className="container-x pt-20">
+        <section className="container-x pt-24">
           <SectionTitle eyebrow={t('home.areas.eyebrow')} title={t('home.areas.title')} />
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-12 sm:grid-cols-4">
             {baliAreas.map((a, i) => (
-              <Link key={a.id} to={`/search?cityId=${a.id}`} className="group relative overflow-hidden rounded-3xl p-5 shadow-card ring-1 ring-white transition duration-300 hover:-translate-y-1 hover:shadow-lift"
-                style={{ background: AREA_BG[i % AREA_BG.length] }}>
-                <Cloud className="pointer-events-none absolute -end-6 -top-4 w-24 opacity-90 transition duration-500 group-hover:-translate-y-1" shadow={false} />
-                <div className="relative mt-10">
-                  <div className="font-display text-xl font-extrabold text-ink-900">{a.name}</div>
-                  <div className="mt-1 inline-flex items-center gap-1 rounded-full bg-white/70 px-2.5 py-0.5 text-xs font-semibold text-ink-700 backdrop-blur">
-                    <Icon name="bike" size={13} />{t('home.areas.vehicles', { n: num(a.vehicle_count) })}</div>
-                  <p className="mt-2 line-clamp-2 text-xs text-ink-600">{t(`home.areas.tips.${a.slug}`)}</p>
-                </div>
+              <Link key={a.id} to={`/search?cityId=${a.id}`} className="group flex flex-col items-center text-center">
+                <Orb size={150} photo={AREA_PHOTOS[a.slug]?.src} color={i % 2 ? '#7cc625' : '#2b76ff'} color2={i % 2 ? '#2b76ff' : '#7cc625'}
+                  className="transition duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.03]" />
+                <div className="font-display mt-5 text-lg font-extrabold text-ink-900">{a.name}</div>
+                <div className="mt-1 inline-flex items-center gap-1 rounded-full bg-white/80 px-2.5 py-0.5 text-xs font-semibold text-ink-700 shadow-sm">
+                  <Icon name="bike" size={13} />{t('home.areas.vehicles', { n: num(a.vehicle_count) })}</div>
+                <p className="mt-2 max-w-[13rem] text-xs leading-relaxed text-ink-500">{t(`home.areas.tips.${a.slug}`)}</p>
               </Link>
             ))}
           </div>
@@ -183,33 +185,52 @@ export function Home() {
         </div>
       </section>
 
-      {/* ───── How it works ───── */}
-      <section className="container-x pt-24">
+      {/* ───── How it works: infographic (central orb, connected step orbs) ───── */}
+      <section className="container-x pt-28">
         <SectionTitle eyebrow={t('home.how.eyebrow')} title={t('home.how.title')} center />
-        <div className="grid gap-5 lg:grid-cols-2">
-          {(['renter', 'owner'] as const).map((side) => (
-            <div key={side} className={cx('rounded-3xl p-7 sm:p-9', side === 'renter' ? 'card' : 'leather-sage relative overflow-hidden text-white shadow-lift ring-1 ring-white/40 [text-shadow:0_1px_2px_rgb(20_40_20/0.35)]')}>
-              <div className={cx('text-sm font-bold uppercase tracking-wider', side === 'renter' ? 'text-brand-600' : 'text-[#eef7d6]')}>{t(`home.how.${side}.label`)}</div>
-              <h3 className="mt-2 text-2xl font-bold">{t(`home.how.${side}.title`)}</h3>
-              <ol className="mt-8 space-y-7">
-                {[1, 2, 3].map((n) => (
-                  <li key={n} className="relative flex items-center gap-5">
-                    {n < 3 && <span className={cx('absolute start-[27px] top-14 h-7 w-0.5 rounded-full', side === 'renter' ? 'bg-gradient-to-b from-brand-300 to-sky-200' : 'bg-gradient-to-b from-white/70 to-white/20')} />}
-                    <StepDisc n={num(n).padStart(2, num(0))} color={side === 'renter' ? ['#2b76ff', '#0ea5e9', '#7cc625'][n - 1] : ['#7cc625', '#a6db3c', '#c8ec6a'][n - 1]} />
-                    <div>
-                      <div className="font-bold">{t(`home.how.${side}.s${n}`)}</div>
-                      <div className={cx('mt-0.5 text-sm', side === 'renter' ? 'text-ink-500' : 'text-white/85')}>{t(`home.how.${side}.s${n}d`)}</div>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              <div className="mt-8">
-                {side === 'renter'
-                  ? <ButtonLink to="/search" variant="primary" iconEnd="arrowRight">{t('home.how.renter.cta')}</ButtonLink>
-                  : <ButtonLink to={listHref} variant="secondary" iconEnd="arrowRight">{t('home.how.owner.cta')}</ButtonLink>}
+        <div className="relative grid items-center gap-12 lg:grid-cols-[1fr_auto_1fr] lg:gap-6">
+          {/* Center */}
+          <div className="order-first flex justify-center lg:order-none">
+            <Orb size={210} rings={3} color="#2b76ff" color2="#7cc625">
+              <div className="flex flex-col items-center px-6 text-center">
+                <svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#2b76ff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><circle cx="19" cy="40" r="9" /><circle cx="45" cy="40" r="9" /><path d="M19 40l8-15h12l6 15M27 25l5 15h-13M36 19h6" /></g><circle cx="45" cy="17" r="4" fill="#7cc625" /></svg>
+                <div className="font-display mt-2 text-lg font-extrabold leading-tight text-ink-900">Bali Bike</div>
+                <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-400">{t('home.how.eyebrow')}</div>
               </div>
-            </div>
-          ))}
+            </Orb>
+          </div>
+          {(['owner', 'renter'] as const).map((side) => {
+            const colors = side === 'renter' ? ['#2b76ff', '#0ea5e9', '#14b8a6'] : ['#7cc625', '#4caf50', '#0d9488'];
+            const icons = side === 'renter' ? ['search', 'wallet', 'qr'] : ['camera', 'shield', 'chart'];
+            return (
+              <div key={side} className={cx(side === 'owner' ? 'lg:order-first' : '')}>
+                <div className={cx('mb-6', side === 'owner' && 'lg:text-end')}>
+                  <div className={cx('text-sm font-bold uppercase tracking-wider', side === 'renter' ? 'text-brand-600' : 'text-grass-600')}>{t(`home.how.${side}.label`)}</div>
+                  <h3 className="mt-1 text-2xl font-bold">{t(`home.how.${side}.title`)}</h3>
+                </div>
+                <ol className="space-y-7">
+                  {[1, 2, 3].map((n) => (
+                    <li key={n} className={cx('relative flex items-center gap-5', side === 'owner' && 'lg:flex-row-reverse lg:text-end')}>
+                      <StepOrb icon={icons[n - 1]} n={num(n)} color={colors[n - 1]} />
+                      {/* animated connector toward the central orb (desktop) */}
+                      <svg aria-hidden="true" className={cx('pointer-events-none absolute top-1/2 hidden h-2 w-16 -translate-y-1/2 lg:block', side === 'renter' ? '-start-[4.5rem] rtl:-scale-x-100' : '-end-[4.5rem] -scale-x-100 rtl:scale-x-100')} viewBox="0 0 64 8">
+                        <line x1="0" y1="4" x2="64" y2="4" stroke={colors[n - 1]} strokeWidth="2" strokeLinecap="round" className="flow-line" style={{ filter: `drop-shadow(0 0 3px ${colors[n - 1]})` }} />
+                      </svg>
+                      <div className="card flex-1 px-5 py-4">
+                        <div className="font-bold">{t(`home.how.${side}.s${n}`)}</div>
+                        <div className="mt-0.5 text-sm text-ink-500">{t(`home.how.${side}.s${n}d`)}</div>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+                <div className={cx('mt-7', side === 'owner' && 'lg:text-end')}>
+                  {side === 'renter'
+                    ? <ButtonLink to="/search?region=bali" variant="brand" iconEnd="arrowRight">{t('home.how.renter.cta')}</ButtonLink>
+                    : <ButtonLink to={listHref} variant="success" iconEnd="arrowRight">{t('home.how.owner.cta')}</ButtonLink>}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -247,7 +268,9 @@ export function Home() {
 
       {/* ───── Earn CTA: glass mosaic ───── */}
       <section className="container-x pt-24">
-        <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(160deg,#e6f2fc_0%,#f6fbff_60%,#eef8e0_100%)] px-7 py-12 shadow-lift ring-1 ring-white sm:px-12 sm:py-16">
+        <div className="relative overflow-hidden rounded-[2rem] px-7 py-12 shadow-lift ring-1 ring-white/60 sm:px-12 sm:py-16">
+          <div aria-hidden="true" className="texture-pan absolute inset-0 bg-cover" style={{ backgroundImage: `url(${PHOTOS.leatherGreen.src})`, backgroundSize: '140%' }} />
+          <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(110deg,rgb(244_249_240/0.94)_0%,rgb(244_249_240/0.82)_45%,rgb(244_249_240/0.25)_100%)] rtl:bg-[linear-gradient(250deg,rgb(244_249_240/0.94)_0%,rgb(244_249_240/0.82)_45%,rgb(244_249_240/0.25)_100%)]" />
           <Cloud className="pointer-events-none absolute -end-10 -top-8 w-56 animate-float-slow opacity-90" shadow={false} />
           <div className="relative grid items-center gap-12 lg:grid-cols-2">
             <div>
