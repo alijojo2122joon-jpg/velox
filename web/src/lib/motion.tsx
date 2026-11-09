@@ -32,11 +32,21 @@ export function useAutoReveal(root: React.RefObject<HTMLElement | null>) {
         io.observe(n);
       });
     };
-    scan();
+    // Pause continuous animations (beams, rows, floats, bars) while they are off-screen.
+    const pause = new IntersectionObserver((entries) => entries.forEach((e) => e.target.classList.toggle('is-off', !e.isIntersecting)), { rootMargin: '120px' });
+    const watched = new WeakSet<Element>();
+    const scanAnim = () => el.querySelectorAll('.glow, .marquee, .sweep, .drift, .float-a, .float-b, .float-c, .bar-anim').forEach((n) => {
+      if (watched.has(n)) return; watched.add(n); pause.observe(n);
+      if (n.classList.contains('glow') && !n.querySelector(':scope > .beam')) {
+        const beam = document.createElement('span'); beam.className = 'beam'; beam.setAttribute('aria-hidden', 'true');
+        beam.appendChild(document.createElement('i')); n.appendChild(beam);
+      }
+    });
+    scan(); scanAnim();
     let raf = 0;
-    const mo = new MutationObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(scan); });
+    const mo = new MutationObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { scan(); scanAnim(); }); });
     mo.observe(el, { childList: true, subtree: true });
-    return () => { io.disconnect(); mo.disconnect(); cancelAnimationFrame(raf); };
+    return () => { io.disconnect(); pause.disconnect(); mo.disconnect(); cancelAnimationFrame(raf); };
   }, [root]);
 }
 

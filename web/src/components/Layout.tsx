@@ -8,7 +8,7 @@ import { useFormat } from '../lib/format';
 import { Icon } from './icons';
 import { Avatar, cx } from './ui';
 import { BRAND } from '../brand';
-import { PHOTO_CREDITS, BACKDROP } from '../photos';
+import { PHOTO_CREDITS, BACKDROPS } from '../photos';
 
 export function Logo({ light = false, className = '' }: { light?: boolean; className?: string }) {
   return (
@@ -29,63 +29,81 @@ export function Logo({ light = false, className = '' }: { light?: boolean; class
   );
 }
 
+/* Deterministic light particles (position %, size px, float duration s, delay s) for the middle depth layer. */
+const BOKEH = [
+  [8, 18, 160, 13, 0], [22, 62, 90, 17, -4], [35, 28, 60, 11, -2], [48, 78, 140, 19, -8], [60, 12, 70, 15, -6], [72, 52, 180, 21, -3],
+  [84, 30, 80, 12, -9], [92, 72, 110, 16, -5], [15, 88, 70, 14, -7], [55, 40, 50, 10, -1], [40, 95, 120, 18, -10], [78, 90, 60, 13, -11],
+];
+
 /**
- * Living backdrop: a blurred Bali photo that drifts slowly and leans away from the pointer (parallax), a soft blue light
- * that follows the mouse, and light waves where the screen is tapped. On phones it also follows tilting (when the
- * browser exposes orientation without a permission prompt). Pointer-events stay off, so it never blocks the page.
+ * Living backdrop in three depths: Bali bicycle photos cross-fading slowly (far), floating light particles (middle) and
+ * a soft light that follows the pointer or the phone's tilt (near). Each depth moves a different amount, so the page
+ * feels deep. Taps and clicks send out a light wave. Everything moves with GPU transforms/opacity only (no per-frame
+ * repaints or filters), and animation pauses while the tab is hidden.
  */
 export function PageBackdrop() {
   const root = useRef<HTMLDivElement>(null);
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => { if (!document.hidden) setSlide((i) => (i + 1) % BACKDROPS.length); }, 9000);
+    BACKDROPS.forEach((b) => { const im = new Image(); im.src = b.src; });
+    return () => clearInterval(id);
+  }, []);
   useEffect(() => {
     const el = root.current;
     if (!el || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
-    const target = { x: 0.5, y: 0.35 }, cur = { x: 0.5, y: 0.35 };
-    let raf = 0, idle = 0;
+    const target = { x: 0.5, y: 0.4 }, cur = { x: 0.5, y: 0.4 };
+    let raf = 0, idleT = 0, wanderI = 0;
     const tick = () => {
-      cur.x += (target.x - cur.x) * 0.06;
-      cur.y += (target.y - cur.y) * 0.06;
-      el.style.setProperty('--lx', `${(cur.x * 100).toFixed(2)}%`);
-      el.style.setProperty('--ly', `${(cur.y * 100).toFixed(2)}%`);
-      el.style.setProperty('--px', `${((0.5 - cur.x) * 46).toFixed(2)}px`);
-      el.style.setProperty('--py', `${((0.5 - cur.y) * 36).toFixed(2)}px`);
-      raf = Math.abs(target.x - cur.x) + Math.abs(target.y - cur.y) > 0.0005 ? requestAnimationFrame(tick) : 0;
+      cur.x += (target.x - cur.x) * 0.07;
+      cur.y += (target.y - cur.y) * 0.07;
+      const dx = 0.5 - cur.x, dy = 0.5 - cur.y;
+      el.style.setProperty('--fx', `${(dx * 40).toFixed(1)}px`); el.style.setProperty('--fy', `${(dy * 30).toFixed(1)}px`);
+      el.style.setProperty('--mx', `${(dx * 110).toFixed(1)}px`); el.style.setProperty('--my', `${(dy * 80).toFixed(1)}px`);
+      el.style.setProperty('--lx', `${(cur.x * innerWidth).toFixed(0)}px`); el.style.setProperty('--ly', `${(cur.y * innerHeight).toFixed(0)}px`);
+      raf = Math.abs(target.x - cur.x) + Math.abs(target.y - cur.y) > 0.0008 ? requestAnimationFrame(tick) : 0;
     };
     const aim = (x: number, y: number) => { target.x = x; target.y = y; if (!raf) raf = requestAnimationFrame(tick); };
-    const onMove = (e: PointerEvent) => { if (e.pointerType === 'mouse') aim(e.clientX / innerWidth, e.clientY / innerHeight); };
+    const wake = () => {
+      clearInterval(wanderI); clearTimeout(idleT);
+      // No input for a while: the light wanders on its own so the page never looks frozen.
+      idleT = window.setTimeout(() => { wanderI = window.setInterval(() => {
+        if (document.hidden) return;
+        const t = performance.now() / 5000; aim(0.5 + Math.sin(t) * 0.3, 0.42 + Math.cos(t * 0.7) * 0.22);
+      }, 200); }, 3500);
+    };
+    const onMove = (e: PointerEvent) => { if (e.pointerType === 'mouse') { aim(e.clientX / innerWidth, e.clientY / innerHeight); wake(); } };
     const onDown = (e: PointerEvent) => {
-      aim(e.clientX / innerWidth, e.clientY / innerHeight);
+      aim(e.clientX / innerWidth, e.clientY / innerHeight); wake();
       const w = document.createElement('span');
       w.className = 'mbg-wave';
-      w.style.left = `${e.clientX}px`; w.style.top = `${e.clientY}px`;
+      w.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       el.appendChild(w);
-      setTimeout(() => w.remove(), 1600);
+      setTimeout(() => w.remove(), 1500);
     };
     const onTilt = (e: DeviceOrientationEvent) => {
       if (e.gamma == null || e.beta == null) return;
-      aim(Math.min(1, Math.max(0, 0.5 + e.gamma / 60)), Math.min(1, Math.max(0, 0.35 + (e.beta - 40) / 90)));
+      aim(Math.min(1, Math.max(0, 0.5 + e.gamma / 50)), Math.min(1, Math.max(0, 0.4 + (e.beta - 45) / 80))); wake();
     };
-    // With no input for a while, the light wanders on its own so the page never looks frozen.
-    const wander = () => { const t = performance.now() / 6000; aim(0.5 + Math.sin(t) * 0.25, 0.4 + Math.cos(t * 0.8) * 0.18); };
-    const resetIdle = () => { clearInterval(idle); idle = window.setTimeout(() => { idle = window.setInterval(wander, 120); }, 4000); };
-    const anyInput = () => resetIdle();
-    window.addEventListener('pointermove', onMove, { passive: true });
-    window.addEventListener('pointerdown', onDown, { passive: true });
-    window.addEventListener('deviceorientation', onTilt, { passive: true });
-    ['pointermove', 'pointerdown', 'deviceorientation'].forEach((ev) => window.addEventListener(ev, anyInput, { passive: true }));
-    resetIdle();
-    tick();
+    addEventListener('pointermove', onMove, { passive: true });
+    addEventListener('pointerdown', onDown, { passive: true });
+    addEventListener('deviceorientation', onTilt, { passive: true });
+    wake(); tick();
     return () => {
-      cancelAnimationFrame(raf); clearInterval(idle); clearTimeout(idle);
-      window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerdown', onDown); window.removeEventListener('deviceorientation', onTilt);
-      ['pointermove', 'pointerdown', 'deviceorientation'].forEach((ev) => window.removeEventListener(ev, anyInput));
+      cancelAnimationFrame(raf); clearInterval(wanderI); clearTimeout(idleT);
+      removeEventListener('pointermove', onMove); removeEventListener('pointerdown', onDown); removeEventListener('deviceorientation', onTilt);
     };
   }, []);
   return (
     <div ref={root} className="mbg" aria-hidden="true">
-      <div className="mbg-photo"><i style={{ backgroundImage: `url(${BACKDROP})` }} /></div>
+      <div className="mbg-far">
+        {BACKDROPS.map((b, i) => <i key={b.src} className={i === slide ? 'on' : ''} style={{ backgroundImage: `url(${b.src})`, animationDelay: `${-i * 9}s` }} />)}
+      </div>
       <b />
-      <s className="mbg-light" />
-      <s className="mbg-light mbg-light-2" />
+      <div className="mbg-mid">
+        {BOKEH.map(([x, y, s, d, dl], i) => <span key={i} style={{ left: `${x}%`, top: `${y}%`, width: s, height: s, animationDuration: `${d}s`, animationDelay: `${dl}s` }} />)}
+      </div>
+      <span className="mbg-light" />
     </div>
   );
 }
@@ -229,8 +247,8 @@ export function Navbar() {
     { to: '/universities', label: t('nav.universities'), match: '/universities' },
   ];
   return (
-    <header className={cx('sticky top-0 z-[500] border-b backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500',
-      scrolled ? 'border-white/80 bg-white/70 shadow-[0_10px_30px_-18px_rgb(25_45_80/0.4)]' : 'border-transparent bg-transparent')}>
+    <header className={cx('sticky top-0 z-[500] border-b transition-all duration-500',
+      scrolled ? 'border-white/80 bg-white/92 shadow-[0_10px_30px_-18px_rgb(25_45_80/0.4)]' : 'border-transparent bg-transparent')}>
       <div className="container-x flex h-[70px] items-center gap-4">
         <Link to="/" aria-label={BRAND.name}><Logo /></Link>
         <nav className="ms-6 hidden items-center gap-1 lg:flex">

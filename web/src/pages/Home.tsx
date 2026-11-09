@@ -105,13 +105,13 @@ export function Home() {
           <div className="relative hidden lg:block">
             {hero ? (
               <div className="relative">
-                <div className="glow rounded-[24px]" style={{ ['--bd' as any]: '9s', ['--bdl' as any]: '-3s' }} data-noreveal><VehicleCard v={hero} /></div>
-                <div className="glass float-b absolute -start-10 bottom-16 w-56 p-4">
+                <div className="float-a" data-noreveal><VehicleCard v={hero} /></div>
+                <div className="glass solid float-b absolute -start-10 bottom-16 z-10 w-56 p-4">
                   <div className="flex items-center gap-2 text-xs font-bold text-emerald-600"><span className="live-dot" />{t('home.preview.booked')}</div>
                   <div className="mt-1 text-sm font-bold text-ink-900">{t('home.preview.pickup')}</div>
                   <div className="field mt-2.5 flex justify-between rounded-[14px] px-3 py-2 font-mono text-lg font-black tracking-widest text-ink-950" dir="ltr">482915</div>
                 </div>
-                <div className="glass float-c absolute -end-6 -top-8 px-4 py-3">
+                <div className="glass solid float-c absolute -end-6 -top-8 z-10 px-4 py-3">
                   <div className="text-[11px] font-bold text-ink-500">{t('home.preview.earned')}</div>
                   <div className="text-lg font-black text-ink-950">{money(1240000)}</div>
                   <div className="mt-1 flex h-6 items-end gap-1" aria-hidden="true">
@@ -175,8 +175,8 @@ export function Home() {
       <section className="container-x">
         <Title eyebrow={t('home.categories.eyebrow')} title={t('home.categories.title')} />
         <div className="grid gap-5 md:grid-cols-2">
-          {([['bicycle', BIKE_TYPES], ['motorcycle', MOTO_TYPES]] as const).map(([cat, types], i) => (
-            <div key={cat} className="glass glow group p-6 sm:p-8" style={{ ['--bd' as any]: '9s', ['--bdl' as any]: `${-i * 4}s` }}>
+          {([['bicycle', BIKE_TYPES], ['motorcycle', MOTO_TYPES]] as const).map(([cat, types]) => (
+            <div key={cat} className="glass card-hover group p-6 sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <span className="neu-icon h-16 w-16 rounded-[20px]"><Icon name={cat === 'bicycle' ? 'bike' : 'moto'} size={30} /></span>
                 <ButtonLink to={`/search?category=${cat}&region=bali`} variant="secondary" size="sm" iconEnd="arrowRight">{t('home.browse')}</ButtonLink>

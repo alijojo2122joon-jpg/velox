@@ -17,7 +17,14 @@ export const AREA_PHOTOS: Record<string, { src: string; by: string }> = {
   'nusa-dua': { src: u('photo-1647223447106-8d731a54cb90', 700), by: 'Anggi Tampubolon' },
 };
 
-export const PHOTO_CREDITS = ['Cody Chan', ...Object.values(AREA_PHOTOS).map((p) => p.by)];
 
-/** Page backdrop: two bicycles under a palm tree, Bali — Cody Chan / Unsplash. Softly blurred by CSS. */
-export const BACKDROP = 'https://images.unsplash.com/photo-1709140624401-c8c09ff29978?auto=format&fit=crop&w=1800&q=70';
+
+/** Page backdrop slideshow — Bali bicycle photos (Unsplash License). Pre-blurred by the image CDN, so the browser
+ *  never runs a blur filter on a moving full-screen layer (that was the main source of lag). */
+const bg = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=60&blur=24`;
+export const BACKDROPS = [
+  { src: bg('photo-1709140624401-c8c09ff29978'), by: 'Cody Chan' },
+  { src: bg('photo-1717148711412-c8522cee2230'), by: 'Jörg Bauer' },
+  { src: bg('photo-1565970141945-f04a30f103fb'), by: 'Nick Fewings' },
+];
+export const PHOTO_CREDITS = [...BACKDROPS, ...Object.values(AREA_PHOTOS)].map((p) => p.by);
