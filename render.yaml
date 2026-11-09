@@ -1,8 +1,8 @@
-# Render Blueprint — one-click deploy of VELOX (demo mode).
+# Render Blueprint — one-click deploy of Bali Bike (demo mode). Public URL: https://balibike.onrender.com
 # Free plan note: the disk is temporary, so the SQLite demo database is re-created (and re-seeded) on each restart/deploy.
 services:
   - type: web
-    name: velox
+    name: balibike
     runtime: node
     plan: free
     region: singapore
