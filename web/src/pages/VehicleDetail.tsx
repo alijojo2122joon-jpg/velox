@@ -77,7 +77,7 @@ export function VehicleDetail({ id }: { id: number }) {
             {!!v.instant_book && <Badge tone="blue" icon="bolt">{t('vehicle.instant')}</Badge>}
             {v.category === 'motorcycle' && <Badge tone="amber" icon="shield">{t('vehicle.licenseRequired')}</Badge>}
           </div>
-          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">{v.name}</h1>
+          <h1 className="font-display mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{v.name}</h1>
           <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-500">
             <Stars value={v.rating_avg} count={v.rating_count} />
             <span className="inline-flex items-center gap-1"><Icon name="pin" size={15} />{v.city_name}{v.university_name && ` · ${v.university_name}`}</span>
@@ -109,7 +109,7 @@ export function VehicleDetail({ id }: { id: number }) {
               {data.pricing.map((p: any) => (
                 <div key={p.duration_minutes} className="card p-4">
                   <div className="text-xs font-semibold text-ink-500">{duration(p.duration_minutes)}</div>
-                  <div className="mt-1 text-lg font-extrabold">{money(p.price)}</div>
+                  <div className="mt-1 text-lg font-semibold">{money(p.price)}</div>
                 </div>
               ))}
             </div>
@@ -178,7 +178,7 @@ export function VehicleDetail({ id }: { id: number }) {
       <div className="fixed inset-x-0 bottom-0 z-[400] border-t border-ink-900/5 bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
         <div className="flex items-center justify-between gap-3">
           <div>
-            {data.pricing[0] && <div><span className="text-lg font-extrabold">{money(data.pricing[0].price)}</span><span className="text-sm text-ink-500"> / {duration(data.pricing[0].duration_minutes)}</span></div>}
+            {data.pricing[0] && <div><span className="text-lg font-semibold">{money(data.pricing[0].price)}</span><span className="text-sm text-ink-500"> / {duration(data.pricing[0].duration_minutes)}</span></div>}
             <div className="text-xs text-ink-500">{t('vehicle.flexible')}</div>
           </div>
           <Button variant="brand" onClick={() => setBookOpen(true)} disabled={isOwner}>{t('booking.checkAvailability')}</Button>
@@ -312,7 +312,7 @@ function BookingWidget({ data, bare }: { data: any; bare?: boolean }) {
               ))}
               {quote.quote.billedMinutes > quote.quote.minutes && <div className="text-xs text-ink-500">{t('booking.roundedUp', { d: duration(quote.quote.billedMinutes) })}</div>}
               {quote.deposit > 0 && <div className="flex justify-between text-ink-600"><span>{t('booking.depositRefundable')}</span><span>{money(quote.deposit)}</span></div>}
-              <div className="flex justify-between border-t border-ink-100 pt-2 text-base font-extrabold"><span>{t('booking.total')}</span><span>{money(quote.total)}</span></div>
+              <div className="flex justify-between border-t border-ink-100 pt-2 text-base font-semibold"><span>{t('booking.total')}</span><span>{money(quote.total)}</span></div>
             </div>
           ) : <Notice tone="warn">{t(`availability.${quote.problem}`)}</Notice>
         )}

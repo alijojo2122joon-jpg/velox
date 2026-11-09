@@ -65,7 +65,7 @@ function Main({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLElement>(null);
   useAutoReveal(ref);
   useSpotlight();
-  return <main ref={ref} className="flex-1">{children}</main>;
+  return <main ref={ref} className="flex-1 pb-24">{children}</main>;
 }
 
 function Routes() {

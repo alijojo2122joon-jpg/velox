@@ -135,7 +135,7 @@ export function BookingDetail({ id }: { id: number }) {
               {b.extension_total > 0 && <Row label={t('booking.extensions')} value={money(b.extension_total)} />}
               {b.deposit > 0 && <Row label={t('booking.depositRefundable')} value={money(b.deposit)} />}
               {b.late_fee > 0 && <Row label={t('booking.lateFee')} value={money(b.late_fee)} />}
-              <div className="flex justify-between border-t border-ink-100 pt-2 text-base font-extrabold"><span>{t('booking.total')}</span><span>{money(b.total + b.late_fee)}</span></div>
+              <div className="flex justify-between border-t border-ink-100 pt-2 text-base font-semibold"><span>{t('booking.total')}</span><span>{money(b.total + b.late_fee)}</span></div>
               {b.refund_amount > 0 && <Row label={t('booking.refunded')} value={money(b.refund_amount)} />}
               {role === 'owner' && <div className="mt-3 rounded-xl bg-emerald-50 p-3 text-emerald-900">
                 <Row label={t('booking.yourEarning', { pct: num(Math.round((1 - b.commission_rate) * 100)) })} value={money(Math.round(b.subtotal * (1 - b.commission_rate)))} />
@@ -228,7 +228,7 @@ function ActionPanel({ data, onOpen, onAccept, busy }: { data: any; onOpen: (m: 
     <Card className="overflow-hidden">
       <div className="bg-[linear-gradient(150deg,#2b76ff_0%,#184bc6_60%,#123068_100%)] p-6 text-white">
         <div className="flex items-center gap-2 text-sm font-semibold text-brand-300"><Icon name="qr" size={18} />{t('booking.panel.codeTitle')}</div>
-        <div className="mt-3 flex gap-2" dir="ltr">{String(b.pickup_code).split('').map((d: string, i: number) => <span key={i} className="flex h-14 w-11 items-center justify-center rounded-xl bg-white/10 font-mono text-3xl font-extrabold">{d}</span>)}</div>
+        <div className="mt-3 flex gap-2" dir="ltr">{String(b.pickup_code).split('').map((d: string, i: number) => <span key={i} className="flex h-14 w-11 items-center justify-center rounded-xl bg-white/10 font-mono text-3xl font-semibold">{d}</span>)}</div>
         <p className="mt-3 text-sm text-ink-300">{t('booking.panel.codeBody')}</p>
         <p className="mt-1 text-xs text-ink-400">{t('booking.panel.qrSoon')}</p>
       </div>

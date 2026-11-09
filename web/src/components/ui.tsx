@@ -10,14 +10,14 @@ export const cx = (...c: (string | false | null | undefined)[]) => c.filter(Bool
 // ───────── Button ─────────
 type Variant = 'primary' | 'brand' | 'secondary' | 'ghost' | 'danger' | 'success';
 const variants: Record<Variant, string> = {
-  primary: 'shine bg-ink-900 text-white shadow-[0_10px_24px_-10px_rgb(10_22_48/0.6)] hover:-translate-y-0.5 hover:bg-ink-800',
-  brand: 'shine btn-brand-anim bg-gradient-to-r from-brand-600 via-brand-400 to-brand-600 text-white shadow-[0_12px_28px_-10px_rgb(47_118_255/0.7)] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-10px_rgb(47_118_255/0.8)]',
-  secondary: 'bg-white text-ink-900 border border-ink-200 shadow-[0_2px_6px_-2px_rgb(15_40_90/0.08)] hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-700',
-  ghost: 'text-ink-700 hover:bg-brand-50 hover:text-brand-700',
-  danger: 'bg-white/80 text-red-600 border border-red-100 shadow-[0_4px_14px_-6px_rgb(220_38_38/0.25)] hover:bg-red-50',
-  success: 'shine bg-gradient-to-br from-teal-500 to-emerald-600 text-white shadow-[0_12px_28px_-10px_rgb(13_148_136/0.6)] hover:-translate-y-0.5',
+  primary: 'bg-ink-950 text-white hover:bg-ink-800',
+  brand: 'bg-brand-600 text-white hover:bg-brand-500 shadow-[0_8px_20px_-12px_rgb(0_113_227/0.7)]',
+  secondary: 'bg-ink-100 text-ink-950 hover:bg-ink-200',
+  ghost: 'text-brand-600 hover:bg-brand-50',
+  danger: 'bg-red-50 text-red-600 hover:bg-red-100',
+  success: 'bg-[#34c759] text-white hover:brightness-105',
 };
-const sizes = { sm: 'h-9 px-3.5 text-sm rounded-xl gap-1.5', md: 'h-11 px-5 text-[15px] rounded-xl gap-2', lg: 'h-13 px-6 text-base rounded-2xl gap-2' };
+const sizes = { sm: 'h-9 px-4 text-sm rounded-full gap-1.5', md: 'h-11 px-5 text-[15px] rounded-full gap-2', lg: 'h-13 px-7 text-[17px] rounded-full gap-2' };
 
 export function Button({ variant = 'primary', size = 'md', loading, icon, iconEnd, className, children, disabled, ...rest }:
   { variant?: Variant; size?: keyof typeof sizes; loading?: boolean; icon?: string; iconEnd?: string } & ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -123,7 +123,7 @@ export function Card({ children, className, ...rest }: { children: ReactNode; cl
 }
 
 export function Stat({ label, value, icon, hint, tone = 'blue' }: { label: string; value: ReactNode; icon?: string; hint?: ReactNode; tone?: 'blue' | 'green' | 'amber' | 'violet' }) {
-  const tones = { blue: 'text-brand-600', green: 'text-teal-600', amber: 'text-amber-500', violet: 'text-violet-500' };
+  const tones = { blue: 'text-brand-600', green: 'text-[#34c759]', amber: 'text-amber-500', violet: 'text-violet-500' };
   return (
     <Card className="spotlight group p-5">
       <div className="flex items-start justify-between gap-3">
@@ -172,7 +172,7 @@ export function PageLoader() {
 export function StepDisc({ n, color = '#2b76ff', size = 56, children }: { n?: string; color?: string; size?: number; children?: ReactNode }) {
   return (
     <span className="step-ring relative inline-flex shrink-0 items-center justify-center rounded-full p-[3px]" style={{ width: size, height: size, ['--ring' as any]: color, filter: `drop-shadow(0 0 6px ${color}66)` }}>
-      <span className="step-disc flex h-full w-full items-center justify-center rounded-full font-display text-lg font-extrabold" style={{ color }}>{children ?? n}</span>
+      <span className="step-disc flex h-full w-full items-center justify-center rounded-full font-display text-lg font-semibold" style={{ color }}>{children ?? n}</span>
     </span>
   );
 }

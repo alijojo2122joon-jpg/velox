@@ -257,7 +257,7 @@ function FormCard({ n, title, children }: { n: number; title: string; children: 
   const { num } = useFormat();
   return (
     <Card className="p-6 sm:p-7">
-      <h2 className="mb-5 flex items-center gap-3 text-lg font-bold"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-50 text-sm font-extrabold text-brand-600">{num(n)}</span>{title}</h2>
+      <h2 className="mb-5 flex items-center gap-3 text-lg font-bold"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-50 text-sm font-semibold text-brand-600">{num(n)}</span>{title}</h2>
       {children}
     </Card>
   );

@@ -7,22 +7,20 @@ import { useApi } from '../lib/hooks';
 import { Icon } from '../components/icons';
 import { Button, Field, Input, Notice, Select, cx, useErrorText, useFieldErrors } from '../components/ui';
 import { Logo } from '../components/Layout';
-import { Aurora } from '../lib/motion';
 
 function AuthShell({ title, subtitle, children }: { title: string; subtitle: React.ReactNode; children: React.ReactNode }) {
   const { t } = useI18n();
   return (
     <div className="container-x grid min-h-[calc(100vh-4rem)] items-center gap-12 py-10 lg:grid-cols-2">
       <div className="mx-auto w-full max-w-md animate-fade-up">
-        <h1 className="font-display text-3xl font-extrabold tracking-tight">{title}</h1>
+        <h1 className="font-display text-3xl font-semibold tracking-tight">{title}</h1>
         <p className="mt-2 text-ink-500">{subtitle}</p>
         <div className="mt-8">{children}</div>
       </div>
-      <div className="relative hidden h-full min-h-[560px] overflow-hidden rounded-[2rem] border border-white bg-gradient-to-br from-brand-50 to-white p-10 shadow-lift lg:flex lg:flex-col lg:justify-between">
-        <Aurora /><div className="grid-bg" />
+      <div className="relative hidden h-full min-h-[560px] overflow-hidden rounded-[2rem] bg-ink-100 p-10 lg:flex lg:flex-col lg:justify-between">
         <div className="relative"><Logo /></div>
         <div className="glass float-a relative rounded-3xl p-7">
-          <p className="font-display text-3xl font-extrabold leading-tight text-ink-900">{t('brand.tagline')}</p>
+          <p className="font-display text-4xl font-semibold leading-tight tracking-tight text-ink-950">{t('brand.tagline')}</p>
           <ul className="mt-6 space-y-3.5 text-ink-700">
             {['verified', 'checklist', 'payments'].map((k) => <li key={k} className="flex items-center gap-3 font-medium"><span className="neu-icon h-9 w-9"><Icon name="check" size={16} strokeWidth={2.4} /></span>{t(`home.trustline.${k}`)}</li>)}
           </ul>

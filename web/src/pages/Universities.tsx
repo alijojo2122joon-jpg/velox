@@ -26,7 +26,7 @@ export function Universities() {
               {unis.map((u) => (
                 <Link key={u.id} to={`/universities/${u.slug}`} className="card flex items-center gap-4 p-5 transition hover:-translate-y-0.5 hover:shadow-lift">
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-600"><Icon name="graduation" size={24} /></span>
-                  <div className="min-w-0 flex-1"><div className="font-extrabold">{u.short_name}</div><div className="truncate text-sm text-ink-500">{u.name}</div>
+                  <div className="min-w-0 flex-1"><div className="font-semibold">{u.short_name}</div><div className="truncate text-sm text-ink-500">{u.name}</div>
                     <div className="mt-1 flex gap-3 text-xs font-semibold text-ink-600"><span>{t('unis.vehicles', { n: num(u.vehicle_count) })}</span><span>{t('unis.members', { n: num(u.member_count) })}</span></div></div>
                   <Icon name="chevronRight" className="text-ink-300" />
                 </Link>

@@ -97,3 +97,28 @@ export function useCycle(length: number, ms = 3200) {
 export const Aurora = ({ dark = false }: { dark?: boolean }) => (
   <div aria-hidden="true" className={dark ? 'aurora aurora-dark' : 'aurora'}><i /><i /><i /></div>
 );
+
+/** Apple-style scroll zoom: the element grows from `from` to full size as it travels up into the viewport. */
+export function useScrollScale<T extends HTMLElement>(from = 0.88) {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.75)));
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.style.transform = `scale(${from + (1 - from) * eased})`;
+      el.style.borderRadius = `${40 - 12 * eased}px`;
+    };
+    const on = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', on, { passive: true });
+    window.addEventListener('resize', on);
+    return () => { window.removeEventListener('scroll', on); window.removeEventListener('resize', on); cancelAnimationFrame(raf); };
+  }, [from]);
+  return ref;
+}

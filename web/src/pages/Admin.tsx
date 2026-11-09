@@ -358,7 +358,7 @@ function Settings() {
       <Card className="p-6">
         <h3 className="font-bold">{t('admin.commission')}</h3>
         <p className="mt-1 text-sm text-ink-500">{t('admin.commissionHint')}</p>
-        <div className="mt-4 rounded-2xl bg-ink-50 p-4"><div className="text-sm text-ink-500">{t('admin.currentRate')}</div><div className="text-3xl font-extrabold">{num((current?.rate ?? 0.1) * 100)}%</div>
+        <div className="mt-4 rounded-2xl bg-ink-50 p-4"><div className="text-sm text-ink-500">{t('admin.currentRate')}</div><div className="text-3xl font-semibold">{num((current?.rate ?? 0.1) * 100)}%</div>
           <div className="text-sm text-ink-600">{t('admin.ownerGets', { pct: num(100 - (current?.rate ?? 0.1) * 100) })}</div></div>
         <div className="mt-4 flex gap-2"><Input type="number" min={0} max={50} step={0.5} placeholder="10" value={rate} onChange={(e) => setRate(e.target.value)} className="max-w-32" /><Button disabled={rate === '' || Number(rate) < 0 || Number(rate) > 50} onClick={saveRate}>{t('admin.applyRate')}</Button></div>
         <div className="mt-5 text-xs font-bold uppercase tracking-wide text-ink-500">{t('admin.history')}</div>

@@ -41,7 +41,7 @@ export function Pay({ providerRef }: { providerRef: string }) {
       <Card className="overflow-hidden">
         <div className="bg-[linear-gradient(150deg,#2b76ff_0%,#184bc6_60%,#123068_100%)] p-6 text-white">
           <div className="text-sm text-ink-300">{t('payment.mockGateway')}</div>
-          <div className="mt-1 text-3xl font-extrabold">{money(p.amount)}</div>
+          <div className="mt-1 text-3xl font-semibold">{money(p.amount)}</div>
           <div className="mt-1 text-sm text-ink-300">{t('booking.booking')} <span dir="ltr" className="font-mono">{p.booking_code}</span> · {t(`payment.methods.${p.method}`)}</div>
         </div>
         <div className="space-y-5 p-6">

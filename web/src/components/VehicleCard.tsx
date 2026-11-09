@@ -41,10 +41,10 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
         </p>
         <div className="mt-3 flex flex-wrap items-end justify-between gap-x-2 gap-y-1">
           {v.quote ? (
-            <div><span className="text-lg font-extrabold text-ink-900">{money(v.quote.subtotal)}</span>
+            <div><span className="text-lg font-semibold text-ink-900">{money(v.quote.subtotal)}</span>
               <span className="ms-1 text-sm text-ink-500">{t('vehicle.total')}</span></div>
           ) : v.from_price ? (
-            <div><span className="text-xs text-ink-500">{t('vehicle.from')} </span><span className="text-lg font-extrabold text-ink-900">{money(v.from_price.price)}</span>
+            <div><span className="text-xs text-ink-500">{t('vehicle.from')} </span><span className="text-lg font-semibold text-ink-900">{money(v.from_price.price)}</span>
               <span className="whitespace-nowrap text-sm text-ink-500"> / {duration(v.from_price.duration_minutes)}</span></div>
           ) : <span />}
           {!!v.instant_book && <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-brand-600"><Icon name="bolt" size={14} filled />{t('vehicle.instant')}</span>}
