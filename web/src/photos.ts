@@ -17,7 +17,7 @@ export const AREA_PHOTOS: Record<string, { src: string; by: string }> = {
   'nusa-dua': { src: u('photo-1647223447106-8d731a54cb90', 700), by: 'Anggi Tampubolon' },
 };
 
-export const PHOTO_CREDITS = Object.values(AREA_PHOTOS).map((p) => p.by);
+export const PHOTO_CREDITS = ['Cody Chan', ...Object.values(AREA_PHOTOS).map((p) => p.by)];
 
-/** Page backdrop: Bali coastline, heavily blurred by CSS, so a modest size is enough. */
-export const BACKDROP = 'https://images.unsplash.com/photo-1576019206484-54273acdfa89?auto=format&fit=crop&w=1400&q=60';
+/** Page backdrop: two bicycles under a palm tree, Bali — Cody Chan / Unsplash. Softly blurred by CSS. */
+export const BACKDROP = 'https://images.unsplash.com/photo-1709140624401-c8c09ff29978?auto=format&fit=crop&w=1800&q=70';

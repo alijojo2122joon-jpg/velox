@@ -29,12 +29,63 @@ export function Logo({ light = false, className = '' }: { light?: boolean; class
   );
 }
 
-/** Full-screen blurred Bali photo behind every page, drifting slowly (Market Analysts background). */
+/**
+ * Living backdrop: a blurred Bali photo that drifts slowly and leans away from the pointer (parallax), a soft blue light
+ * that follows the mouse, and light waves where the screen is tapped. On phones it also follows tilting (when the
+ * browser exposes orientation without a permission prompt). Pointer-events stay off, so it never blocks the page.
+ */
 export function PageBackdrop() {
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = root.current;
+    if (!el || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    const target = { x: 0.5, y: 0.35 }, cur = { x: 0.5, y: 0.35 };
+    let raf = 0, idle = 0;
+    const tick = () => {
+      cur.x += (target.x - cur.x) * 0.06;
+      cur.y += (target.y - cur.y) * 0.06;
+      el.style.setProperty('--lx', `${(cur.x * 100).toFixed(2)}%`);
+      el.style.setProperty('--ly', `${(cur.y * 100).toFixed(2)}%`);
+      el.style.setProperty('--px', `${((0.5 - cur.x) * 46).toFixed(2)}px`);
+      el.style.setProperty('--py', `${((0.5 - cur.y) * 36).toFixed(2)}px`);
+      raf = Math.abs(target.x - cur.x) + Math.abs(target.y - cur.y) > 0.0005 ? requestAnimationFrame(tick) : 0;
+    };
+    const aim = (x: number, y: number) => { target.x = x; target.y = y; if (!raf) raf = requestAnimationFrame(tick); };
+    const onMove = (e: PointerEvent) => { if (e.pointerType === 'mouse') aim(e.clientX / innerWidth, e.clientY / innerHeight); };
+    const onDown = (e: PointerEvent) => {
+      aim(e.clientX / innerWidth, e.clientY / innerHeight);
+      const w = document.createElement('span');
+      w.className = 'mbg-wave';
+      w.style.left = `${e.clientX}px`; w.style.top = `${e.clientY}px`;
+      el.appendChild(w);
+      setTimeout(() => w.remove(), 1600);
+    };
+    const onTilt = (e: DeviceOrientationEvent) => {
+      if (e.gamma == null || e.beta == null) return;
+      aim(Math.min(1, Math.max(0, 0.5 + e.gamma / 60)), Math.min(1, Math.max(0, 0.35 + (e.beta - 40) / 90)));
+    };
+    // With no input for a while, the light wanders on its own so the page never looks frozen.
+    const wander = () => { const t = performance.now() / 6000; aim(0.5 + Math.sin(t) * 0.25, 0.4 + Math.cos(t * 0.8) * 0.18); };
+    const resetIdle = () => { clearInterval(idle); idle = window.setTimeout(() => { idle = window.setInterval(wander, 120); }, 4000); };
+    const anyInput = () => resetIdle();
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('pointerdown', onDown, { passive: true });
+    window.addEventListener('deviceorientation', onTilt, { passive: true });
+    ['pointermove', 'pointerdown', 'deviceorientation'].forEach((ev) => window.addEventListener(ev, anyInput, { passive: true }));
+    resetIdle();
+    tick();
+    return () => {
+      cancelAnimationFrame(raf); clearInterval(idle); clearTimeout(idle);
+      window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerdown', onDown); window.removeEventListener('deviceorientation', onTilt);
+      ['pointermove', 'pointerdown', 'deviceorientation'].forEach((ev) => window.removeEventListener(ev, anyInput));
+    };
+  }, []);
   return (
-    <div className="mbg" aria-hidden="true">
-      <i style={{ backgroundImage: `url(${BACKDROP})` }} />
+    <div ref={root} className="mbg" aria-hidden="true">
+      <div className="mbg-photo"><i style={{ backgroundImage: `url(${BACKDROP})` }} /></div>
       <b />
+      <s className="mbg-light" />
+      <s className="mbg-light mbg-light-2" />
     </div>
   );
 }
