@@ -34,6 +34,7 @@ const searchSchema = z.object({
   availableNow: z.enum(['1', 'true']).optional(),
   sort: z.enum(['nearest', 'price', 'rating', 'newest', 'available_now']).default('newest'),
   page: z.coerce.number().int().min(1).max(500).default(1),
+  limit: z.coerce.number().int().min(1).max(100).optional(),
   bounds: z.string().regex(/^-?[\d.]+,-?[\d.]+,-?[\d.]+,-?[\d.]+$/).optional(), // south,west,north,east for map view
 });
 
@@ -129,7 +130,7 @@ export function searchVehicles(params: Record<string, string>) {
            EXISTS (SELECT 1 FROM user_verifications uv WHERE uv.user_id = v.owner_id AND uv.type = 'identity' AND uv.status = 'approved') AS owner_verified,
            (SELECT url FROM vehicle_images i WHERE i.vehicle_id = v.id ORDER BY position LIMIT 1) AS cover_url,
            ${priceRef} AS price_ref, ${distanceExpr} AS distance_km
-    ${from} ORDER BY ${order} LIMIT ? OFFSET ?`, [...args, PAGE_SIZE, (f.page - 1) * PAGE_SIZE]);
+    ${from} ORDER BY ${order} LIMIT ? OFFSET ?`, [...args, f.limit ?? PAGE_SIZE, (f.page - 1) * (f.limit ?? PAGE_SIZE)]);
 
   const tiers = tiersFor(rows.map((r) => r.id));
   const items = rows.map((r) => {
@@ -143,7 +144,7 @@ export function searchVehicles(params: Record<string, string>) {
       quote: start && end ? quote(t, (new Date(end).getTime() - new Date(start).getTime()) / 60000) : null,
     };
   });
-  return { items, total, page: f.page, pageSize: PAGE_SIZE, pages: Math.ceil(total / PAGE_SIZE) };
+  return { items, total, page: f.page, pageSize: f.limit ?? PAGE_SIZE, pages: Math.ceil(total / (f.limit ?? PAGE_SIZE)) };
 }
 
 function tiersFor(ids: number[]) {

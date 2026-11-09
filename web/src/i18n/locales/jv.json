@@ -238,6 +238,14 @@
     "nusa-dua": "Dalan alus lan rute ngubengi Bukit.",
     "uluwatu": "Jurang, pura, lan ombak kelas donya."
    }
+  },
+  "map": {
+   "eyebrow": "Peta langsung",
+   "title": "Pit ing saindhenging Bali, saiki.",
+   "sub": "Saben pin iku iklan nyata kanthi rega wiwitan. Tutul kanggo ndeleng.",
+   "open": "Bukak peta jangkep",
+   "all": "Kabeh",
+   "count": "{n} kendharaan ing peta"
   }
  },
  "search": {

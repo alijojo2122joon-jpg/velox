@@ -9,6 +9,7 @@ import { Icon } from '../components/icons';
 import { Button, ButtonLink, Select, cx, DemoBadge } from '../components/ui';
 import { VehicleCard, VehicleCardSkeleton, type VehicleSummary } from '../components/VehicleCard';
 import { CountUp, useCycle, useScrollScale } from '../lib/motion';
+import { MapView, usePinLabel } from '../components/MapView';
 import { AREA_PHOTOS } from '../photos';
 
 const BIKE_TYPES = ['city', 'mountain', 'road', 'folding', 'electric_bicycle', 'student'];
@@ -165,6 +166,8 @@ export function Home() {
         </Band>
       )}
 
+      <LiveMap />
+
       {/* ───── Explore Bali ───── */}
       {baliAreas.length > 0 && (
         <Band tone="gray">
@@ -299,6 +302,41 @@ export function Home() {
         </div>
       </Band>
     </div>
+  );
+}
+
+/** Live map of every listing in Bali, filterable by category, linking to the full map search. */
+function LiveMap() {
+  const t = useT();
+  const { num } = useFormat();
+  const pin = usePinLabel();
+  const [cat, setCat] = useState<'' | 'bicycle' | 'motorcycle'>('');
+  const { data } = useApi<{ items: VehicleSummary[]; total: number }>('/api/vehicles?region=bali&limit=100' + (cat ? `&category=${cat}` : ''), [cat]);
+  const points = (data?.items ?? []).filter((v) => v.lat != null && v.lng != null)
+    .map((v) => ({ id: v.id, lat: v.lat!, lng: v.lng!, label: v.from_price ? pin(v.from_price.price) : t(`categories.${v.category}`) }));
+  return (
+    <Band className="!pt-8">
+      <div className="container-x">
+        <Heading eyebrow={t('home.map.eyebrow')} title={t('home.map.title')} sub={t('home.map.sub')} />
+        <div data-reveal className="relative mt-12 h-[460px] overflow-hidden rounded-[30px] bg-ink-100 ring-1 ring-black/5 sm:h-[560px]">
+          <MapView points={points} center={{ lat: -8.55, lng: 115.17 }} className="h-full w-full" />
+          <div className="pointer-events-none absolute inset-x-3 top-3 z-[400] flex flex-wrap items-center justify-between gap-2 sm:inset-x-5 sm:top-5">
+            <div className="glass pointer-events-auto flex rounded-full p-1">
+              {(['', 'bicycle', 'motorcycle'] as const).map((c) => (
+                <button key={c || 'all'} onClick={() => setCat(c)}
+                  className={cx('h-9 rounded-full px-4 text-sm font-semibold transition-colors duration-300', cat === c ? 'bg-ink-950 text-white' : 'text-ink-700 hover:text-ink-950')}>
+                  {c ? t(`categories.${c}`) : t('home.map.all')}
+                </button>
+              ))}
+            </div>
+            {data && <span className="glass pointer-events-auto rounded-full px-4 py-2 text-sm font-medium text-ink-800">{t('home.map.count', { n: num(data.total) })}</span>}
+          </div>
+          <div className="absolute inset-x-0 bottom-5 z-[400] flex justify-center">
+            <ButtonLink to={`/search?region=bali${cat ? `&category=${cat}` : ''}`} variant="primary" icon="map">{t('home.map.open')}</ButtonLink>
+          </div>
+        </div>
+      </div>
+    </Band>
   );
 }
 

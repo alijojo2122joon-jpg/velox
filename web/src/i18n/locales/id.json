@@ -238,6 +238,14 @@
     "nusa-dua": "Jalan mulus dan rute keliling Bukit.",
     "uluwatu": "Tebing, pura, dan ombak kelas dunia."
    }
+  },
+  "map": {
+   "eyebrow": "Peta langsung",
+   "title": "Sepeda di seluruh Bali, saat ini.",
+   "sub": "Setiap pin adalah iklan nyata dengan harga mulai. Ketuk untuk melihatnya.",
+   "open": "Buka peta penuh",
+   "all": "Semua",
+   "count": "{n} kendaraan di peta"
   }
  },
  "search": {

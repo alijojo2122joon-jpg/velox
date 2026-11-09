@@ -238,6 +238,14 @@
     "nusa-dua": "Smooth roads and the Bukit peninsula loop.",
     "uluwatu": "Cliffs, temples and world-class surf breaks."
    }
+  },
+  "map": {
+   "eyebrow": "Live map",
+   "title": "Bikes across Bali, right now.",
+   "sub": "Every pin is a real listing with its starting price. Tap one to see it.",
+   "open": "Open full map",
+   "all": "All",
+   "count": "{n} vehicles on the map"
   }
  },
  "search": {
