@@ -8,6 +8,7 @@ export interface VehicleSummary {
   id: number; name: string; brand: string; model: string; category: 'bicycle' | 'motorcycle'; type: string; condition?: string;
   cover_url: string | null; rating_avg: number; rating_count: number; is_demo: number; city_name?: string; university_name?: string | null;
   owner_name?: string; owner_verified?: boolean; distance_km?: number | null; instant_book?: number; deposit?: number;
+  students_only?: number;
   from_price: { duration_minutes: number; price: number } | null; quote?: { subtotal: number; billedMinutes: number } | null; lat?: number; lng?: number;
 }
 
@@ -29,6 +30,7 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
             <Icon name="pin" size={13} />{km(v.distance_km)}
           </span>
         )}
+        {!!v.students_only && <span className="absolute bottom-3 end-3 inline-flex items-center gap-1 rounded-full bg-brand-600 px-2 py-0.5 text-[11px] font-bold text-white shadow-sm"><Icon name="graduation" size={12} />{t('campus.badge')}</span>}
         {v.category === 'motorcycle' && <span className="absolute bottom-3 end-3 rounded-full bg-amber-400 px-2 py-0.5 text-[11px] font-bold text-amber-950">{t('vehicle.licenseRequired')}</span>}
       </div>
       <div className={cx('px-3 pb-3 pt-3.5', compact && 'px-2.5 pb-2.5')}>

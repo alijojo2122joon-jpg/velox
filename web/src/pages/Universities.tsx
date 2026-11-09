@@ -5,7 +5,9 @@ import { useAuth } from '../lib/auth';
 import { useFormat } from '../lib/format';
 import { Icon } from '../components/icons';
 import { PageHeader } from '../components/Layout';
-import { Badge, ButtonLink, Card, Empty, PageLoader, Stat } from '../components/ui';
+import { Badge, ButtonLink, Card, Empty, PageLoader, Seg, Stat } from '../components/ui';
+import { useState } from 'react';
+import { StudentCardSteps } from '../components/Campus';
 import { VehicleCard, type VehicleSummary } from '../components/VehicleCard';
 
 export function Universities() {
@@ -46,7 +48,8 @@ export function UniversityDetail({ slug }: { slug: string }) {
   const { user } = useAuth();
   const { data, loading, error } = useApi<any>(`/api/universities/${slug}`, [slug]);
   const uniId = data?.university.id;
-  const vehicles = useApi<{ items: VehicleSummary[]; total: number }>(uniId ? `/api/vehicles?universityId=${uniId}&sort=nearest` : null, [uniId]);
+  const [campusOnly, setCampusOnly] = useState<'all' | 'campus'>('all');
+  const vehicles = useApi<{ items: VehicleSummary[]; total: number }>(uniId ? `/api/vehicles?universityId=${uniId}&sort=nearest${campusOnly === 'campus' ? '&studentsOnly=1' : ''}` : null, [uniId, campusOnly]);
   if (loading) return <PageLoader />;
   if (error || !data) return <div className="container-x py-20"><Empty icon="graduation" title={t('unis.notFound')} /></div>;
   const u = data.university, s = data.stats;
@@ -65,7 +68,17 @@ export function UniversityDetail({ slug }: { slug: string }) {
         <Stat label={t('unis.stats.completed')} value={num(s.completed_bookings)} icon="check" />
       </div>
       {!isMember && user && <Card className="mb-8 flex flex-wrap items-center gap-4 p-5"><Icon name="graduation" className="text-brand-600" /><span className="flex-1 text-sm">{t('unis.joinHint')}</span><ButtonLink to="/account" variant="secondary" size="sm">{t('unis.join')}</ButtonLink></Card>}
-      <h2 className="mb-5 text-xl font-bold">{t('unis.nearCampus')}</h2>
+      <Card className="glow mb-10 p-5 sm:p-7">
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+          <div><div className="eyebrow">{t('campus.eyebrow')}</div><h2 className="mt-1 text-2xl font-black">{t('campus.title')}</h2>
+            <p className="mt-1 max-w-2xl text-sm text-ink-500">{t('campus.intro', { uni: u.short_name })}</p></div>
+        </div>
+        <StudentCardSteps universityId={u.id} universityName={u.short_name} />
+      </Card>
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <h2 className="text-xl font-black">{t('unis.nearCampus')}</h2>
+        <Seg value={campusOnly} onChange={setCampusOnly} size="sm" items={[{ value: 'all' as const, label: t('campus.all') }, { value: 'campus' as const, label: t('campus.badge') }]} />
+      </div>
       {vehicles.data?.items.length ? <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{vehicles.data.items.map((v) => <VehicleCard key={v.id} v={v} />)}</div>
         : <Card><Empty icon="bike" title={t('unis.noVehicles')} action={<ButtonLink to="/register?role=owner" variant="primary">{t('nav.listVehicle')}</ButtonLink>} /></Card>}
     </div>

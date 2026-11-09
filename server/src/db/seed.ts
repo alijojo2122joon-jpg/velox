@@ -3,7 +3,7 @@ import { hashPassword } from '../auth/password.ts';
 import { storage } from '../lib/storage.ts';
 import { quote } from '../modules/bookings/pricing.ts';
 import { bookingCode, randomDigits, log } from '../lib/util.ts';
-import { vehicleIllustration } from './illustrations.ts';
+import { demoPhotos } from './demo-photos.ts';
 
 /**
  * DEMONSTRATION DATA — every user, vehicle, booking and review created here is flagged is_demo = 1
@@ -183,6 +183,7 @@ const PEOPLE: Record<string, { name: string; email: string; city: string; uni?: 
   lestari: { name: 'Lestari Siregar', email: 'lestari@balibike.demo', city: 'Medan', uni: 'USU', role: 'owner', dob: '2000-03-17', verified: false },
   budi: { name: 'Budi Santoso', email: 'renter@balibike.demo', city: 'Yogyakarta', uni: 'UGM', role: 'renter', dob: '2003-05-20', verified: true },
   sari: { name: 'Sari Indah', email: 'sari@balibike.demo', city: 'Yogyakarta', uni: 'UGM', role: 'renter', dob: '2005-10-02', verified: false },
+  dewi: { name: 'Dewi Lestari (student)', email: 'student@balibike.demo', city: 'Kuta', uni: 'UNUD Jimbaran', role: 'renter', dob: '2004-03-09', verified: true },
   emma: { name: 'Emma Novak (visitor)', email: 'visitor@balibike.demo', city: 'Canggu', role: 'renter', dob: '1997-02-11', verified: true },
   reza: { name: 'Reza Hidayat', email: 'reza@balibike.demo', city: 'Bandung', uni: 'ITB', role: 'renter', dob: '2002-07-11', verified: true },
 };
@@ -233,6 +234,7 @@ export function seedDemo() {
           p.role === 'owner' ? 'Demo owner profile. Student and bike enthusiast.' : null]);
       if (p.verified) {
         q.run(`INSERT INTO user_verifications (user_id, type, status, document_number, reviewed_at) VALUES (?, 'identity', 'approved', '••••1234', ?)`, [id, verifiedAt]);
+        if (p.uni) q.run(`INSERT INTO user_verifications (user_id, type, status, document_number, reviewed_at) VALUES (?, 'student', 'approved', '••••2026', ?)`, [id, verifiedAt]);
       }
     }
     // Budi (demo renter) holds an approved SIM C → eligible for motorcycles. Sari is 21 but has no licence on file.
@@ -259,19 +261,19 @@ export function seedDemo() {
       const isMoto = v.category === 'motorcycle';
       const created = new Date(Date.UTC(2026, 8, 1) + idx * 2.3 * 86400_000).toISOString();
       const id = q.run(`INSERT INTO vehicles (owner_id, category, type, name, brand, model, year, description, condition, rules, deposit, city_id, university_id,
-          pickup_address, lat, lng, plate_number, registration_status, status, instant_book, is_demo, created_at)
-          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, 'active', ?, 1, ?)`,
+          pickup_address, lat, lng, plate_number, registration_status, status, instant_book, students_only, is_demo, created_at)
+          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, 'active', ?, ?, 1, ?)`,
         [userIds[v.owner], v.category, v.type, v.name, v.brand, v.model, v.year, v.desc, v.condition, isMoto ? MOTO_RULES : BIKE_RULES, v.deposit,
           cityIds[cityName], uni?.id ?? null, pickup, lat, lng,
-          isMoto ? `${area || cityName === 'Denpasar' ? 'DK' : 'AB'} ${1000 + idx * 37} ${pick(['XY', 'KL', 'RT', 'MN'])}` : null, isMoto ? 'approved' : 'not_required', v.instant ? 1 : 0, created]).id;
+          isMoto ? `${area || cityName === 'Denpasar' ? 'DK' : 'AB'} ${1000 + idx * 37} ${pick(['XY', 'KL', 'RT', 'MN'])}` : null, isMoto ? 'approved' : 'not_required', v.instant ? 1 : 0,
+          // Campus bikes (student bikes and "campus" listings near a university) are reserved for that university's verified students.
+          uni && !isMoto && (v.type === 'student' || /campus/i.test(v.name)) ? 1 : 0, created]).id;
       vehicleIds.push(id);
       for (const [d, p] of v.prices) q.run('INSERT INTO vehicle_pricing (vehicle_id, duration_minutes, price) VALUES (?, ?, ?)', [id, d, p]);
       if (v.hours) for (let wd = 0; wd < 7; wd++)
         q.run(`INSERT INTO vehicle_availability (vehicle_id, kind, weekday, start_minute, end_minute) VALUES (?, 'weekly', ?, ?, ?)`, [id, wd, v.hours[0] * 60, v.hours[1] * 60]);
-      for (let i = 0; i < 3; i++) {
-        const key = storage.put('public', Buffer.from(vehicleIllustration(v.category, v.type, v.color, i)), 'svg');
-        q.run('INSERT INTO vehicle_images (vehicle_id, url, position) VALUES (?, ?, ?)', [id, '/uploads/' + key, i]);
-      }
+      demoPhotos(v.category, v.type).forEach((url, i) =>
+        q.run('INSERT INTO vehicle_images (vehicle_id, url, position) VALUES (?, ?, ?)', [id, url, i]));
     });
 
     // Bookings: past completed (with ledger + reviews), one active, one confirmed, one pending request.

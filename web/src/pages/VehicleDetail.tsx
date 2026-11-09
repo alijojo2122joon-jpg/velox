@@ -8,6 +8,7 @@ import { useFormat, localToIso, isoToLocal, minutesToHHMM, tzLabel } from '../li
 import { Icon } from '../components/icons';
 import { Avatar, Badge, Button, Card, DemoBadge, Empty, Modal, Notice, PageLoader, Select, Stars, Textarea, cx, useErrorText, useToast, Input } from '../components/ui';
 import { MapView } from '../components/MapView';
+import { campusState, CampusAction } from '../components/Campus';
 
 const WEEKDAYS = [0, 1, 2, 3, 4, 5, 6];
 
@@ -75,6 +76,7 @@ export function VehicleDetail({ id }: { id: number }) {
             <Badge tone="dark" icon={v.category === 'bicycle' ? 'bike' : 'moto'}>{t(`vehicleTypes.${v.type}`)}</Badge>
             <Badge tone="gray">{t(`conditions.${v.condition}`)}</Badge>
             {!!v.instant_book && <Badge tone="blue" icon="bolt">{t('vehicle.instant')}</Badge>}
+            {!!v.students_only && <Badge tone="blue" icon="graduation">{t('campus.badgeFull', { uni: v.university_name })}</Badge>}
             {v.category === 'motorcycle' && <Badge tone="amber" icon="shield">{t('vehicle.licenseRequired')}</Badge>}
           </div>
           <h1 className="font-display mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{v.name}</h1>
@@ -253,6 +255,8 @@ function BookingWidget({ data, bare }: { data: any; bare?: boolean }) {
   }, [key]);
 
   const eligibleBlock = v.category === 'motorcycle' && user && !user.eligibility.motorcycle;
+  const campus = v.students_only ? campusState(user, v.university_id) : 'ok';
+  const campusBlock = !!user && campus !== 'ok';
   const submit = async () => {
     if (!user) return navigate(`/login?next=/vehicles/${v.id}`);
     setSubmitting(true); setErr(null);
@@ -324,6 +328,14 @@ function BookingWidget({ data, bare }: { data: any; bare?: boolean }) {
         </Notice></div>
       )}
 
+      {!!v.students_only && !isOwner && (
+        <div className={cx('mt-4 rounded-[18px] p-4', campus === 'ok' ? 'bg-emerald-50' : 'field')}>
+          <div className="flex items-center gap-2 text-sm font-black text-ink-950"><Icon name="graduation" size={17} className="text-brand-600" />{t('campus.panelTitle', { uni: v.university_name })}</div>
+          <p className="mt-1 text-[13px] leading-relaxed text-ink-600">{t('campus.panelBody')}</p>
+          <CampusAction state={campus} next={`/vehicles/${v.id}`} />
+        </div>
+      )}
+
       {quote?.available && !isOwner && (
         <div className="mt-5 space-y-3">
           <Textarea rows={2} placeholder={t('booking.notePlaceholder')} value={note} onChange={(e) => setNote(e.target.value)} maxLength={500} />
@@ -335,7 +347,7 @@ function BookingWidget({ data, bare }: { data: any; bare?: boolean }) {
       )}
       {err && <div className="mt-4"><Notice tone="error">{err}</Notice></div>}
       <Button variant="brand" size="lg" className="mt-5 w-full" loading={submitting} onClick={submit}
-        disabled={isOwner || !quote?.available || (!!user && !agree) || !!eligibleBlock}>
+        disabled={isOwner || !quote?.available || (!!user && !agree) || !!eligibleBlock || campusBlock}>
         {isOwner ? t('booking.yourVehicle') : !user ? t('booking.loginToBook') : v.instant_book ? t('booking.bookInstant') : t('booking.request')}
       </Button>
       <p className="mt-3 text-center text-xs text-ink-500">{v.instant_book ? t('booking.instantHint') : t('booking.requestHint')}</p>

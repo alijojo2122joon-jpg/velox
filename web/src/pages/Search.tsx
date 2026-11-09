@@ -46,7 +46,7 @@ export function Search() {
       (pos) => { setLocating(false); setGeoError(false); set({ lat: pos.coords.latitude.toFixed(5), lng: pos.coords.longitude.toFixed(5), radiusKm: p.radiusKm ?? 2, sort: 'nearest', cityId: undefined, region: undefined, universityId: undefined }); },
       () => { setLocating(false); setGeoError(true); }, { timeout: 8000 });
   };
-  const activeFilters = ['type', 'minPrice', 'maxPrice', 'minRating', 'start', 'universityId'].filter((k) => p[k]).length;
+  const activeFilters = ['type', 'minPrice', 'maxPrice', 'minRating', 'start', 'universityId', 'studentsOnly'].filter((k) => p[k]).length;
 
   const filterPanel = <Filters p={p} set={set} unis={unis?.items ?? []} />;
 
@@ -140,7 +140,7 @@ export function Search() {
       </div>
 
       <Modal open={filtersOpen} onClose={() => setFiltersOpen(false)} title={t('search.filters')}
-        footer={<><Button variant="ghost" onClick={() => { set({ type: undefined, minPrice: undefined, maxPrice: undefined, minRating: undefined, start: undefined, end: undefined, universityId: undefined }); }}>{t('search.clear')}</Button>
+        footer={<><Button variant="ghost" onClick={() => { set({ type: undefined, minPrice: undefined, maxPrice: undefined, minRating: undefined, start: undefined, end: undefined, universityId: undefined, studentsOnly: undefined }); }}>{t('search.clear')}</Button>
           <Button onClick={() => setFiltersOpen(false)}>{t('search.showResults', { n: num(data?.total ?? 0) })}</Button></>}>
         {filterPanel}
       </Modal>
@@ -205,6 +205,10 @@ function Filters({ p, set, unis }: { p: Record<string, string>; set: (o: Record<
             <option value="">{t('search.anyUniversity')}</option>
             {unis.map((u) => <option key={u.id} value={u.id}>{u.short_name} — {u.name}</option>)}
           </Select>
+          <label className="mt-3 flex items-start gap-2.5 text-sm font-semibold text-ink-700">
+            <input type="checkbox" checked={!!p.studentsOnly} onChange={(e) => set({ studentsOnly: e.target.checked ? '1' : undefined })} className="mt-0.5 h-4 w-4 accent-brand-500" />
+            <span>{t('campus.filter')}<span className="block text-xs font-normal text-ink-500">{t('campus.filterHint')}</span></span>
+          </label>
         </section>
       )}
     </div>

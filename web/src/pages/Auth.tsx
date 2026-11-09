@@ -56,7 +56,7 @@ export function Login() {
     } catch (e) { setErr(errText(e)); } finally { setBusy(false); }
   };
   const demos = [
-    { email: 'renter@balibike.demo', role: 'renter' }, { email: 'visitor@balibike.demo', role: 'visitor' }, { email: 'owner@balibike.demo', role: 'owner' }, { email: 'admin@balibike.demo', role: 'admin' },
+    { email: 'renter@balibike.demo', role: 'renter' }, { email: 'visitor@balibike.demo', role: 'visitor' }, { email: 'student@balibike.demo', role: 'student' }, { email: 'owner@balibike.demo', role: 'owner' }, { email: 'admin@balibike.demo', role: 'admin' },
   ];
 
   return (

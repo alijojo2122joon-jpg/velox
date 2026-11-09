@@ -193,6 +193,9 @@ export const authRoutes = (r: Router) => {
       document: z.string().min(10).max(6_000_000),
     }), req.body);
     if (b.type === 'driving_license' && !b.licenseClass) throw badRequest('VALIDATION_FAILED', { licenseClass: 'V_REQUIRED' });
+    // A student card is checked against the university chosen in the profile, so one must be selected first.
+    if (b.type === 'student' && !q.get('SELECT 1 FROM user_profiles WHERE user_id = ? AND university_id IS NOT NULL', [req.user!.id]))
+      throw badRequest('UNIVERSITY_REQUIRED');
     if (q.get(`SELECT 1 FROM user_verifications WHERE user_id = ? AND type = ? AND status = 'pending'`, [req.user!.id, b.type]))
       throw conflict('VERIFICATION_PENDING');
     const key = storeUpload(b.document, 'private', true);

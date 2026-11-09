@@ -605,7 +605,8 @@
    "renter": "Penyéwa démo",
    "owner": "Pemilik démo",
    "admin": "Admin démo",
-   "visitor": "Wisatawan démo (IDP)"
+   "visitor": "Wisatawan démo (IDP)",
+   "student": "Mahasiswa (Bali)"
   }
  },
  "account": {
@@ -1223,6 +1224,33 @@
   "OUTSIDE_HOURS": "Wektu njupuk utawa mbalèkaké ana ing njaba jam serah-tampa pemilik.",
   "BLOCKED": "Pemilik nandhani tanggal iki ora kasedhiya.",
   "ALREADY_BOOKED": "Nyuwun ngapura — ana wong sing lagi waé mesen wektu iki.",
-  "NOT_LISTED": "Kendaraan iki saiki ora nampa pesenan."
+  "NOT_LISTED": "Kendaraan iki saiki ora nampa pesenan.",
+  "STUDENT_CARD_REQUIRED": "Butuh KTM terverifikasi saka universitas iki kanggo mesen pit iki.",
+  "UNIVERSITY_REQUIRED": "Pilih universitasmu ing profil sadurungé ngunggah KTM."
+ },
+ "campus": {
+  "eyebrow": "Kertu mahasiswa",
+  "title": "Nyewa pit kampus nganggo kertu mahasiswa",
+  "intro": "Pit kanthi tandha “Mung mahasiswa” cedhak {uni} bisa disewa mahasiswané. Verifikasi KTM sepisan, banjur pesen lan bayar kaya biasané.",
+  "s1": "Verifikasi KTM {uni}",
+  "s1d": "Pilih universitasmu ing akun lan unggah foto KTM. Admin mriksa, biasané sedina.",
+  "s2": "Pesen pit kampus",
+  "s2d": "Pilih pit “Mung mahasiswa” cedhak {uni}, tentokaké 30 menit nganti pirang-pirang dina, banjur kirim pesenan.",
+  "s3": "Bayar lan njupuk",
+  "s3d": "Bayar kanthi aman liwat QRIS, kertu, utawa e-wallet. Tuduhna kode njupuk marang sing nduwé ing kampus.",
+  "ok": "KTM wis diverifikasi — kowé bisa mesen pit kampus",
+  "pending": "KTM lagi dipriksa",
+  "login": "Mlebu kanggo nerusaké",
+  "join": "Pilih universitas iki ing akunmu",
+  "verify": "Unggah KTM",
+  "badge": "Mung mahasiswa",
+  "badgeFull": "Mung mahasiswa · {uni}",
+  "panelTitle": "Kanggo mahasiswa {uni}",
+  "panelBody": "Sing nduwé nyedhiyakaké pit iki mung kanggo mahasiswa universitas iki. Butuh KTM sing wis diverifikasi.",
+  "formToggle": "Mung mahasiswa universitas iki",
+  "formHint": "Mung penyewa kanthi KTM terverifikasi saka universitas sing dipilih sing bisa mesen.",
+  "filter": "Pit kampus kanggo mahasiswa",
+  "filterHint": "Mung iklan kanggo mahasiswa terverifikasi",
+  "all": "Kabèh pit"
  }
 }

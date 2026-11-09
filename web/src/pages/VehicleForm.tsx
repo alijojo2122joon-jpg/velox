@@ -27,7 +27,7 @@ export function VehicleForm({ id }: { id?: number }) {
   const { data: cities } = useApi<{ items: any[] }>('/api/locations/cities');
 
   const [f, setF] = useState<any>({ category: 'bicycle', type: 'city', name: '', brand: '', model: '', year: '', description: '', condition: 'good', rules: '',
-    deposit: '0', cityId: '', universityId: '', pickupAddress: '', lat: '', lng: '', plateNumber: '', insuranceNote: '', instantBook: false });
+    deposit: '0', cityId: '', universityId: '', pickupAddress: '', lat: '', lng: '', plateNumber: '', insuranceNote: '', instantBook: false, studentsOnly: false });
   const [prices, setPrices] = useState<Record<number, string>>({ 30: '5000', 60: '8000', 180: '20000', 1440: '60000' });
   const [anytime, setAnytime] = useState(false);
   const [sameDaily, setSameDaily] = useState(true);
@@ -45,7 +45,7 @@ export function VehicleForm({ id }: { id?: number }) {
     const v = d.vehicle;
     setF({ category: v.category, type: v.type, name: v.name, brand: v.brand, model: v.model, year: v.year ?? '', description: v.description, condition: v.condition,
       rules: v.rules, deposit: String(v.deposit), cityId: String(v.city_id), universityId: v.university_id ? String(v.university_id) : '', pickupAddress: v.pickup_address,
-      lat: String(v.lat), lng: String(v.lng), plateNumber: v.plate_number ?? '', insuranceNote: v.insurance_note ?? '', instantBook: !!v.instant_book });
+      lat: String(v.lat), lng: String(v.lng), plateNumber: v.plate_number ?? '', insuranceNote: v.insurance_note ?? '', instantBook: !!v.instant_book, studentsOnly: !!v.students_only });
     setPrices(Object.fromEntries(d.pricing.map((p: any) => [p.duration_minutes, String(p.price)])));
     setAnytime(d.availability.length === 0);
     if (d.availability.length) setWindows(d.availability.map((w: any) => ({ weekday: w.weekday, startMinute: w.start_minute, endMinute: w.end_minute })));
@@ -85,7 +85,7 @@ export function VehicleForm({ id }: { id?: number }) {
     setErrors(e);
     if (Object.keys(e).length) { setErr(t('vehicleForm.fixErrors')); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     setBusy(true); setErr(null);
-    const body = { ...f, year: f.year ? Number(f.year) : undefined, deposit: Number(f.deposit || 0), cityId: Number(f.cityId), universityId: f.universityId ? Number(f.universityId) : null,
+    const body = { ...f, year: f.year ? Number(f.year) : undefined, deposit: Number(f.deposit || 0), cityId: Number(f.cityId), universityId: f.universityId ? Number(f.universityId) : null, studentsOnly: !!f.universityId && f.studentsOnly,
       lat: Number(f.lat), lng: Number(f.lng), plateNumber: f.plateNumber || undefined, insuranceNote: f.insuranceNote || undefined };
     try {
       if (editing) {
@@ -201,6 +201,7 @@ export function VehicleForm({ id }: { id?: number }) {
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <Field label={t('vehicleForm.deposit')} hint={t('vehicleForm.depositHint')}><Input type="number" inputMode="numeric" value={f.deposit} onChange={up('deposit')} /></Field>
             <div className="flex items-end pb-2"><Toggle checked={f.instantBook} onChange={(v) => setF({ ...f, instantBook: v })} label={<span>{t('vehicleForm.instantBook')}<span className="block text-xs font-normal text-ink-500">{t('vehicleForm.instantBookHint')}</span></span>} /></div>
+            {f.universityId && <div className="flex items-end pb-2"><Toggle checked={f.studentsOnly} onChange={(v) => setF({ ...f, studentsOnly: v })} label={<span>{t('campus.formToggle')}<span className="block text-xs font-normal text-ink-500">{t('campus.formHint')}</span></span>} /></div>}
           </div>
           {pricing.length > 0 && <p className="mt-4 text-sm text-ink-600">{t('vehicleForm.youReceive', { amount: money(Math.round(pricing[0].price * 0.9)), d: duration(pricing[0].durationMinutes) })}</p>}
         </FormCard>

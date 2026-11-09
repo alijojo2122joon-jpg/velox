@@ -605,7 +605,8 @@
    "renter": "Penyewa demo",
    "owner": "Pemilik demo",
    "admin": "Admin demo",
-   "visitor": "Wisatawan demo (IDP)"
+   "visitor": "Wisatawan demo (IDP)",
+   "student": "Mahasiswa (Bali)"
   }
  },
  "account": {
@@ -1223,6 +1224,33 @@
   "OUTSIDE_HOURS": "Waktu ambil atau kembali di luar jam serah terima pemilik.",
   "BLOCKED": "Pemilik menandai tanggal ini tidak tersedia.",
   "ALREADY_BOOKED": "Maaf — seseorang baru saja memesan waktu ini.",
-  "NOT_LISTED": "Kendaraan ini sedang tidak menerima pesanan."
+  "NOT_LISTED": "Kendaraan ini sedang tidak menerima pesanan.",
+  "STUDENT_CARD_REQUIRED": "Perlu KTM terverifikasi dari universitas ini untuk memesan sepeda ini.",
+  "UNIVERSITY_REQUIRED": "Pilih universitasmu di profil sebelum mengunggah KTM."
+ },
+ "campus": {
+  "eyebrow": "Kartu mahasiswa",
+  "title": "Sewa sepeda kampus dengan kartu mahasiswa",
+  "intro": "Sepeda bertanda “Khusus mahasiswa” di dekat {uni} bisa disewa oleh mahasiswanya. Verifikasi KTM sekali, lalu pesan dan bayar seperti biasa.",
+  "s1": "Verifikasi KTM {uni}",
+  "s1d": "Pilih universitasmu di akun dan unggah foto kartu tanda mahasiswa (KTM). Admin memeriksanya, biasanya dalam sehari.",
+  "s2": "Pesan sepeda kampus",
+  "s2d": "Pilih sepeda “Khusus mahasiswa” di dekat {uni}, tentukan 30 menit hingga beberapa hari, lalu kirim pesanan.",
+  "s3": "Bayar dan ambil",
+  "s3d": "Bayar aman lewat QRIS, kartu, atau e-wallet. Tunjukkan kode pengambilan kepada pemilik di kampus.",
+  "ok": "KTM terverifikasi — kamu bisa memesan sepeda kampus",
+  "pending": "KTM sedang diperiksa",
+  "login": "Masuk untuk melanjutkan",
+  "join": "Pilih universitas ini di akunmu",
+  "verify": "Unggah KTM",
+  "badge": "Khusus mahasiswa",
+  "badgeFull": "Khusus mahasiswa · {uni}",
+  "panelTitle": "Untuk mahasiswa {uni}",
+  "panelBody": "Pemilik menyediakan sepeda ini khusus untuk mahasiswa universitas ini. Perlu KTM terverifikasi untuk memesan.",
+  "formToggle": "Hanya mahasiswa universitas ini",
+  "formHint": "Hanya penyewa dengan KTM terverifikasi dari universitas terpilih yang bisa memesan.",
+  "filter": "Sepeda kampus untuk mahasiswa",
+  "filterHint": "Hanya iklan khusus mahasiswa terverifikasi",
+  "all": "Semua sepeda"
  }
 }

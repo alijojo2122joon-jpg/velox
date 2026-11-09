@@ -80,6 +80,11 @@ export function createBooking(user: AuthUser, input: { vehicleId: number; start:
       const el = motorcycleEligibility(user.id);
       if (!el.motorcycle) throw forbidden('MOTORCYCLE_NOT_ELIGIBLE');
     }
+    // Campus listings reserved for students: an approved student card (KTM) for the same university is required.
+    if (v.students_only && v.university_id) {
+      const st = q.get<{ university_id: number | null; university_verified: number }>('SELECT university_id, university_verified FROM user_profiles WHERE user_id = ?', [user.id]);
+      if (!st || st.university_id !== v.university_id || !st.university_verified) throw forbidden('STUDENT_CARD_REQUIRED');
+    }
     // Checked inside the write transaction → no double booking even under concurrent requests.
     const problem = checkAvailability(v, start, end);
     if (problem) throw conflict(problem);

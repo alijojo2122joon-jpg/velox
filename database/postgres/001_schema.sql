@@ -146,6 +146,7 @@ CREATE TABLE vehicles (
   insurance_note       text,
   status               vehicle_status NOT NULL DEFAULT 'active',
   instant_book         boolean NOT NULL DEFAULT false,
+  students_only    BOOLEAN NOT NULL DEFAULT FALSE, -- campus listing reserved for verified students of university_id
   rating_avg           numeric(3,2) NOT NULL DEFAULT 0,
   rating_count         integer NOT NULL DEFAULT 0,
   is_demo              boolean NOT NULL DEFAULT false,

@@ -605,7 +605,8 @@
    "renter": "Demo renter",
    "owner": "Demo owner",
    "admin": "Demo admin",
-   "visitor": "Demo visitor (IDP)"
+   "visitor": "Demo visitor (IDP)",
+   "student": "Student (Bali)"
   }
  },
  "account": {
@@ -1223,6 +1224,33 @@
   "OUTSIDE_HOURS": "Pickup or return is outside the owner's handover hours.",
   "BLOCKED": "The owner has marked these dates as unavailable.",
   "ALREADY_BOOKED": "Sorry — someone just booked this time.",
-  "NOT_LISTED": "This vehicle isn't accepting bookings right now."
+  "NOT_LISTED": "This vehicle isn't accepting bookings right now.",
+  "STUDENT_CARD_REQUIRED": "A verified student card from this university is required to book this bike.",
+  "UNIVERSITY_REQUIRED": "Choose your university in your profile before uploading your student card."
+ },
+ "campus": {
+  "eyebrow": "Student card",
+  "title": "Rent campus bikes with your student card",
+  "intro": "Bikes marked “Students only” near {uni} can be rented by its students. Verify your student card (KTM) once, then book and pay like any rental.",
+  "s1": "Verify your {uni} student card",
+  "s1d": "Choose your university in your account and upload a photo of your student card (KTM). An admin checks it, usually within a day.",
+  "s2": "Book a campus bike",
+  "s2d": "Pick any “Students only” bike near {uni}, choose 30 minutes to several days and send the booking.",
+  "s3": "Pay and pick up",
+  "s3d": "Pay securely by QRIS, card or e-wallet. Show your pickup code to the owner on campus and ride.",
+  "ok": "Student card verified — you can book campus bikes",
+  "pending": "Student card is being checked",
+  "login": "Log in to continue",
+  "join": "Choose this university in your account",
+  "verify": "Upload your student card",
+  "badge": "Students only",
+  "badgeFull": "Students only · {uni}",
+  "panelTitle": "For {uni} students",
+  "panelBody": "The owner reserves this bike for students of this university. A verified student card (KTM) is required to book.",
+  "formToggle": "Students of this university only",
+  "formHint": "Only renters with a verified student card from the selected university can book.",
+  "filter": "Campus bikes for students",
+  "filterHint": "Only listings reserved for verified students",
+  "all": "All bikes"
  }
 }

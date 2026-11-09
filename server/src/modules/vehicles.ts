@@ -32,6 +32,7 @@ const searchSchema = z.object({
   start: z.string().datetime().optional(),
   end: z.string().datetime().optional(),
   availableNow: z.enum(['1', 'true']).optional(),
+  studentsOnly: z.enum(['1', 'true']).optional(), // campus listings reserved for verified students
   sort: z.enum(['nearest', 'price', 'rating', 'newest', 'available_now']).default('newest'),
   page: z.coerce.number().int().min(1).max(500).default(1),
   limit: z.coerce.number().int().min(1).max(100).optional(),
@@ -55,6 +56,7 @@ export function searchVehicles(params: Record<string, string>) {
     const types = f.type.split(',').filter((t) => (BICYCLE_TYPES as readonly string[]).concat(MOTORCYCLE_TYPES).includes(t));
     if (types.length) { where.push(`v.type IN (${types.map(() => '?').join(',')})`); args.push(...types); }
   }
+  if (f.studentsOnly) where.push('v.students_only = 1');
   if (f.cityId) { where.push('v.city_id = ?'); args.push(f.cityId); }
   else if (f.region) {
     where.push(`v.city_id IN (SELECT id FROM locations WHERE parent_id = (SELECT id FROM locations WHERE slug = ?))`); args.push('prov-' + f.region);
@@ -125,7 +127,7 @@ export function searchVehicles(params: Record<string, string>) {
   const total = q.get<{ n: number }>(`SELECT COUNT(*) n ${from}`, args)!.n;
   const rows = q.all<any>(`
     SELECT v.id, v.name, v.brand, v.model, v.category, v.type, v.condition, v.deposit, v.lat, v.lng, v.pickup_address,
-           v.rating_avg, v.rating_count, v.is_demo, v.instant_book, v.created_at, c.name AS city_name, un.short_name AS university_name,
+           v.rating_avg, v.rating_count, v.is_demo, v.instant_book, v.students_only, v.created_at, c.name AS city_name, un.short_name AS university_name,
            p.full_name AS owner_name, p.avatar_url AS owner_avatar,
            EXISTS (SELECT 1 FROM user_verifications uv WHERE uv.user_id = v.owner_id AND uv.type = 'identity' AND uv.status = 'approved') AS owner_verified,
            (SELECT url FROM vehicle_images i WHERE i.vehicle_id = v.id ORDER BY position LIMIT 1) AS cover_url,
@@ -189,6 +191,7 @@ const vehicleSchema = z.object({
   registrationDoc: z.string().max(6_000_000).optional(),
   insuranceNote: z.string().max(300).optional(),
   instantBook: z.boolean().default(false),
+  studentsOnly: z.boolean().default(false),
   pricing: z.array(z.object({ durationMinutes: z.number().int(), price: z.number().int().min(1000).max(50_000_000) })).min(1),
   availability: z.array(z.object({ weekday: z.number().int().min(0).max(6), startMinute: z.number().int().min(0).max(1440),
     endMinute: z.number().int().min(0).max(1440) })).max(28).default([]),
@@ -273,11 +276,11 @@ export const vehicleRoutes = (r: Router) => {
     const id = tx(() => {
       const { id } = q.run(`
         INSERT INTO vehicles (owner_id, category, type, name, brand, model, year, description, condition, rules, deposit, city_id, university_id,
-          pickup_address, lat, lng, plate_number, registration_doc_key, registration_status, insurance_note, status, instant_book)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+          pickup_address, lat, lng, plate_number, registration_doc_key, registration_status, insurance_note, status, instant_book, students_only)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
         [req.user!.id, b.category, b.type, b.name, b.brand, b.model, b.year ?? null, b.description, b.condition, b.rules, b.deposit, b.cityId,
           b.universityId ?? null, b.pickupAddress, b.lat, b.lng, b.plateNumber ?? null, regKey, isMoto ? 'pending' : 'not_required',
-          b.insuranceNote ?? null, isMoto ? 'pending_review' : 'active', b.instantBook ? 1 : 0]);
+          b.insuranceNote ?? null, isMoto ? 'pending_review' : 'active', b.instantBook ? 1 : 0, b.studentsOnly && b.universityId ? 1 : 0]);
       savePricing(id, b.pricing);
       saveWindows(id, b.availability);
       imageKeys.forEach((k, i) => q.run('INSERT INTO vehicle_images (vehicle_id, url, position) VALUES (?, ?, ?)', [id, '/uploads/' + k, i]));
@@ -297,6 +300,7 @@ export const vehicleRoutes = (r: Router) => {
     const sets: string[] = [], vals: any[] = [];
     for (const [k, col] of Object.entries(map)) if ((b as any)[k] !== undefined) { sets.push(`${col} = ?`); vals.push((b as any)[k]); }
     if (b.instantBook !== undefined) { sets.push('instant_book = ?'); vals.push(b.instantBook ? 1 : 0); }
+    if (b.studentsOnly !== undefined) { sets.push('students_only = ?'); vals.push(b.studentsOnly ? 1 : 0); }
     if (sets.length) q.run(`UPDATE vehicles SET ${sets.join(', ')}, updated_at = ? WHERE id = ?`, [...vals, new Date().toISOString(), v.id]);
     res.json({ ok: true });
   });

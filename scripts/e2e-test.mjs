@@ -219,4 +219,20 @@ await step('admin changes commission → new bookings snapshot the new rate', as
   await admin('POST', '/api/admin/commissions', { ratePercent: 10, category: null });
 });
 
+await step('campus bikes: student card required; a verified student of that university can book', async () => {
+  const visitor = client(), student = client();
+  await visitor('POST', '/api/auth/login', { email: 'visitor@balibike.demo', password: 'Demo1234!' });
+  await student('POST', '/api/auth/login', { email: 'student@balibike.demo', password: 'Demo1234!' });
+  const s = await visitor('GET', '/api/vehicles?studentsOnly=1&region=bali');
+  const v = s.items.find((x) => x.students_only);
+  assert.ok(v, 'expected a students-only campus bike in Bali');
+  const slot = nextSlot(170, 2);
+  const denied = await visitor('POST', '/api/bookings', { vehicleId: v.id, ...slot, acceptAgreement: true });
+  assert.equal(denied.status, 403, JSON.stringify(denied));
+  assert.equal(denied.error?.code ?? denied.code, 'STUDENT_CARD_REQUIRED', JSON.stringify(denied));
+  const ok = await student('POST', '/api/bookings', { vehicleId: v.id, ...slot, acceptAgreement: true });
+  assert.equal(ok.status, 201, JSON.stringify(ok));
+  await student('POST', `/api/bookings/${ok.booking.id}/cancel`, {});
+});
+
 console.log(`\n${passed} checks passed.`);
