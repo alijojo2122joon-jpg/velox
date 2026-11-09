@@ -10,20 +10,20 @@ export const cx = (...c: (string | false | null | undefined)[]) => c.filter(Bool
 // ───────── Button ─────────
 type Variant = 'primary' | 'brand' | 'secondary' | 'ghost' | 'danger' | 'success';
 const variants: Record<Variant, string> = {
-  primary: 'bg-ink-950 text-white hover:bg-ink-800',
-  brand: 'bg-brand-600 text-white hover:bg-brand-500 shadow-[0_8px_20px_-12px_rgb(0_113_227/0.7)]',
-  secondary: 'bg-ink-100 text-ink-950 hover:bg-ink-200',
-  ghost: 'text-brand-600 hover:bg-brand-50',
-  danger: 'bg-red-50 text-red-600 hover:bg-red-100',
-  success: 'bg-[#34c759] text-white hover:brightness-105',
+  primary: 'cta [--a1:#56647c] [--a2:#1f2a3c] [--a3:#0b111c]',
+  brand: 'cta',
+  secondary: 'tile text-ink-900 hover:-translate-y-0.5 active:translate-y-0',
+  ghost: 'text-ink-700 hover:bg-white/60',
+  danger: 'tile text-red-600 hover:-translate-y-0.5',
+  success: 'cta [--a1:#9ff0c4] [--a2:#16a865] [--a3:#0b7a46]',
 };
-const sizes = { sm: 'h-9 px-4 text-sm rounded-full gap-1.5', md: 'h-11 px-5 text-[15px] rounded-full gap-2', lg: 'h-13 px-7 text-[17px] rounded-full gap-2' };
+const sizes = { sm: 'h-9 px-3.5 text-sm rounded-[13px] gap-1.5', md: 'h-11 px-5 text-[15px] rounded-[16px] gap-2', lg: 'h-14 px-7 text-[17px] rounded-[20px] gap-2' };
 
 export function Button({ variant = 'primary', size = 'md', loading, icon, iconEnd, className, children, disabled, ...rest }:
   { variant?: Variant; size?: keyof typeof sizes; loading?: boolean; icon?: string; iconEnd?: string } & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button disabled={disabled || loading}
-      className={cx('inline-flex select-none items-center justify-center font-semibold transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98]',
+      className={cx('inline-flex select-none items-center justify-center font-extrabold transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98]',
         variants[variant], sizes[size], className)} {...rest}>
       {loading ? <Spinner size={16} /> : icon && <Icon name={icon} size={size === 'sm' ? 16 : 18} />}
       {children}
@@ -35,7 +35,7 @@ export function Button({ variant = 'primary', size = 'md', loading, icon, iconEn
 export function ButtonLink({ to, variant = 'primary', size = 'md', icon, iconEnd, className, children }:
   { to: string; variant?: Variant; size?: keyof typeof sizes; icon?: string; iconEnd?: string; className?: string; children: ReactNode }) {
   return (
-    <Link to={to} className={cx('group/btn inline-flex items-center justify-center font-semibold transition-all duration-300 active:scale-[0.98]', variants[variant], sizes[size], className)}>
+    <Link to={to} className={cx('group/btn inline-flex items-center justify-center font-extrabold transition-all duration-300 active:scale-[0.98]', variants[variant], sizes[size], className)}>
       {icon && <Icon name={icon} size={18} />}{children}{iconEnd && <Icon name={iconEnd} size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1" />}
     </Link>
   );
@@ -123,7 +123,7 @@ export function Card({ children, className, ...rest }: { children: ReactNode; cl
 }
 
 export function Stat({ label, value, icon, hint, tone = 'blue' }: { label: string; value: ReactNode; icon?: string; hint?: ReactNode; tone?: 'blue' | 'green' | 'amber' | 'violet' }) {
-  const tones = { blue: 'text-brand-600', green: 'text-[#34c759]', amber: 'text-amber-500', violet: 'text-violet-500' };
+  const tones = { blue: 'text-brand-600', green: 'text-emerald-600', amber: 'text-amber-500', violet: 'text-violet-500' };
   return (
     <Card className="spotlight group p-5">
       <div className="flex items-start justify-between gap-3">
@@ -277,4 +277,19 @@ export function useFieldErrors() {
     if (!(e instanceof ApiError)) return {};
     return Object.fromEntries(Object.entries(e.fields).map(([k, v]) => [k, t(`validation.${v}`)]));
   };
+}
+
+/** Segmented control (Market Analysts style): inset track, raised pill that springs to the selected option. */
+export function Seg<T extends string>({ value, onChange, items, className, size = 'md' }:
+  { value: T; onChange: (v: T) => void; items: { value: T; label: ReactNode }[]; className?: string; size?: 'sm' | 'md' }) {
+  const i = Math.max(0, items.findIndex((it) => it.value === value));
+  return (
+    <div className={cx('seg', className)}>
+      <span aria-hidden="true" className="pill" style={{ width: `calc((100% - 8px) / ${items.length})`, transform: `translateX(calc(${i} * 100% * var(--flip, 1)))` }} />
+      {items.map((it) => (
+        <button key={it.value} type="button" onClick={() => onChange(it.value)} aria-pressed={it.value === value}
+          className={cx('flex items-center justify-center gap-1.5', size === 'sm' ? 'h-8 px-3 text-[13px]' : 'h-10 px-4 text-sm', it.value === value && 'on')}>{it.label}</button>
+      ))}
+    </div>
+  );
 }

@@ -18,3 +18,6 @@ export const AREA_PHOTOS: Record<string, { src: string; by: string }> = {
 };
 
 export const PHOTO_CREDITS = Object.values(AREA_PHOTOS).map((p) => p.by);
+
+/** Page backdrop: Bali coastline, heavily blurred by CSS, so a modest size is enough. */
+export const BACKDROP = 'https://images.unsplash.com/photo-1576019206484-54273acdfa89?auto=format&fit=crop&w=1400&q=60';

@@ -40,18 +40,22 @@ export function useAutoReveal(root: React.RefObject<HTMLElement | null>) {
   }, [root]);
 }
 
-/** Feeds the pointer position to the nearest .spotlight element so its soft light follows the cursor. */
+/** Tap ripple on glossy buttons (.cta), as in Market Analysts. */
 export function useSpotlight() {
   useEffect(() => {
     const on = (e: PointerEvent) => {
-      const t = (e.target as Element | null)?.closest?.('.spotlight') as HTMLElement | null;
+      const t = (e.target as Element | null)?.closest?.('.cta, .rip') as HTMLElement | null;
       if (!t) return;
       const r = t.getBoundingClientRect();
-      t.style.setProperty('--mx', `${e.clientX - r.left}px`);
-      t.style.setProperty('--my', `${e.clientY - r.top}px`);
+      const s = Math.max(r.width, r.height);
+      const d = document.createElement('span');
+      d.className = 'ripple';
+      d.style.cssText = `width:${s}px;height:${s}px;left:${e.clientX - r.left - s / 2}px;top:${e.clientY - r.top - s / 2}px`;
+      t.appendChild(d);
+      setTimeout(() => d.remove(), 900);
     };
-    document.addEventListener('pointermove', on, { passive: true });
-    return () => document.removeEventListener('pointermove', on);
+    document.addEventListener('pointerdown', on, { passive: true });
+    return () => document.removeEventListener('pointerdown', on);
   }, []);
 }
 

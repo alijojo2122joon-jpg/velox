@@ -6,40 +6,25 @@ import { qs } from '../lib/api';
 import { useFormat } from '../lib/format';
 import { useAuth } from '../lib/auth';
 import { Icon } from '../components/icons';
-import { Button, ButtonLink, Select, cx, DemoBadge } from '../components/ui';
+import { Button, ButtonLink, Select, Seg, cx, DemoBadge } from '../components/ui';
 import { VehicleCard, VehicleCardSkeleton, type VehicleSummary } from '../components/VehicleCard';
-import { CountUp, useCycle, useScrollScale } from '../lib/motion';
 import { MapView, usePinLabel } from '../components/MapView';
+import { CountUp, useCycle } from '../lib/motion';
 import { AREA_PHOTOS } from '../photos';
 
 const BIKE_TYPES = ['city', 'mountain', 'road', 'folding', 'electric_bicycle', 'student'];
 const MOTO_TYPES = ['scooter', 'automatic', 'manual', 'electric_motorcycle'];
+const AREA_TINT = 'linear-gradient(145deg,#cfe0f5,#9fbde3)';
 
-/* Calm tint under each area photo (and in its place while it loads). */
-const AREA_TINT: Record<string, string> = {
-  ubud: 'linear-gradient(170deg,#3a4a3f,#1d2a22)', canggu: 'linear-gradient(170deg,#2a4b5c,#14262f)', uluwatu: 'linear-gradient(170deg,#2c4f73,#13263a)',
-  seminyak: 'linear-gradient(170deg,#5a4a3e,#2a211b)', kuta: 'linear-gradient(170deg,#3d5a73,#1b2a38)', sanur: 'linear-gradient(170deg,#4a6b80,#22333f)',
-  denpasar: 'linear-gradient(170deg,#43474f,#1d1f23)', 'nusa-dua': 'linear-gradient(170deg,#2f6a6a,#143232)',
-};
-
-/** "Text link ›" in the Apple manner. */
-const More = ({ to, children, light }: { to: string; children: ReactNode; light?: boolean }) => (
-  <Link to={to} className={cx('group inline-flex items-center gap-0.5 text-[17px] font-medium', light ? 'text-[#2997ff]' : 'text-brand-600')}>
-    <span className="group-hover:underline">{children}</span>
-    <Icon name="chevronRight" size={18} className="transition-transform duration-300 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
-  </Link>
-);
-
-function Band({ tone = 'white', className, children }: { tone?: 'white' | 'gray' | 'black'; className?: string; children: ReactNode }) {
-  return <section className={cx(tone === 'gray' ? 'bg-ink-100' : tone === 'black' ? 'bg-black text-white' : 'bg-[#fbfbfd]', 'py-24 sm:py-32', className)}>{children}</section>;
-}
-
-function Heading({ eyebrow, title, sub, light }: { eyebrow?: string; title: ReactNode; sub?: ReactNode; light?: boolean }) {
+/** Section title in the app style: small muted label over a heavy heading, optional action on the side. */
+function Title({ eyebrow, title, action }: { eyebrow: string; title: ReactNode; action?: ReactNode }) {
   return (
-    <div className="mx-auto max-w-3xl text-center">
-      {eyebrow && <div data-reveal className={cx('text-[17px] font-semibold', light ? 'text-[#2997ff]' : 'text-brand-600')}>{eyebrow}</div>}
-      <h2 className={cx('font-display mt-2 text-[2.5rem] font-semibold leading-[1.08] tracking-[-0.025em] sm:text-6xl', light ? 'text-white' : 'text-ink-950')}>{title}</h2>
-      {sub && <p data-reveal className={cx('mx-auto mt-5 max-w-2xl text-lg leading-relaxed sm:text-xl', light ? 'text-ink-400' : 'text-ink-600')}>{sub}</p>}
+    <div className="mb-6 flex items-end justify-between gap-4 px-1">
+      <div>
+        <div className="eyebrow">{eyebrow}</div>
+        <h2 className="mt-1 text-2xl font-black leading-tight tracking-tight text-ink-950 sm:text-[2rem]">{title}</h2>
+      </div>
+      {action}
     </div>
   );
 }
@@ -63,29 +48,21 @@ function HeroSearch() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-3xl">
-      <div className="relative mx-auto mb-4 grid w-full max-w-[280px] grid-cols-2 rounded-full bg-ink-200/70 p-1">
-        <span aria-hidden="true" className={cx('absolute inset-y-1 w-[calc(50%-4px)] rounded-full bg-white shadow-[0_2px_8px_rgb(0_0_0/0.12)] transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)]',
-          category === 'bicycle' ? 'start-1' : 'start-[calc(50%+2px)]')} />
-        {(['bicycle', 'motorcycle'] as const).map((c) => (
-          <button key={c} onClick={() => setCategory(c)}
-            className={cx('relative z-10 flex h-9 items-center justify-center gap-1.5 rounded-full text-sm font-semibold transition-colors duration-300', category === c ? 'text-ink-950' : 'text-ink-600')}>
-            <Icon name={c === 'bicycle' ? 'bike' : 'moto'} size={16} />{t(`categories.${c}`)}
-          </button>
-        ))}
-      </div>
-      <div className="flex flex-col gap-2 rounded-[28px] bg-white p-2 shadow-[0_2px_4px_rgb(0_0_0/0.04),0_20px_50px_-20px_rgb(0_0_0/0.18)] ring-1 ring-black/5 sm:flex-row sm:rounded-full">
+    <div className="space-y-3">
+      <Seg value={category} onChange={setCategory} className="max-w-sm"
+        items={(['bicycle', 'motorcycle'] as const).map((c) => ({ value: c, label: <><Icon name={c === 'bicycle' ? 'bike' : 'moto'} size={17} />{t(`categories.${c}`)}</> }))} />
+      <div className="flex flex-col gap-2.5 sm:flex-row">
         <div className="relative flex-1">
-          <Icon name="pin" size={18} className="pointer-events-none absolute start-4 top-1/2 z-10 -translate-y-1/2 text-ink-500" />
-          <Select value={cityId} onChange={(e) => setCityId(e.target.value)} className="h-12 rounded-full border-0 bg-transparent ps-11 text-base shadow-none focus:shadow-none" aria-label={t('search.city')}>
+          <Icon name="pin" size={18} className="pointer-events-none absolute start-3.5 top-1/2 z-10 -translate-y-1/2 text-brand-600" />
+          <Select value={cityId} onChange={(e) => setCityId(e.target.value)} className="h-14 ps-10 text-base font-semibold" aria-label={t('search.city')}>
             <CityOptions cities={cities?.items ?? []} />
           </Select>
         </div>
-        <Button variant="secondary" icon="locate" loading={locating} onClick={nearMe} className="h-12">{t('home.nearMe')}</Button>
-        <Button variant="brand" icon="search" onClick={() => go()} className="h-12 px-7">{t('home.search')}</Button>
+        <Button variant="secondary" size="lg" icon="locate" loading={locating} onClick={nearMe}>{t('home.nearMe')}</Button>
+        <Button variant="brand" size="lg" icon="search" onClick={() => go()} className="sm:min-w-[150px]">{t('home.search')}</Button>
       </div>
       <div className={cx('grid transition-all duration-500', category === 'motorcycle' ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0')}>
-        <p className="overflow-hidden text-center text-sm text-ink-500"><span className="inline-block pt-3">{t('home.motoNote')}</span></p>
+        <p className="flex items-center gap-1.5 overflow-hidden text-xs font-semibold text-ink-500"><Icon name="shield" size={14} className="text-brand-600" />{t('home.motoNote')}</p>
       </div>
     </div>
   );
@@ -102,208 +79,207 @@ export function Home() {
   const baliAreas = (cityList?.items ?? []).filter((c) => c.province_slug === 'prov-bali');
   const hero = featured?.items[0];
   const listHref = user && user.role !== 'renter' ? '/dashboard/owner/vehicles/new' : user ? '/account?become=owner' : '/register?role=owner';
-  const zoom = useScrollScale<HTMLDivElement>(0.86);
 
   return (
-    <div className="-mb-24 overflow-x-clip">
+    <div className="space-y-20 pb-4 pt-4 sm:space-y-24 sm:pt-8">
       {/* ───── Hero ───── */}
-      <section className="bg-[#fbfbfd] px-5 pb-10 pt-16 text-center sm:pt-24">
-        <div className="animate-fade-up text-[17px] font-semibold text-brand-600 [animation-delay:100ms]">{t('home.badge')}</div>
-        <h1 className="font-display mx-auto mt-3 max-w-5xl animate-fade-up text-[3rem] font-semibold leading-[1.04] tracking-[-0.035em] text-ink-950 [animation-delay:200ms] sm:text-7xl lg:text-[5.5rem]">
-          {t('home.title1')}<br /><span className="text-gradient">{t('home.title2')}</span>
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl animate-fade-up text-lg leading-relaxed text-ink-600 [animation-delay:350ms] sm:text-[21px]">{t('home.subtitle')}</p>
-        <div className="mt-10 animate-fade-up [animation-delay:500ms]"><HeroSearch /></div>
-        <div className="mt-6 flex animate-fade-up flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-600 [animation-delay:650ms]">
-          {['verified', 'checklist', 'payments'].map((k) => (
-            <span key={k} className="inline-flex items-center gap-1.5"><Icon name="check" size={15} strokeWidth={2.4} className="text-brand-600" />{t(`home.trustline.${k}`)}</span>
-          ))}
-        </div>
-      </section>
-
-      {/* Showcase: one real (demo) listing, zooming in as you scroll */}
-      <div className="bg-[#fbfbfd] px-3 pb-8 sm:px-6">
-        <div ref={zoom} className="relative mx-auto max-w-6xl origin-top overflow-hidden bg-ink-100 will-change-transform">
-          {hero ? (
-            <div className="grid items-center gap-8 p-6 sm:p-12 lg:grid-cols-[1.4fr_1fr] lg:p-16">
-              <Link to={`/vehicles/${hero.id}`} className="block">
-                {hero.cover_url && <img src={hero.cover_url} alt={hero.name} className="float-b mx-auto w-full max-w-xl rounded-3xl mix-blend-multiply" />}
-              </Link>
-              <div className="text-center lg:text-start">
-                <div className="flex items-center justify-center gap-2 lg:justify-start">
-                  <span className="text-sm font-semibold text-ink-500">{t(`vehicleTypes.${hero.type}`)}</span>{!!hero.is_demo && <DemoBadge />}
-                </div>
-                <h3 className="font-display mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">{hero.name}</h3>
-                <p className="mt-2 text-ink-600">{hero.brand} {hero.model}{hero.city_name ? ` · ${hero.city_name}` : ''}</p>
-                {hero.from_price && <p className="mt-5 text-lg text-ink-950">{t('vehicle.from')} <b>{money(hero.from_price.price)}</b></p>}
-                <div className="mt-6 flex flex-wrap items-center justify-center gap-5 lg:justify-start">
-                  <ButtonLink to={`/vehicles/${hero.id}`} variant="brand">{t('home.browse')}</ButtonLink>
-                  <More to="/search?region=bali">{t('home.viewAll')}</More>
-                </div>
-                <div className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-start shadow-[0_8px_30px_-12px_rgb(0_0_0/0.2)]">
-                  <span className="ping-dot h-2 w-2 rounded-full bg-[#34c759]" />
-                  <span><span className="block text-xs text-ink-500">{t('home.preview.booked')}</span>
-                    <span dir="ltr" className="font-mono text-base font-semibold tracking-[0.3em] text-ink-950">482 915</span></span>
-                </div>
-              </div>
+      <section className="container-x">
+        <div className="grid items-center gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+          <div className="glass glow sweep drift relative p-6 sm:p-10" style={{ ['--bd' as any]: '8s' }}>
+            <span className="field inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold text-ink-600">
+              <span className="live-dot" />{t('home.badge')}
+            </span>
+            <h1 className="mt-5 text-[2.4rem] font-black leading-[1.1] tracking-tight text-ink-950 sm:text-6xl">
+              {t('home.title1')}<br /><span className="text-gradient">{t('home.title2')}</span>
+            </h1>
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-600 sm:text-lg">{t('home.subtitle')}</p>
+            <div className="mt-7"><HeroSearch /></div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {['verified', 'checklist', 'payments'].map((k) => (
+                <span key={k} className="chip pointer-events-none"><Icon name="check" size={14} strokeWidth={2.6} className="text-emerald-600" />{t(`home.trustline.${k}`)}</span>
+              ))}
             </div>
-          ) : <div className="aspect-[16/8]" />}
-        </div>
-      </div>
-
-      {/* ───── Numbers ───── */}
-      {stats && (
-        <Band className="!py-20">
-          <div className="container-x grid grid-cols-2 gap-y-12 text-center md:grid-cols-4">
-            {[['vehicles', stats.vehicles], ['cities', stats.bali_areas ?? stats.cities], ['universities', stats.universities], ['rentals', stats.completed]].map(([k, v]) => (
-              <div key={k as string} data-reveal>
-                <CountUp value={v as number} className="font-display block text-5xl font-semibold tracking-[-0.03em] text-ink-950 sm:text-6xl" />
-                <div className="mt-2 text-[15px] text-ink-600">{t(`home.stats.${k}`)}</div>
-              </div>
-            ))}
           </div>
-          <p className="mt-10 text-center text-xs text-ink-400">{t('home.stats.note')}</p>
-        </Band>
-      )}
+
+          {/* Preview built from a real (demo) listing */}
+          <div className="relative hidden lg:block">
+            {hero ? (
+              <div className="relative">
+                <div className="glow rounded-[24px]" style={{ ['--bd' as any]: '9s', ['--bdl' as any]: '-3s' }} data-noreveal><VehicleCard v={hero} /></div>
+                <div className="glass float-b absolute -start-10 bottom-16 w-56 p-4">
+                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-600"><span className="live-dot" />{t('home.preview.booked')}</div>
+                  <div className="mt-1 text-sm font-bold text-ink-900">{t('home.preview.pickup')}</div>
+                  <div className="field mt-2.5 flex justify-between rounded-[14px] px-3 py-2 font-mono text-lg font-black tracking-widest text-ink-950" dir="ltr">482915</div>
+                </div>
+                <div className="glass float-c absolute -end-6 -top-8 px-4 py-3">
+                  <div className="text-[11px] font-bold text-ink-500">{t('home.preview.earned')}</div>
+                  <div className="text-lg font-black text-ink-950">{money(1240000)}</div>
+                  <div className="mt-1 flex h-6 items-end gap-1" aria-hidden="true">
+                    {[40, 65, 50, 80, 60, 95, 75].map((h, i) => <span key={i} className="bar-anim w-2 rounded-sm bg-gradient-to-t from-brand-700 to-brand-300" style={{ height: `${h}%`, animationDelay: `${i * 0.18}s` }} />)}
+                  </div>
+                  <DemoBadge className="mt-1.5" />
+                </div>
+              </div>
+            ) : <VehicleCardSkeleton />}
+          </div>
+        </div>
+
+        {/* Live numbers in an inset strip, like Market Analysts' levels row */}
+        {stats && (
+          <div data-reveal className="glass mt-6 p-2">
+            <div className="field grid grid-cols-2 rounded-[18px] md:grid-cols-4">
+              {[['vehicles', stats.vehicles, 'bike'], ['cities', stats.bali_areas ?? stats.cities, 'pin'], ['universities', stats.universities, 'graduation'], ['rentals', stats.completed, 'check']].map(([k, v, ic], i) => (
+                <div key={k as string} className={cx('flex items-center gap-3 px-4 py-4 sm:px-6', i % 2 === 1 && 'border-s border-[var(--line)]', i >= 2 && 'border-t border-[var(--line)] md:border-t-0', i === 2 && 'md:border-s')}>
+                  <span className="neu-icon hidden h-10 w-10 shrink-0 sm:inline-flex"><Icon name={ic as string} size={19} /></span>
+                  <div className="min-w-0">
+                    <CountUp value={v as number} className="block text-2xl font-black text-ink-950 sm:text-3xl" />
+                    <div className="truncate text-xs font-semibold text-ink-500">{t(`home.stats.${k}`)}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
 
       <LiveMap />
 
       {/* ───── Explore Bali ───── */}
       {baliAreas.length > 0 && (
-        <Band tone="gray">
-          <div className="container-x"><Heading eyebrow={t('home.areas.eyebrow')} title={t('home.areas.title')} /></div>
-          <div className="marquee mt-14" style={{ ['--dur' as any]: '80s' }}>
-            <div className="marquee-track gap-5 py-2">
+        <section>
+          <div className="container-x"><Title eyebrow={t('home.areas.eyebrow')} title={t('home.areas.title')} /></div>
+          <div className="marquee" style={{ ['--dur' as any]: '60s' }}>
+            <div className="marquee-track gap-4 px-2 py-6">
               {[...baliAreas, ...baliAreas].map((a, i) => {
                 const dup = i >= baliAreas.length;
                 return (
                   <Link key={`${a.id}-${i}`} to={`/search?cityId=${a.id}`} aria-hidden={dup || undefined} tabIndex={dup ? -1 : undefined}
-                    className="group relative block h-[420px] w-72 shrink-0 overflow-hidden rounded-[28px] sm:w-80"
-                    style={{ background: AREA_TINT[a.slug] ?? AREA_TINT.denpasar }}>
-                    {AREA_PHOTOS[a.slug] && <img src={AREA_PHOTOS[a.slug].src} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-[1.6s] ease-out group-hover:scale-105" />}
-                    <span className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/40" />
-                    <span className="absolute inset-x-7 top-7 text-white">
-                      <span className="block text-sm font-semibold text-white/75">{t('home.areas.vehicles', { n: num(a.vehicle_count) })}</span>
-                      <span className="font-display mt-1 block text-3xl font-semibold tracking-tight">{a.name}</span>
-                      <span className="mt-2 block text-[15px] leading-snug text-white/85">{t(`home.areas.tips.${a.slug}`)}</span>
+                    className="glass card-hover group flex w-72 shrink-0 items-center gap-3.5 p-3 pe-4">
+                    <span className="relative h-[68px] w-[68px] shrink-0 overflow-hidden rounded-[18px] shadow-[0_6px_14px_-6px_rgb(0_0_0/0.45)]" style={{ background: AREA_TINT }}>
+                      {AREA_PHOTOS[a.slug] && <img src={AREA_PHOTOS[a.slug].src} alt="" loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />}
                     </span>
-                    <span className="absolute bottom-6 end-6 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur transition duration-500 group-hover:bg-white group-hover:text-ink-950">
-                      <Icon name="plus" size={18} /></span>
+                    <span className="min-w-0">
+                      <span className="flex items-center gap-2"><b className="text-[17px] font-black text-ink-950">{a.name}</b>
+                        <span className="chip pointer-events-none h-6 px-2 text-[11px]">{num(a.vehicle_count)}</span></span>
+                      <span className="mt-0.5 line-clamp-2 block text-xs leading-snug text-ink-500">{t(`home.areas.tips.${a.slug}`)}</span>
+                    </span>
                   </Link>
                 );
               })}
             </div>
           </div>
-        </Band>
+        </section>
       )}
 
       {/* ───── Categories ───── */}
-      <Band>
-        <div className="container-x">
-          <Heading eyebrow={t('home.categories.eyebrow')} title={t('home.categories.title')} />
-          <div className="mt-14 grid gap-5 md:grid-cols-2">
-            {([['bicycle', BIKE_TYPES], ['motorcycle', MOTO_TYPES]] as const).map(([cat, types]) => (
-              <div key={cat} data-reveal className="group relative flex min-h-[460px] flex-col items-center overflow-hidden rounded-[30px] bg-ink-100 px-8 pt-12 text-center">
-                <h3 className="font-display text-4xl font-semibold tracking-tight">{t(`categories.${cat}`)}</h3>
-                <p className="mt-3 max-w-sm text-[17px] text-ink-600">{t(`home.categories.${cat}Desc`)}</p>
-                <div className="mt-5"><More to={`/search?category=${cat}&region=bali`}>{t('home.browse')}</More></div>
-                <div className="mt-6 flex max-w-md flex-wrap justify-center gap-2">
-                  {types.map((tp) => <Link key={tp} to={`/search?category=${cat}&type=${tp}&region=bali`} className="chip bg-white hover:bg-white hover:text-brand-600">{t(`vehicleTypes.${tp}`)}</Link>)}
-                </div>
-                <Icon name={cat === 'bicycle' ? 'bike' : 'moto'} size={260} strokeWidth={0.5} aria-hidden="true"
-                  className="float-c pointer-events-none mt-auto -mb-16 text-ink-300 transition-colors duration-700 group-hover:text-brand-300" />
+      <section className="container-x">
+        <Title eyebrow={t('home.categories.eyebrow')} title={t('home.categories.title')} />
+        <div className="grid gap-5 md:grid-cols-2">
+          {([['bicycle', BIKE_TYPES], ['motorcycle', MOTO_TYPES]] as const).map(([cat, types], i) => (
+            <div key={cat} className="glass glow group p-6 sm:p-8" style={{ ['--bd' as any]: '9s', ['--bdl' as any]: `${-i * 4}s` }}>
+              <div className="flex items-start justify-between gap-4">
+                <span className="neu-icon h-16 w-16 rounded-[20px]"><Icon name={cat === 'bicycle' ? 'bike' : 'moto'} size={30} /></span>
+                <ButtonLink to={`/search?category=${cat}&region=bali`} variant="secondary" size="sm" iconEnd="arrowRight">{t('home.browse')}</ButtonLink>
               </div>
-            ))}
-          </div>
+              <h3 className="mt-5 text-2xl font-black">{t(`categories.${cat}`)}</h3>
+              <p className="mt-1 max-w-sm text-sm leading-relaxed text-ink-500">{t(`home.categories.${cat}Desc`)}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {types.map((tp) => <Link key={tp} to={`/search?category=${cat}&type=${tp}&region=bali`} className="chip">{t(`vehicleTypes.${tp}`)}</Link>)}
+              </div>
+            </div>
+          ))}
         </div>
-      </Band>
+      </section>
 
       {/* ───── Featured ───── */}
-      <Band tone="gray">
-        <div className="container-x">
-          <Heading eyebrow={t('home.featured.eyebrow')} title={t('home.featured.title')} />
-          <div className="mt-6 text-center"><More to="/search?sort=rating&region=bali">{t('home.viewAll')}</More></div>
-          <div className="scrollbar-none -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
-            {loading && Array.from({ length: 4 }).map((_, i) => <div key={i} className="w-[78%] shrink-0 snap-start sm:w-auto"><VehicleCardSkeleton /></div>)}
-            {featured?.items.slice(0, 8).map((v) => <div key={v.id} className="w-[78%] shrink-0 snap-start sm:w-auto"><VehicleCard v={v} /></div>)}
-          </div>
+      <section className="container-x">
+        <Title eyebrow={t('home.featured.eyebrow')} title={t('home.featured.title')}
+          action={<ButtonLink to="/search?sort=rating&region=bali" variant="secondary" size="sm" iconEnd="arrowRight">{t('home.viewAll')}</ButtonLink>} />
+        <div className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
+          {loading && Array.from({ length: 4 }).map((_, i) => <div key={i} className="w-[78%] shrink-0 snap-start sm:w-auto"><VehicleCardSkeleton /></div>)}
+          {featured?.items.slice(0, 8).map((v) => <div key={v.id} className="w-[78%] shrink-0 snap-start sm:w-auto"><VehicleCard v={v} /></div>)}
         </div>
-      </Band>
+      </section>
 
-      {/* ───── How it works ───── */}
       <HowItWorks listHref={listHref} />
 
       {/* ───── Trust ───── */}
-      <Band tone="gray">
-        <div className="container-x">
-          <Heading eyebrow={t('home.trust.eyebrow')} title={t('home.trust.title')} />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[['shield', 'verify'], ['document', 'checklist'], ['wallet', 'payments'], ['star', 'reviews']].map(([icon, k]) => (
-              <div key={k} className="card card-hover group rounded-[26px] border-0 p-8">
-                <span className="neu-icon h-12 w-12"><Icon name={icon} size={22} /></span>
-                <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink-950">{t(`home.trust.${k}`)}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-600">{t(`home.trust.${k}d`)}</p>
-              </div>
-            ))}
-          </div>
+      <section className="container-x">
+        <Title eyebrow={t('home.trust.eyebrow')} title={t('home.trust.title')} />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[['shield', 'verify'], ['document', 'checklist'], ['wallet', 'payments'], ['star', 'reviews']].map(([icon, k]) => (
+            <div key={k} className="glass card-hover group p-6">
+              <span className="neu-icon h-12 w-12"><Icon name={icon} size={22} /></span>
+              <h3 className="mt-5 text-lg font-black text-ink-950">{t(`home.trust.${k}`)}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{t(`home.trust.${k}d`)}</p>
+            </div>
+          ))}
         </div>
-      </Band>
+      </section>
 
       {/* ───── Universities ───── */}
       {!!unis?.items.length && (
-        <Band>
+        <section>
           <div className="container-x">
-            <Heading eyebrow={t('home.unis.eyebrow')} title={t('home.unis.title')} />
-            <div className="mt-6 text-center"><More to="/universities">{t('home.viewAll')}</More></div>
+            <Title eyebrow={t('home.unis.eyebrow')} title={t('home.unis.title')}
+              action={<ButtonLink to="/universities" variant="secondary" size="sm" iconEnd="arrowRight">{t('home.viewAll')}</ButtonLink>} />
           </div>
-          <div className="marquee marquee-reverse mt-12" style={{ ['--dur' as any]: '90s' }}>
-            <div className="marquee-track gap-4 py-3">
+          <div className="marquee marquee-reverse" style={{ ['--dur' as any]: '70s' }}>
+            <div className="marquee-track gap-4 px-2 py-6">
               {[...unis.items, ...unis.items].map((u, i) => {
                 const dup = i >= unis.items.length;
                 return (
                   <Link key={`${u.id}-${i}`} to={`/universities/${u.slug}`} aria-hidden={dup || undefined} tabIndex={dup ? -1 : undefined}
-                    className="group flex w-60 shrink-0 flex-col rounded-[22px] bg-ink-100 p-6 transition-colors duration-500 hover:bg-ink-200/70">
-                    <span className="font-display text-2xl font-semibold tracking-tight text-ink-950">{u.short_name}</span>
-                    <span className="mt-1 truncate text-sm text-ink-600">{u.city_name}</span>
-                    <span className="mt-5 text-sm font-medium text-brand-600">{t('home.unis.vehicles', { n: num(u.vehicle_count) })}</span>
+                    className="glass card-hover group flex w-64 shrink-0 items-center gap-3 p-3.5">
+                    <span className="neu-icon h-12 w-12 shrink-0"><Icon name="graduation" /></span>
+                    <span className="min-w-0">
+                      <b className="block truncate font-black text-ink-950">{u.short_name}</b>
+                      <span className="block truncate text-xs text-ink-500">{u.city_name}</span>
+                      <span className="block text-xs font-bold text-brand-600">{t('home.unis.vehicles', { n: num(u.vehicle_count) })}</span>
+                    </span>
                   </Link>
                 );
               })}
             </div>
           </div>
-        </Band>
+        </section>
       )}
 
       {/* ───── Earn ───── */}
-      <Band tone="black">
-        <div className="container-x">
-          <Heading light eyebrow={t('nav.listVehicle')} title={t('home.earn.title')} sub={t('home.earn.body')} />
-          <div data-reveal className="mt-9 flex flex-wrap items-center justify-center gap-6">
-            <ButtonLink to={listHref} variant="brand" size="lg">{t('home.earn.cta')}</ButtonLink>
-            <More light to="/trust">{t('footer.trust')}</More>
+      <section className="container-x">
+        <div data-reveal className="glass glow sweep grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2" style={{ ['--bd' as any]: '10s' }}>
+          <div>
+            <div className="eyebrow">{t('nav.listVehicle')}</div>
+            <h2 className="mt-1 text-3xl font-black leading-tight tracking-tight sm:text-4xl">{t('home.earn.title')}</h2>
+            <p className="mt-3 max-w-lg text-ink-600">{t('home.earn.body')}</p>
+            <div className="mt-7"><ButtonLink to={listHref} variant="brand" size="lg" iconEnd="arrowRight">{t('home.earn.cta')}</ButtonLink></div>
           </div>
-          <div data-reveal className="mx-auto mt-16 max-w-2xl rounded-[30px] bg-[#1d1d1f] p-8 sm:p-10">
-            <div className="text-center text-sm font-medium text-ink-400">{t('home.earn.example')}</div>
-            <div className="mt-8 flex h-32 items-end gap-2" aria-hidden="true">
+          <div>
+            <div className="text-[13px] font-bold text-ink-500">{t('home.earn.example')}</div>
+            <div className="field mt-3 flex h-28 items-end gap-1.5 rounded-[18px] p-3" aria-hidden="true">
               {[45, 60, 38, 72, 55, 85, 66, 92, 70, 100, 78, 88].map((h, i) => (
-                <span key={i} className="bar-anim flex-1 rounded-full bg-gradient-to-t from-[#0071e3] to-[#5ac8fa]" style={{ height: `${h}%`, animationDelay: `${i * 0.2}s`, animationDuration: '4s' }} />
+                <span key={i} className="bar-anim flex-1 rounded-md bg-gradient-to-t from-brand-700 via-brand-500 to-brand-300" style={{ height: `${h}%`, animationDelay: `${i * 0.18}s`, animationDuration: '3.6s' }} />
               ))}
             </div>
-            <div className="mt-8 space-y-3 text-[15px]">
-              <Row label={t('home.earn.rentals')} value={num(20)} />
-              <Row label={t('home.earn.avg')} value={money(20000)} />
-              <Row label={t('home.earn.gross')} value={money(400000)} />
-              <Row label={t('home.earn.fee', { pct: num(10) })} value={'− ' + money(40000)} />
-              <div className="h-px bg-white/10" />
-              <Row label={t('home.earn.youEarn')} value={money(360000)} strong />
+            <div className="field mt-3 grid grid-cols-3 rounded-[18px] text-center">
+              <Lv label={t('home.earn.gross')} value={money(400000)} />
+              <Lv label={t('home.earn.fee', { pct: num(10) })} value={'− ' + money(40000)} tone="text-red-500" />
+              <Lv label={t('home.earn.youEarn')} value={money(360000)} tone="text-emerald-600" />
             </div>
-            <p className="mt-5 text-center text-xs text-ink-500">{t('home.earn.disclaimer')}</p>
+            <p className="mt-3 text-xs text-ink-400">{t('home.earn.rentals')}: {num(20)} · {t('home.earn.avg')}: {money(20000)} — {t('home.earn.disclaimer')}</p>
           </div>
         </div>
-      </Band>
+      </section>
     </div>
   );
 }
+
+const Lv = ({ label, value, tone = 'text-ink-950' }: { label: string; value: string; tone?: string }) => (
+  <div className="px-2 py-3 [&+&]:border-s [&+&]:border-[var(--line)]">
+    <small className="block truncate text-[11px] font-semibold text-ink-500">{label}</small>
+    <b className={cx('text-[15px] font-black sm:text-base', tone)}>{value}</b>
+  </div>
+);
 
 /** Live map of every listing in Bali, filterable by category, linking to the full map search. */
 function LiveMap() {
@@ -315,81 +291,76 @@ function LiveMap() {
   const points = (data?.items ?? []).filter((v) => v.lat != null && v.lng != null)
     .map((v) => ({ id: v.id, lat: v.lat!, lng: v.lng!, label: v.from_price ? pin(v.from_price.price) : t(`categories.${v.category}`) }));
   return (
-    <Band className="!pt-8">
-      <div className="container-x">
-        <Heading eyebrow={t('home.map.eyebrow')} title={t('home.map.title')} sub={t('home.map.sub')} />
-        <div data-reveal className="relative mt-12 h-[460px] overflow-hidden rounded-[30px] bg-ink-100 ring-1 ring-black/5 sm:h-[560px]">
+    <section className="container-x">
+      <Title eyebrow={t('home.map.eyebrow')} title={t('home.map.title')} />
+      <div data-reveal className="glass glow p-2" style={{ ['--bd' as any]: '11s' }}>
+        <div className="relative h-[440px] overflow-hidden rounded-[18px] sm:h-[540px]">
           <MapView points={points} center={{ lat: -8.55, lng: 115.17 }} className="h-full w-full" />
-          <div className="pointer-events-none absolute inset-x-3 top-3 z-[400] flex flex-wrap items-center justify-between gap-2 sm:inset-x-5 sm:top-5">
-            <div className="glass pointer-events-auto flex rounded-full p-1">
-              {(['', 'bicycle', 'motorcycle'] as const).map((c) => (
-                <button key={c || 'all'} onClick={() => setCat(c)}
-                  className={cx('h-9 rounded-full px-4 text-sm font-semibold transition-colors duration-300', cat === c ? 'bg-ink-950 text-white' : 'text-ink-700 hover:text-ink-950')}>
-                  {c ? t(`categories.${c}`) : t('home.map.all')}
-                </button>
-              ))}
-            </div>
-            {data && <span className="glass pointer-events-auto rounded-full px-4 py-2 text-sm font-medium text-ink-800">{t('home.map.count', { n: num(data.total) })}</span>}
+          <div className="pointer-events-none absolute inset-x-3 top-3 z-[400] flex flex-wrap items-center justify-between gap-2">
+            <Seg value={cat} onChange={setCat} size="sm" className="pointer-events-auto bg-white/80 backdrop-blur"
+              items={[{ value: '' as const, label: t('home.map.all') }, { value: 'bicycle' as const, label: t('categories.bicycle') }, { value: 'motorcycle' as const, label: t('categories.motorcycle') }]} />
+            {data && <span className="glass pointer-events-auto flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-bold text-ink-700"><span className="live-dot" />{t('home.map.count', { n: num(data.total) })}</span>}
           </div>
-          <div className="absolute inset-x-0 bottom-5 z-[400] flex justify-center">
-            <ButtonLink to={`/search?region=bali${cat ? `&category=${cat}` : ''}`} variant="primary" icon="map">{t('home.map.open')}</ButtonLink>
+          <div className="absolute inset-x-0 bottom-4 z-[400] flex justify-center">
+            <ButtonLink to={`/search?region=bali${cat ? `&category=${cat}` : ''}`} variant="brand" icon="map">{t('home.map.open')}</ButtonLink>
           </div>
         </div>
       </div>
-    </Band>
+      <p className="mt-3 px-1 text-sm text-ink-500">{t('home.map.sub')}</p>
+    </section>
   );
 }
 
-/** Two journeys (renter / owner) as an auto-playing three-step sequence with large numerals. */
+/** Two journeys (renter / owner) as an auto-playing list; the active step opens like Market Analysts' list rows. */
 function HowItWorks({ listHref }: { listHref: string }) {
   const t = useT();
   const { num } = useFormat();
   const [side, setSide] = useState<'renter' | 'owner'>('renter');
-  const [active, setActive] = useCycle(3, 3600);
+  const [active, setActive] = useCycle(3, 3400);
+  const icons = side === 'renter' ? ['search', 'wallet', 'qr'] : ['camera', 'shield', 'chart'];
   return (
-    <Band>
-      <div className="container-x">
-        <Heading eyebrow={t('home.how.eyebrow')} title={t('home.how.title')} />
-        <div className="relative mx-auto mt-10 grid w-full max-w-xs grid-cols-2 rounded-full bg-ink-100 p-1">
-          <span aria-hidden="true" className={cx('absolute inset-y-1 w-[calc(50%-4px)] rounded-full bg-ink-950 transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)]',
-            side === 'renter' ? 'start-1' : 'start-[calc(50%+2px)]')} />
-          {(['renter', 'owner'] as const).map((s) => (
-            <button key={s} onClick={() => { setSide(s); setActive(0); }}
-              className={cx('relative z-10 h-10 rounded-full text-sm font-semibold transition-colors duration-300', side === s ? 'text-white' : 'text-ink-600 hover:text-ink-950')}>
-              {t(`home.how.${s}.label`)}
-            </button>
-          ))}
+    <section className="container-x">
+      <div className="grid items-start gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <Title eyebrow={t('home.how.eyebrow')} title={t('home.how.title')} />
+          <Seg value={side} onChange={(s) => { setSide(s); setActive(0); }} className="max-w-sm"
+            items={[{ value: 'renter' as const, label: t('home.how.renter.label') }, { value: 'owner' as const, label: t('home.how.owner.label') }]} />
+          <p className="mt-4 px-1 text-lg font-bold text-ink-700">{t(`home.how.${side}.title`)}</p>
+          <div className="mt-6">
+            {side === 'renter'
+              ? <ButtonLink to="/search?region=bali" variant="brand" size="lg" iconEnd="arrowRight">{t('home.how.renter.cta')}</ButtonLink>
+              : <ButtonLink to={listHref} variant="primary" size="lg" iconEnd="arrowRight">{t('home.how.owner.cta')}</ButtonLink>}
+          </div>
         </div>
-
-        <ol key={side} className="mt-16 grid gap-10 md:grid-cols-3 md:gap-8">
+        <ol key={side} className="glass p-1.5">
           {[1, 2, 3].map((n, i) => {
             const on = i === active;
             return (
-              <li key={n} onMouseEnter={() => setActive(i)} className="cursor-default animate-fade-up text-center md:text-start" style={{ animationDelay: `${i * 120}ms` }}>
-                <div className="h-[3px] overflow-hidden rounded-full bg-ink-200">
-                  <div className={cx('h-full rounded-full bg-ink-950', on ? 'w-full transition-[width] duration-[3600ms] ease-linear' : i < active ? 'w-full' : 'w-0')} />
+              <li key={n} onMouseEnter={() => setActive(i)} onClick={() => setActive(i)}
+                className={cx('cursor-pointer rounded-[18px] transition-colors duration-500', on && 'field')} style={{ animation: `rise .85s cubic-bezier(.16,1,.3,1) ${i * 70}ms both` }}>
+                <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 p-3.5">
+                  <span className={cx('flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-500', on ? 'bg-brand-600 text-white shadow-[0_8px_18px_-8px_#2f7cf6]' : 'bg-brand-50 text-brand-600')}>
+                    <Icon name={icons[i]} size={20} />
+                  </span>
+                  <b className="text-[15px] font-black text-ink-950">{t(`home.how.${side}.s${n}`)}</b>
+                  <span className="chip pointer-events-none h-7 px-2.5 text-xs">{num(n)}</span>
                 </div>
-                <div className={cx('font-display mt-6 text-7xl font-semibold tracking-tighter transition-colors duration-700', on ? 'text-gradient' : 'text-ink-200')}>{num(n).padStart(2, num(0))}</div>
-                <h3 className={cx('mt-3 text-2xl font-semibold tracking-tight transition-colors duration-500', on ? 'text-ink-950' : 'text-ink-500')}>{t(`home.how.${side}.s${n}`)}</h3>
-                <p className="mt-2 text-[17px] leading-relaxed text-ink-600">{t(`home.how.${side}.s${n}d`)}</p>
+                <div className={cx('grid transition-[grid-template-rows] duration-700 ease-[cubic-bezier(.16,1,.3,1)]', on ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}>
+                  <div className="overflow-hidden">
+                    <p className="px-4 pb-4 ps-[4.4rem] text-sm leading-relaxed text-ink-600">{t(`home.how.${side}.s${n}d`)}</p>
+                    <div className="mx-4 mb-3 h-1 overflow-hidden rounded-full bg-[var(--line)]">
+                      <div className={cx('h-full rounded-full bg-brand-500', on ? 'w-full transition-[width] duration-[3400ms] ease-linear' : 'w-0')} />
+                    </div>
+                  </div>
+                </div>
               </li>
             );
           })}
         </ol>
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-6">
-          {side === 'renter'
-            ? <ButtonLink to="/search?region=bali" variant="brand" size="lg">{t('home.how.renter.cta')}</ButtonLink>
-            : <ButtonLink to={listHref} variant="primary" size="lg">{t('home.how.owner.cta')}</ButtonLink>}
-        </div>
       </div>
-    </Band>
+    </section>
   );
 }
-
-const Row = ({ label, value, strong }: { label: string; value: string; strong?: boolean }) => (
-  <div className="flex items-center justify-between gap-4"><span className={strong ? 'font-semibold text-white' : 'text-ink-400'}>{label}</span>
-    <span className={strong ? 'text-2xl font-semibold text-white' : 'font-medium text-white'}>{value}</span></div>
-);
 
 /** City select with Bali areas first (default market), then every other city in Indonesia. */
 export function CityOptions({ cities }: { cities: any[] }) {

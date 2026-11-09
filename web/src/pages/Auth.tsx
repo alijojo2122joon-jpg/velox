@@ -17,10 +17,10 @@ function AuthShell({ title, subtitle, children }: { title: string; subtitle: Rea
         <p className="mt-2 text-ink-500">{subtitle}</p>
         <div className="mt-8">{children}</div>
       </div>
-      <div className="relative hidden h-full min-h-[560px] overflow-hidden rounded-[2rem] bg-ink-100 p-10 lg:flex lg:flex-col lg:justify-between">
+      <div className="relative hidden h-full min-h-[560px] overflow-hidden rounded-[2rem] glass p-10 lg:flex lg:flex-col lg:justify-between">
         <div className="relative"><Logo /></div>
         <div className="glass float-a relative rounded-3xl p-7">
-          <p className="font-display text-4xl font-semibold leading-tight tracking-tight text-ink-950">{t('brand.tagline')}</p>
+          <p className="text-4xl font-black leading-tight tracking-tight text-ink-950">{t('brand.tagline')}</p>
           <ul className="mt-6 space-y-3.5 text-ink-700">
             {['verified', 'checklist', 'payments'].map((k) => <li key={k} className="flex items-center gap-3 font-medium"><span className="neu-icon h-9 w-9"><Icon name="check" size={16} strokeWidth={2.4} /></span>{t(`home.trustline.${k}`)}</li>)}
           </ul>

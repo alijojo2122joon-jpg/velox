@@ -8,26 +8,34 @@ import { useFormat } from '../lib/format';
 import { Icon } from './icons';
 import { Avatar, cx } from './ui';
 import { BRAND } from '../brand';
-import { PHOTO_CREDITS } from '../photos';
+import { PHOTO_CREDITS, BACKDROP } from '../photos';
 
 export function Logo({ light = false, className = '' }: { light?: boolean; className?: string }) {
   return (
     <span className={cx('inline-flex items-center gap-2.5', className)} dir="ltr">
-      <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true">
-        <defs><linearGradient id="vxlogo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#4f95ff" /><stop offset="1" stopColor="#184bc6" /></linearGradient></defs>
-        <rect width="64" height="64" rx="18" fill={light ? '#fff' : 'url(#vxlogo)'} />
-        <rect x="1" y="1" width="62" height="31" rx="17" fill="#fff" opacity={light ? 0 : 0.14} />
-        <g fill="none" stroke={light ? '#184bc6' : '#fff'} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="19" cy="40" r="9" /><circle cx="45" cy="40" r="9" />
-          <path d="M19 40l8-15h12l6 15M27 25l5 15h-13M36 19h6" />
-        </g>
-        <circle cx="45" cy="17" r="4" fill={light ? '#7cc625' : '#c8ec6a'} />
-      </svg>
-      <span className="flex flex-col leading-none">
-        <span className={cx('font-display text-[19px] font-semibold tracking-[0.04em]', light ? 'text-white' : 'text-ink-900')}>BALI BIKE</span>
-        <span className={cx('mt-0.5 hidden whitespace-nowrap text-[9.5px] font-semibold uppercase tracking-[0.2em] min-[420px]:block', light ? 'text-brand-200' : 'text-brand-600')}>Bicycle Reservation</span>
+      <span className="tile flex h-[42px] w-[42px] items-center justify-center rounded-[14px]">
+        <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+          <g fill="none" stroke="#1f66e0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="18" cy="41" r="10" /><circle cx="46" cy="41" r="10" />
+            <path d="M18 41l9-17h12l7 17M27 24l5 17H18M36 17h7" />
+          </g>
+        </svg>
+      </span>
+      <span className={cx('flex flex-col leading-none', light ? 'text-white' : 'text-ink-950')}>
+        <b className="wordmark text-[15px]">BALI BIKE</b>
+        <small className={cx('wordmark-sub mt-[3px] hidden min-[420px]:block', light ? 'text-ink-300' : 'text-ink-500')}>RESERVATION</small>
       </span>
     </span>
+  );
+}
+
+/** Full-screen blurred Bali photo behind every page, drifting slowly (Market Analysts background). */
+export function PageBackdrop() {
+  return (
+    <div className="mbg" aria-hidden="true">
+      <i style={{ backgroundImage: `url(${BACKDROP})` }} />
+      <b />
+    </div>
   );
 }
 
@@ -171,12 +179,12 @@ export function Navbar() {
   ];
   return (
     <header className={cx('sticky top-0 z-[500] border-b backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500',
-      scrolled ? 'border-black/[0.06] bg-[#fbfbfd]/80' : 'border-transparent bg-[#fbfbfd]/60')}>
-      <div className="container-x flex h-14 items-center gap-4">
+      scrolled ? 'border-white/80 bg-white/70 shadow-[0_10px_30px_-18px_rgb(25_45_80/0.4)]' : 'border-transparent bg-transparent')}>
+      <div className="container-x flex h-[70px] items-center gap-4">
         <Link to="/" aria-label={BRAND.name}><Logo /></Link>
         <nav className="ms-6 hidden items-center gap-1 lg:flex">
           {links.map((l) => (
-            <Link key={l.to} to={l.to} className={cx('group relative rounded-xl px-3 py-2 text-[13px] font-medium transition-colors hover:text-ink-950',
+            <Link key={l.to} to={l.to} className={cx('group relative rounded-xl px-3 py-2 text-sm font-bold transition-colors hover:text-ink-950',
               (path + window.location.search).includes(l.match) ? 'text-ink-950' : 'text-ink-600')}>{l.label}
               <span className={cx('absolute inset-x-3.5 -bottom-0.5 h-[2px] origin-center rounded-full bg-brand-500 transition-transform duration-300 group-hover:scale-x-100',
                 (path + window.location.search).includes(l.match) ? 'scale-x-100' : 'scale-x-0')} /></Link>
@@ -184,12 +192,12 @@ export function Navbar() {
         </nav>
         <div className="ms-auto flex items-center gap-1 sm:gap-2">
           <Link to={user && user.role !== 'renter' ? '/dashboard/owner/vehicles/new' : user ? '/account?become=owner' : '/register?role=owner'}
-            className="hidden rounded-full px-3 py-1.5 text-[13px] font-medium text-ink-800 transition hover:text-ink-950 md:block">{t('nav.listVehicle')}</Link>
+            className="hidden rounded-xl px-3 py-2 text-sm font-bold text-ink-700 transition hover:text-ink-950 md:block">{t('nav.listVehicle')}</Link>
           <div className="hidden sm:block"><LanguageSwitcher compact /></div>
           {user ? (<><NotificationBell /><UserMenu /></>) : (
             <div className="hidden items-center gap-2 sm:flex">
-              <Link to="/login" className="rounded-full px-3 py-1.5 text-[13px] font-medium text-ink-800 hover:text-ink-950">{t('nav.login')}</Link>
-              <Link to="/register" className="rounded-full bg-brand-600 px-4 py-1.5 text-[13px] font-medium text-white transition hover:bg-brand-500">{t('nav.signup')}</Link>
+              <Link to="/login" className="tile rounded-[13px] px-4 py-2 text-sm font-extrabold text-ink-900 transition hover:-translate-y-0.5">{t('nav.login')}</Link>
+              <Link to="/register" className="cta rounded-[13px] px-4 py-2 text-sm font-extrabold">{t('nav.signup')}</Link>
             </div>
           )}
           <button className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-ink-100 lg:hidden" onClick={() => setMobile(!mobile)} aria-label={t('nav.menu')}>
@@ -218,7 +226,7 @@ export function Navbar() {
 export function Footer() {
   const t = useT();
   return (
-    <footer className="relative bg-ink-100 text-[13px] text-ink-600">
+    <footer className="container-x pb-6 text-[13px] text-ink-600"><div className="glass overflow-hidden">
       <div className="container-x relative grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <Logo />
@@ -248,7 +256,7 @@ export function Footer() {
           <span>{t('footer.demoNote')} · <a href="https://unsplash.com/license" target="_blank" rel="noreferrer" className="underline hover:text-ink-950" title={PHOTO_CREDITS.join(', ')}>{t('footer.photos')}</a></span>
         </div>
       </div>
-    </footer>
+    </div></footer>
   );
 }
 
@@ -258,7 +266,7 @@ export function PageHeader({ title, subtitle, actions, back }: { title: ReactNod
       {back && <Link to={back.to} className="mb-3 inline-flex items-center gap-1.5 text-sm font-semibold text-ink-500 hover:text-ink-900"><Icon name="arrowLeft" size={16} />{back.label}</Link>}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="font-display text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">{title}</h1>
+          <h1 className="text-2xl font-black tracking-tight text-ink-900 sm:text-3xl">{title}</h1>
           {subtitle && <p className="mt-1.5 text-ink-500">{subtitle}</p>}
         </div>
         {actions && <div className="flex flex-wrap gap-2">{actions}</div>}

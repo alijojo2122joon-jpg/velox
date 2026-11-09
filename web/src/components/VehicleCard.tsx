@@ -16,7 +16,7 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
   const { money, duration, km } = useFormat();
   return (
     <Link to={`/vehicles/${v.id}`} onMouseEnter={() => onHover?.(v.id)} onMouseLeave={() => onHover?.(null)}
-      className={cx('card spotlight group block overflow-hidden p-1.5',
+      className={cx('card group block overflow-hidden p-1.5',
         highlighted && 'ring-2 ring-brand-500')}>
       <div className="relative aspect-[4/3] overflow-hidden rounded-[15px] bg-ink-100">
         {v.cover_url && <img src={v.cover_url} alt={v.name} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]" />}
@@ -33,7 +33,7 @@ export function VehicleCard({ v, highlighted, onHover, compact }: { v: VehicleSu
       </div>
       <div className={cx('px-3 pb-3 pt-3.5', compact && 'px-2.5 pb-2.5')}>
         <div className="flex items-start justify-between gap-2">
-          <h3 className="line-clamp-1 font-bold text-ink-900">{v.name}</h3>
+          <h3 className="line-clamp-1 font-black text-ink-950">{v.name}</h3>
           <Stars value={v.rating_avg} count={v.rating_count} />
         </div>
         <p className="mt-0.5 line-clamp-1 text-sm text-ink-500">

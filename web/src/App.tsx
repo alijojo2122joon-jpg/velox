@@ -3,7 +3,7 @@ import { useAutoReveal, useSpotlight } from './lib/motion';
 import { I18nProvider, useI18n } from './i18n';
 import { AuthProvider, useAuth } from './lib/auth';
 import { RouterProvider, useLocation, matchPath, navigate } from './lib/router';
-import { Navbar, Footer } from './components/Layout';
+import { Navbar, Footer, PageBackdrop } from './components/Layout';
 import { PageLoader, ToastProvider } from './components/ui';
 import { Home } from './pages/Home';
 import { Search } from './pages/Search';
@@ -79,6 +79,7 @@ function Routes() {
   if (!ready) return <PageLoader />;
   return (
     <div className="flex min-h-screen flex-col">
+      <PageBackdrop />
       <Navbar />
       <Main>
         <Suspense fallback={<PageLoader />}>
